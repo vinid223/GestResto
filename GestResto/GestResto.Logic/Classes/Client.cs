@@ -16,9 +16,33 @@ using System.Threading.Tasks;
 
 namespace GestResto.Logic.Classes
 {
-
-    public class Client {
-	    private uint idClient ;
+    /// <summary>
+    /// Classe d'un client qui possède des items.
+    /// </summary>
+    public class Client 
+    {
+	    private uint? idClient ;
 	    private List<Item> ListeItems ;
+
+        /// <summary>
+        /// Constructeur par défaut du client, qui ajoute une nouvelle liste d'items vide au client.
+        /// </summary>
+        public Client()
+        {
+            idClient = null;
+            ListeItems = new List<Item>();
+        }
+
+        /// <summary>
+        /// Constructeur paramétré.
+        /// </summary>
+        /// <param name="pIdClient">Ajoute le id au id du client.</param>
+        /// <param name="pListeItems">La liste en paramètre est mise dans la liste du client.</param>
+        public Client(uint pIdClient, List<Item> pListeItems)
+        {
+            idClient = pIdClient;
+            ListeItems = pListeItems;
+        }
     }
+
 }

@@ -17,10 +17,24 @@ using System.Threading.Tasks;
 
 namespace GestResto.Logic.Classes
 {
-    public class format {
+    public class Format 
+    {
 	    private int idFormat ;
 	    private string sNom ;
 	    private string sLibele ;
 	    private float fPrix ;
+
+        public Format()
+        {
+
+        }
+
+        public Format(int pidFormat, string pNom, string pLibele, float pPrix)
+        {
+            idFormat = pidFormat;
+            sNom = pNom;
+            sLibele = pLibele;
+            fPrix = pPrix;
+        }
     }
 }

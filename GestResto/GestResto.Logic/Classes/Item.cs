@@ -21,7 +21,7 @@ namespace GestResto.Logic.Classes
 	    private int idItem ;
 	    private string sNom ;
 	    private Format FormatItem ;
-	    private categorie Categories ;
+	    private Categorie Categories ;
 	    private List<Item> ListeComplements ;
     }
 }
