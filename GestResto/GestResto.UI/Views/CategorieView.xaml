@@ -4,8 +4,17 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
-    <Grid>
-            
+             d:DesignHeight="300" d:DesignWidth="500">
+    <Grid Width="500">
+        <Label x:Name="lblTitre" Content="Informations d'une catégorie" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblCategorie" Content="Nom de la catégorie" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtNom" HorizontalAlignment="Left" Height="23" Margin="144,41,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" />
+        <CheckBox x:Name="cbxActif" Content="Actif" HorizontalAlignment="Left" Margin="144,80,0,0" VerticalAlignment="Top" IsChecked="True"/>
+        <CheckBox x:Name="cbxComplementaire" Content="Complémentaire" HorizontalAlignment="Left" Margin="144,100,0,0" VerticalAlignment="Top"/>
+        <DataGrid ItemsSource="{Binding Categorie}" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" Margin="269,18,10,10">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Nom" />
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </UserControl>
