@@ -18,8 +18,8 @@ using System.Threading.Tasks;
 namespace GestResto.Logic.Classes
 {
     public class Table {
-	    private uint idTable ;
-	    private uint noTable ;
+	    private int idTable ;
+	    private int noTable ;
 	    private bool bActif ;
 	    private bool bAssigne ;
 	    private List<Client> ListeClients ;

@@ -18,7 +18,7 @@ using System.Threading.Tasks;
 namespace GestResto.Logic.Classes
 {
     public class format {
-	    private uint idFormat ;
+	    private int idFormat ;
 	    private string sNom ;
 	    private string sLibele ;
 	    private float fPrix ;

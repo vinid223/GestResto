@@ -18,7 +18,7 @@ using System.Threading.Tasks;
 namespace GestResto.Logic.Classes
 {
     public class Commande {
-	    private uint idCommande ;
+	    private int idCommande ;
 	    private string Statut ;
 	    private DATETIME Debut ;
 	    private DATETIME Fin ;

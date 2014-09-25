@@ -18,7 +18,7 @@ namespace GestResto.Logic.Classes
 {
     public class Categorie 
     {
-	    private uint idCategorie ;
+	    private int idCategorie ;
 	    private string sNom ;
 	    private bool bActif ;
 	    private bool bComplementaire ;

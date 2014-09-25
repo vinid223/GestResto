@@ -18,11 +18,11 @@ using System.Threading.Tasks;
 namespace GestResto.Logic.Classes
 {
     public class Employe {
-	    private uint idEmploye ;
+	    private int idEmploye ;
 	    private string sTypeEmploye ;
 	    private string sNom ;
 	    private string sPrenom ;
-	    private uint noEmploye ;
+	    private int noEmploye ;
 	    private string sMotDePasse ;
 	    private string sAdresse ;
 	    private string sVille ;

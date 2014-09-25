@@ -18,7 +18,7 @@ using System.Threading.Tasks;
 namespace GestResto.Logic.Classes
 {
     public class Item {
-	    private uint idItem ;
+	    private int idItem ;
 	    private string sNom ;
 	    private Format FormatItem ;
 	    private categorie Categories ;

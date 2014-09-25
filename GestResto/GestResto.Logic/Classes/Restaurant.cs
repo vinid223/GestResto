@@ -18,7 +18,7 @@ using System.Threading.Tasks;
 namespace GestResto.Logic.Classes
 {
     public class Restaurant {
-	    private uint idRestaurant ;
+	    private int idRestaurant ;
 	    private string sNom ;
 	    private string sAdresse ;
 	    private string sTelephone ;
