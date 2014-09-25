@@ -18,11 +18,13 @@ using System.Threading.Tasks;
 namespace GestResto.Logic.Classes
 {
     /// <summary>
-    ///    Classe contenant toutes les informations d'un employé
+    /// Classe contenant toutes les informations d'un employé
     /// </summary>
-    public class Employe 
+    public class Employe
     {
-	    private int? idEmploye;
+        #region Variables appartenant à la classe Employe
+        
+        private int? idEmploye;
 	    private string sTypeEmploye;
 	    private string sNom;
 	    private string sPrenom;
@@ -32,11 +34,14 @@ namespace GestResto.Logic.Classes
 	    private string sVille;
 	    private string sCodePostal;
 	    private string sNAS;
-	    private float sSalaire;
+	    private float fSalaire;
 	    private string sTelephone;
 	    private bool bActif;
 	    private List<Commande> ListeCommandes;
 
+        #endregion
+
+        #region Tous les constructeurs de la classe Employes
         /// <summary>
         /// Constructeur par défaut de la classe Employé. Elle initialise toutes les variables pour une valeur null ou vide.
         /// </summary>
@@ -52,7 +57,7 @@ namespace GestResto.Logic.Classes
                 sVille = "";
                 sCodePostal = "";
                 sNAS = "";
-                sSalaire = 0;
+                fSalaire = 0;
                 sTelephone = "";
                 bActif = false;
                 ListeCommandes = new List<Commande>();
@@ -61,26 +66,25 @@ namespace GestResto.Logic.Classes
         /// <summary>
         /// Constructeur paramétré de la classe Employe
         /// </summary>
-        /// <param name="pIdEmploye"></param>
-        /// <param name="pIdTypeEmploye"></param>
-        /// <param name="pNom"></param>
-        /// <param name="pPrenom"></param>
-        /// <param name="pNoEmploye"></param>
-        /// <param name="pMotPasse"></param>
-        /// <param name="pAdresse"></param>
-        /// <param name="pVille"></param>
-        /// <param name="pCodePostal"></param>
-        /// <param name="pNAS"></param>
-        /// <param name="pSalaire"></param>
-        /// <param name="pTelephone"></param>
-        Employe(int pIdEmploye, string pNom, string pPrenom, int pNoEmploye, string pMotPasse,
-        string pAdresse, string pVille, string pCodePostal, string pNAS, float pSalaire, string pTelephone)
+        /// <param name="pIdEmploye">id de l'employe</param>
+        /// <param name="pIdTypeEmploye">Id du type d'employe</param>
+        /// <param name="pNom">Nom de l'employe</param>
+        /// <param name="pPrenom">Prenom de l'employe</param>
+        /// <param name="pNoEmploye">Numero de l'employe</param>
+        /// <param name="pMotPasse">Mot de passe de l'employe</param>
+        /// <param name="pAdresse">Adresse de l'employe</param>
+        /// <param name="pVille">Ville de l'employe</param>
+        /// <param name="pCodePostal">Code postal de l'employe</param>
+        /// <param name="pNAS">NAS de l'employe</param>
+        /// <param name="pSalaire">Salaire de l'employe</param>
+        /// <param name="pTelephone">Telephone de l'employe</param>
+        Employe(int pIdEmploye, string pNom, string pPrenom, int pNoEmploye, string pMotPasse, string pAdresse, string pVille, string pCodePostal, string pNAS, float pSalaire, string pTelephone)
         {
-            iIdEmploye = pIdEmploye;
+            idEmploye = pIdEmploye;
             sNom = pNom;
             sPrenom = pPrenom;
-            iNoEmploye = pNoEmploye;
-            sMotPasse = pMotPasse;
+            noEmploye = pNoEmploye;
+            sMotDePasse = pMotPasse;
             sAdresse = pAdresse;
             sVille = pVille;
             sCodePostal = pCodePostal;
@@ -88,5 +92,7 @@ namespace GestResto.Logic.Classes
             fSalaire = pSalaire;
             sTelephone = pTelephone;
         }
+
+        #endregion
     }
 }
