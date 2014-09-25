@@ -4,8 +4,21 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="300" d:DesignWidth="500">
     <Grid>
-            
+        <Label Content="Informations du restaurant" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <Label Content="Nom" HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top" Width="55" Height="26"/>
+        <Label Content="Code Postal" HorizontalAlignment="Left" Margin="10,143,0,0" VerticalAlignment="Top" Width="84" Height="26"/>
+        <Label Content="Ville" HorizontalAlignment="Left" Margin="10,112,0,0" VerticalAlignment="Top" Width="55" Height="26"/>
+        <Label Content="Adresse" HorizontalAlignment="Left" Margin="10,81,0,0" VerticalAlignment="Top" Width="55" Height="26"/>
+        <Label Content="Téléphone" HorizontalAlignment="Left" Margin="10,174,0,0" VerticalAlignment="Top" Width="84" Height="26"/>
+        <Label Content="Fax" HorizontalAlignment="Left" Margin="10,205,0,0" VerticalAlignment="Top" Width="84" Height="26"/>
+        <TextBox HorizontalAlignment="Left" Height="26" Margin="111,50,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="206"/>
+        <TextBox HorizontalAlignment="Left" Height="26" Margin="111,207,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="206"/>
+        <TextBox HorizontalAlignment="Left" Height="26" Margin="111,176,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="206"/>
+        <TextBox HorizontalAlignment="Left" Height="26" Margin="111,145,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="206"/>
+        <TextBox HorizontalAlignment="Left" Height="26" Margin="111,112,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="206"/>
+        <TextBox HorizontalAlignment="Left" Height="26" Margin="111,81,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="206"/>
+
     </Grid>
 </UserControl>
