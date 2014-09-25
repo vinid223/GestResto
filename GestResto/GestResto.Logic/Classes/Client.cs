@@ -19,11 +19,16 @@ namespace GestResto.Logic.Classes
     /// <summary>
     /// Classe d'un client qui possède des items.
     /// </summary>
-    public class Client 
+    public class Client
     {
-	    private uint? idClient ;
+        #region Variables de la classe
+
+        private uint? idClient ;
 	    private List<Item> ListeItems ;
 
+        #endregion
+
+        #region Constructeurs
         /// <summary>
         /// Constructeur par défaut du client, qui ajoute une nouvelle liste d'items vide au client.
         /// </summary>
@@ -43,6 +48,8 @@ namespace GestResto.Logic.Classes
             idClient = pIdClient;
             ListeItems = pListeItems;
         }
+
+        #endregion
     }
 
 }
