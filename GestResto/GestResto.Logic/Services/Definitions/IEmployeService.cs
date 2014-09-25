@@ -16,3 +16,4 @@ namespace GestResto.Logic.Services.Definitions
         void Delete(Employe employe);
     }
 }
+1
