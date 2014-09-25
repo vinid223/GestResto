@@ -8,13 +8,12 @@
     <Grid Width="500">
         <Label x:Name="lblTitre" Content="Informations d'une catégorie" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
         <Label x:Name="lblCategorie" Content="Nom de la catégorie" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtNom" HorizontalAlignment="Left" Height="23" Margin="144,41,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" />
-        <CheckBox x:Name="cbxActif" Content="Actif" HorizontalAlignment="Left" Margin="144,80,0,0" VerticalAlignment="Top" IsChecked="True"/>
-        <CheckBox x:Name="cbxComplementaire" Content="Complémentaire" HorizontalAlignment="Left" Margin="144,100,0,0" VerticalAlignment="Top"/>
-        <DataGrid ItemsSource="{Binding Categorie}" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" Margin="269,18,10,10">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Nom" />
-            </DataGrid.Columns>
-        </DataGrid>
+        <TextBox x:Name="txtNom" HorizontalAlignment="Left" Height="23" Margin="128,41,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" />
+        <CheckBox x:Name="cbxActif" Content="Actif" HorizontalAlignment="Left" Margin="128,80,0,0" VerticalAlignment="Top" IsChecked="True"/>
+        <CheckBox x:Name="cbxComplementaire" Content="Complémentaire" HorizontalAlignment="Left" Margin="128,100,0,0" VerticalAlignment="Top"/>
+        <ListBox x:Name="lbxListeCategorie" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Height="249" Margin="253,41,0,0" VerticalAlignment="Top" Width="241">
+            <Button x:Name="btnGrillades" Content="Grillades" Width="210" Height="30"/>
+        </ListBox>
+        <Label Content="Liste de toutes les catégories" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="253,10,0,0" VerticalAlignment="Top" Width="237"/>
     </Grid>
 </UserControl>
