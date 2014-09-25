@@ -39,15 +39,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Modele\Entities\Categorie.cs" />
-    <Compile Include="Modele\Entities\Client.cs" />
-    <Compile Include="Modele\Entities\Commande.cs" />
-    <Compile Include="Modele\Entities\Employe.cs" />
-    <Compile Include="Modele\Entities\Facture.cs" />
-    <Compile Include="Modele\Entities\Format.cs" />
-    <Compile Include="Modele\Entities\Item.cs" />
-    <Compile Include="Modele\Entities\Restaurant.cs" />
-    <Compile Include="Modele\Entities\Table.cs" />
+    <Compile Include="Model\Entities\Categorie.cs" />
+    <Compile Include="Model\Entities\Client.cs" />
+    <Compile Include="Model\Entities\Commande.cs" />
+    <Compile Include="Model\Entities\Employe.cs" />
+    <Compile Include="Model\Entities\Facture.cs" />
+    <Compile Include="Model\Entities\Format.cs" />
+    <Compile Include="Model\Entities\Item.cs" />
+    <Compile Include="Model\Entities\Restaurant.cs" />
+    <Compile Include="Model\Entities\Table.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\CategorieService.cs" />
     <Compile Include="Services\ClientService.cs" />
