@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GestResto.Logic.Model.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +9,10 @@ namespace GestResto.Logic.Services.Definitions
 {
     interface ITableService
     {
+        void Create(Table table);
+        IList<Table> RetrieveAll();
+        Table Retrieve(int pIdTable);
+        void Update(Table table);
+        void Delete(Table table);
     }
 }
