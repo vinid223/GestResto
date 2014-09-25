@@ -49,8 +49,10 @@
     <Compile Include="Model\Entities\Restaurant.cs" />
     <Compile Include="Model\Entities\Table.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\Definitions\IClientService.cs" />
     <Compile Include="Services\Definitions\ICommandeService.cs" />
     <Compile Include="Services\Definitions\ICategorieService.cs" />
+    <Compile Include="Services\Definitions\IEmployeService.cs" />
     <Compile Include="Services\Implementation\EmployeService.cs" />
     <Compile Include="Services\Implementation\FactureService.cs" />
     <Compile Include="Services\Implementation\FormatService.cs" />
