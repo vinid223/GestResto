@@ -52,18 +52,14 @@
     <Compile Include="Services\Definitions\IClientService.cs" />
     <Compile Include="Services\Definitions\ICommandeService.cs" />
     <Compile Include="Services\Definitions\ICategorieService.cs" />
-    <Compile Include="Services\ClientService.cs" />
-    <Compile Include="Services\CommandeService.cs" />
+    <Compile Include="Services\Definitions\IFactureService.cs" />
     <Compile Include="Services\Definitions\IFormatService.cs" />
-    <Compile Include="Services\EmployeService.cs" />
-    <Compile Include="Services\FactureService.cs" />
-    <Compile Include="Services\FormatService.cs" />
-    <Compile Include="Services\ItemService.cs" />
-    <Compile Include="Services\RestaurantService.cs" />
-    <Compile Include="Services\TableService.cs" />
+    <Compile Include="Services\Definitions\IItemService.cs" />
+    <Compile Include="Services\Definitions\IRestaurantService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Services\Definitions\IEmployeService.cs" />
+    <Compile Include="Services\Definitions\ITableService.cs" />
     <Compile Include="Services\Implementation\EmployeService.cs" />
     <Compile Include="Services\Implementation\FactureService.cs" />
     <Compile Include="Services\Implementation\FormatService.cs" />
