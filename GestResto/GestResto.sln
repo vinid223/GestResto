@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+VisualStudioVersion = 12.0.30501.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GestResto.Logic", "GestResto.Logic\GestResto.Logic.csproj", "{92A226CA-7A34-4BA5-BB44-20A9DEA2D212}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GestResto.UI", "GestResto.UI\GestResto.UI.csproj", "{2C888AB9-7EDF-4267-8A67-6DC3802DC5A4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{92A226CA-7A34-4BA5-BB44-20A9DEA2D212}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{92A226CA-7A34-4BA5-BB44-20A9DEA2D212}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{92A226CA-7A34-4BA5-BB44-20A9DEA2D212}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C888AB9-7EDF-4267-8A67-6DC3802DC5A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C888AB9-7EDF-4267-8A67-6DC3802DC5A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C888AB9-7EDF-4267-8A67-6DC3802DC5A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C888AB9-7EDF-4267-8A67-6DC3802DC5A4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
