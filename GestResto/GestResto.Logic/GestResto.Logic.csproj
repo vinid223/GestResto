@@ -56,6 +56,7 @@
     <Compile Include="Services\Definitions\IFormatService.cs" />
     <Compile Include="Services\Definitions\IItemService.cs" />
     <Compile Include="Services\Definitions\IRestaurantService.cs" />
+    <Compile Include="Services\Definitions\IFormatService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Services\Definitions\IEmployeService.cs" />
@@ -63,13 +64,14 @@
     <Compile Include="Services\Implementation\EmployeService.cs" />
     <Compile Include="Services\Implementation\FactureService.cs" />
     <Compile Include="Services\Implementation\FormatService.cs" />
+    <Compile Include="Services\Implementation\CategorieService.cs" />
+    <Compile Include="Services\Implementation\ClientService.cs" />
+    <Compile Include="Services\Implementation\CommandeService.cs" />
     <Compile Include="Services\Implementation\ItemService.cs" />
     <Compile Include="Services\Implementation\RestaurantService.cs" />
     <Compile Include="Services\Implementation\TableService.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Services\Simples\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
