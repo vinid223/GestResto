@@ -9,16 +9,24 @@
 //
 //
 
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-public class Restaurant {
-	private uint idRestaurant ;
-	private string sNom ;
-	private string sAdresse ;
-	private string sTelephone ;
-	private string sFaxe ;
-	private string sVille ;
-	private string sCodePostal ;
-	private DATETIME DateCreation ;
-	private List<Employe> ListeEmployes ;
-	private List<Item> ListeItem ;
+namespace GestResto.Logic.Classes
+{
+    public class Restaurant {
+	    private uint idRestaurant ;
+	    private string sNom ;
+	    private string sAdresse ;
+	    private string sTelephone ;
+	    private string sFaxe ;
+	    private string sVille ;
+	    private string sCodePostal ;
+	    private DATETIME DateCreation ;
+	    private List<Employe> ListeEmployes ;
+	    private List<Item> ListeItem ;
+    }
 }

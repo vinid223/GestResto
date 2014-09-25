@@ -9,20 +9,28 @@
 //
 //
 
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-public class Employe {
-	private uint idEmploye ;
-	private string sTypeEmploye ;
-	private string sNom ;
-	private string sPrenom ;
-	private uint noEmploye ;
-	private string sMotDePasse ;
-	private string sAdresse ;
-	private string sVille ;
-	private string sCodePostal ;
-	private string sNAS ;
-	private float sSalaire ;
-	private string sTelephone ;
-	private bool bActif ;
-	private List<Commande> ListeCommandes ;
+namespace GestResto.Logic.Classes
+{
+    public class Employe {
+	    private uint idEmploye ;
+	    private string sTypeEmploye ;
+	    private string sNom ;
+	    private string sPrenom ;
+	    private uint noEmploye ;
+	    private string sMotDePasse ;
+	    private string sAdresse ;
+	    private string sVille ;
+	    private string sCodePostal ;
+	    private string sNAS ;
+	    private float sSalaire ;
+	    private string sTelephone ;
+	    private bool bActif ;
+	    private List<Commande> ListeCommandes ;
+    }
 }

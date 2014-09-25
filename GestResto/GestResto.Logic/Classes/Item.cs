@@ -9,11 +9,19 @@
 //
 //
 
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-public class Item {
-	private uint idItem ;
-	private string sNom ;
-	private Format FormatItem ;
-	private categorie Categories ;
-	private List<Item> ListeComplements ;
+namespace GestResto.Logic.Classes
+{
+    public class Item {
+	    private uint idItem ;
+	    private string sNom ;
+	    private Format FormatItem ;
+	    private categorie Categories ;
+	    private List<Item> ListeComplements ;
+    }
 }

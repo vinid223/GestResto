@@ -9,11 +9,19 @@
 //
 //
 
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-public class Table {
-	private uint idTable ;
-	private uint noTable ;
-	private bool bActif ;
-	private bool bAssigne ;
-	private List<Client> ListeClients ;
+namespace GestResto.Logic.Classes
+{
+    public class Table {
+	    private uint idTable ;
+	    private uint noTable ;
+	    private bool bActif ;
+	    private bool bAssigne ;
+	    private List<Client> ListeClients ;
+    }
 }

@@ -9,10 +9,18 @@
 //
 //
 
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-public class Facture {
-	private uint idFacture ;
-	private DATETIME DateCreation ;
-	private float pourcentageTaxe ;
-	private List<Item> ListeItems ;
+namespace GestResto.Logic.Classes
+{
+    public class Facture {
+	    private uint idFacture ;
+	    private DATETIME DateCreation ;
+	    private float pourcentageTaxe ;
+	    private List<Item> ListeItems ;
+    }
 }

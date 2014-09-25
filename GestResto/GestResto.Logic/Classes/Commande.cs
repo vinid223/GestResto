@@ -9,12 +9,20 @@
 //
 //
 
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-public class Commande {
-	private uint idCommande ;
-	private string Statut ;
-	private DATETIME Debut ;
-	private DATETIME Fin ;
-	private List<Table> ListeTables ;
-	private List<Facture> ListeFactures ;
+namespace GestResto.Logic.Classes
+{
+    public class Commande {
+	    private uint idCommande ;
+	    private string Statut ;
+	    private DATETIME Debut ;
+	    private DATETIME Fin ;
+	    private List<Table> ListeTables ;
+	    private List<Facture> ListeFactures ;
+    }
 }

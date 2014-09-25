@@ -8,9 +8,17 @@
 //  Auteurs : Tommy Demers, Vincent Desrosiers et Simon Turcotte
 //
 //
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
+namespace GestResto.Logic.Classes
+{
 
-public class Client {
-	private uint idClient ;
-	private List<Item> ListeItems ;
+    public class Client {
+	    private uint idClient ;
+	    private List<Item> ListeItems ;
+    }
 }

@@ -8,12 +8,19 @@
 //  Auteurs : Tommy Demers, Vincent Desrosiers et Simon Turcotte
 //
 //
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-
-public class Categorie 
+namespace GestResto.Logic.Classes
 {
-	private uint idCategorie ;
-	private string sNom ;
-	private bool bActif ;
-	private bool bComplementaire ;
+    public class Categorie 
+    {
+	    private uint idCategorie ;
+	    private string sNom ;
+	    private bool bActif ;
+	    private bool bComplementaire ;
+    }
 }

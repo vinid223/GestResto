@@ -9,10 +9,18 @@
 //
 //
 
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-public class format {
-	private uint idFormat ;
-	private string sNom ;
-	private string sLibele ;
-	private float fPrix ;
+namespace GestResto.Logic.Classes
+{
+    public class format {
+	    private uint idFormat ;
+	    private string sNom ;
+	    private string sLibele ;
+	    private float fPrix ;
+    }
 }
