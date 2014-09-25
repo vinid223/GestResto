@@ -7,7 +7,7 @@
     <ProjectGuid>{B0B71FF7-B28F-4412-AB1F-972C094C800E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Cstj.MvvmToolkit</RootNamespace>
+    <RootNamespace>GestResto.MvvmToolkit</RootNamespace>
     <AssemblyName>Cstj.MvvmToolkit</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
