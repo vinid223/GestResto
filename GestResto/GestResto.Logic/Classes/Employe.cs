@@ -64,20 +64,20 @@ namespace GestResto.Logic.Classes
         }
 
         /// <summary>
-        /// Constructeur paramétré de la classe Employe
+        /// Constructeur paramétré de la classe employé
         /// </summary>
-        /// <param name="pIdEmploye">id de l'employe</param>
-        /// <param name="pIdTypeEmploye">Id du type d'employe</param>
-        /// <param name="pNom">Nom de l'employe</param>
-        /// <param name="pPrenom">Prenom de l'employe</param>
-        /// <param name="pNoEmploye">Numero de l'employe</param>
-        /// <param name="pMotPasse">Mot de passe de l'employe</param>
-        /// <param name="pAdresse">Adresse de l'employe</param>
-        /// <param name="pVille">Ville de l'employe</param>
-        /// <param name="pCodePostal">Code postal de l'employe</param>
-        /// <param name="pNAS">NAS de l'employe</param>
-        /// <param name="pSalaire">Salaire de l'employe</param>
-        /// <param name="pTelephone">Telephone de l'employe</param>
+        /// <param name="pIdEmploye">id de l'employé</param>
+        /// <param name="pIdTypeEmploye">Id du type d'employé</param>
+        /// <param name="pNom">Nom de l'employé</param>
+        /// <param name="pPrenom">Prenom de l'employé</param>
+        /// <param name="pNoEmploye">Numero de l'employé</param>
+        /// <param name="pMotPasse">Mot de passe de l'employé</param>
+        /// <param name="pAdresse">Adresse de l'employé</param>
+        /// <param name="pVille">Ville de l'employé</param>
+        /// <param name="pCodePostal">Code postal de l'employé</param>
+        /// <param name="pNAS">NAS de l'employé</param>
+        /// <param name="pSalaire">Salaire de l'employé</param>
+        /// <param name="pTelephone">Telephone de l'employé</param>
         Employe(int pIdEmploye, string pNom, string pPrenom, int pNoEmploye, string pMotPasse, string pAdresse, string pVille, string pCodePostal, string pNAS, float pSalaire, string pTelephone)
         {
             idEmploye = pIdEmploye;
