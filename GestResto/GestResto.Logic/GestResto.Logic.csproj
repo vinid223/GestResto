@@ -49,20 +49,16 @@
     <Compile Include="Model\Entities\Restaurant.cs" />
     <Compile Include="Model\Entities\Table.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\Definitions\ICommandeService.cs" />
     <Compile Include="Services\Definitions\ICategorieService.cs" />
-    <Compile Include="Services\ClientService.cs" />
-    <Compile Include="Services\CommandeService.cs" />
-    <Compile Include="Services\Definitions\IClientService.cs" />
-    <Compile Include="Services\EmployeService.cs" />
-    <Compile Include="Services\FactureService.cs" />
-    <Compile Include="Services\FormatService.cs" />
-    <Compile Include="Services\ItemService.cs" />
-    <Compile Include="Services\RestaurantService.cs" />
-    <Compile Include="Services\TableService.cs" />
+    <Compile Include="Services\Implementation\EmployeService.cs" />
+    <Compile Include="Services\Implementation\FactureService.cs" />
+    <Compile Include="Services\Implementation\FormatService.cs" />
+    <Compile Include="Services\Implementation\ItemService.cs" />
+    <Compile Include="Services\Implementation\RestaurantService.cs" />
+    <Compile Include="Services\Implementation\TableService.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Services\Simples\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
