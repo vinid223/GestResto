@@ -14,7 +14,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GestResto.Logic.Classes
+namespace GestResto.Logic.Model.Entities
 {
     /// <summary>
     /// Classe Catégorie

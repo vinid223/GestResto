@@ -15,7 +15,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GestResto.Logic.Classes
+namespace GestResto.Logic.Model.Entities
 {
     /// <summary>
     /// Classe facture qui permet d'enregistrer la liste d'items que le client a commandé.
