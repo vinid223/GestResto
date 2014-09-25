@@ -30,6 +30,10 @@ namespace GestResto.Logic.Classes
 	    private bool bAssigne;
 	    private List<Client> ListeClients;
 
+        #endregion
+
+        #region Constructeurs
+
         /// <summary>
         /// Constructeur par defaut
         /// </summary>
@@ -42,6 +46,14 @@ namespace GestResto.Logic.Classes
             ListeClients = new List<Client>();
         }
 
+        /// <summary>
+        /// Constructeur paramétré
+        /// </summary>
+        /// <param name="pIdTable">id de la table</param>
+        /// <param name="pNoTable">no de la table</param>
+        /// <param name="pBActif">Indique si la table est active</param>
+        /// <param name="pBAssigne">Indique si la table est assigne</param>
+        /// <param name="pListeClient">Liste des clients à la table</param>
         public Table(int pIdTable, int pNoTable, bool pBActif, bool pBAssigne, List<Client> pListeClient)
         {
             idTable = pIdTable;
@@ -50,6 +62,8 @@ namespace GestResto.Logic.Classes
             bAssigne = pBAssigne;
             ListeClients = pListeClient;
         }
+
+        #endregion
     }
 
 }
