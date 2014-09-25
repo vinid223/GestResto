@@ -17,11 +17,39 @@ using System.Threading.Tasks;
 
 namespace GestResto.Logic.Classes
 {
-    public class Table {
-	    private int idTable ;
-	    private int noTable ;
-	    private bool bActif ;
-	    private bool bAssigne ;
-	    private List<Client> ListeClients ;
+    /// <summary>
+    /// Classe contenant toutes les informations d'une table
+    /// </summary>
+    public class Table 
+    {
+        #region Attributs
+
+	    private int? idTable;
+	    private int? noTable;
+	    private bool bActif;
+	    private bool bAssigne;
+	    private List<Client> ListeClients;
+
+        /// <summary>
+        /// Constructeur par defaut
+        /// </summary>
+        public Table()
+        {
+            idTable = null;
+            noTable = null;
+            bActif = true;
+            bAssigne = true;
+            ListeClients = new List<Client>();
+        }
+
+        public Table(int pIdTable, int pNoTable, bool pBActif, bool pBAssigne, List<Client> pListeClient)
+        {
+            idTable = pIdTable;
+            noTable = pNoTable;
+            bActif = pBActif;
+            bAssigne = pBAssigne;
+            ListeClients = pListeClient;
+        }
     }
+
 }
