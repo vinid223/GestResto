@@ -52,6 +52,7 @@
     <Compile Include="Services\Definitions\ICategorieService.cs" />
     <Compile Include="Services\ClientService.cs" />
     <Compile Include="Services\CommandeService.cs" />
+    <Compile Include="Services\Definitions\IClientService.cs" />
     <Compile Include="Services\EmployeService.cs" />
     <Compile Include="Services\FactureService.cs" />
     <Compile Include="Services\FormatService.cs" />
