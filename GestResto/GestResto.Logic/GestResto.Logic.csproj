@@ -42,7 +42,6 @@
     <Compile Include="Classes\Categorie.cs" />
     <Compile Include="Classes\Client.cs" />
     <Compile Include="Classes\Commande.cs" />
-    <Compile Include="Classes\Complement.cs" />
     <Compile Include="Classes\Employe.cs" />
     <Compile Include="Classes\Entreprise.cs" />
     <Compile Include="Classes\Facture.cs" />
