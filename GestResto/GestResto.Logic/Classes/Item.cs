@@ -50,13 +50,12 @@ namespace GestResto.Logic.Classes
         /// <param name="pNom">Nom de l'item</param>
         /// <param name="pFormatItem">Objet format de l'item</param>
         /// <param name="pCategories">Objet catégrie de l'item</param>
-        public Item(int pIdItem, string pNom, Format pFormatItem, Categorie pCategories)
+        public Item(int pIdItem, string pNom, Format pFormatItem, Categorie pCategories) :this()
         {
             idItem = pIdItem;
             sNom = pNom;
             FormatItem = pFormatItem;
             Categories = pCategories;
-            ListeComplements = new List<Item>();
         }
         #endregion
     }
