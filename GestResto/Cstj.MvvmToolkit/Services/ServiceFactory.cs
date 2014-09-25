@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Cstj.MvvmToolkit.Services
+namespace GestResto.MvvmToolkit.Services
 {
     public class ServiceFactory
     {
