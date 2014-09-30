@@ -60,7 +60,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="TableView.xaml.cs">
+    <Compile Include="Views\TableView.xaml.cs">
       <DependentUpon>TableView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\AuthentificationView.xaml.cs">
@@ -78,6 +78,9 @@
     <Compile Include="Views\OptionsAdministrationView.xaml.cs">
       <DependentUpon>OptionsAdministrationView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\RapportView.xaml.cs">
+      <DependentUpon>RapportView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\RestaurantView.xaml.cs">
       <DependentUpon>RestaurantView.xaml</DependentUpon>
     </Compile>
@@ -93,7 +96,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="TableView.xaml">
+    <Page Include="Views\TableView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -116,6 +119,10 @@
     <Page Include="Views\OptionsAdministrationView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\RapportView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\RestaurantView.xaml">
       <Generator>MSBuild:Compile</Generator>
