@@ -10,7 +10,10 @@
         <Label Content="Nom du format" HorizontalAlignment="Left" Margin="10,52,0,0" VerticalAlignment="Top" Width="94"/>
         <TextBox HorizontalAlignment="Left" Height="23" Margin="109,52,0,0" VerticalAlignment="Top" Width="120" Name="txtNomFormat" />
         <Label Content="Libellé" HorizontalAlignment="Left" Margin="10,83,0,0" VerticalAlignment="Top" Width="94"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="109,83,0,0" VerticalAlignment="Top" Width="120" Name=""/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="109,83,0,0" VerticalAlignment="Top" Width="120" Name="txtLibelle"/>
+        <ListBox HorizontalAlignment="Left" Height="238" Margin="266,52,0,0" VerticalAlignment="Top" Width="224" Name="lbxListeFormat" />
+        <Label Content="Liste des formats" HorizontalAlignment="Left" Margin="266,10,0,0" VerticalAlignment="Top" Width="224"/>
+        <CheckBox Content="Actif" HorizontalAlignment="Left" Margin="109,111,0,0" VerticalAlignment="Top" Width="56" Name="chkActif"/>
 
     </Grid>
 </UserControl>
