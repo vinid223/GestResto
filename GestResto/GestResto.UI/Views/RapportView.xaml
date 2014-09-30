@@ -28,9 +28,9 @@
         <TextBox x:Name="txtNbMaximumLignes" HorizontalAlignment="Left" Height="23" Margin="132,161,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="81"/>
         <Label x:Name="lblNbMaximumLignes" Content="Maximum de lignes" HorizontalAlignment="Left" Margin="2,158,0,0" VerticalAlignment="Top"/>
         <Label x:Name="lblRepertoire" Content="Répertoire &#xD;&#xA;d'enregistrement" HorizontalAlignment="Left" Margin="2,189,0,0" VerticalAlignment="Top"/>
-        <DockPanel HorizontalAlignment="Left" Height="23" LastChildFill="False" Margin="102,208,0,0" VerticalAlignment="Top" Width="273">
-            <Button Margin="0" Padding="2" DockPanel.Dock="Right" Width="Auto" Click="BrowseFolder" ScrollViewer.CanContentScroll="True">Parcourir</Button>
-            <TextBox Height="Auto" HorizontalAlignment="Stretch" DockPanel.Dock="Right" 
+        <DockPanel x:Name="dpnRepertoire" HorizontalAlignment="Left" Height="23" LastChildFill="False" Margin="102,208,0,0" VerticalAlignment="Top" Width="273">
+            <Button x:Name="btnParcourirRepertoire" Margin="0" Padding="2" DockPanel.Dock="Right" Width="Auto" Click="BrowseFolder" ScrollViewer.CanContentScroll="True">Parcourir</Button>
+            <TextBox x:Name="txtRepertoire" Height="Auto" HorizontalAlignment="Stretch" DockPanel.Dock="Right" 
            Text="" Width="211" />
         </DockPanel>
 
