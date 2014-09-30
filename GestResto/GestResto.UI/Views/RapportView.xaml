@@ -4,8 +4,35 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="300" d:DesignWidth="500">
     <Grid>
-            
+        <Label x:Name="lblPeriode" Content="Période" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblDu" Content="Du" HorizontalAlignment="Left" Margin="0,41,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblAu" Content="Au" HorizontalAlignment="Left" Margin="188,41,0,0" VerticalAlignment="Top"/>
+        <DatePicker x:Name="dpkDebut" HorizontalAlignment="Left" Margin="61,41,0,0" VerticalAlignment="Top" Width="127"/>
+        <DatePicker x:Name="dpkFin" HorizontalAlignment="Left" Margin="213,43,0,0" VerticalAlignment="Top" Width="127"/>
+        <RadioButton x:Name="optCategorie" Content="Par Categorie" HorizontalAlignment="Left" Margin="359,10,0,0" VerticalAlignment="Top"/>
+        <RadioButton Content="Par Item" HorizontalAlignment="Left" Margin="359,58,0,0" VerticalAlignment="Top" Checked="RadioButton_Checked"/>
+        <ComboBox x:Name="cboListeCategorie" HorizontalAlignment="Left" Margin="359,31,0,0" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="cboListe" HorizontalAlignment="Left" Margin="359,79,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="ComboBox_SelectionChanged"/>
+        <Label x:Name="lblPour" Content="Pour" HorizontalAlignment="Left" Margin="0,67,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="cboListeEmployes" HorizontalAlignment="Left" Margin="61,70,0,0" VerticalAlignment="Top" Width="279"/>
+        <TextBox x:Name="txtPrixMinimum" HorizontalAlignment="Left" Height="23" Margin="267,99,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="73"/>
+        <TextBox x:Name="txtPrixMaximum" HorizontalAlignment="Left" Height="23" Margin="121,99,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="67"/>
+        <Label x:Name="lblPrix" Content="Prix" HorizontalAlignment="Left" Margin="0,96,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblMinimum" Content="Minimum" HorizontalAlignment="Left" Margin="55,97,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblMaximum" Content="Maximum" HorizontalAlignment="Left" Margin="193,97,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblOrdre" Content="Ordre" HorizontalAlignment="Left" Margin="0,127,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="cboOrdreChamp" HorizontalAlignment="Left" Margin="61,131,0,0" VerticalAlignment="Top" Width="127" SelectionChanged="ComboBox_SelectionChanged"/>
+        <ComboBox x:Name="cboOrdreCroissant" HorizontalAlignment="Left" Margin="213,131,0,0" VerticalAlignment="Top" Width="127" SelectionChanged="ComboBox_SelectionChanged"/>
+        <TextBox x:Name="txtNbMaximumLignes" HorizontalAlignment="Left" Height="23" Margin="132,161,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="81"/>
+        <Label x:Name="lblNbMaximumLignes" Content="Maximum de lignes" HorizontalAlignment="Left" Margin="2,158,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblRepertoire" Content="Répertoire &#xD;&#xA;d'enregistrement" HorizontalAlignment="Left" Margin="2,189,0,0" VerticalAlignment="Top"/>
+        <DockPanel x:Name="dpnRepertoire" HorizontalAlignment="Left" Height="23" LastChildFill="False" Margin="102,208,0,0" VerticalAlignment="Top" Width="273">
+            <Button x:Name="btnParcourirRepertoire" Margin="0" Padding="2" DockPanel.Dock="Right" Width="Auto" Click="BrowseFolder" ScrollViewer.CanContentScroll="True">Parcourir</Button>
+            <TextBox x:Name="txtRepertoire" Height="Auto" HorizontalAlignment="Stretch" DockPanel.Dock="Right" 
+           Text="" Width="211" />
+        </DockPanel>
+
     </Grid>
 </UserControl>
