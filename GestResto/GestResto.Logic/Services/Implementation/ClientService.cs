@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace GestResto.Logic.Services.Definitions
 {
-    public class ClientService
+    public class ClientService : IClientService
     {
 
     }

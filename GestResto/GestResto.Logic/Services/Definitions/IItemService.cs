@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace GestResto.Logic.Services.Definitions
 {
-    interface IItemService
+    public interface IItemService
     {
         void Create(Item item);
         IList<Item> RetrieveAll();

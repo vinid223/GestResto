@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace GestResto.Logic.Services.Definitions
 {
-    public class CommandeService
+    public class CommandeService : ICommandeService
     {
 
     }
