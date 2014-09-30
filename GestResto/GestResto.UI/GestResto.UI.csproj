@@ -75,6 +75,9 @@
     <Compile Include="Views\FormatView.xaml.cs">
       <DependentUpon>FormatView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\GestonPaiementView.xaml.cs">
+      <DependentUpon>GestonPaiementView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\OptionsAdministrationView.xaml.cs">
       <DependentUpon>OptionsAdministrationView.xaml</DependentUpon>
     </Compile>
@@ -113,6 +116,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\FormatView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\GestonPaiementView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
