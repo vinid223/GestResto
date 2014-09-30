@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace GestResto.UI.Views
 {
     /// <summary>
-    /// Logique d'interaction pour Categorie.xaml
+    /// Logique d'interaction pour CategorieView.xaml
     /// </summary>
-    public partial class Categorie : UserControl
+    public partial class CategorieView : UserControl
     {
-        public Categorie()
+        public CategorieView()
         {
             InitializeComponent();
         }

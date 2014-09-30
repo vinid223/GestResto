@@ -66,12 +66,16 @@
     <Compile Include="ViewModel\FormatViewModel.cs" />
     <Compile Include="ViewModel\GestonPaiementViewModel.cs" />
     <Compile Include="ViewModel\ItemsViewModel.cs" />
+    <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\OptionsAdministrationViewModel.cs" />
     <Compile Include="ViewModel\RapportViewModel.cs" />
     <Compile Include="ViewModel\RestaurantViewModel.cs" />
     <Compile Include="ViewModel\TableViewModel.cs" />
     <Compile Include="Views\BottomView.xaml.cs">
       <DependentUpon>BottomView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CategorieView.xaml.cs">
+      <DependentUpon>CategorieView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ItemsView.xaml.cs">
       <DependentUpon>ItemsView.xaml</DependentUpon>
@@ -81,9 +85,6 @@
     </Compile>
     <Compile Include="Views\AuthentificationView.xaml.cs">
       <DependentUpon>AuthentificationView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\CategorieView.xaml.cs">
-      <DependentUpon>CategorieView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\EmployeView.xaml.cs">
       <DependentUpon>EmployeView.xaml</DependentUpon>
@@ -119,6 +120,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\CategorieView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\ItemsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -130,10 +135,6 @@
     <Page Include="Views\AuthentificationView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\CategorieView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\EmployeView.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -187,7 +188,16 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Cstj.MvvmToolkit\GestResto.MvvmToolkit.csproj">
+      <Project>{b0b71ff7-b28f-4412-ab1f-972c094c800e}</Project>
+      <Name>GestResto.MvvmToolkit</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GestResto.Logic\GestResto.Logic.csproj">
+      <Project>{92a226ca-7a34-4ba5-bb44-20a9dea2d212}</Project>
+      <Name>GestResto.Logic</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

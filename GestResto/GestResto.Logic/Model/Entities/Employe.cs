@@ -78,9 +78,10 @@ namespace GestResto.Logic.Model.Entities
         /// <param name="pNAS">NAS de l'employé</param>
         /// <param name="pSalaire">Salaire de l'employé</param>
         /// <param name="pTelephone">Telephone de l'employé</param>
-        Employe(int pIdEmploye, string pNom, string pPrenom, int pNoEmploye, string pMotPasse, string pAdresse, string pVille, string pCodePostal, string pNAS, float pSalaire, string pTelephone)
+        Employe(int pIdEmploye, string pTypeEmploye, string pNom, string pPrenom, int pNoEmploye, string pMotPasse, string pAdresse, string pVille, string pCodePostal, string pNAS, float pSalaire, string pTelephone, bool pActif)
         {
             idEmploye = pIdEmploye;
+            sTypeEmploye = pTypeEmploye;
             sNom = pNom;
             sPrenom = pPrenom;
             noEmploye = pNoEmploye;
@@ -91,6 +92,7 @@ namespace GestResto.Logic.Model.Entities
             sNAS = pNAS;
             fSalaire = pSalaire;
             sTelephone = pTelephone;
+            bActif = pActif;
         }
 
         #endregion

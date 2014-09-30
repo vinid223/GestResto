@@ -10,5 +10,19 @@ namespace GestResto.Logic.Services
 {
     class RestaurantService : IRestaurantService
     {
+        public void Create(Restaurant item)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Restaurant Retrieve(int pIdRestaurant)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Update(Restaurant item)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

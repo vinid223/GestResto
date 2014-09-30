@@ -1,4 +1,8 @@
-﻿using System;
+﻿using GestResto.Logic.Services.Definitions;
+using GestResto.MvvmToolkit.Services;
+using GestResto.UI.ViewModel;
+using GestResto.UI.Views;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +24,19 @@ namespace GestResto.UI
     /// </summary>
     public partial class MainWindow : Window
     {
+        public MainViewModel ViewModel { get { return (MainViewModel)DataContext; } }
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = new MainViewModel();
+            Configure();
+
+            ViewModel.CurrentView = new AuthentificationView();
+        }
+
+        private void Configure()
+        {
+            
         }
     }
 }

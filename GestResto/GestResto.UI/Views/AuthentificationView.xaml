@@ -23,18 +23,18 @@
             </Grid.ColumnDefinitions>
             <Label Content="Numéro employé :" Grid.ColumnSpan="3" Grid.Column="1" Panel.ZIndex="1" />
             <TextBox Margin="1" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" MaxLength="4"/>
-            <Button Margin="1" Grid.Row ="3" Grid.Column="1" Content="1" Name="btnUn" Click="btnUn_Click"/>
-            <Button Margin="1" Grid.Row ="3" Grid.Column="2" Content="2" Name="btnDeux" Click="btnDeux_Click"/>
-            <Button Margin="1" Grid.Row ="3" Grid.Column="3" Content="3" Name="btnTrois" Click="btnTrois_Click"/>
-            <Button Margin="1" Grid.Row ="2" Grid.Column="1" Content="4" Name="btnQuatre" Click="btnQuatre_Click"/>
-            <Button Margin="1" Grid.Row ="2" Grid.Column="2" Content="5" Name="btnCinq" Click="btnCinq_Click"/>
-            <Button Margin="1" Grid.Row ="2" Grid.Column="3" Content="6" Name="btnSix" Click="btnSix_Click"/>
-            <Button Margin="1" Grid.Row ="1" Grid.Column="1" Content="7" Name="btnSept" Click="btnSept_Click"/>
-            <Button Margin="1" Grid.Row ="1" Grid.Column="2" Content="8" Name="btnHuit" Click="btnHuit_Click"/>
-            <Button Margin="1" Grid.Row ="1" Grid.Column="3" Content="9" Name="btnNeuf" Click="btnNeuf_Click" />
-            <Button Margin="1" Grid.Row ="4" Grid.Column="2" Content="0" Name="btnZero" Click="btnZero_Click"/>
-            <Button Margin="1" Grid.Row ="4" Grid.Column="1" Content="Retour" Name="btnRetour" Click="btnRetour_Click"/>
-            <Button Margin="1" Grid.Row ="4" Grid.Column="3" Content="Confirmer" Name="btnConfirmer" Click="btnConfirmer_Click"/>
+            <Button Margin="1" Grid.Row ="3" Grid.Column="1" Content="1" Name="btnUn" />
+            <Button Margin="1" Grid.Row ="3" Grid.Column="2" Content="2" Name="btnDeux" />
+            <Button Margin="1" Grid.Row ="3" Grid.Column="3" Content="3" Name="btnTrois" />
+            <Button Margin="1" Grid.Row ="2" Grid.Column="1" Content="4" Name="btnQuatre" />
+            <Button Margin="1" Grid.Row ="2" Grid.Column="2" Content="5" Name="btnCinq" />
+            <Button Margin="1" Grid.Row ="2" Grid.Column="3" Content="6" Name="btnSix" />
+            <Button Margin="1" Grid.Row ="1" Grid.Column="1" Content="7" Name="btnSept" />
+            <Button Margin="1" Grid.Row ="1" Grid.Column="2" Content="8" Name="btnHuit" />
+            <Button Margin="1" Grid.Row ="1" Grid.Column="3" Content="9" Name="btnNeuf"  />
+            <Button Margin="1" Grid.Row ="4" Grid.Column="2" Content="0" Name="btnZero" />
+            <Button Margin="1" Grid.Row ="4" Grid.Column="1" Content="Retour" Name="btnRetour" />
+            <Button Margin="1" Grid.Row ="4" Grid.Column="3" Content="Confirmer" Name="btnConfirmer" />
 
         </Grid>
     </Grid>

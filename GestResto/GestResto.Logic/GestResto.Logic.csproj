@@ -70,7 +70,12 @@
     <Compile Include="Services\Implementation\RestaurantService.cs" />
     <Compile Include="Services\Implementation\TableService.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Cstj.MvvmToolkit\GestResto.MvvmToolkit.csproj">
+      <Project>{b0b71ff7-b28f-4412-ab1f-972c094c800e}</Project>
+      <Name>GestResto.MvvmToolkit</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
