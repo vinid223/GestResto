@@ -6,6 +6,45 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="500">
     <Grid>
-            
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="207*"/>
+            <ColumnDefinition Width="188*"/>
+            <ColumnDefinition Width="105*"/>
+        </Grid.ColumnDefinitions>
+        <Label Content="Gestion du Paiement&#xD;&#xA;" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Width="120"/>
+        <Grid Grid.Column="0" Margin="10,31,3,10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Label Content="Montant entré" Grid.ColumnSpan="2" Grid.Column="0" />
+            <Button Margin="1" Grid.Row ="0" Grid.Column="2" Content="Retour" Name="btnRetour"/>
+            <Button Margin="1" Grid.Row ="1" Grid.Column="0" Content="7" Name="btnSept"/>
+            <Button Margin="1" Grid.Row ="1" Grid.Column="1" Content="8" Name="btnHuit"/>
+            <Button Margin="1" Grid.Row ="1" Grid.Column="2" Content="9" Name="btnNeuf" />
+            <Button Margin="1" Grid.Row ="2" Grid.Column="0" Content="4" Name="btnQuatre" />
+            <Button Margin="1" Grid.Row ="2" Grid.Column="1" Content="5" Name="btnCinq" />
+            <Button Margin="1" Grid.Row ="2" Grid.Column="2" Content="6" Name="btnSix" />
+            <Button Margin="1" Grid.Row ="3" Grid.Column="0" Content="1" Name="btnUn" />
+            <Button Margin="1" Grid.Row ="3" Grid.Column="1" Content="2" Name="btnDeux" />
+            <Button Margin="1" Grid.Row ="3" Grid.Column="2" Content="3" Name="btnTrois"  />
+            <Button Margin="1" Grid.Row ="4" Grid.Column="0" Content="0" Name="btnZero" />
+            <Button Margin="1" Grid.ColumnSpan="2" Grid.Row ="4" Grid.Column="1" Content="Valider" Name="btnValider" />
+        </Grid>
+        <StackPanel Grid.Column="2">
+            <Button Content="Comptant" Name="btnComptant" />
+            <Button Content="Comptant" x:Name="btnComptant_Copy" />
+            <Button Content="Comptant" x:Name="btnComptant_Copy1" />
+            <Button Content="Comptant" x:Name="btnComptant_Copy2"  />
+            <Button Content="Comptant" x:Name="btnComptant_Copy3" />
+        </StackPanel>
     </Grid>
 </UserControl>
