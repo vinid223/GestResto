@@ -10,7 +10,7 @@
         <Label Content="Nom du format" HorizontalAlignment="Left" Margin="10,52,0,0" VerticalAlignment="Top" Width="94"/>
         <TextBox HorizontalAlignment="Left" Height="23" Margin="109,52,0,0" VerticalAlignment="Top" Width="120" Name="txtNomFormat" />
         <Label Content="Libellé" HorizontalAlignment="Left" Margin="10,83,0,0" VerticalAlignment="Top" Width="94"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="151,109,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="109,83,0,0" VerticalAlignment="Top" Width="120" Name=""/>
 
     </Grid>
 </UserControl>
