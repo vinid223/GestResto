@@ -40,11 +40,16 @@
             <Button Margin="1" Grid.ColumnSpan="2" Grid.Row ="4" Grid.Column="1" Content="Valider" Name="btnValider" />
         </Grid>
         <StackPanel Grid.Column="2">
-            <Button Content="Comptant" Name="btnComptant" />
-            <Button Content="Comptant" x:Name="btnComptant_Copy" />
-            <Button Content="Comptant" x:Name="btnComptant_Copy1" />
-            <Button Content="Comptant" x:Name="btnComptant_Copy2"  />
-            <Button Content="Comptant" x:Name="btnComptant_Copy3" />
+            <Button Content="Comptant" Name="btnComptant" Height="35" Margin="10"/>
+            <Button Content="Interac" x:Name="btnInterac" Height="35" Margin="10"/>
+            <Button Content="Vida" x:Name="btnVisa" Height="35" Margin="10"/>
+            <Button Content="MasterCard" x:Name="btnMasterCard" Height="35" Margin="10"/>
+            <Button Content="Amex" x:Name="btnAmex" Height="35" Margin="10"/>
         </StackPanel>
+        <ListBox x:Name="lsbxContenuFacture" Grid.Column="1" HorizontalAlignment="Left" Height="259" Margin="10,31,0,0" VerticalAlignment="Top" Width="168">
+            <TextBlock Background="Gray" Text="test"></TextBlock>
+            <TextBlock Background="White" Text="test"></TextBlock>
+        </ListBox>
+        <Label Content="Contenu de la facture" Grid.Column="1" HorizontalAlignment="Left" Margin="33,5,0,0" VerticalAlignment="Top"/>
     </Grid>
 </UserControl>
