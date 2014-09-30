@@ -6,19 +6,22 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="500">
     <Grid>
-        <Label Content="Informations du restaurant" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-        <Label Content="Nom" HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top" Width="55" Height="26"/>
-        <Label Content="Code Postal" HorizontalAlignment="Left" Margin="10,143,0,0" VerticalAlignment="Top" Width="84" Height="26"/>
-        <Label Content="Ville" HorizontalAlignment="Left" Margin="10,112,0,0" VerticalAlignment="Top" Width="55" Height="26"/>
-        <Label Content="Adresse" HorizontalAlignment="Left" Margin="10,81,0,0" VerticalAlignment="Top" Width="55" Height="26"/>
-        <Label Content="Téléphone" HorizontalAlignment="Left" Margin="10,174,0,0" VerticalAlignment="Top" Width="84" Height="26"/>
-        <Label Content="Fax" HorizontalAlignment="Left" Margin="10,205,0,0" VerticalAlignment="Top" Width="84" Height="26"/>
-        <TextBox HorizontalAlignment="Left" Height="26" Margin="111,50,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="206"/>
-        <TextBox HorizontalAlignment="Left" Height="26" Margin="111,207,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="206"/>
-        <TextBox HorizontalAlignment="Left" Height="26" Margin="111,176,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="206"/>
-        <TextBox HorizontalAlignment="Left" Height="26" Margin="111,145,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="206"/>
-        <TextBox HorizontalAlignment="Left" Height="26" Margin="111,112,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="206"/>
-        <TextBox HorizontalAlignment="Left" Height="26" Margin="111,81,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="206"/>
+        <Label x:Name="lblRestaurant" Content="Informations du restaurant" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblNom" Content="Nom" HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top" Width="55" Height="26"/>
+        <Label x:Name="lblAdresse" Content="Adresse" HorizontalAlignment="Left" Margin="10,81,0,0" VerticalAlignment="Top" Width="55" Height="26"/>
+        <Label x:Name="lblVille" Content="Ville" HorizontalAlignment="Left" Margin="10,112,0,0" VerticalAlignment="Top" Width="55" Height="26"/>
+        <Label x:Name="lblCodePostal" Content="Code Postal" HorizontalAlignment="Left" Margin="10,143,0,0" VerticalAlignment="Top" Width="84" Height="26"/>
+        <Label x:Name="lblTelephone" Content="Téléphone" HorizontalAlignment="Left" Margin="10,174,0,0" VerticalAlignment="Top" Width="84" Height="26"/>
+        <Label x:Name="lblFax" Content="Fax" HorizontalAlignment="Left" Margin="10,205,0,0" VerticalAlignment="Top" Width="84" Height="26"/>
+        
+        <TextBox x:Name="txtNom" HorizontalAlignment="Left" Height="26" Margin="111,50,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="206"/>
+        <TextBox x:Name="txtAdresse" HorizontalAlignment="Left" Height="26" Margin="111,81,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="206"/>
+        <TextBox x:Name="txtVille" HorizontalAlignment="Left" Height="26" Margin="111,112,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="206"/>
+        <TextBox x:Name="txtCodePostal" HorizontalAlignment="Left" Height="26" Margin="111,145,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="206"/>
+        <TextBox x:Name="txtTelephone" HorizontalAlignment="Left" Height="26" Margin="111,176,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="206"/>
+        <TextBox x:Name="txtFax" HorizontalAlignment="Left" Height="26" Margin="111,207,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="206"/>
+        
+        
 
     </Grid>
 </UserControl>
