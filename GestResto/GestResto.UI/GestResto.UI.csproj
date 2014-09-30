@@ -72,6 +72,9 @@
     <Compile Include="Views\FormatView.xaml.cs">
       <DependentUpon>FormatView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\OptionsAdministrationView.xaml.cs">
+      <DependentUpon>OptionsAdministrationView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\RestaurantView.xaml.cs">
       <DependentUpon>RestaurantView.xaml</DependentUpon>
     </Compile>
@@ -102,6 +105,10 @@
     <Page Include="Views\FormatView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\OptionsAdministrationView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\RestaurantView.xaml">
       <Generator>MSBuild:Compile</Generator>
