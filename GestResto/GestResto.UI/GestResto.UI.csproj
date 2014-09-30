@@ -69,6 +69,9 @@
     <Compile Include="Views\EmployeView.xaml.cs">
       <DependentUpon>EmployeView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\FormatView.xaml.cs">
+      <DependentUpon>FormatView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\RestaurantView.xaml.cs">
       <DependentUpon>RestaurantView.xaml</DependentUpon>
     </Compile>
@@ -93,6 +96,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\EmployeView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\FormatView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
