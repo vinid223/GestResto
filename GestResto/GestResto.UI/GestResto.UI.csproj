@@ -60,6 +60,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Views\BottomView.xaml.cs">
+      <DependentUpon>BottomView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ItemsView.xaml.cs">
       <DependentUpon>ItemsView.xaml</DependentUpon>
     </Compile>
@@ -102,6 +105,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\BottomView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\ItemsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
