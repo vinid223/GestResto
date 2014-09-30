@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace GestResto.Logic.Services.Definitions
 {
-    interface IFactureService
+    public interface IFactureService
     {
         void Create(Facture facture);
         IList<Facture> RetriveAll();

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace GestResto.Logic.Services.Definitions
 {
-    interface ITableService
+    public interface ITableService
     {
         void Create(Table table);
         IList<Table> RetrieveAll();

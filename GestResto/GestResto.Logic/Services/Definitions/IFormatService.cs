@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace GestResto.Logic.Services.Definitions
 {
-    interface IFormatService
+    public interface IFormatService
     {
         void Create(Format format);
         IList<Format> RetrieveAll();

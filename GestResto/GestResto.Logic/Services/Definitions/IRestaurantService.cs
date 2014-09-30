@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace GestResto.Logic.Services.Definitions
 {
-    interface IRestaurantService
+    public interface IRestaurantService
     {
         void Create(Restaurant item);
         Restaurant Retrieve(int pIdRestaurant);
