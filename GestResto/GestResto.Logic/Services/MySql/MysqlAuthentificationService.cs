@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace GestResto.Logic.Services.MySql
 {
-    class MysqlAuthentificationService
+    public class MysqlAuthentificationService
     {
+        
     }
 }
