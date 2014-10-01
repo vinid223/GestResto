@@ -79,11 +79,13 @@
     <Compile Include="Services\Definitions\IFormatService.cs" />
     <Compile Include="Services\Definitions\IItemService.cs" />
     <Compile Include="Services\Definitions\IRestaurantService.cs" />
+    <Compile Include="Services\Helpers\MySqlConnexion.cs" />
     <Compile Include="Services\Helpers\NHibernateConnexion.cs" />
     <Compile Include="Services\Implementation\AuthentificationService.cs" />
     <Compile Include="Services\MySql\MysqlAuthentificationService.cs" />
     <Compile Include="Services\MySql\MySqlEmployeService.cs" />
     <Compile Include="Services\NHibernate\NHibernateEmployeService.cs" />
+    <Compile Include="Services\NHibernate\NHibertateCategorieService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Services\Definitions\IEmployeService.cs" />
