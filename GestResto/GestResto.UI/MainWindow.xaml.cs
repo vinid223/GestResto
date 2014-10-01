@@ -16,6 +16,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using GestResto.Logic.Services.Defenitions;
 
 namespace GestResto.UI
 {
@@ -36,7 +37,7 @@ namespace GestResto.UI
 
         private void Configure()
         {
-            
+            ServiceFactory.Instance.Register<ICategorieService, NHibernateCategorieService>(new NHibernateCategorieService());
         }
     }
 }

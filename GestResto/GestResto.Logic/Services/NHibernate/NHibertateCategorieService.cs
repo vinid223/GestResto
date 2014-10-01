@@ -33,7 +33,8 @@ namespace GestResto.Logic.Services.NHibernate
             var result = from c in session.Query<Categorie>()
                         where c.idCategorie == args.idCategorie
                         select c;
-            throw new NotImplementedException();
+
+            return result.FirstOrDefault();
         }
 
         public void Update(Categorie categorie)
