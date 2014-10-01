@@ -44,6 +44,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\Args\RetrieveAuthentificationArgs.cs" />
+    <Compile Include="Model\Args\RetrieveCategorieArgs.cs" />
+    <Compile Include="Model\Args\RetrieveClientArgs.cs" />
+    <Compile Include="Model\Args\RetrieveCommandeArgs.cs" />
+    <Compile Include="Model\Args\RetrieveEmployeArgs.cs" />
+    <Compile Include="Model\Args\RetrieveFactureArgs.cs" />
+    <Compile Include="Model\Args\RetrieveFormatArgs.cs" />
+    <Compile Include="Model\Args\RetrieveItemArgs.cs" />
+    <Compile Include="Model\Args\RetrieveRestaurantArgs.cs" />
+    <Compile Include="Model\Args\RetrieveTableArgs.cs" />
     <Compile Include="Model\Entities\Authentification.cs" />
     <Compile Include="Model\Entities\Categorie.cs" />
     <Compile Include="Model\Entities\Client.cs" />
@@ -63,10 +73,7 @@
     <Compile Include="Services\Definitions\IFormatService.cs" />
     <Compile Include="Services\Definitions\IItemService.cs" />
     <Compile Include="Services\Definitions\IRestaurantService.cs" />
-    <Compile Include="Services\Helpers\MySqlConnexion.cs" />
     <Compile Include="Services\Implementation\AuthentificationService.cs" />
-    <Compile Include="Services\MySql\MysqlAuthentificationService.cs" />
-    <Compile Include="Services\MySql\MySqlEmployeService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Services\Definitions\IEmployeService.cs" />
@@ -91,6 +98,7 @@
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
