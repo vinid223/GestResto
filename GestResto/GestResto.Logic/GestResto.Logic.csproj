@@ -62,6 +62,7 @@
     <Compile Include="Services\Definitions\IFormatService.cs" />
     <Compile Include="Services\Definitions\IItemService.cs" />
     <Compile Include="Services\Definitions\IRestaurantService.cs" />
+    <Compile Include="Services\Helpers\MySqlConnexion.cs" />
     <Compile Include="Services\Implementation\AuthentificationService.cs" />
     <Compile Include="Services\MySql\MysqlAuthentificationService.cs" />
   </ItemGroup>
