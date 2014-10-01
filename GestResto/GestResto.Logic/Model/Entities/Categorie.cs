@@ -23,10 +23,10 @@ namespace GestResto.Logic.Model.Entities
     {
         #region Liste des variables de la classe
 
-        private int? idCategorie;
-	    private string sNom;
-	    private bool bActif;
-	    private bool bComplementaire;
+        public int? idCategorie;
+	    public string sNom;
+	    public bool bActif;
+	    public bool bComplementaire;
 
         #endregion
 
