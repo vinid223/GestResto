@@ -18,8 +18,10 @@ namespace GestResto.Logic.Services.MySql
         public Employe Retrieve(int pNumEmploye, string pMDP)
         {
             connexion = new MySqlConnexion();
+            
+            string query = "SELECT * FROM Employes WHERE NoEmploye = " + pNumEmploye.ToString() + " AND motPasse = " + pMDP.ToString();
 
-            string query = "SELECT * FROM Employes WHERE Em"
+            throw new NotImplementedException();
         }
 
         #endregion
