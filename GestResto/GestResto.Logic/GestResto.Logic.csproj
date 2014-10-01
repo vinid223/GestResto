@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\Entities\Authentification.cs" />
     <Compile Include="Model\Entities\Categorie.cs" />
     <Compile Include="Model\Entities\Client.cs" />
     <Compile Include="Model\Entities\Commande.cs" />
@@ -49,6 +50,7 @@
     <Compile Include="Model\Entities\Restaurant.cs" />
     <Compile Include="Model\Entities\Table.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\Definitions\IAuthentificationService.cs" />
     <Compile Include="Services\Definitions\IClientService.cs" />
     <Compile Include="Services\Definitions\ICommandeService.cs" />
     <Compile Include="Services\Definitions\ICategorieService.cs" />
@@ -56,6 +58,7 @@
     <Compile Include="Services\Definitions\IFormatService.cs" />
     <Compile Include="Services\Definitions\IItemService.cs" />
     <Compile Include="Services\Definitions\IRestaurantService.cs" />
+    <Compile Include="Services\Implementation\AuthentificationService.cs" />
     <Compile Include="Services\MySql\MysqlAuthentificationService.cs" />
   </ItemGroup>
   <ItemGroup>
