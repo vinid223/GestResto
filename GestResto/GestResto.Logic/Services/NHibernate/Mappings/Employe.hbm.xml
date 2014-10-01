@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping assembly="GestResto.Logic"
+                   namespace="GestResto.Logic.Model.Entities"
+                   xmlns="urn:nhibernate-mapping-2.2">
+  <class name="Employe" table="employes">
+    <id name="idEmploye">
+      <column name="idEmploye" not-null="true" sql-type="INTEGER" />
+      <generator class="identity" />
+    </id>
+    
+    <many-to-one name="Proprietaire" class="Proprietaire" lazy="proxy">
+      <column name="idProprietaire" not-null="true" sql-type="INTERGER" />
+    </many-to-one>
+    
+    <property name="sNom">
+      <column name="nom" not-null="true" sql-type="VARCHAR" />
+    </property>
+    
+    <property name="sPrenom">
+      <column name="prenom" not-null="true" sql-type="VARCHAR" />
+    </property>
+    
+    <property name="noEmploye">
+      <column name="noEmploye" not-null="true" sql-type="INTEGER" />
+    </property>
+
+    <property name="sMotDePasse">
+      <column name="motPasse" not-null="true" sql-type="INTEGER" />
+    </property>
+
+    <property name="sAdresse">
+      <column name="adresse" not-null="true" sql-type="VARCHAR" />
+    </property>
+
+    <property name="sVille">
+      <column name="ville" not-null="true" sql-type="VARCHAR" />
+    </property>
+
+    <property name="sCodePostal">
+      <column name="codePostal" not-null="true" sql-type="VARCHAR" />
+    </property>
+
+    <property name="sNAS">
+      <column name="NAS" not-null="true" sql-type="VARCHAR" />
+    </property>
+
+    <property name="fSalaire">
+      <column name="tauxHoraire" not-null="true" sql-type="FLOAT" />
+    </property>
+    
+    <many-to-one name="Proprietaire" class="Proprietaire" lazy="proxy">
+      <column name="idProprietaire" not-null="true" sql-type="INTERGER" />
+    </many-to-one>
+    <bag name="Visites" inverse="true" generic="true" lazy="false" cascade="all">
+      <key>
+        <column name="idMaison" />
+      </key>
+      <one-to-many class="Visite"/>
+    </bag>
+  </class>
+</hibernate-mapping>

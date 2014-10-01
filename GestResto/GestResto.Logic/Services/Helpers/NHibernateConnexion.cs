@@ -11,7 +11,6 @@ namespace GestResto.Logic.Services.Helpers
     public class NHibernateConnexion
     {
         private static ISessionFactory _sessionFactory;
-        private static readonly bool IS_FLUENT = true;
 
         static NHibernateConnexion()
         {

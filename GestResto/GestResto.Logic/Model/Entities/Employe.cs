@@ -24,20 +24,20 @@ namespace GestResto.Logic.Model.Entities
     {
         #region Variables appartenant à la classe Employe
         
-        private int? idEmploye;
-	    private string sTypeEmploye;
-	    private string sNom;
-	    private string sPrenom;
-	    private int noEmploye;
-	    private string sMotDePasse;
-	    private string sAdresse;
-	    private string sVille;
-	    private string sCodePostal;
-	    private string sNAS;
-	    private float fSalaire;
-	    private string sTelephone;
-	    private bool bActif;
-	    private List<Commande> ListeCommandes;
+        private virtual int? idEmploye;
+        private virtual string sTypeEmploye;
+        private virtual string sNom;
+        private virtual string sPrenom;
+        private virtual int noEmploye;
+        private virtual string sMotDePasse;
+        private virtual string sAdresse;
+        private virtual string sVille;
+        private virtual string sCodePostal;
+        private virtual string sNAS;
+        private virtual float fSalaire;
+        private virtual string sTelephone;
+        private virtual bool bActif;
+        private virtual List<Commande> ListeCommandes;
 
         #endregion
 
