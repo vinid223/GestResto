@@ -6,17 +6,28 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="500">
     <Grid>
-        <Label Content="Informations d'un item" HorizontalAlignment="Left" Margin="23,21,0,0" VerticalAlignment="Top" Width="145"/>
-        <Label Content="Nom" HorizontalAlignment="Left" Margin="23,55,0,0" VerticalAlignment="Top" Width="56"/>
-        <Label Content="Catégorie" HorizontalAlignment="Left" Margin="23,86,0,0" VerticalAlignment="Top"/>
-        <Label Content="Prix" HorizontalAlignment="Left" Margin="23,117,0,0" VerticalAlignment="Top" Width="56"/>
-        <Label Content="Catégorie" HorizontalAlignment="Left" Margin="287,21,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="89,61,0,0" VerticalAlignment="Top" Width="177" Name="txtNom"/>
-        <ComboBox HorizontalAlignment="Left" Margin="89,89,0,0" VerticalAlignment="Top" Width="177" Name="cboCategorieLiee"/>
-        <ComboBox HorizontalAlignment="Left" Margin="353,25,0,0" VerticalAlignment="Top" Width="137" Name="cboCategorieAffichee"/>
-        <CheckBox Content="Actif" HorizontalAlignment="Left" Margin="222,27,0,0" VerticalAlignment="Top" Name="chkActif"/>
-        <ListBox HorizontalAlignment="Left" Height="163" Margin="89,117,0,0" VerticalAlignment="Top" Width="177" Name="lbxListePrix"/>
-        <ListBox HorizontalAlignment="Left" Height="219" Margin="287,61,0,0" VerticalAlignment="Top" Width="203" Name="lbxListeCategorie"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="15*"/>
+            <RowDefinition Height="38*"/>
+            <RowDefinition Height="232*"/>
+            <RowDefinition Height="15*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="11*"/>
+            <ColumnDefinition Width="127*"/>
+            <ColumnDefinition Width="112*"/>
+        </Grid.ColumnDefinitions>
+        <Label Content="Informations d'un item" HorizontalAlignment="Left" Margin="1,6,0,0" VerticalAlignment="Top" Width="145" Grid.Column="1" Grid.Row="1" Height="26"/>
+        <Label Content="Nom" HorizontalAlignment="Left" Margin="1,2,0,0" VerticalAlignment="Top" Width="56" Grid.Column="1" Grid.Row="2" Height="26"/>
+        <Label Content="Catégorie" HorizontalAlignment="Left" Margin="1,33,0,0" VerticalAlignment="Top" Grid.Column="1" Grid.Row="2" Height="26" Width="61"/>
+        <Label Content="Prix" HorizontalAlignment="Left" Margin="1,64,0,0" VerticalAlignment="Top" Width="56" Grid.Column="1" Grid.Row="2" Height="26"/>
+        <Label Content="Catégorie" HorizontalAlignment="Left" Margin="11,6,0,0" VerticalAlignment="Top" Grid.Column="2" Grid.Row="1" Height="26" Width="61"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="67,8,0,0" VerticalAlignment="Top" Width="177" Name="txtNom" Grid.Column="1" Grid.Row="2"/>
+        <ComboBox HorizontalAlignment="Left" Margin="67,36,0,0" VerticalAlignment="Top" Width="177" Name="cboCategorieLiee" Grid.Column="1" Grid.Row="2" Height="22"/>
+        <ComboBox HorizontalAlignment="Left" Margin="77,10,0,0" VerticalAlignment="Top" Width="137" Name="cboCategorieAffichee" Grid.Column="2" Grid.Row="1" Height="22"/>
+        <CheckBox Content="Actif" HorizontalAlignment="Left" Margin="200,12,0,0" VerticalAlignment="Top" Name="chkActif" Grid.Column="1" Grid.Row="1" Height="15" Width="44"/>
+        <ListBox HorizontalAlignment="Left" Height="163" Margin="67,64,0,0" VerticalAlignment="Top" Width="177" Name="lbxListePrix" Grid.Column="1" Grid.Row="2"/>
+        <ListBox HorizontalAlignment="Left" Height="219" Margin="11,8,0,0" VerticalAlignment="Top" Width="203" Name="lbxListeCategorie" Grid.Column="2" Grid.Row="2"/>
 
     </Grid>
 </UserControl>
