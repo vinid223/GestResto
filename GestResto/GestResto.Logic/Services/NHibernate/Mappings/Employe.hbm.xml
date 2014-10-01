@@ -3,14 +3,19 @@
                    namespace="GestResto.Logic.Model.Entities"
                    xmlns="urn:nhibernate-mapping-2.2">
   <class name="Employe" table="employes">
+    
     <id name="idEmploye">
       <column name="idEmploye" not-null="true" sql-type="INTEGER" />
       <generator class="identity" />
     </id>
     
-    <many-to-one name="Proprietaire" class="Proprietaire" lazy="proxy">
+    
+    
+    <many-to-one name="sTypeEmploye" class="Proprietaire" lazy="proxy">
       <column name="idProprietaire" not-null="true" sql-type="INTERGER" />
     </many-to-one>
+    
+    
     
     <property name="sNom">
       <column name="nom" not-null="true" sql-type="VARCHAR" />
@@ -47,15 +52,21 @@
     <property name="fSalaire">
       <column name="tauxHoraire" not-null="true" sql-type="FLOAT" />
     </property>
+
+    <property name="sTelephone">
+      <column name="telephone" not-null="true" sql-type="VARCHAR" />
+    </property>
+
+    <property name="bActif">
+      <column name="actif" not-null="true" sql-type="BOOLEAN" />
+    </property>
     
-    <many-to-one name="Proprietaire" class="Proprietaire" lazy="proxy">
-      <column name="idProprietaire" not-null="true" sql-type="INTERGER" />
-    </many-to-one>
-    <bag name="Visites" inverse="true" generic="true" lazy="false" cascade="all">
+    <bag name="Commandes" inverse="true" generic="true" lazy="true" cascade="all">
       <key>
-        <column name="idMaison" />
+        <column name="idEmploye" />
       </key>
-      <one-to-many class="Visite"/>
+      <one-to-many class="Commande"/>
     </bag>
   </class>
+  
 </hibernate-mapping>
