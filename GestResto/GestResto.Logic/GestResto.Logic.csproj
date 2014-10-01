@@ -60,6 +60,7 @@
     <Compile Include="Model\Args\RetrieveItemArgs.cs" />
     <Compile Include="Model\Args\RetrieveRestaurantArgs.cs" />
     <Compile Include="Model\Args\RetrieveTableArgs.cs" />
+    <Compile Include="Model\Args\RetrieveTypeEmployeArgs.cs" />
     <Compile Include="Model\Entities\Authentification.cs" />
     <Compile Include="Model\Entities\Categorie.cs" />
     <Compile Include="Model\Entities\Client.cs" />
@@ -70,6 +71,7 @@
     <Compile Include="Model\Entities\Item.cs" />
     <Compile Include="Model\Entities\Restaurant.cs" />
     <Compile Include="Model\Entities\Table.cs" />
+    <Compile Include="Model\Entities\typeEmploye.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\Definitions\IAuthentificationService.cs" />
     <Compile Include="Services\Definitions\IClientService.cs" />

@@ -25,7 +25,6 @@ namespace GestResto.Logic.Model.Entities
         #region Variables appartenant à la classe Employe
         
         private virtual int? idEmploye;
-        private virtual string sTypeEmploye;
         private virtual string sNom;
         private virtual string sPrenom;
         private virtual int noEmploye;
@@ -37,6 +36,7 @@ namespace GestResto.Logic.Model.Entities
         private virtual float fSalaire;
         private virtual string sTelephone;
         private virtual bool bActif;
+        private virtual typeEmploye type;
         private virtual List<Commande> ListeCommandes;
 
         #endregion
@@ -48,7 +48,6 @@ namespace GestResto.Logic.Model.Entities
         public Employe()
         {
                 idEmploye = null;
-                sTypeEmploye = "";
                 sNom = "";
                 sPrenom = "";
                 noEmploye = 0;
@@ -60,6 +59,7 @@ namespace GestResto.Logic.Model.Entities
                 fSalaire = 0;
                 sTelephone = "";
                 bActif = false;
+                type = null;
                 ListeCommandes = new List<Commande>();
         }
 
@@ -67,7 +67,6 @@ namespace GestResto.Logic.Model.Entities
         /// Constructeur paramétré de la classe employé
         /// </summary>
         /// <param name="pIdEmploye">id de l'employé</param>
-        /// <param name="pIdTypeEmploye">Id du type d'employé</param>
         /// <param name="pNom">Nom de l'employé</param>
         /// <param name="pPrenom">Prenom de l'employé</param>
         /// <param name="pNoEmploye">Numero de l'employé</param>
@@ -78,10 +77,9 @@ namespace GestResto.Logic.Model.Entities
         /// <param name="pNAS">NAS de l'employé</param>
         /// <param name="pSalaire">Salaire de l'employé</param>
         /// <param name="pTelephone">Telephone de l'employé</param>
-        Employe(int pIdEmploye, string pTypeEmploye, string pNom, string pPrenom, int pNoEmploye, string pMotPasse, string pAdresse, string pVille, string pCodePostal, string pNAS, float pSalaire, string pTelephone, bool pActif)
+        Employe(int pIdEmploye, string pNom, string pPrenom, int pNoEmploye, string pMotPasse, string pAdresse, string pVille, string pCodePostal, string pNAS, float pSalaire, string pTelephone, bool pActif, typeEmploye pType)
         {
             idEmploye = pIdEmploye;
-            sTypeEmploye = pTypeEmploye;
             sNom = pNom;
             sPrenom = pPrenom;
             noEmploye = pNoEmploye;
@@ -93,6 +91,7 @@ namespace GestResto.Logic.Model.Entities
             fSalaire = pSalaire;
             sTelephone = pTelephone;
             bActif = pActif;
+            type = pType;
         }
 
         #endregion

@@ -9,13 +9,9 @@
       <generator class="identity" />
     </id>
     
-    
-    
-    <many-to-one name="sTypeEmploye" class="Proprietaire" lazy="proxy">
-      <column name="idProprietaire" not-null="true" sql-type="INTERGER" />
+    <many-to-one name="type" class="typeEmploye" lazy="proxy">
+      <column name="idType" not-null="true" sql-type="INTERGER" />
     </many-to-one>
-    
-    
     
     <property name="sNom">
       <column name="nom" not-null="true" sql-type="VARCHAR" />
