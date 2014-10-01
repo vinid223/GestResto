@@ -82,6 +82,7 @@
     <Compile Include="Services\Helpers\MySqlConnexion.cs" />
     <Compile Include="Services\Helpers\NHibernateConnexion.cs" />
     <Compile Include="Services\Implementation\AuthentificationService.cs" />
+    <Compile Include="Services\NHibernate\NHibernateEmployeService.cs" />
     <Compile Include="Services\NHibernate\NHibertateCategorieService.cs" />
   </ItemGroup>
   <ItemGroup>
