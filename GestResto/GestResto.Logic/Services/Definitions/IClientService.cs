@@ -1,4 +1,5 @@
 ﻿using GestResto.Logic.Model.Entities;
+using GestResto.Logic.Model.Args;
 using System;
 using System.Collections.Generic;
 using System.Linq;

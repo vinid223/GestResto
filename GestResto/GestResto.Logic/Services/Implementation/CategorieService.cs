@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using GestResto.Logic.Model.Args;
 
 namespace GestResto.Logic.Services.Defenitions
 {
@@ -19,7 +20,7 @@ namespace GestResto.Logic.Services.Defenitions
             throw new NotImplementedException();
         }
 
-        public Model.Entities.Categorie Retrieve(int pIdCategorie)
+        public Model.Entities.Categorie Retrieve(RetrieveCategorieArgs args)
         {
             throw new NotImplementedException();
         }

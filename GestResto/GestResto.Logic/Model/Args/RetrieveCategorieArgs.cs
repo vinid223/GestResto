@@ -8,6 +8,6 @@ namespace GestResto.Logic.Model.Args
 {
     public class RetrieveCategorieArgs
     {
-        public int IIdCategorie { get; set; }
+        public int idCategorie { get; set; }
     }
 }
