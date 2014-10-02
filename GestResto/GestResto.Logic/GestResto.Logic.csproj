@@ -83,8 +83,6 @@
     <Compile Include="Services\Definitions\IRestaurantService.cs" />
     <Compile Include="Services\Helpers\MySqlConnexion.cs" />
     <Compile Include="Services\Helpers\NHibernateConnexion.cs" />
-    <Compile Include="Services\MySql\MysqlAuthentificationService.cs" />
-    <Compile Include="Services\MySql\MySqlEmployeService.cs" />
     <Compile Include="Services\NHibernate\NHibernateAuthentificationService.cs" />
     <Compile Include="Services\NHibernate\NHibernateClientService.cs" />
     <Compile Include="Services\NHibernate\NHibernateCommandeService.cs" />
@@ -115,8 +113,11 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Services\NHibernate\Mappings\Client.hbm.xml" />
     <Content Include="Services\NHibernate\Mappings\Employe.hbm.xml" />
     <Content Include="Services\NHibernate\Mappings\Categorie.hbm.xml" />
+    <Content Include="Services\NHibernate\Mappings\Restaurant.hbm.xml" />
+    <Content Include="Services\NHibernate\Mappings\Table.hbm.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
