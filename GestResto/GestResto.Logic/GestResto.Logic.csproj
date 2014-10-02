@@ -107,22 +107,19 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Services\NHibernate\Mappings\Restaurant.hbm.xml" />
     <None Include="app.config" />
     <None Include="packages.config" />
-    <Content Include="Services\NHibernate\Mappings\Client.hbm.xml">
-      <SubType>Designer</SubType>
-    </Content>
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Services\NHibernate\Mappings\Employe.hbm.xml">
+    <Content Include="Services\NHibernate\Mappings\Employe.hbm.xml" />
+    <Content Include="Services\NHibernate\Mappings\Categorie.hbm.xml" />
+    <Content Include="Services\NHibernate\Mappings\Table.hbm.xml">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="Services\NHibernate\Mappings\Categorie.hbm.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
