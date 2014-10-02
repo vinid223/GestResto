@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping assembly="GestResto.Logic"
+                   namespace="GestResto.Logic.Model.Entities"
+                   xmlns="urn:nhibernate-mapping-2.2">
+  <class name="Categorie" table="Categories">
+
+    <id name="idCategorie">
+      <column name="idCategorie" not-null="true" sql-type="INTEGER" />
+      <generator class="identity" />
+    </id>
+
+    <property name="sNom">
+      <column name="nom" not-null="true" sql-type="VARCHAR" />
+    </property>
+
+    <property name="bActif">
+      <column name="actif" not-null="true" sql-type="BOOLEAN" />
+    </property>
+
+    <property name="bComplementaire">
+      <column name="complementaire" not-null="true" sql-type="BOOLEAN" />
+    </property>
+  </class>
+
+</hibernate-mapping>
