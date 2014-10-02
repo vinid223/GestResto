@@ -22,27 +22,34 @@ namespace GestResto.Logic.Services.NHibernate
 
         public void Create(Table table)
         {
-            throw new NotImplementedException();
+            using (var transaction = session.BeginTransaction())
+            {
+                session.Save(table);
+                transaction.Commit();
+            }
         }
 
         public IList<Table> RetrieveAll()
         {
-            throw new NotImplementedException();
+            return session.Query<Table>().ToList();
         }
 
-        public Table Retrieve(int pIdTable)
+        public Table Retrieve(RetrieveTableArgs args)
         {
-            throw new NotImplementedException();
+            var result = from c in session.Query<Table>()
+                         where c.idTable == args.IIdTable
+                         select c;
+
+            return result.FirstOrDefault();
         }
 
         public void Update(Table table)
         {
-            throw new NotImplementedException();
-        }
-
-        public void Delete(Table table)
-        {
-            throw new NotImplementedException();
+            using (var transaction = session.BeginTransaction())
+            {
+                session.Update(table);
+                transaction.Commit();
+            }
         }
     }
 }

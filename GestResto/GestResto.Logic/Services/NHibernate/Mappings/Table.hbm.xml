@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping assembly="GestResto.Logic"
+                   namespace="GestResto.Logic.Model.Entities"
+                   xmlns="urn:nhibernate-mapping-2.2">
+  <class name="Employe" table="employes">
+
+    <id name="idTable">
+      <column name="idTable" not-null="true" sql-type="INTEGER" />
+      <generator class="identity" />
+    </id>
+
+    <property name="noTable">
+      <column name="noTable" not-null="true" sql-type="INTEGER" />
+    </property>
+
+    <property name="bActif">
+      <column name="actif" not-null="true" sql-type="BOOLEAN" />
+    </property>
+
+    <property name="bAssigne">
+      <column name="assigne" not-null="true" sql-type="BOOLEAN" />
+    </property>
+
+    <bag name="Clients" inverse="true" generic="true" lazy="true" cascade="all">
+      <key>
+        <column name="idTable" />
+      </key>
+      <one-to-many class="Table"/>
+    </bag>
+  </class>
+
+</hibernate-mapping>
