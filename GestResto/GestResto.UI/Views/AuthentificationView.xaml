@@ -34,7 +34,7 @@
             <Button Margin="1" Grid.Row ="1" Grid.Column="3" Content="9" Name="btnNeuf"  />
             <Button Margin="1" Grid.Row ="4" Grid.Column="2" Content="0" Name="btnZero" />
             <Button Margin="1" Grid.Row ="4" Grid.Column="1" Content="Retour" Name="btnRetour" />
-            <Button Margin="1" Grid.Row ="4" Grid.Column="3" Content="Confirmer" Name="btnConfirmer" />
+            <Button Margin="1" Grid.Row ="4" Grid.Column="3" Content="Confirmer" Name="btnConfirmer" Click="btnConfirmer_Click" />
 
         </Grid>
     </Grid>

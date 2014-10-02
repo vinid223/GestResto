@@ -24,5 +24,10 @@ namespace GestResto.UI.Views
         {
             InitializeComponent();
         }
+
+        private void btnConfirmer_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
     }
 }

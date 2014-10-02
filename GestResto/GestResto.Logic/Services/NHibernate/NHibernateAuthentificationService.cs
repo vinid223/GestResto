@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace GestResto.Logic.Services.NHibernate
 {
-    class NHibernateAuthentificationService : IAuthentificationService
+    public class NHibernateAuthentificationService : IAuthentificationService
     {
         private ISession session = NHibernateConnexion.OpenSession();
 

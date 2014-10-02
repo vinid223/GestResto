@@ -17,6 +17,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using GestResto.Logic.Services.Defenitions;
+using GestResto.Logic.Services.NHibernate;
 
 namespace GestResto.UI
 {
@@ -37,8 +38,8 @@ namespace GestResto.UI
 
         private void Configure()
         {
-            // Simon : J'ai mis la ligne en commentaire, sinon ça ne compilait pas.
-            //ServiceFactory.Instance.Register<ICategorieService, NHibernateCategorieService>(new NHibernateCategorieService());
+            //ServiceFactory.Instance.Register<IAuthentificationService, NHibernateAuthentificationService>(new NHibernateAuthentificationService());
+            //ServiceFactory.Instance.Register<ICategorieService, NHibertateCategorieService>(new NHibertateCategorieService());
         }
     }
 }

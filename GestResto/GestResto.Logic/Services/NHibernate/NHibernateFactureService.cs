@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace GestResto.Logic.Services.NHibernate
 {
-    class NHibernateFactureService : IFactureService
+    public class NHibernateFactureService : IFactureService
     {
         private ISession session = NHibernateConnexion.OpenSession();
 

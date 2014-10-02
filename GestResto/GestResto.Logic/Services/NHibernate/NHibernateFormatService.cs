@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace GestResto.Logic.Services.NHibernate
 {
-    class NHibernateFormatService : IFormatService
+    public class NHibernateFormatService : IFormatService
     {
         private ISession session = NHibernateConnexion.OpenSession();
 
