@@ -37,7 +37,7 @@ namespace GestResto.Logic.Services.NHibernate
         public Table Retrieve(RetrieveTableArgs args)
         {
             var result = from c in session.Query<Table>()
-                         where c.idTable == args.IIdTable
+                         where c.IdTable == args.IIdTable
                          select c;
 
             return result.FirstOrDefault();
