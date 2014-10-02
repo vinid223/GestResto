@@ -25,10 +25,10 @@ namespace GestResto.Logic.Model.Entities
     {
         #region Variables de la classe
 
-        private uint? idFacture;
-        private DateTime DateCreation;
-        private float fPourcentageTaxe;
-        private List<Item> ListeItems;
+        public virtual uint? IdFacture { get; set; }
+        public virtual DateTime DateCreation { get; set; }
+        public virtual float PourcentageTaxe { get; set; }
+        public virtual List<Item> ListeItems { get; set; }
 
         #endregion
 
@@ -39,24 +39,24 @@ namespace GestResto.Logic.Model.Entities
         /// </summary>
         public Facture()
         {
-            idFacture = null;
+            IdFacture = null;
             DateCreation = new DateTime();
-            fPourcentageTaxe = 0;
+            PourcentageTaxe = 0;
             ListeItems = new List<Item>();
         }
 
         /// <summary>
         /// Constructeur paramétré de la classe facture.
         /// </summary>
-        /// <param name="pidFacture">id de la facture en paramètre.</param>
+        /// <param name="pIdFacture">id de la facture en paramètre.</param>
         /// <param name="pDateCreation">La date de la création de la facture.</param>
         /// <param name="pPourcentageTaxe">Le pourcentage de la facture lors de la date de création.</param>
         /// <param name="pListeItems">Liste d'items de la facture.</param>
-        public Facture(uint pidFacture, DateTime pDateCreation, float pPourcentageTaxe, List<Item> pListeItems)
+        public Facture(uint pIdFacture, DateTime pDateCreation, float pPourcentageTaxe, List<Item> pListeItems)
         {
-            idFacture = pidFacture;
+            IdFacture = pIdFacture;
             DateCreation = pDateCreation;
-            fPourcentageTaxe = pPourcentageTaxe;
+            PourcentageTaxe = pPourcentageTaxe;
             ListeItems = pListeItems;
         }
 

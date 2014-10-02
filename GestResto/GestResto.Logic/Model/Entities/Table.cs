@@ -24,11 +24,11 @@ namespace GestResto.Logic.Model.Entities
     {
         #region Attributs
 
-	    private int? idTable;
-	    private int? noTable;
-	    private bool bActif;
-	    private bool bAssigne;
-	    private List<Client> ListeClients;
+        public virtual int? IdTable { get; set; }
+        public virtual int? NoTable { get; set; }
+        public virtual bool EstActif { get; set; }
+        public virtual bool EstAssigne { get; set; }
+        public virtual List<Client> ListeClients { get; set; }
 
         #endregion
 
@@ -39,10 +39,10 @@ namespace GestResto.Logic.Model.Entities
         /// </summary>
         public Table()
         {
-            idTable = null;
-            noTable = null;
-            bActif = true;
-            bAssigne = true;
+            IdTable = null;
+            NoTable = null;
+            EstActif = true;
+            EstAssigne = true;
             ListeClients = new List<Client>();
         }
 
@@ -51,15 +51,15 @@ namespace GestResto.Logic.Model.Entities
         /// </summary>
         /// <param name="pIdTable">id de la table</param>
         /// <param name="pNoTable">no de la table</param>
-        /// <param name="pBActif">Indique si la table est active</param>
-        /// <param name="pBAssigne">Indique si la table est assigne</param>
+        /// <param name="pEstActif">Indique si la table est active</param>
+        /// <param name="pEstAssigne">Indique si la table est assigne</param>
         /// <param name="pListeClient">Liste des clients à la table</param>
-        public Table(int pIdTable, int pNoTable, bool pBActif, bool pBAssigne, List<Client> pListeClient)
+        public Table(int pIdTable, int pNoTable, bool pEstActif, bool pEstAssigne, List<Client> pListeClient)
         {
-            idTable = pIdTable;
-            noTable = pNoTable;
-            bActif = pBActif;
-            bAssigne = pBAssigne;
+            IdTable = pIdTable;
+            NoTable = pNoTable;
+            EstActif = pEstActif;
+            EstAssigne = pEstAssigne;
             ListeClients = pListeClient;
         }
 

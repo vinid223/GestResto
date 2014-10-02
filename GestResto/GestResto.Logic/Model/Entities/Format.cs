@@ -26,10 +26,10 @@ namespace GestResto.Logic.Model.Entities
     {
         #region Variables de la classe
 
-        private int? idFormat ;
-	    private string sNom ;
-	    private string sLibele ;
-	    private float fPrix ;
+        public virtual int? IdFormat { get; set; }
+        public virtual string Nom { get; set; }
+        public virtual string Libele { get; set; }
+        public virtual float Prix { get; set; }
 
         #endregion
 
@@ -39,25 +39,25 @@ namespace GestResto.Logic.Model.Entities
         /// </summary>
         public Format()
         {
-            idFormat = null;
-            sNom = "";
-            sLibele = "";
-            fPrix = 0;
+            IdFormat = null;
+            Nom = "";
+            Libele = "";
+            Prix = 0;
         }
 
         /// <summary>
         /// Constructeur paramétré qui met tous les paramètres dans les attributs de l'objet.
         /// </summary>
-        /// <param name="pidFormat">Le id du format en paramètre</param>
+        /// <param name="pIdFormat">Le id du format en paramètre</param>
         /// <param name="pNom">Le nom du format en paramètre.</param>
         /// <param name="pLibele">Le libelé en paramètre.</param>
         /// <param name="pPrix">Le prix en paramètre.</param>
-        public Format(int pidFormat, string pNom, string pLibele, float pPrix)
+        public Format(int pIdFormat, string pNom, string pLibele, float pPrix)
         {
-            idFormat = pidFormat;
-            sNom = pNom;
-            sLibele = pLibele;
-            fPrix = pPrix;
+            IdFormat = pIdFormat;
+            Nom = pNom;
+            Libele = pLibele;
+            Prix = pPrix;
         }
 
         #endregion

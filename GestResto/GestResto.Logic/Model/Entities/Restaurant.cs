@@ -22,60 +22,65 @@ namespace GestResto.Logic.Model.Entities
     /// </summary>
     public class Restaurant 
     {
-	    private int? idRestaurant ;
-	    private string sNom ;
-	    private string sAdresse ;
-	    private string sTelephone ;
-	    private string sFax ;
-	    private string sVille ;
-	    private string sCodePostal ;
-	    private DateTime dateCreation ;
-	    private List<Employe> listeEmployes ;
-	    private List<Item> listeItem ;
+        #region Liste des variables de la classe
 
+        public virtual int? IdRestaurant { get; set; }
+        public virtual string Nom { get; set; }
+        public virtual string Adresse { get; set; }
+        public virtual string Telephone { get; set; }
+        public virtual string Fax { get; set; }
+        public virtual string Ville { get; set; }
+        public virtual string CodePostal { get; set; }
+        public virtual DateTime DateCreation { get; set; }
+        public virtual List<Employe> ListeEmployes { get; set; }
+        public virtual List<Item> ListeItem { get; set; }
+
+        #endregion
+
+        #region Tous les constructeurs de la classe
         /// <summary>
         /// Constructeur par défaut
         /// </summary>
         public Restaurant()
         {
-            idRestaurant=null;
-            sNom="";
-            sAdresse="";
-            sTelephone = "";
-            sFax = "";
-            sVille = "";
-            sCodePostal = "";
-            dateCreation = DateTime.Now;
-            listeEmployes = new List<Employe>();
-            listeItem = new List<Item>();
+            IdRestaurant=null;
+            Nom="";
+            Adresse="";
+            Telephone = "";
+            Fax = "";
+            Ville = "";
+            CodePostal = "";
+            DateCreation = DateTime.Now;
+            ListeEmployes = new List<Employe>();
+            ListeItem = new List<Item>();
         }
 
         /// <summary>
         /// Constructeur paramétré
         /// </summary>
         /// <param name="pIdRestaurant">l'id du restaurant</param>
-        /// <param name="pSNom">Le nom du restaurant</param>
-        /// <param name="pSAdresse">L'adresse du restaurant</param>
-        /// <param name="pSTelephone">Le numéro de téléphone du restaurant</param>
-        /// <param name="pSFax">Le numéro de fax du restaurant</param>
-        /// <param name="pSVille">La ville du restaurant</param>
-        /// <param name="pSCodePostal">Le code postal du rstaurant</param>
+        /// <param name="pNom">Le nom du restaurant</param>
+        /// <param name="pAdresse">L'adresse du restaurant</param>
+        /// <param name="pTelephone">Le numéro de téléphone du restaurant</param>
+        /// <param name="pFax">Le numéro de fax du restaurant</param>
+        /// <param name="pVille">La ville du restaurant</param>
+        /// <param name="pCodePostal">Le code postal du rstaurant</param>
         /// <param name="pDateCreation">La date de création</param>
         /// <param name="pListeEmploye">La liste d'employés</param>
         /// <param name="pListeItem">La liste des items</param>
-         public Restaurant(int pIdRestaurant, string pSNom, string pSAdresse, string pSTelephone, string pSFax, string pSVille, string pSCodePostal, DateTime pDateCreation, List<Employe> pListeEmploye, List<Item> pListeItem)
+         public Restaurant(int pIdRestaurant, string pNom, string pAdresse, string pTelephone, string pFax, string pVille, string pCodePostal, DateTime pDateCreation, List<Employe> pListeEmploye, List<Item> pListeItem)
         {
-            idRestaurant=pIdRestaurant;
-            sNom=pSNom;
-            sAdresse=pSAdresse;
-            sTelephone = pSTelephone;
-            sFax = pSFax;
-            sVille = pSVille;
-            sCodePostal = pSCodePostal;
-            dateCreation = pDateCreation;
-            listeEmployes = pListeEmploye;
-            listeItem = pListeItem;
+            IdRestaurant=pIdRestaurant;
+            Nom=pNom;
+            Adresse=pAdresse;
+            Telephone = pTelephone;
+            Fax = pFax;
+            Ville = pVille;
+            CodePostal = pCodePostal;
+            DateCreation = pDateCreation;
+            ListeEmployes = pListeEmploye;
+            ListeItem = pListeItem;
         }
-
+        #endregion
     }
 }

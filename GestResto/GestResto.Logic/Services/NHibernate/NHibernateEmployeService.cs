@@ -38,7 +38,7 @@ namespace GestResto.Logic.Services.NHibernate
         public Employe Retrive(RetrieveEmployeArgs args)
         {
             var result = from c in session.Query<Employe>()
-                         where c.idEmploye == args.IIdEmploye
+                         where c.IdEmploye == args.IIdEmploye
                          select c;
 
             return result.FirstOrDefault();

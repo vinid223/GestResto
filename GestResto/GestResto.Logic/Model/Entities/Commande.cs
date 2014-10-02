@@ -24,12 +24,12 @@ namespace GestResto.Logic.Model.Entities
     {
         #region Attributs
 
-	    private int? idCommande;
-	    private string Statut;
-	    private DateTime Debut;
-	    private DateTime? Fin;
-	    private List<Table> ListeTables;
-	    private List<Facture> ListeFactures;
+        public virtual int? IdCommande { get; set; }
+        public virtual string Statut { get; set; }
+        public virtual DateTime Debut { get; set; }
+        public virtual DateTime? Fin { get; set; }
+        public virtual List<Table> ListeTables { get; set; }
+        public virtual List<Facture> ListeFactures { get; set; }
 
         #endregion
 
@@ -40,7 +40,7 @@ namespace GestResto.Logic.Model.Entities
         /// </summary>
         public Commande()
         {
-            idCommande = null;
+            IdCommande = null;
             Statut = "Active";
             Debut = DateTime.Now;
             Fin = null;
@@ -57,7 +57,7 @@ namespace GestResto.Logic.Model.Entities
         /// <param name="pListeTable">La liste des tables</param>
         public Commande(int pIdCommande, string pStatut, DateTime pDebut, DateTime pFin, List<Table> pListeTable, List<Facture> pListeFactures)
         {
-            idCommande = pIdCommande;
+            IdCommande = pIdCommande;
             Statut = pStatut;
             Debut = pDebut;
             Fin = pFin;

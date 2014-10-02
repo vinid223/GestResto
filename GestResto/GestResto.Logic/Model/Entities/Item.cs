@@ -23,11 +23,11 @@ namespace GestResto.Logic.Model.Entities
     public class Item
     {
         #region Variables de la classe
-        private int? idItem;
-	    private string sNom;
-	    private Format FormatItem;
-	    private Categorie Categories;
-	    private List<Item> ListeComplements;
+        public virtual int? IdItem { get; set; }
+        public virtual string Nom { get; set; }
+        public virtual Format FormatItem { get; set; }
+        public virtual Categorie Categories { get; set; }
+        public virtual List<Item> ListeComplements { get; set; }
         #endregion
 
         #region Constructeur de la classe Item
@@ -36,8 +36,8 @@ namespace GestResto.Logic.Model.Entities
         /// </summary>
         public Item()
         {
-            idItem = null;
-            sNom = "";
+            IdItem = null;
+            Nom = "";
             FormatItem = new Format();
             Categories = new Categorie();
             ListeComplements = new List<Item>();
@@ -52,8 +52,8 @@ namespace GestResto.Logic.Model.Entities
         /// <param name="pCategories">Objet catégrie de l'item</param>
         public Item(int pIdItem, string pNom, Format pFormatItem, Categorie pCategories) :this()
         {
-            idItem = pIdItem;
-            sNom = pNom;
+            IdItem = pIdItem;
+            Nom = pNom;
             FormatItem = pFormatItem;
             Categories = pCategories;
         }

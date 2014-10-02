@@ -35,7 +35,7 @@ namespace GestResto.Logic.Services.NHibernate
         public Categorie Retrieve(RetrieveCategorieArgs args)
         {
             var result = from c in session.Query<Categorie>()
-                        where c.idCategorie == args.idCategorie
+                        where c.IdCategorie == args.idCategorie
                         select c;
 
             return result.FirstOrDefault();

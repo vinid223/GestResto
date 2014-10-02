@@ -23,10 +23,10 @@ namespace GestResto.Logic.Model.Entities
     {
         #region Liste des variables de la classe
 
-        public int? idCategorie;
-	    public string sNom;
-	    public bool bActif;
-	    public bool bComplementaire;
+        public virtual int? IdCategorie { get; set; }
+        public virtual string Nom { get; set; }
+        public virtual bool EstActif { get; set; }
+        public virtual bool EstComplementaire { get; set; }
 
         #endregion
 
@@ -36,10 +36,10 @@ namespace GestResto.Logic.Model.Entities
         /// </summary>
         public Categorie()
         {
-            idCategorie = null;
-            sNom = "";
-            bActif = true;
-            bComplementaire = false;
+            IdCategorie = null;
+            Nom = "";
+            EstActif = true;
+            EstComplementaire = false;
         }
 
         /// <summary>
@@ -47,14 +47,14 @@ namespace GestResto.Logic.Model.Entities
         /// </summary>
         /// <param name="pIdCategorie">Id de la catégorie à créer</param>
         /// <param name="pNom">Nom de la catégorie</param>
-        /// <param name="pActif">Statut de la catégorie par true ou false pour actif ou non</param>
-        /// <param name="pComplementaire">Statut indiquant si la catégorie est une catégorie complémentaire par un true ou false</param>
-        public Categorie(int pIdCategorie, string pNom, bool pActif, bool pComplementaire)
+        /// <param name="pEstActif">Statut de la catégorie par true ou false pour actif ou non</param>
+        /// <param name="pEstComplementaire">Statut indiquant si la catégorie est une catégorie complémentaire par un true ou false</param>
+        public Categorie(int pIdCategorie, string pNom, bool pEstActif, bool pEstComplementaire)
         {
-            idCategorie = pIdCategorie;
-            sNom = pNom;
-            bActif = pActif;
-            bComplementaire = pComplementaire;
+            IdCategorie = pIdCategorie;
+            Nom = pNom;
+            EstActif = pEstActif;
+            EstComplementaire = pEstComplementaire;
         }
         #endregion
     }

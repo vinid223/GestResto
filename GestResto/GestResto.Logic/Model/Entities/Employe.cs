@@ -23,21 +23,21 @@ namespace GestResto.Logic.Model.Entities
     public class Employe
     {
         #region Variables appartenant à la classe Employe
-        
-        public virtual int? idEmploye;
-        public virtual string sNom;
-        public virtual string sPrenom;
-        public virtual int noEmploye;
-        public virtual string sMotDePasse;
-        public virtual string sAdresse;
-        public virtual string sVille;
-        public virtual string sCodePostal;
-        public virtual string sNAS;
-        public virtual float fSalaire;
-        public virtual string sTelephone;
-        public virtual bool bActif;
-        public virtual typeEmploye type;
-        public virtual List<Commande> ListeCommandes;
+
+        public virtual int? IdEmploye { get; set; }
+        public virtual string Nom { get; set; }
+        public virtual string Prenom { get; set; }
+        public virtual int NoEmploye { get; set; }
+        public virtual string MotDePasse { get; set; }
+        public virtual string Adresse { get; set; }
+        public virtual string Ville { get; set; }
+        public virtual string CodePostal { get; set; }
+        public virtual string NAS { get; set; }
+        public virtual float Salaire { get; set; }
+        public virtual string Telephone { get; set; }
+        public virtual bool EstActif { get; set; }
+        public virtual TypeEmploye Type { get; set; }
+        public virtual List<Commande> ListeCommandes { get; set; }
 
         #endregion
 
@@ -47,19 +47,19 @@ namespace GestResto.Logic.Model.Entities
         /// </summary>
         public Employe()
         {
-                idEmploye = null;
-                sNom = "";
-                sPrenom = "";
-                noEmploye = 0;
-                sMotDePasse = "";
-                sAdresse = "";
-                sVille = "";
-                sCodePostal = "";
-                sNAS = "";
-                fSalaire = 0;
-                sTelephone = "";
-                bActif = false;
-                type = null;
+                IdEmploye = null;
+                Nom = "";
+                Prenom = "";
+                NoEmploye = 0;
+                MotDePasse = "";
+                Adresse = "";
+                Ville = "";
+                CodePostal = "";
+                NAS = "";
+                Salaire = 0;
+                Telephone = "";
+                EstActif = false;
+                Type = null;
                 ListeCommandes = new List<Commande>();
         }
 
@@ -77,21 +77,21 @@ namespace GestResto.Logic.Model.Entities
         /// <param name="pNAS">NAS de l'employé</param>
         /// <param name="pSalaire">Salaire de l'employé</param>
         /// <param name="pTelephone">Telephone de l'employé</param>
-        Employe(int pIdEmploye, string pNom, string pPrenom, int pNoEmploye, string pMotPasse, string pAdresse, string pVille, string pCodePostal, string pNAS, float pSalaire, string pTelephone, bool pActif, typeEmploye pType)
+        Employe(int pIdEmploye, string pNom, string pPrenom, int pNoEmploye, string pMotPasse, string pAdresse, string pVille, string pCodePostal, string pNAS, float pSalaire, string pTelephone, bool pEstActif, TypeEmploye pType)
         {
-            idEmploye = pIdEmploye;
-            sNom = pNom;
-            sPrenom = pPrenom;
-            noEmploye = pNoEmploye;
-            sMotDePasse = pMotPasse;
-            sAdresse = pAdresse;
-            sVille = pVille;
-            sCodePostal = pCodePostal;
-            sNAS = pNAS;
-            fSalaire = pSalaire;
-            sTelephone = pTelephone;
-            bActif = pActif;
-            type = pType;
+            IdEmploye = pIdEmploye;
+            Nom = pNom;
+            Prenom = pPrenom;
+            NoEmploye = pNoEmploye;
+            MotDePasse = pMotPasse;
+            Adresse = pAdresse;
+            Ville = pVille;
+            CodePostal = pCodePostal;
+            NAS = pNAS;
+            Salaire = pSalaire;
+            Telephone = pTelephone;
+            EstActif = pEstActif;
+            Type = pType;
         }
 
         #endregion

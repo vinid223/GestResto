@@ -23,8 +23,8 @@ namespace GestResto.Logic.Model.Entities
     {
         #region Variables de la classe
 
-        private uint? idClient ;
-	    private List<Item> ListeItems ;
+        public virtual uint? IdClient { get; set; }
+        public virtual List<Item> ListeItems { get; set; }
 
         #endregion
 
@@ -34,7 +34,7 @@ namespace GestResto.Logic.Model.Entities
         /// </summary>
         public Client()
         {
-            idClient = null;
+            IdClient = null;
             ListeItems = new List<Item>();
         }
 
@@ -45,7 +45,7 @@ namespace GestResto.Logic.Model.Entities
         /// <param name="pListeItems">La liste en paramètre est mise dans la liste du client.</param>
         public Client(uint pIdClient, List<Item> pListeItems)
         {
-            idClient = pIdClient;
+            IdClient = pIdClient;
             ListeItems = pListeItems;
         }
 
