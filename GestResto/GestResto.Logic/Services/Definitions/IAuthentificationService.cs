@@ -4,11 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using GestResto.Logic.Model.Entities;
+using GestResto.Logic.Model.Args;
 
 namespace GestResto.Logic.Services.Definitions
 {
     public interface IAuthentificationService
     {
-        Employe Retrieve(int pNumEmploye, string pMDP);
+        Employe Retrieve(RetrieveAuthentificationArgs args);
     }
 }
