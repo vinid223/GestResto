@@ -19,7 +19,7 @@ namespace GestResto.Logic.Model.Entities
     /// <summary>
     /// Classe TypeEmploye
     /// </summary>
-    class TypeEmploye
+    public class TypeEmploye
     {
 
         #region Liste des variables de la classe

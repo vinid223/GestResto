@@ -71,7 +71,7 @@
     <Compile Include="Model\Entities\Item.cs" />
     <Compile Include="Model\Entities\Restaurant.cs" />
     <Compile Include="Model\Entities\Table.cs" />
-    <Compile Include="Model\Entities\typeEmploye.cs" />
+    <Compile Include="Model\Entities\TypeEmploye.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\Definitions\IAuthentificationService.cs" />
     <Compile Include="Services\Definitions\IClientService.cs" />
