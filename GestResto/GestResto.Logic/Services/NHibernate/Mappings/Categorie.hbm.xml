@@ -3,23 +3,18 @@
                    namespace="GestResto.Logic.Model.Entities"
                    xmlns="urn:nhibernate-mapping-2.2">
   <class name="Categorie" table="Categories">
-
-    <id name="idCategorie">
+    <id name="IdCategorie">
       <column name="idCategorie" not-null="true" sql-type="INTEGER" />
       <generator class="identity" />
     </id>
-
-    <property name="sNom">
+    <property name="Nom">
       <column name="nom" not-null="true" sql-type="VARCHAR" />
     </property>
-
-    <property name="bActif">
-      <column name="actif" not-null="true" sql-type="BOOLEAN" />
+    <property name="EstActif">
+      <column name="actif" not-null="true" sql-type="TINYINT" />
     </property>
-
-    <property name="bComplementaire">
-      <column name="complementaire" not-null="true" sql-type="BOOLEAN" />
+    <property name="EstComplementaire">
+      <column name="complementaire" not-null="true" sql-type="TINYINT" />
     </property>
   </class>
-
 </hibernate-mapping>

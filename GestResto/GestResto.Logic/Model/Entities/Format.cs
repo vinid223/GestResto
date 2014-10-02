@@ -56,7 +56,7 @@ namespace GestResto.Logic.Model.Entities
         {
             IdFormat = pIdFormat;
             Nom = pNom;
-            Libelle = pLibele;
+            Libelle = pLibelle;
             Prix = pPrix;
         }
 
