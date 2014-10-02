@@ -19,5 +19,30 @@ namespace GestResto.Logic.Services.NHibernate
         #region IFormatService Membres
 
         #endregion
+
+        public void Create(Format format)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IList<Format> RetrieveAll()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Format Retrieve(int pIdFormat)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Update(Format format)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Delete(Format format)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

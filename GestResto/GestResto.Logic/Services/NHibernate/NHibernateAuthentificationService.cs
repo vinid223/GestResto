@@ -16,8 +16,9 @@ namespace GestResto.Logic.Services.NHibernate
     {
         private ISession session = NHibernateConnexion.OpenSession();
 
-        #region IAuthentificationService Membres
-
-        #endregion
+        public Employe Retrieve(int pNumEmploye, string pMDP)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

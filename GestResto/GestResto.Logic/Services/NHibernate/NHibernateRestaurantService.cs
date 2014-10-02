@@ -16,8 +16,19 @@ namespace GestResto.Logic.Services.NHibernate
     {
         private ISession session = NHibernateConnexion.OpenSession();
 
-        #region IRestaurantService Membres
+        public void Create(Restaurant item)
+        {
+            throw new NotImplementedException();
+        }
 
-        #endregion
+        public Restaurant Retrieve(int pIdRestaurant)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Update(Restaurant item)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

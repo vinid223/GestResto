@@ -19,5 +19,30 @@ namespace GestResto.Logic.Services.NHibernate
         #region ITableService Membres
 
         #endregion
+
+        public void Create(Table table)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IList<Table> RetrieveAll()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Table Retrieve(int pIdTable)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Update(Table table)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Delete(Table table)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -19,5 +19,30 @@ namespace GestResto.Logic.Services.NHibernate
         #region ICommandeService Membres
 
         #endregion
+
+        public void Create(Commande categorie)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IList<Commande> RetrieveAll()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Commande Retrieve(int pIdCategorie)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Update(Commande categorie)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Delete(Commande categorie)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

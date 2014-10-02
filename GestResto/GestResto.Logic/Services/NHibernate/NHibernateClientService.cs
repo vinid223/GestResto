@@ -19,5 +19,30 @@ namespace GestResto.Logic.Services.NHibernate
         #region IClientService Membres
 
         #endregion
+
+        public void Create(Client client)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IList<Client> RetrieveAll()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Client Retrieve(int pIdClient)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Update(Client client)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Delete(Client client)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
