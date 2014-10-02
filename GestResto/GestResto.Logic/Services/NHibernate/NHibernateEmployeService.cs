@@ -1,6 +1,5 @@
 ﻿using GestResto.Logic.Model.Args;
 using GestResto.Logic.Model.Entities;
-using GestResto.Logic.Services.Defenitions;
 using GestResto.Logic.Services.Definitions;
 using GestResto.Logic.Services.Helpers;
 using NHibernate;
