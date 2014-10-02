@@ -37,7 +37,8 @@ namespace GestResto.UI
 
         private void Configure()
         {
-            ServiceFactory.Instance.Register<ICategorieService, NHibernateCategorieService>(new NHibernateCategorieService());
+            // Simon : J'ai mis la ligne en commentaire, sinon ça ne compilait pas.
+            //ServiceFactory.Instance.Register<ICategorieService, NHibernateCategorieService>(new NHibernateCategorieService());
         }
     }
 }

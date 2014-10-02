@@ -28,7 +28,7 @@ namespace GestResto.Logic.Services.NHibernate
         public Restaurant Retrieve(RetrieveRestaurantArgs args)
         {
             var result = from r in session.Query<Restaurant>()
-                         where r.idRestaurant == args.IIdRestaurant
+                         where r.IdRestaurant == args.IIdRestaurant
                          select r;
 
             return result.FirstOrDefault();

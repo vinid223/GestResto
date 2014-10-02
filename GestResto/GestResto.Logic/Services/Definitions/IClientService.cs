@@ -12,7 +12,7 @@ namespace GestResto.Logic.Services.Definitions
     {
         void Create(Client client);
         IList<Client> RetrieveAll();
-        Client Retrieve(int pIdClient);
+        Client Retrieve(RetrieveClientArgs args);
         void Update(Client client);
         void Delete(Client client);
     }

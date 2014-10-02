@@ -4,13 +4,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using GestResto.Logic.Model.Args;
 
 namespace GestResto.Logic.Services.Definitions
 {
     public interface IRestaurantService
     {
         void Create(Restaurant item);
-        Restaurant Retrieve(int pIdRestaurant);
+        Restaurant Retrieve(RetrieveRestaurantArgs args);
         void Update(Restaurant item);
     }
 }

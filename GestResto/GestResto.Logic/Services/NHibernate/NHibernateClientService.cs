@@ -37,7 +37,7 @@ namespace GestResto.Logic.Services.NHibernate
         public Client Retrieve(RetrieveClientArgs args)
         {
             var result = from c in session.Query<Client>()
-                         where c.idClient == args.IIdClient
+                         where c.IdClient == args.IIdClient
                          select c;
 
             return result.FirstOrDefault();

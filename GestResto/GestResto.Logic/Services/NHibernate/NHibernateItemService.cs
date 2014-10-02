@@ -37,7 +37,7 @@ namespace GestResto.Logic.Services.NHibernate
         public Item Retrieve(RetrieveItemArgs args)
         {
             var result = from i in session.Query<Item>()
-                         where i.idItem == args.IIdItem
+                         where i.IdItem == args.IIdItem
                          select i;
 
             return result.FirstOrDefault();
