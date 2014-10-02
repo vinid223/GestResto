@@ -2,7 +2,7 @@
 <hibernate-mapping assembly="GestResto.Logic"
                    namespace="GestResto.Logic.Model.Entities"
                    xmlns="urn:nhibernate-mapping-2.2">
-  <class name="Employe" table="employes">
+  <class name="Format" table="Formats">
 
     <id name="IdFormat">
       <column name="idFormat" not-null="true" sql-type="INTEGER" />
@@ -24,20 +24,17 @@
     
     
     
-    <set name="certificates" cascade="save-update" table="EMP_CERT">
-      <key column="employee_id"/>
-      <many-to-many column="certificate_id" class="Certificate"/>
+    <set name="Prix" cascade="save-update" table="formatsitems">
+      <key column="idFormat"/>
+      <many-to-many column="idItem" class="Item"/>
     </set>
-    
-    <class name="Certificate" table="CERTIFICATE">
-      <meta attribute="class-description">
-        This class contains the certificate records.
-      </meta>
-      <id name="id" type="int" column="id">
-        <generator class="native"/>
-      </id>
-      <property name="name" column="certificate_name" type="string"/>
-    </class>
-    
   </class>
+  
+  <class name="Item" table="Items">
+    <id name="IdItem" type="int" column="idItem">
+      <generator class="native"/>
+    </id>
+    <property name="Prix" column="prix" type="float"/>
+  </class>
+  
 </hibernate-mapping>
