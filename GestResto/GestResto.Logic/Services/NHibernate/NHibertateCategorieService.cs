@@ -20,12 +20,16 @@ namespace GestResto.Logic.Services.NHibernate
 
         public void Create(Categorie categorie)
         {
-            throw new NotImplementedException();
+            using (var transaction = session.BeginTransaction())
+            {
+                session.Save(categorie);
+                transaction.Commit();
+            }
         }
 
         public IList<Categorie> RetrieveAll()
         {
-            throw new NotImplementedException();
+            return session.Query<Categorie>().ToList();
         }
 
         public Categorie Retrieve(RetrieveCategorieArgs args)
@@ -39,12 +43,20 @@ namespace GestResto.Logic.Services.NHibernate
 
         public void Update(Categorie categorie)
         {
-            throw new NotImplementedException();
+            using (var transaction = session.BeginTransaction())
+            {
+                session.Update(categorie);
+                transaction.Commit();
+            }
         }
 
         public void Delete(Categorie categorie)
         {
-            throw new NotImplementedException();
+            using (var transaction = session.BeginTransaction())
+            {
+                session.Delete(categorie);
+                transaction.Commit();
+            }
         }
 
         #endregion

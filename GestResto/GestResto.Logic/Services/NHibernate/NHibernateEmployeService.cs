@@ -23,7 +23,11 @@ namespace GestResto.Logic.Services.NHibernate
 
         public void Create(Employe employe)
         {
-            throw new NotImplementedException();
+            using (var transaction = session.BeginTransaction())
+            {
+                session.Save(employe);
+                transaction.Commit();
+            }
         }
 
         public IList<Employe> RetriveAll()
@@ -42,12 +46,11 @@ namespace GestResto.Logic.Services.NHibernate
 
         public void Update(Employe employe)
         {
-            throw new NotImplementedException();
-        }
-
-        public void Delete(Employe employe)
-        {
-            throw new NotImplementedException();
+            using (var transaction = session.BeginTransaction())
+            {
+                session.Update(employe);
+                transaction.Commit();
+            }
         }
 
         #endregion

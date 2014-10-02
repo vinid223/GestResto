@@ -13,6 +13,5 @@ namespace GestResto.Logic.Services.Definitions
         IList<Employe> RetriveAll();
         Employe Retrive(int pIdEmploye);
         void Update(Employe employe);
-        void Delete(Employe employe);
     }
 }
