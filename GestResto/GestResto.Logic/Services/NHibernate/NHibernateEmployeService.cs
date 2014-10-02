@@ -1,6 +1,7 @@
 ﻿using GestResto.Logic.Model.Args;
 using GestResto.Logic.Model.Entities;
 using GestResto.Logic.Services.Defenitions;
+using GestResto.Logic.Services.Definitions;
 using GestResto.Logic.Services.Helpers;
 using NHibernate;
 using NHibernate.Linq;
@@ -23,7 +24,11 @@ namespace GestResto.Logic.Services.NHibernate
 
         public void Create(Employe employe)
         {
-            throw new NotImplementedException();
+            using (var transaction = session.BeginTransaction())
+            {
+                session.Save(employe);
+                transaction.Commit();
+            }
         }
 
         public IList<Employe> RetriveAll()
@@ -42,12 +47,11 @@ namespace GestResto.Logic.Services.NHibernate
 
         public void Update(Employe employe)
         {
-            throw new NotImplementedException();
-        }
-
-        public void Delete(Employe employe)
-        {
-            throw new NotImplementedException();
+            using (var transaction = session.BeginTransaction())
+            {
+                session.Update(employe);
+                transaction.Commit();
+            }
         }
 
         #endregion
