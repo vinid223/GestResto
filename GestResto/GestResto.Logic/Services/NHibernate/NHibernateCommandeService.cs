@@ -20,29 +20,37 @@ namespace GestResto.Logic.Services.NHibernate
 
         #endregion
 
-        public void Create(Commande categorie)
+        public void Create(Commande commande)
         {
-            throw new NotImplementedException();
+            using (var transaction = session.BeginTransaction())
+            {
+                session.Save(commande);
+                transaction.Commit();
+            }
         }
 
         public IList<Commande> RetrieveAll()
         {
-            throw new NotImplementedException();
+            return session.Query<Commande>().ToList();
         }
 
-        public Commande Retrieve(int pIdCategorie)
+        public Commande Retrieve(RetrieveCommandeArgs args)
         {
-            throw new NotImplementedException();
+            var result = from c in session.Query<Commande>()
+                         where c.IdCommande == args.IIdCommande
+                         select c;
+
+            return result.FirstOrDefault();
         }
 
-        public void Update(Commande categorie)
+        public void Update(Commande commande)
         {
-            throw new NotImplementedException();
+            using (var transaction = session.BeginTransaction())
+            {
+                session.Update(commande);
+                transaction.Commit();
+            }
         }
 
-        public void Delete(Commande categorie)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

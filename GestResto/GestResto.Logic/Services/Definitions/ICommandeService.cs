@@ -4,15 +4,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using GestResto.Logic.Model.Args;
 
 namespace GestResto.Logic.Services.Definitions
 {
     public interface ICommandeService
     {
-        void Create(Commande categorie);
+        void Create(Commande commande);
         IList<Commande> RetrieveAll();
-        Commande Retrieve(int pIdCategorie);
-        void Update(Commande categorie);
-        void Delete(Commande categorie);
+        Commande Retrieve(RetrieveCommandeArgs args);
+        void Update(Commande commande);
     }
 }
