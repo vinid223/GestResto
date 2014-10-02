@@ -33,7 +33,8 @@ namespace GestResto.UI
             DataContext = new MainViewModel();
             Configure();
 
-            ViewModel.CurrentView = new AuthentificationView();
+            //ViewModel.CurrentView = new AuthentificationView();
+            ViewModel.CurrentView = new CommandeView();
         }
 
         private void Configure()

@@ -1,0 +1,2 @@
+forward6.png : http://www.flaticon.com/free-icon/forward-arrow_24219
+arrow(Right/Left/Up/Down) : http://www.flaticon.com/free-icon/play-symbol_26061

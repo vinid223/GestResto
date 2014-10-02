@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="GestResto.UI.Views.GestonPaiementView"
+﻿<UserControl x:Class="GestResto.UI.Views.GestionPaiementView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -42,7 +42,7 @@
         <StackPanel Grid.Column="2">
             <Button Content="Comptant" Name="btnComptant" Height="35" Margin="10"/>
             <Button Content="Interac" x:Name="btnInterac" Height="35" Margin="10"/>
-            <Button Content="Vida" x:Name="btnVisa" Height="35" Margin="10"/>
+            <Button Content="Visa" x:Name="btnVisa" Height="35" Margin="10"/>
             <Button Content="MasterCard" x:Name="btnMasterCard" Height="35" Margin="10"/>
             <Button Content="Amex" x:Name="btnAmex" Height="35" Margin="10"/>
         </StackPanel>

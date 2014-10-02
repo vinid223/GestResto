@@ -59,9 +59,10 @@
     <Compile Include="ViewModel\AuthentificationViewModel.cs" />
     <Compile Include="ViewModel\CategorieViewModel.cs" />
     <Compile Include="ViewModel\Commandes.ViewModel.cs" />
+    <Compile Include="ViewModel\CommandeViewModel.cs" />
     <Compile Include="ViewModel\EmployeViewModel.cs" />
     <Compile Include="ViewModel\FormatViewModel.cs" />
-    <Compile Include="ViewModel\GestonPaiementViewModel.cs" />
+    <Compile Include="ViewModel\GestionPaiementViewModel.cs" />
     <Compile Include="ViewModel\ItemsViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\OptionsAdministrationViewModel.cs" />
@@ -80,6 +81,9 @@
     <Compile Include="Views\CommandesView.xaml.cs">
       <DependentUpon>CommandesView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\CommandeView.xaml.cs">
+      <DependentUpon>CommandeView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ItemsView.xaml.cs">
       <DependentUpon>ItemsView.xaml</DependentUpon>
     </Compile>
@@ -95,8 +99,8 @@
     <Compile Include="Views\FormatView.xaml.cs">
       <DependentUpon>FormatView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\GestonPaiementView.xaml.cs">
-      <DependentUpon>GestonPaiementView.xaml</DependentUpon>
+    <Compile Include="Views\GestionPaiementView.xaml.cs">
+      <DependentUpon>GestionPaiementView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\OptionsAdministrationView.xaml.cs">
       <DependentUpon>OptionsAdministrationView.xaml</DependentUpon>
@@ -135,6 +139,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\CommandeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\ItemsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -155,7 +163,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\GestonPaiementView.xaml">
+    <Page Include="Views\GestionPaiementView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -208,6 +216,17 @@
       <Project>{92a226ca-7a34-4ba5-bb44-20a9dea2d212}</Project>
       <Name>GestResto.Logic</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="arrowUp.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Images\arrowDown.png" />
+    <Resource Include="Images\arrowLeft.png" />
+    <Resource Include="Images\arrowRight.png" />
+    <Resource Include="Images\arrowUp.png" />
+    <Resource Include="Images\forward6.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GestResto.UI.ViewModel
 {
-    class GestonPaiementViewModel
+    class GestionPaiementViewModel
     {
     }
 }

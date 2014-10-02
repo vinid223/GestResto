@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace GestResto.UI.Views
 {
     /// <summary>
-    /// Logique d'interaction pour GestonPaiementView.xaml
+    /// Logique d'interaction pour CommandeView.xaml
     /// </summary>
-    public partial class GestonPaiementView : UserControl
+    public partial class CommandeView : UserControl
     {
-        public GestonPaiementView()
+        public CommandeView()
         {
             InitializeComponent();
         }
