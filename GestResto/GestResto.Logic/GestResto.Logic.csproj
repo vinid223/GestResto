@@ -83,7 +83,6 @@
     <Compile Include="Services\Definitions\IRestaurantService.cs" />
     <Compile Include="Services\Helpers\MySqlConnexion.cs" />
     <Compile Include="Services\Helpers\NHibernateConnexion.cs" />
-    <Compile Include="Services\Implementation\AuthentificationService.cs" />
     <Compile Include="Services\MySql\MysqlAuthentificationService.cs" />
     <Compile Include="Services\MySql\MySqlEmployeService.cs" />
     <Compile Include="Services\NHibernate\NHibernateEmployeService.cs" />
@@ -92,15 +91,6 @@
   <ItemGroup>
     <Compile Include="Services\Definitions\IEmployeService.cs" />
     <Compile Include="Services\Definitions\ITableService.cs" />
-    <Compile Include="Services\Implementation\CategorieService.cs" />
-    <Compile Include="Services\Implementation\ClientService.cs" />
-    <Compile Include="Services\Implementation\CommandeService.cs" />
-    <Compile Include="Services\Implementation\EmployeService.cs" />
-    <Compile Include="Services\Implementation\FactureService.cs" />
-    <Compile Include="Services\Implementation\FormatService.cs" />
-    <Compile Include="Services\Implementation\ItemService.cs" />
-    <Compile Include="Services\Implementation\RestaurantService.cs" />
-    <Compile Include="Services\Implementation\TableService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Cstj.MvvmToolkit\GestResto.MvvmToolkit.csproj">
