@@ -19,7 +19,8 @@ namespace GestResto.Logic.Services.NHibernate
         public Employe Retrieve(RetrieveAuthentificationArgs args)
         {
             var result = from e in session.Query<Employe>()
-                         where e.NoEmploye == args.INoEmploye
+                         where e.NoEmploye == args.INoEmploye && 
+                               e.MotDePasse == args.SMDP
                          select e;
 
             return result.FirstOrDefault();

@@ -1,4 +1,5 @@
-﻿using GestResto.Logic.Model.Entities;
+﻿using GestResto.Logic.Model.Args;
+using GestResto.Logic.Model.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,8 +12,7 @@ namespace GestResto.Logic.Services.Definitions
     {
         void Create(Facture facture);
         IList<Facture> RetriveAll();
-        Facture Retrive(int pIdFacture);
+        Facture Retrive(RetrieveFactureArgs args);
         void Update(Facture facture);
-        void Delete(Facture facture);
     }
 }

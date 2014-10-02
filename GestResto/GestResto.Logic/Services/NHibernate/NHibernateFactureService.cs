@@ -22,27 +22,34 @@ namespace GestResto.Logic.Services.NHibernate
 
         public void Create(Facture facture)
         {
-            throw new NotImplementedException();
+            using (var transaction = session.BeginTransaction())
+            {
+                session.Save(facture);
+                transaction.Commit();
+            }
         }
 
         public IList<Facture> RetriveAll()
         {
-            throw new NotImplementedException();
+            return session.Query<Facture>().ToList();
         }
 
-        public Facture Retrive(int pIdFacture)
+        public Facture Retrive(RetrieveFactureArgs args)
         {
-            throw new NotImplementedException();
+            var result = from f in session.Query<Facture>()
+                         where f.IdFacture == args.IIdFacture
+                         select f;
+
+            return result.FirstOrDefault();
         }
 
         public void Update(Facture facture)
         {
-            throw new NotImplementedException();
-        }
-
-        public void Delete(Facture facture)
-        {
-            throw new NotImplementedException();
+            using (var transaction = session.BeginTransaction())
+            {
+                session.Update(facture);
+                transaction.Commit();
+            }
         }
     }
 }
