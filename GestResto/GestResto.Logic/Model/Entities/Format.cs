@@ -28,7 +28,7 @@ namespace GestResto.Logic.Model.Entities
 
         public virtual int? IdFormat { get; set; }
         public virtual string Nom { get; set; }
-        public virtual string Libele { get; set; }
+        public virtual string Libelle { get; set; }
         public virtual float Prix { get; set; }
 
         #endregion
@@ -41,7 +41,7 @@ namespace GestResto.Logic.Model.Entities
         {
             IdFormat = null;
             Nom = "";
-            Libele = "";
+            Libelle = "";
             Prix = 0;
         }
 
@@ -52,11 +52,11 @@ namespace GestResto.Logic.Model.Entities
         /// <param name="pNom">Le nom du format en paramètre.</param>
         /// <param name="pLibele">Le libelé en paramètre.</param>
         /// <param name="pPrix">Le prix en paramètre.</param>
-        public Format(int pIdFormat, string pNom, string pLibele, float pPrix)
+        public Format(int pIdFormat, string pNom, string pLibelle, float pPrix)
         {
             IdFormat = pIdFormat;
             Nom = pNom;
-            Libele = pLibele;
+            Libelle = pLibele;
             Prix = pPrix;
         }
 

@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping assembly="GestResto.Logic"
+                   namespace="GestResto.Logic.Model.Entities"
+                   xmlns="urn:nhibernate-mapping-2.2">
+  <class name="Employe" table="employes">
+
+    <id name="IdFormat">
+      <column name="idFormat" not-null="true" sql-type="INTEGER" />
+      <generator class="identity" />
+    </id>
+
+    <property name="Nom">
+      <column name="nom" not-null="true" sql-type="VARCHAR" />
+    </property>
+    
+    <property name="Libelle">
+      <column name="libelle" not-null="true" sql-type="VARCHAR" />
+    </property>
+
+    <property name="Prix">
+      <column name="prix" not-null="true" sql-type="FLOAT" />
+    </property>
+
+    
+    
+    
+    <set name="certificates" cascade="save-update" table="EMP_CERT">
+      <key column="employee_id"/>
+      <many-to-many column="certificate_id" class="Certificate"/>
+    </set>
+    
+    <class name="Certificate" table="CERTIFICATE">
+      <meta attribute="class-description">
+        This class contains the certificate records.
+      </meta>
+      <id name="id" type="int" column="id">
+        <generator class="native"/>
+      </id>
+      <property name="name" column="certificate_name" type="string"/>
+    </class>
+    
+  </class>
+</hibernate-mapping>
