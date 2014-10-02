@@ -16,9 +16,13 @@ namespace GestResto.Logic.Services.NHibernate
     {
         private ISession session = NHibernateConnexion.OpenSession();
 
-        public Employe Retrieve(int pNumEmploye, string pMDP)
+        public Employe Retrieve(RetrieveAuthentificationArgs args)
         {
-            throw new NotImplementedException();
+            var result = from e in session.Query<Employe>()
+                         where e.NoEmploye == args.INoEmploye
+                         select e;
+
+            return result.FirstOrDefault();
         }
     }
 }

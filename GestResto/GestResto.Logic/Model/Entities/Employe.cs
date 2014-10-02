@@ -36,7 +36,7 @@ namespace GestResto.Logic.Model.Entities
         public virtual float Salaire { get; set; }
         public virtual string Telephone { get; set; }
         public virtual bool EstActif { get; set; }
-        public virtual TypeEmploye Type { get; set; }
+        public virtual TypeEmploye Types { get; set; }
         public virtual List<Commande> ListeCommandes { get; set; }
 
         #endregion
@@ -59,7 +59,7 @@ namespace GestResto.Logic.Model.Entities
                 Salaire = 0;
                 Telephone = "";
                 EstActif = false;
-                Type = null;
+                Types = null;
                 ListeCommandes = new List<Commande>();
         }
 
@@ -91,7 +91,7 @@ namespace GestResto.Logic.Model.Entities
             Salaire = pSalaire;
             Telephone = pTelephone;
             EstActif = pEstActif;
-            Type = pType;
+            Types = pType;
         }
 
         #endregion
