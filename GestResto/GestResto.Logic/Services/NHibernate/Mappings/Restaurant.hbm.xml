@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping assembly="GestResto.Logic"
+                   namespace="GestResto.Logic.Model.Entities"
+                   xmlns="urn:nhibernate-mapping-2.2">
+  <class name="Restaurant" table="Restaurants">
+
+    <id name="idRestaurant">
+      <column name="idRestaurant" not-null="true" sql-type="INTEGER" />
+      <generator class="identity" />
+    </id>
+
+    <property name="sNom">
+      <column name="nom" not-null="true" sql-type="VARCHAR" />
+    </property>
+
+    <property name="sAdresse">
+      <column name="adresse" not-null="true" sql-type="VARCHAR" />
+    </property>
+
+    <property name="sTelephone">
+      <column name="telephone" not-null="true" sql-type="INTEGER" />
+    </property>
+
+    <property name="sFax">
+      <column name="fax" not-null="true" sql-type="INTEGER" />
+    </property>
+
+    <property name="sVille">
+      <column name="ville" not-null="true" sql-type="VARCHAR" />
+    </property>
+
+    <property name="sCodePostal">
+      <column name="codePostal" not-null="true" sql-type="VARCHAR" />
+    </property>
+  </class>
+
+</hibernate-mapping>

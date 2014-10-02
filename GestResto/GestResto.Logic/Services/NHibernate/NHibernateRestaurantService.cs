@@ -18,17 +18,29 @@ namespace GestResto.Logic.Services.NHibernate
 
         public void Create(Restaurant item)
         {
-            throw new NotImplementedException();
+            using (var transaction = session.BeginTransaction())
+            {
+                session.Save(item);
+                transaction.Commit();
+            }
         }
 
-        public Restaurant Retrieve(int pIdRestaurant)
+        public Restaurant Retrieve(RetrieveRestaurantArgs args)
         {
-            throw new NotImplementedException();
+            var result = from r in session.Query<Restaurant>()
+                         where r.idRestaurant == args.IIdRestaurant
+                         select r;
+
+            return result.FirstOrDefault();
         }
 
         public void Update(Restaurant item)
         {
-            throw new NotImplementedException();
+            using (var transaction = session.BeginTransaction())
+            {
+                session.Update(item);
+                transaction.Commit();
+            }
         }
     }
 }

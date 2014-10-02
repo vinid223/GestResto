@@ -13,6 +13,5 @@ namespace GestResto.Logic.Services.Definitions
         IList<Item> RetrieveAll();
         Item Retrieve(int pIdItem);
         void Update(Item item);
-        void Delete(Item item);
     }
 }
