@@ -22,27 +22,34 @@ namespace GestResto.Logic.Services.NHibernate
 
         public void Create(Format format)
         {
-            throw new NotImplementedException();
+            using (var transaction = session.BeginTransaction())
+            {
+                session.Save(format);
+                transaction.Commit();
+            }
         }
 
         public IList<Format> RetrieveAll()
         {
-            throw new NotImplementedException();
+            return session.Query<Format>().ToList();
         }
 
-        public Format Retrieve(int pIdFormat)
+        public Format Retrieve(RetrieveFormatArgs args)
         {
-            throw new NotImplementedException();
+            var result = from c in session.Query<Format>()
+                         where c.IdFormat == args.IIdFormat
+                         select c;
+
+            return result.FirstOrDefault();
         }
 
         public void Update(Format format)
         {
-            throw new NotImplementedException();
-        }
-
-        public void Delete(Format format)
-        {
-            throw new NotImplementedException();
+            using (var transaction = session.BeginTransaction())
+            {
+                session.Update(format);
+                transaction.Commit();
+            }
         }
     }
 }

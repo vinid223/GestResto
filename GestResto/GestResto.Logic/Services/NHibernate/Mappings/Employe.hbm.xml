@@ -8,11 +8,7 @@
       <column name="idEmploye" not-null="true" sql-type="INTEGER" />
       <generator class="identity" />
     </id>
-    
-    <many-to-one name="type" class="typeEmploye" lazy="proxy">
-      <column name="idType" not-null="true" sql-type="INTERGER" />
-    </many-to-one>
-    
+   
     <property name="Nom">
       <column name="nom" not-null="true" sql-type="VARCHAR" />
     </property>
@@ -56,6 +52,10 @@
     <property name="EstActif">
       <column name="actif" not-null="true" sql-type="BOOLEAN" />
     </property>
+
+    <many-to-one name="Types" class="TypeEmploye" lazy="proxy">
+      <column name="idType" not-null="true" sql-type="INTERGER" />
+    </many-to-one>
     
     <bag name="Commandes" inverse="true" generic="true" lazy="true" cascade="all">
       <key>

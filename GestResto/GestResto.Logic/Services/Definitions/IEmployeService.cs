@@ -1,4 +1,5 @@
-﻿using GestResto.Logic.Model.Entities;
+﻿using GestResto.Logic.Model.Args;
+using GestResto.Logic.Model.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,7 @@ namespace GestResto.Logic.Services.Definitions
     {
         void Create(Employe employe);
         IList<Employe> RetriveAll();
-        Employe Retrive(int pIdEmploye);
+        Employe Retrive(RetrieveEmployeArgs args);
         void Update(Employe employe);
     }
 }

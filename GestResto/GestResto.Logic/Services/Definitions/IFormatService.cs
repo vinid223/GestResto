@@ -1,4 +1,5 @@
-﻿using GestResto.Logic.Model.Entities;
+﻿using GestResto.Logic.Model.Args;
+using GestResto.Logic.Model.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,8 +12,7 @@ namespace GestResto.Logic.Services.Definitions
     {
         void Create(Format format);
         IList<Format> RetrieveAll();
-        Format Retrieve(int pIdFormat);
+        Format Retrieve(RetrieveFormatArgs args);
         void Update(Format format);
-        void Delete(Format format);
     }
 }
