@@ -1,4 +1,7 @@
-﻿using System;
+﻿using GestResto.Logic.Services.Defenitions;
+using GestResto.MvvmToolkit.Services;
+using GestResto.UI.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,14 +23,16 @@ namespace GestResto.UI.Views
     /// </summary>
     public partial class AuthentificationView : UserControl
     {
+        public CategorieViewModel ViewModel { get { return (CategorieViewModel)DataContext; } }
         public AuthentificationView()
         {
             InitializeComponent();
+            DataContext = new CategorieViewModel();
         }
 
         private void btnConfirmer_Click(object sender, RoutedEventArgs e)
         {
-            
+            ViewModel.SauvegarderCategorie();
         }
     }
 }

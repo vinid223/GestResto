@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Immobilus.Logic.Services.Helpers
+namespace GestResto.Logic.Services.Helpers
 {
     public class MySqlConnexion
     {
