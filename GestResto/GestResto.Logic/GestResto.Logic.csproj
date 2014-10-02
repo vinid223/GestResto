@@ -113,8 +113,10 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Services\NHibernate\Mappings\Client.hbm.xml" />
     <Content Include="Services\NHibernate\Mappings\Employe.hbm.xml" />
     <Content Include="Services\NHibernate\Mappings\Categorie.hbm.xml" />
+    <Content Include="Services\NHibernate\Mappings\Restaurant.hbm.xml" />
     <Content Include="Services\NHibernate\Mappings\Table.hbm.xml">
       <SubType>Designer</SubType>
     </Content>
