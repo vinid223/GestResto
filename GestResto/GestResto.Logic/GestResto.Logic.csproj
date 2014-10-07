@@ -113,14 +113,14 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Services\NHibernate\Mappings\Client.hbm.xml" />
-    <Content Include="Services\NHibernate\Mappings\Employe.hbm.xml" />
+    <EmbeddedResource Include="Services\NHibernate\Mappings\Client.hbm.xml" />
+    <EmbeddedResource Include="Services\NHibernate\Mappings\Employe.hbm.xml" />
     <EmbeddedResource Include="Services\NHibernate\Mappings\Categorie.hbm.xml" />
-    <Content Include="Services\NHibernate\Mappings\Format.hbm.xml" />
-    <Content Include="Services\NHibernate\Mappings\Restaurant.hbm.xml" />
-    <Content Include="Services\NHibernate\Mappings\Table.hbm.xml">
+    <EmbeddedResource Include="Services\NHibernate\Mappings\Format.hbm.xml" />
+    <EmbeddedResource Include="Services\NHibernate\Mappings\Restaurant.hbm.xml" />
+    <EmbeddedResource Include="Services\NHibernate\Mappings\Table.hbm.xml">
       <SubType>Designer</SubType>
-    </Content>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
