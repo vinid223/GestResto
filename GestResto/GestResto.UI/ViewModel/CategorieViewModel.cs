@@ -43,5 +43,13 @@ namespace GestResto.UI.ViewModel
             IList<Categorie> listeCateg = _categService.RetrieveAll();
             return listeCateg;
         }
+
+        public void EnregistrerToutesLesCategories(IList<Categorie> listeCategorie)
+        {
+            foreach (var categorie in listeCategorie)
+	        {
+                _categService.Update(categorie);
+	        }
+        }
     }
 }

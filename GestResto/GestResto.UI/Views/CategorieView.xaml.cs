@@ -23,12 +23,13 @@ namespace GestResto.UI.Views
     public partial class CategorieView : UserControl
     {
         public CategorieViewModel ViewModel { get { return (CategorieViewModel)DataContext;}}
+        public IList<Categorie> listeCategories;
 
         public CategorieView()
         {
             InitializeComponent();
             DataContext = new CategorieViewModel();
-            IList<Categorie> listeCategories = ViewModel.ObtenirToutesLesCategories();
+            listeCategories = ViewModel.ObtenirToutesLesCategories();
             listeBoutonCategories.ItemsSource = listeCategories;
         }
 
@@ -36,6 +37,11 @@ namespace GestResto.UI.Views
         {
             Categorie categorie = (Categorie)((sender as Button).CommandParameter);
             ViewModel.Categorie = categorie;
+        }
+
+        private void EnregistreTout()
+        {
+            ViewModel.EnregistrerToutesLesCategories(listeCategories);
         }
     }
 }
