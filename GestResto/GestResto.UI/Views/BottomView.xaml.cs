@@ -24,6 +24,8 @@ namespace GestResto.UI.Views
         public BottomView()
         {
             InitializeComponent();
+
+
         }
     }
 }
