@@ -42,7 +42,6 @@ namespace GestResto.Logic.Model.Entities
             IdFormat = null;
             Nom = "";
             Libelle = "";
-            Prix = 0;
         }
 
         /// <summary>
@@ -51,13 +50,11 @@ namespace GestResto.Logic.Model.Entities
         /// <param name="pIdFormat">Le id du format en paramètre</param>
         /// <param name="pNom">Le nom du format en paramètre.</param>
         /// <param name="pLibele">Le libelé en paramètre.</param>
-        /// <param name="pPrix">Le prix en paramètre.</param>
-        public Format(int pIdFormat, string pNom, string pLibelle, float pPrix)
+        public Format(int pIdFormat, string pNom, string pLibelle)
         {
             IdFormat = pIdFormat;
             Nom = pNom;
             Libelle = pLibelle;
-            Prix = pPrix;
         }
 
         #endregion

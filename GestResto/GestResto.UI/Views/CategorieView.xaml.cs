@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GestResto.Logic.Model.Entities;
+using GestResto.UI.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +22,20 @@ namespace GestResto.UI.Views
     /// </summary>
     public partial class CategorieView : UserControl
     {
+        public CategorieViewModel ViewModel { get { return (CategorieViewModel)DataContext;}}
+
         public CategorieView()
         {
             InitializeComponent();
+            DataContext = new CategorieViewModel();
+            IList<Categorie> listeCategories = ViewModel.ObtenirToutesLesCategories();
+            listeBoutonCategories.ItemsSource = listeCategories;
+        }
+
+        private void btnDetail_Click(object sender, RoutedEventArgs e)
+        {
+            Categorie categorie = (Categorie)((sender as Button).CommandParameter);
+            ViewModel.Categorie = categorie;
         }
     }
 }

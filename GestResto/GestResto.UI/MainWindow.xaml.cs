@@ -18,6 +18,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using GestResto.Logic.Services.Defenitions;
 using GestResto.Logic.Services.NHibernate;
+using GestResto.MvvmToolkit.Services.Definitions;
 
 namespace GestResto.UI
 {
@@ -34,13 +35,17 @@ namespace GestResto.UI
             Configure();
 
             //ViewModel.CurrentView = new AuthentificationView();
-            ViewModel.CurrentView = new CommandeView();
+            //ViewModel.CurrentView = new CommandeView();
+            ViewModel.CurrentView = new BottomView();
+            //ViewModel.CurrentView = new CategorieView();
         }
 
         private void Configure()
         {
-            ServiceFactory.Instance.Register<IAuthentificationService, NHibernateAuthentificationService>(new NHibernateAuthentificationService());
+            //ServiceFactory.Instance.Register<IAuthentificationService, NHibernateAuthentificationService>(new NHibernateAuthentificationService());
             ServiceFactory.Instance.Register<ICategorieService, NHibertateCategorieService>(new NHibertateCategorieService());
+
+            ServiceFactory.Instance.Register<IApplicationService, MainViewModel>((MainViewModel)this.DataContext);
         }
     }
 }

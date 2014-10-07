@@ -218,15 +218,13 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="arrowUp.png" />
+    <Resource Include="Images\forward.png" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Resource Include="Images\arrowDown.png" />
     <Resource Include="Images\arrowLeft.png" />
     <Resource Include="Images\arrowRight.png" />
     <Resource Include="Images\arrowUp.png" />
-    <Resource Include="Images\forward6.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
