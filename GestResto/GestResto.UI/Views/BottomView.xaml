@@ -30,7 +30,7 @@
             <Button Content="Générer" Margin="5"  Width="60" Height="50" Name="btnGenerer"/>
             <Button Content="Rapport" Margin="5"  Width="60" Height="50" Name="btnRapport"/>
             <Button Content="Créer" Margin="5"  Width="60" Height="50" Name="btnCreer"/>
-            <Button Content="Enregistrer" Margin="5"  Width="60" Height="50" Name="btnEnregistrer"/>
+            <Button Content="Enregistrer" Margin="5"  Width="60" Height="50" Name="btnEnregistrer" Click="btnEnregistrer_Click"/>
             <Button Content="Ajouter" Margin="5"  Width="60" Height="50" Name="btnAjouter"/>
             <Button Content="Déconnexion" Margin="5"  Width="60" Height="50" Name="btnDeconnexion"/>
 

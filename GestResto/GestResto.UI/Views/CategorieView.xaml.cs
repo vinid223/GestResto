@@ -1,4 +1,5 @@
 ﻿using GestResto.Logic.Model.Entities;
+using GestResto.UI.BottomUse;
 using GestResto.UI.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -31,6 +32,7 @@ namespace GestResto.UI.Views
             DataContext = new CategorieViewModel();
             listeCategories = ViewModel.ObtenirToutesLesCategories();
             listeBoutonCategories.ItemsSource = listeCategories;
+
         }
 
         private void btnDetail_Click(object sender, RoutedEventArgs e)
