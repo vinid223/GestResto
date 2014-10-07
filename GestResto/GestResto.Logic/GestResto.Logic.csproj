@@ -68,6 +68,7 @@
     <Compile Include="Model\Entities\Employe.cs" />
     <Compile Include="Model\Entities\Facture.cs" />
     <Compile Include="Model\Entities\Format.cs" />
+    <Compile Include="Model\Entities\FormatItem.cs" />
     <Compile Include="Model\Entities\Item.cs" />
     <Compile Include="Model\Entities\Restaurant.cs" />
     <Compile Include="Model\Entities\Table.cs" />
