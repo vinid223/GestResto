@@ -32,7 +32,7 @@ namespace GestResto.UI.Views
 
         private void btnConfirmer_Click(object sender, RoutedEventArgs e)
         {
-
+            ViewModel.SauvegarderCategorie();
         }
     }
 }

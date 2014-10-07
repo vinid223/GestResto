@@ -1,7 +1,6 @@
 ﻿using GestResto.Logic.Model.Args;
 using GestResto.Logic.Model.Entities;
 using GestResto.Logic.Services.Defenitions;
-using GestResto.MvvmToolkit;
 using GestResto.MvvmToolkit.Services;
 using System;
 using System.Collections.Generic;
@@ -11,37 +10,24 @@ using System.Threading.Tasks;
 
 namespace GestResto.UI.ViewModel
 {
-    public class CategorieViewModel : BaseViewModel
+    public class CategorieViewModel
     {
         private ICategorieService _categService;
-
-
-        private Categorie _categorie;
-
-        public Categorie Categorie
-        { 
-            get 
-            { 
-                return _categorie; 
-            } 
-            
-            set 
-            { 
-                _categorie = value; 
-                RaisePropertyChanged(); 
-            } 
-        }
-
         public CategorieViewModel()
         {
             _categService = ServiceFactory.Instance.GetService<ICategorieService>();
         }
 
-        public IList<Categorie> ObtenirToutesLesCategories()
+        public void SauvegarderCategorie()
         {
+
             RetrieveCategorieArgs args = new RetrieveCategorieArgs();
-            IList<Categorie> listeCateg = _categService.RetrieveAll();
-            return listeCateg;
+
+            args.idCategorie = 2;
+
+            Categorie test = _categService.Retrieve(args);
+
+            int nsfsdf = 0;
         }
     }
 }
