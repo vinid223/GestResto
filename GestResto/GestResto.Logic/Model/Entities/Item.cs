@@ -26,13 +26,9 @@ namespace GestResto.Logic.Model.Entities
         public virtual int? IdItem { get; set; }
         public virtual string Nom { get; set; }
         public virtual List<FormatItem> Formats { get; set; }
-
-        /* Test pour ORM Tommy Demers Constructeurs aussi
-         * 
-        public virtual FormatItem FormatItemPrix { get; set; }
-        public virtual Format FormatItem { get; set; }
         public virtual Categorie Categories { get; set; }
-        public virtual List<Item> ListeComplements { get; set; }*/
+
+       // public virtual List<Item> ListeComplements { get; set; }
         #endregion
 
         #region Constructeur de la classe Item

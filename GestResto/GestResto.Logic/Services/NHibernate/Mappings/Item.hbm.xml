@@ -13,6 +13,10 @@
       <column name="nom" not-null="true" sql-type="VARCHAR" />
     </property>
 
+    <many-to-one name="Categories" class="Categorie">
+      <column name="idCategorie" not-null="true" sql-type="INTEGER" />
+    </many-to-one>
+    
     <set name="Formats" table="FormatsItems" generic="true">
       <key>
         <column name="IdItem" not-null="true" sql-type="INTEGER" />
