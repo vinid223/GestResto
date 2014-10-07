@@ -29,7 +29,7 @@ namespace GestResto.Logic.Model.Entities
         public virtual int? IdFormat { get; set; }
         public virtual string Nom { get; set; }
         public virtual string Libelle { get; set; }
-        public virtual float Prix { get; set; }
+        public virtual List<FormatItem> Items { get; set; }
 
         #endregion
 

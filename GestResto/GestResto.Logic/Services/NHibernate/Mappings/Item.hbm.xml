@@ -2,31 +2,25 @@
 <hibernate-mapping assembly="GestResto.Logic"
                    namespace="GestResto.Logic.Model.Entities"
                    xmlns="urn:nhibernate-mapping-2.2">
-  <class name="Format" table="Formats">
+  <class name="Item" table="Items">
 
-    <id name="IdFormat">
-      <column name="idFormat" not-null="true" sql-type="INTEGER" />
+    <id name="IdItem">
+      <column name="idItem" not-null="true" sql-type="INTEGER" />
       <generator class="identity" />
     </id>
 
     <property name="Nom">
       <column name="nom" not-null="true" sql-type="VARCHAR" />
     </property>
-    
-    <property name="Libelle">
-      <column name="libelle" not-null="true" sql-type="VARCHAR" />
-    </property>
 
-
-
-    <set name="Items" table="FormatsItems" generic="true">
+    <set name="Formats" table="FormatsItems" generic="true">
       <key>
-        <column name="IdFormat" not-null="true" sql-type="INTEGER" />
+        <column name="IdItem" not-null="true" sql-type="INTEGER" />
       </key>
 
       <composite-element class="FormatItem">
-        <many-to-one name="Items" class="Item" fetch="join">
-          <column name="IdItem" not-null="true" sql-type="INTEGER" />
+        <many-to-one name="Formats" class="Format" fetch="join">
+          <column name="IdFormat" not-null="true" sql-type="INTEGER" />
         </many-to-one>
         <property name="Prix">
           <column name="Prix" not-null="false" sql-type="FLOAT" />
