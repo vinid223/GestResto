@@ -34,7 +34,8 @@ namespace GestResto.UI
             Configure();
 
             //ViewModel.CurrentView = new AuthentificationView();
-            ViewModel.CurrentView = new CommandeView();
+            //ViewModel.CurrentView = new CommandeView();
+            ViewModel.CurrentView = new BottomView();
         }
 
         private void Configure()
