@@ -25,9 +25,14 @@ namespace GestResto.Logic.Model.Entities
         #region Variables de la classe
         public virtual int? IdItem { get; set; }
         public virtual string Nom { get; set; }
+        public virtual List<FormatItem> Formats { get; set; }
+
+        /* Test pour ORM Tommy Demers Constructeurs aussi
+         * 
+        public virtual FormatItem FormatItemPrix { get; set; }
         public virtual Format FormatItem { get; set; }
         public virtual Categorie Categories { get; set; }
-        public virtual List<Item> ListeComplements { get; set; }
+        public virtual List<Item> ListeComplements { get; set; }*/
         #endregion
 
         #region Constructeur de la classe Item
@@ -38,9 +43,9 @@ namespace GestResto.Logic.Model.Entities
         {
             IdItem = null;
             Nom = "";
-            FormatItem = new Format();
-            Categories = new Categorie();
-            ListeComplements = new List<Item>();
+            Formats = new List<FormatItem>();
+           // Categories = new Categorie();
+          //  ListeComplements = new List<Item>();
         }
 
         /// <summary>
@@ -54,8 +59,8 @@ namespace GestResto.Logic.Model.Entities
         {
             IdItem = pIdItem;
             Nom = pNom;
-            FormatItem = pFormatItem;
-            Categories = pCategories;
+           // FormatItem = pFormatItem;
+           // Categories = pCategories;
         }
         #endregion
     }
