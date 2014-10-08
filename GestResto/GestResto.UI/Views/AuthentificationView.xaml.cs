@@ -23,11 +23,7 @@ namespace GestResto.UI.Views
     /// </summary>
     public partial class AuthentificationView : UserControl
     {
-<<<<<<< HEAD
         //public ItemsViewModel ViewModel { get { return (ItemsViewModel)DataContext; } }
-=======
-       // public ItemsViewModel ViewModel { get { return (ItemsViewModel)DataContext; } }
->>>>>>> origin/master
 
         public AuthentificationView()
         {

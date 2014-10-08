@@ -50,15 +50,6 @@ namespace GestResto.Logic.Services.NHibernate
             }
         }
 
-        public void Delete(Categorie categorie)
-        {
-            using (var transaction = session.BeginTransaction())
-            {
-                session.Delete(categorie);
-                transaction.Commit();
-            }
-        }
-
         #endregion
     }
 }

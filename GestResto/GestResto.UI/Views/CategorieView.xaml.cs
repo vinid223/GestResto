@@ -23,7 +23,7 @@ namespace GestResto.UI.Views
     /// </summary>
     public partial class CategorieView : UserControl
     {
-        public CategorieViewModel ViewModel { get { return (CategorieViewModel)DataContext;}}
+        public CategorieViewModel ViewModel { get { return (CategorieViewModel)DataContext; } }
         public IList<Categorie> listeCategories;
 
         public CategorieView()
@@ -41,15 +41,9 @@ namespace GestResto.UI.Views
             ViewModel.Categorie = categorie;
         }
 
-        private void EnregistreTout()
-        {
-            ViewModel.EnregistrerToutesLesCategories(listeCategories);
-        }
-
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Thread thread = new Thread(EnregistreTout);
-            thread.Start();
+            ViewModel.EnregistrerUneCategorie(ViewModel.Categorie);
         }
     }
 }
