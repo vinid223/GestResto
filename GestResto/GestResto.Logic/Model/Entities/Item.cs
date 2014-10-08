@@ -25,8 +25,8 @@ namespace GestResto.Logic.Model.Entities
         #region Variables de la classe
         public virtual int? IdItem { get; set; }
         public virtual string Nom { get; set; }
-        public virtual List<FormatItem> Formats { get; set; }
         public virtual Categorie Categories { get; set; }
+       // public virtual List<FormatItem> Formats { get; set; }
 
        // public virtual List<Item> ListeComplements { get; set; }
         #endregion
@@ -39,7 +39,7 @@ namespace GestResto.Logic.Model.Entities
         {
             IdItem = null;
             Nom = "";
-            Formats = new List<FormatItem>();
+            //Formats = new List<FormatItem>();
            // Categories = new Categorie();
           //  ListeComplements = new List<Item>();
         }
