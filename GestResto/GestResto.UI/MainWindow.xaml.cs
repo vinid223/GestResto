@@ -36,8 +36,10 @@ namespace GestResto.UI
 
             //ViewModel.CurrentView = new AuthentificationView();
             //ViewModel.CurrentView = new CommandeView();
-            ViewModel.CurrentView = new BottomView();
+            ViewModel.CurrentView = new AuthentificationView();
             //ViewModel.CurrentView = new CategorieView();
+
+            
         }
 
         private void Configure()
@@ -45,6 +47,9 @@ namespace GestResto.UI
             //ServiceFactory.Instance.Register<IAuthentificationService, NHibernateAuthentificationService>(new NHibernateAuthentificationService());
             ServiceFactory.Instance.Register<ICategorieService, NHibertateCategorieService>(new NHibertateCategorieService());
 
+            ServiceFactory.Instance.Register<IFormatService, NHibernateFormatService>(new NHibernateFormatService())
+            ServiceFactory.Instance.Register<IItemService, NHibernateItemService>(new NHibernateItemService());
+           
             ServiceFactory.Instance.Register<IApplicationService, MainViewModel>((MainViewModel)this.DataContext);
         }
     }

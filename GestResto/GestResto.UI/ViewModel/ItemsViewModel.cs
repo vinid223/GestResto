@@ -8,5 +8,7 @@ namespace GestResto.UI.ViewModel
 {
     class ItemsViewModel
     {
+
+
     }
 }

@@ -23,16 +23,15 @@ namespace GestResto.UI.Views
     /// </summary>
     public partial class AuthentificationView : UserControl
     {
-        public CategorieViewModel ViewModel { get { return (CategorieViewModel)DataContext; } }
+        public ItemsViewModel ViewModel { get { return (ItemsViewModel)DataContext; } }
         public AuthentificationView()
         {
             InitializeComponent();
-            DataContext = new CategorieViewModel();
+            DataContext = new ItemsViewModel();
         }
 
         private void btnConfirmer_Click(object sender, RoutedEventArgs e)
         {
-
         }
     }
 }
