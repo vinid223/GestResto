@@ -1,5 +1,4 @@
 ﻿using GestResto.Logic.Model.Entities;
-using GestResto.UI.BottomUse;
 using GestResto.UI.ViewModel;
 using System;
 using System.Collections.Generic;
