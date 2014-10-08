@@ -48,7 +48,8 @@ namespace GestResto.UI.Views
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            new Thread(EnregistreTout).Start();
+            Thread thread = new Thread(EnregistreTout);
+            thread.Start();
         }
     }
 }
