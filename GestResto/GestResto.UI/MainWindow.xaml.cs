@@ -16,7 +16,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using GestResto.Logic.Services.Defenitions;
+using GestResto.Logic.Services.Definitions;
 using GestResto.Logic.Services.NHibernate;
 using GestResto.MvvmToolkit.Services.Definitions;
 
