@@ -82,6 +82,7 @@
     <Compile Include="Services\Definitions\IFormatService.cs" />
     <Compile Include="Services\Definitions\IItemService.cs" />
     <Compile Include="Services\Definitions\IRestaurantService.cs" />
+    <Compile Include="Services\Helpers\MySqlConnexion.cs" />
     <Compile Include="Services\Helpers\NHibernateConnexion.cs" />
     <Compile Include="Services\NHibernate\NHibernateAuthentificationService.cs" />
     <Compile Include="Services\NHibernate\NHibernateClientService.cs" />
