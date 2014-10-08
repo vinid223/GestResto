@@ -20,16 +20,21 @@ namespace GestResto.Logic.Services.NHibernate
 
         public void Create(Categorie categorie)
         {
+            session = NHibernateConnexion.OpenSession();
             using (var transaction = session.BeginTransaction())
             {
                 session.Save(categorie);
                 transaction.Commit();
             }
+            session.Close();
         }
 
         public IList<Categorie> RetrieveAll()
         {
-            return session.Query<Categorie>().ToList();
+            session = NHibernateConnexion.OpenSession();
+            IList<Categorie> listeTemp = session.Query<Categorie>().ToList();
+            session.Close();
+            return listeTemp;
         }
 
         public Categorie Retrieve(RetrieveCategorieArgs args)
@@ -43,11 +48,13 @@ namespace GestResto.Logic.Services.NHibernate
 
         public void Update(Categorie categorie)
         {
+            session = NHibernateConnexion.OpenSession();
             using (var transaction = session.BeginTransaction())
             {
                 session.Update(categorie);
                 transaction.Commit();
             }
+            session.Close();
         }
 
         #endregion
