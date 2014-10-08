@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace GestResto.UI.ViewModel
 {
-    class ItemsViewModel
+    class ItemsViewModel : BaseViewModel
     {
         private IItemService _itemService;
 
@@ -33,21 +33,21 @@ namespace GestResto.UI.ViewModel
 
         public ItemsViewModel()
         {
-            _categService = ServiceFactory.Instance.GetService<ICategorieService>();
+            _itemService = ServiceFactory.Instance.GetService<IItemService>();
         }
 
-        public IList<Categorie> ObtenirToutesLesCategories()
+        public IList<Item> ObtenirToutesLesItems()
         {
-            RetrieveCategorieArgs args = new RetrieveCategorieArgs();
-            IList<Categorie> listeCateg = _categService.RetrieveAll();
-            return listeCateg;
+            RetrieveItemArgs args = new RetrieveItemArgs();
+            IList<Item> listeItem = _itemService.RetrieveAll();
+            return listeItem;
         }
 
-        public void EnregistrerToutesLesCategories(IList<Categorie> listeCategorie)
+        public void EnregistrerToutesLesItems(IList<Categorie> listeItems)
         {
-            foreach (var categorie in listeCategorie)
+            foreach (var categorie in listeItems)
 	        {
-                _categService.Update(categorie);
+                _itemService.Update(Item);
 	        }
         }
 
