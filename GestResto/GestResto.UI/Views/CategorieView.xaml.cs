@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -43,6 +44,12 @@ namespace GestResto.UI.Views
         private void EnregistreTout()
         {
             ViewModel.EnregistrerToutesLesCategories(listeCategories);
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Thread thread = new Thread(EnregistreTout);
+            thread.Start();
         }
     }
 }

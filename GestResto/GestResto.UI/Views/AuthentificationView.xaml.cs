@@ -1,4 +1,4 @@
-﻿using GestResto.Logic.Services.Defenitions;
+﻿using GestResto.Logic.Services.Definitions;
 using GestResto.MvvmToolkit.Services;
 using GestResto.UI.ViewModel;
 using System;
@@ -23,16 +23,20 @@ namespace GestResto.UI.Views
     /// </summary>
     public partial class AuthentificationView : UserControl
     {
-        public CategorieViewModel ViewModel { get { return (CategorieViewModel)DataContext; } }
+<<<<<<< HEAD
+        //public ItemsViewModel ViewModel { get { return (ItemsViewModel)DataContext; } }
+=======
+       // public ItemsViewModel ViewModel { get { return (ItemsViewModel)DataContext; } }
+>>>>>>> origin/master
+
         public AuthentificationView()
         {
             InitializeComponent();
-            DataContext = new CategorieViewModel();
+            DataContext = new ItemsViewModel();
         }
 
         private void btnConfirmer_Click(object sender, RoutedEventArgs e)
         {
-
         }
     }
 }
