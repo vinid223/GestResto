@@ -25,8 +25,9 @@ namespace GestResto.UI.ViewModel
                 return _categorie; 
             } 
             
-            set 
-            { 
+            set
+            {
+                RaisePropertyChanging();
                 _categorie = value; 
                 RaisePropertyChanged(); 
             } 
@@ -44,12 +45,9 @@ namespace GestResto.UI.ViewModel
             return listeCateg;
         }
 
-        public void EnregistrerToutesLesCategories(IList<Categorie> listeCategorie)
+        public void EnregistrerUneCategorie(Categorie categorie)
         {
-            foreach (var categorie in listeCategorie)
-	        {
-                _categService.Update(categorie);
-	        }
+            _categService.Update(categorie);
         }
     }
 }

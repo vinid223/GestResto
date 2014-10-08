@@ -219,12 +219,31 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\forward.png" />
+    <Resource Include="Images\lock.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\arrowDown.png" />
     <Resource Include="Images\arrowLeft.png" />
     <Resource Include="Images\arrowRight.png" />
     <Resource Include="Images\arrowUp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\amex.png" />
+    <Resource Include="Images\boxes.png" />
+    <Resource Include="Images\checkmark.png" />
+    <Resource Include="Images\debit.png" />
+    <Resource Include="Images\document.png" />
+    <Resource Include="Images\documents.png" />
+    <Resource Include="Images\dollar.png" />
+    <Resource Include="Images\floppy.png" />
+    <Resource Include="Images\info.png" />
+    <Resource Include="Images\lines.png" />
+    <Resource Include="Images\mastercard.png" />
+    <Resource Include="Images\money.png" />
+    <Resource Include="Images\plus.png" />
+    <Resource Include="Images\printer.png" />
+    <Resource Include="Images\recycle.png" />
+    <Resource Include="Images\visa.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
