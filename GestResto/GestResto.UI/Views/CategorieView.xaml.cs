@@ -2,6 +2,7 @@
 using GestResto.UI.ViewModel;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -41,9 +42,31 @@ namespace GestResto.UI.Views
             ViewModel.Categorie = categorie;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void btnEnregistrer_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             ViewModel.EnregistrerUneCategorie(ViewModel.Categorie);
+        }
+
+        private void btnAjouter_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            // On crée une catégorie en mémoire
+            Categorie categTemp = new Categorie("Entrez le nom de votre catégorie", false, false);
+
+            // On insert dans la base de donnée la nouvello catégorie et on en retire l'id
+            categTemp.IdCategorie = ViewModel.AjouterUneCategorie(categTemp);
+
+            // On ajoute dans la liste la catégorie créé
+            listeCategories.Add(categTemp);
+
+            // On indique dans le view model la nouvelle catégorie créé
+            ViewModel.Categorie = categTemp;
+
+            // On donne la nouvelle source à notre liste view
+            listeBoutonCategories.ItemsSource = listeCategories;
+
+            // On rafraichie nottre liste view pour afficher le bouton ajouté
+            ICollectionView view = CollectionViewSource.GetDefaultView(listeBoutonCategories.ItemsSource);
+            view.Refresh();
         }
     }
 }

@@ -49,5 +49,19 @@ namespace GestResto.UI.ViewModel
         {
             _categService.Update(categorie);
         }
+
+        public int AjouterUneCategorie(Categorie categorie)
+        {
+            // On insert l'enregistrement dans la base de donnée
+            _categService.Create(categorie);
+
+            // On va chercher l'id lors de l'enregistrement
+            int i;
+
+            // Puisque l'id de l'objet est nullable on doit la transformer pour s'en servir
+            i = categorie.IdCategorie ?? default(int);
+
+            return i;
+        }
     }
 }

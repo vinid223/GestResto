@@ -56,6 +56,19 @@ namespace GestResto.Logic.Model.Entities
             EstActif = pEstActif;
             EstComplementaire = pEstComplementaire;
         }
+
+        /// <summary>
+        /// Constructeur paramétré de catégorie sans le paramètre de l'id puisque nous avons besoin de créer une catégorie sans d'id
+        /// </summary>
+        /// <param name="pNom">Nom de la catégorie</param>
+        /// <param name="pEstActif">Statut de la catégorie par true ou false pour actif ou non</param>
+        /// <param name="pEstComplementaire">Statut indiquant si la catégorie est une catégorie complémentaire par un true ou false</param>
+        public Categorie(string pNom, bool pEstActif, bool pEstComplementaire)
+        {
+            Nom = pNom;
+            EstActif = pEstActif;
+            EstComplementaire = pEstComplementaire;
+        }
         #endregion
     }
 }
