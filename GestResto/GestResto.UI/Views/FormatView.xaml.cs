@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using GestResto.MvvmToolkit.Services;
+using GestResto.MvvmToolkit.Services.Definitions;
 
 namespace GestResto.UI.Views
 {
@@ -25,9 +27,34 @@ namespace GestResto.UI.Views
             InitializeComponent();
         }
 
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        private void btnDetail_Click(object sender, RoutedEventArgs e)
         {
-
+            MessageBox.Show("Bouton");
         }
+
+        private void btnEnregistrer_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            MessageBox.Show("Enregistrer");
+        }
+        private void btnAjouter_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            MessageBox.Show("Ajouter");
+        }
+
+        // Fonction qui sert à nous déconnecter
+        private void btnDeconnexion_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            MessageBox.Show("Déconnexion"); // TODO Non implémenté pour l'instant 
+            // Nous devrions créer une fonction commune qu'on va appeler
+        }
+
+        // Fonction qui sert à revenir à la view précédente
+        private void btnRetour_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            IApplicationService mainVM = ServiceFactory.Instance.GetService<IApplicationService>();
+            mainVM.ChangeView<OptionsAdministrationView>(new OptionsAdministrationView());
+        }
+
+
     }
 }

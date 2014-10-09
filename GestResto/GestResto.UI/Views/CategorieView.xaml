@@ -5,8 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:GestResto.UI.Views" x:Class="GestResto.UI.Views.CategorieView" 
              mc:Ignorable="d" 
-             d:DesignHeight="600" d:DeseignWidth="1000">
-    <!-- HorizontalAlignment="Stretch" VerticalAlignment="Stretch"-->
+             d:DesignHeight="600" d:DesignWidth="1000">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition/>
@@ -30,6 +29,7 @@
         </ListView>
 
         <Label Content="Liste de toutes les catégories" HorizontalContentAlignment="Center" VerticalAlignment="Top" Grid.Column="1" Height="26" Margin="50,10,50,0"/>
+        <!-- Boutons de navigation -->
         <Grid Grid.ColumnSpan="2" Grid.Row="1" Margin="0,0,24,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="80"/>
@@ -69,7 +69,7 @@
                     <Label HorizontalAlignment="Center" Grid.Row="1" Height="30" FontSize="12">Ajouter</Label>
                 </Grid>
 
-                <Grid Grid.Column="1" Height="70" Width="80" Name="btnDeconnexion">
+                <Grid Grid.Column="1" Height="70" Width="80" Name="btnDeconnexion" MouseLeftButtonDown="btnDeconnexion_MouseLeftButtonDown">
                     <Grid.RowDefinitions>
                         <RowDefinition/>
                         <RowDefinition Height="30"/>
@@ -81,5 +81,6 @@
                 </Grid>
             </StackPanel>
         </Grid>
+        <!-- Fin des boutons de navigation -->
     </Grid>
 </UserControl>

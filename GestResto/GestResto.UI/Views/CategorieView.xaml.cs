@@ -87,10 +87,16 @@ namespace GestResto.UI.Views
             view.Refresh();
         }
 
+        // Fonction qui sert à nous déconnecter
+        private void btnDeconnexion_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            MessageBox.Show("Déconnexion"); // TODO Non implémenté pour l'instant 
+            // Nous devrions créer une fonction commune qu'on va appeler
+        }
+
         // Fonction qui sert à revenir à la view précédente
         private void btnRetour_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-
             IApplicationService mainVM = ServiceFactory.Instance.GetService<IApplicationService>();
             mainVM.ChangeView<OptionsAdministrationView>(new OptionsAdministrationView());
         }

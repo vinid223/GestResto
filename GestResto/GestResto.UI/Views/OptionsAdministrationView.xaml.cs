@@ -38,5 +38,11 @@ namespace GestResto.UI.Views
             IApplicationService mainVM = ServiceFactory.Instance.GetService<IApplicationService>();
             mainVM.ChangeView<RestaurantView>(new RestaurantView());
         }
+
+        private void btnGererFormat(object sender, RoutedEventArgs e)
+        {
+            IApplicationService mainVM = ServiceFactory.Instance.GetService<IApplicationService>();
+            mainVM.ChangeView<FormatView>(new FormatView());
+        }
     }
 }
