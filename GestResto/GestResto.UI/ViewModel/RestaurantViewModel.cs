@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace GestResto.UI.ViewModel
 {
-    public class RestaurantViewModel
+    public class RestaurantViewModel : BaseViewModel
     {
         private IRestaurantService _restoService;
 
@@ -35,15 +35,15 @@ namespace GestResto.UI.ViewModel
 
         public RestaurantViewModel()
         {
-            _restaurant = ServiceFactory.Instance.GetService<IRestaurantService>();
+            _restoService = ServiceFactory.Instance.GetService<IRestaurantService>();
         }
 
-        public Restaurant ObtenirRestaurant()
+        public Restaurant ObtenirRestaurant(int i)
         {
             RetrieveRestaurantArgs args = new RetrieveRestaurantArgs();
-            args.IIdRestaurant = 1;
-            Restaurant restaurant = _restoService.Retrieve(args.IIdRestaurant);
-            return listeCateg;
+            args.IIdRestaurant = i;
+            Restaurant restaurant = _restoService.Retrieve(args);
+            return restaurant;
         }
     }
 }

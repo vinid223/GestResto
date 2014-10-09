@@ -123,7 +123,7 @@
     <EmbeddedResource Include="Services\NHibernate\Mappings\Format.hbm.xml" />
     <EmbeddedResource Include="Services\NHibernate\Mappings\Item.hbm.xml" />
     <EmbeddedResource Include="Services\NHibernate\Mappings\FormatItem.hbm.xml" />
-    <Content Include="Services\NHibernate\Mappings\Restaurant.hbm.xml" />
+    <EmbeddedResource Include="Services\NHibernate\Mappings\Restaurant.hbm.xml" />
     <Content Include="Services\NHibernate\Mappings\Table.hbm.xml">
       <SubType>Designer</SubType>
     </Content>

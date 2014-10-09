@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             Height="500" Width="1000">
+             d:DesignHeight="600" d:DeseignWidth="1000">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition/>
@@ -18,12 +18,12 @@
         <Label x:Name="lblTelephone" Content="Téléphone" HorizontalAlignment="Left" Margin="10,230,0,0" VerticalAlignment="Top" Width="84" Height="26"/>
         <Label x:Name="lblFax" Content="Fax" HorizontalAlignment="Left" Margin="10,279,0,0" VerticalAlignment="Top" Width="84" Height="26"/>
 
-        <TextBox x:Name="txtNom" HorizontalAlignment="Left" Height="26" Margin="111,50,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="372"/>
-        <TextBox x:Name="txtAdresse" HorizontalAlignment="Left" Height="26" Margin="111,97,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="372"/>
-        <TextBox x:Name="txtVille" HorizontalAlignment="Left" Height="26" Margin="111,141,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="372"/>
-        <TextBox x:Name="txtCodePostal" HorizontalAlignment="Left" Height="26" Margin="111,186,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="372"/>
-        <TextBox x:Name="txtTelephone" HorizontalAlignment="Left" Height="26" Margin="111,232,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="372"/>
-        <TextBox x:Name="txtFax" HorizontalAlignment="Left" Height="26" Margin="111,281,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="372"/>
+        <TextBox x:Name="txtNom" HorizontalAlignment="Left" Height="26" Margin="111,50,0,0" TextWrapping="Wrap" Text="{Binding Restaurant. Nom}" VerticalAlignment="Top" Width="372"/>
+        <TextBox x:Name="txtAdresse" HorizontalAlignment="Left" Height="26" Margin="111,97,0,0" TextWrapping="Wrap" Text="{Binding Restaurant. Adresse}" VerticalAlignment="Top" Width="372"/>
+        <TextBox x:Name="txtVille" HorizontalAlignment="Left" Height="26" Margin="111,141,0,0" TextWrapping="Wrap" Text="{Binding Restaurant. Ville}" VerticalAlignment="Top" Width="372"/>
+        <TextBox x:Name="txtCodePostal" HorizontalAlignment="Left" Height="26" Margin="111,186,0,0" TextWrapping="Wrap" Text="{Binding Restaurant. CodePostal}" VerticalAlignment="Top" Width="372"/>
+        <TextBox x:Name="txtTelephone" HorizontalAlignment="Left" Height="26" Margin="111,232,0,0" TextWrapping="Wrap" Text="{Binding Restaurant. Telephone}" VerticalAlignment="Top" Width="372"/>
+        <TextBox x:Name="txtFax" HorizontalAlignment="Left" Height="26" Margin="111,281,0,0" TextWrapping="Wrap" Text="{Binding Restaurant. Fax}" VerticalAlignment="Top" Width="372"/>
         <Grid Grid.ColumnSpan="2" Grid.Row="1" Margin="0,0,24,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="80"/>

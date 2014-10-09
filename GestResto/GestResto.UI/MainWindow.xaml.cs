@@ -33,6 +33,8 @@ namespace GestResto.UI
             DataContext = new MainViewModel();
             Configure();
 
+            this.SizeToContent = SizeToContent.Manual;
+
             ViewModel.CurrentView = new OptionsAdministrationView();
         }
 
@@ -44,7 +46,8 @@ namespace GestResto.UI
             ServiceFactory.Instance.Register<IFormatItemService, NHibernateFormatItemService>(new NHibernateFormatItemService());
             ServiceFactory.Instance.Register<IFormatService, NHibernateFormatService>(new NHibernateFormatService());
             ServiceFactory.Instance.Register<IItemService, NHibernateItemService>(new NHibernateItemService());
-           
+            ServiceFactory.Instance.Register<IRestaurantService, NHibernateRestaurantService>(new NHibernateRestaurantService());
+
             ServiceFactory.Instance.Register<IApplicationService, MainViewModel>((MainViewModel)this.DataContext);
         }
 

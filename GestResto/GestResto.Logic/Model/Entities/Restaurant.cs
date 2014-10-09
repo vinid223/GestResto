@@ -32,8 +32,6 @@ namespace GestResto.Logic.Model.Entities
         public virtual string Ville { get; set; }
         public virtual string CodePostal { get; set; }
         public virtual DateTime DateCreation { get; set; }
-        public virtual List<Employe> ListeEmployes { get; set; }
-        public virtual List<Item> ListeItem { get; set; }
 
         #endregion
 
@@ -51,8 +49,6 @@ namespace GestResto.Logic.Model.Entities
             Ville = "";
             CodePostal = "";
             DateCreation = DateTime.Now;
-            ListeEmployes = new List<Employe>();
-            ListeItem = new List<Item>();
         }
 
         /// <summary>
@@ -66,9 +62,7 @@ namespace GestResto.Logic.Model.Entities
         /// <param name="pVille">La ville du restaurant</param>
         /// <param name="pCodePostal">Le code postal du rstaurant</param>
         /// <param name="pDateCreation">La date de création</param>
-        /// <param name="pListeEmploye">La liste d'employés</param>
-        /// <param name="pListeItem">La liste des items</param>
-         public Restaurant(int pIdRestaurant, string pNom, string pAdresse, string pTelephone, string pFax, string pVille, string pCodePostal, DateTime pDateCreation, List<Employe> pListeEmploye, List<Item> pListeItem)
+         public Restaurant(int pIdRestaurant, string pNom, string pAdresse, string pTelephone, string pFax, string pVille, string pCodePostal, DateTime pDateCreation)
         {
             IdRestaurant=pIdRestaurant;
             Nom=pNom;
@@ -78,8 +72,6 @@ namespace GestResto.Logic.Model.Entities
             Ville = pVille;
             CodePostal = pCodePostal;
             DateCreation = pDateCreation;
-            ListeEmployes = pListeEmploye;
-            ListeItem = pListeItem;
         }
         #endregion
     }

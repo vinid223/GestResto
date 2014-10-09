@@ -30,9 +30,10 @@ namespace GestResto.UI.Views
         public RestaurantView()
         {
             InitializeComponent();
-            DataContext = new CategorieViewModel();
-            restaurant = ViewModel.ObtenirRestaurant();
-            listeBoutonCategories.ItemsSource = restaurant;
+            DataContext = new RestaurantViewModel();
+            restaurant = ViewModel.ObtenirRestaurant(1);
+
+            ViewModel.Restaurant = restaurant;
         }
 
         // Fonction qui sert à revenir à la view précédente
