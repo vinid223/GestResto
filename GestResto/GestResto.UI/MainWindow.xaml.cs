@@ -33,8 +33,6 @@ namespace GestResto.UI
             DataContext = new MainViewModel();
             Configure();
 
-            this.SizeToContent = SizeToContent.Manual;
-
             ViewModel.CurrentView = new OptionsAdministrationView();
         }
 
