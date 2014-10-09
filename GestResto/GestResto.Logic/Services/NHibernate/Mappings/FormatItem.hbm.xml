@@ -4,7 +4,7 @@
                    xmlns="urn:nhibernate-mapping-2.2">
   <class name="FormatItem" table="FormatsItems">
 
-    <id name="idFormatItem" type="Int32">
+    <id name="idFormatItem">
       <column name="idFormatItem" not-null="true" sql-type="INTEGER" />
       <generator class="identity" />
     </id>
@@ -13,7 +13,7 @@
       <column name="prix" not-null="true" sql-type="FLOAT" />
     </property>
 
-    <one-to-one name="Formats" class="Format" />
+
     
   </class>
 </hibernate-mapping>

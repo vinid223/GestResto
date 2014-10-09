@@ -18,11 +18,30 @@
     </many-to-one>
 
 
-    
-    
-    <bag name="Formats" table="formatsitems">
+    <!--<idbag name="Formats" table="formatsitems" inverse="false" lazy="true" >
+      <collection-id column="idFormatItem" type="INTEGER">
+        <generator class="" />
+      </collection-id>
       <key column="idItem" />
-      <one-to-many class="FormatItem" />
+      <one-to-many column="" class="FormatItem" fetch="join" />
+    </idbag>-->
+
+    <!--<many-to-one name="Formats" column="idFormatItem" not-null="true" />-->
+
+    
+    <!--<set name="Formats" table="formatsitems">
+      <key column="idFormatItem"/>
+      <one-to-many column="idItem"
+          unique="true"
+          class="FormatItem"/>
+    </set>-->
+
+    <bag name="Formats" inverse="false" generic="true" lazy="false" cascade="all">
+      <key>
+        <column name="idItem" />
+      </key>
+      <one-to-many class="FormatItem"/>
     </bag>
+
   </class>
 </hibernate-mapping>

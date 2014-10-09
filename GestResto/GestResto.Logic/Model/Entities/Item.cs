@@ -26,7 +26,7 @@ namespace GestResto.Logic.Model.Entities
         public virtual int? IdItem { get; set; }
         public virtual string Nom { get; set; }
         public virtual Categorie Categories { get; set; }
-        public virtual List<FormatItem> Formats { get; set; }
+        public virtual IList<FormatItem> Formats { get; set; }
 
        // public virtual List<Item> ListeComplements { get; set; }
         #endregion
@@ -59,6 +59,20 @@ namespace GestResto.Logic.Model.Entities
             Formats = pFormatItem;
             Categories = pCategories;
         }
+
+        /// <summary>
+        /// Permet de inséré des items dans la BD sans le ID.
+        /// </summary>
+        /// <param name="pNom">Nom de l'item</param>
+        /// <param name="pFormatItem">Objet format de l'item</param>
+        /// <param name="pCategories">Objet catégrie de l'item</param>
+        public Item(string pNom, List<FormatItem> pFormatItem, Categorie pCategories)
+        {
+            Nom = pNom;
+            Formats = pFormatItem;
+            Categories = pCategories;
+        }
+
         #endregion
     }
 }

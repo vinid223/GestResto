@@ -61,6 +61,7 @@
     <Compile Include="ViewModel\Commandes.ViewModel.cs" />
     <Compile Include="ViewModel\CommandeViewModel.cs" />
     <Compile Include="ViewModel\EmployeViewModel.cs" />
+    <Compile Include="ViewModel\FormatItemViewModel.cs" />
     <Compile Include="ViewModel\FormatViewModel.cs" />
     <Compile Include="ViewModel\GestionPaiementViewModel.cs" />
     <Compile Include="ViewModel\ItemsViewModel.cs" />

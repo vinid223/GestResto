@@ -25,15 +25,44 @@ namespace GestResto.UI.Views
     public partial class AuthentificationView : UserControl
     {
         //public ItemsViewModel ViewModel { get { return (ItemsViewModel)DataContext; } }
-       // public ItemsViewModel ViewModel { get { return (ItemsViewModel)DataContext; } }
+
         public ItemsViewModel ViewModel { get { return (ItemsViewModel)DataContext; } }
-        public IList<Item> listeItems;
+       // public CategorieViewModel CategViewModel { get { return (CategorieViewModel)DataContext; } }
+        //public FormatItemViewModel ViewModel { get { return (FormatItemViewModel)DataContext; } }
+
+        public IList<FormatItem> listeFormatItem;
 
         public AuthentificationView()
         {
             InitializeComponent();
             DataContext = new ItemsViewModel();
-            listeItems = ViewModel.ObtenirTousLesItems();
+           // listeFormatItem = ViewModel.ObtenirTousLesFormatItems();
+           // float test2 = 100;
+
+            /* QUESTION YANNICK est-ce que je suis obliger de garder
+             * un objet item et un objet format dans la classe FormatItem
+             * pour pouvoir ajouter des formatItem linker avec un format et un item...*/
+
+            //FormatItem test = new FormatItem(test2);
+
+            //ViewModel.AjouterUnFormatItem(test);
+
+
+           // List<FormatItem> testFormats = new List<FormatItem>();
+           // FormatItem testFormatItem = new FormatItem(100);
+           // testFormats.Add(testFormatItem);
+            Categorie testCateg = new Categorie(2,"Ceci est un super test",false,true);
+
+            Item test = new Item("testTommy", null, testCateg);
+
+            ViewModel.AjouterUnItem(test);
+
+            
+
+            //ViewModel.AjouterUnItem(test);
+
+
+
         }
 
         private void btnConfirmer_Click(object sender, RoutedEventArgs e)

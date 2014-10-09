@@ -43,12 +43,26 @@ namespace GestResto.UI.ViewModel
             return listeItem;
         }
 
-        public void EnregistrerTousLesItems(IList<Categorie> listeItems)
+        public void EnregistrerTousLesItems(IList<Item> listeItems)
         {
             foreach (var categorie in listeItems)
 	        {
                 _itemService.Update(Item);
 	        }
+        }
+
+        public int AjouterUnItem(Item pItem)
+        {
+            // On insert l'enregistrement dans la base de donnée
+            _itemService.Create(pItem);
+
+            // On va chercher l'id lors de l'enregistrement
+            int i;
+
+            // Puisque l'id de l'objet est nullable on doit la transformer pour s'en servir
+            i = pItem.IdItem ?? default(int);
+
+            return i;
         }
 
     }

@@ -14,7 +14,6 @@ namespace GestResto.Logic.Model.Entities
         #region Variables de la classe
         public virtual int? idFormatItem { get; set; }
         public virtual float Prix { get; set; }
-        public virtual Format Formats { get; set; }
         #endregion
 
         #region Constructeurs
@@ -23,17 +22,19 @@ namespace GestResto.Logic.Model.Entities
         {
             idFormatItem = null;
             Prix = 0;
-            Formats = null;
 
         }
 
-        public FormatItem(int pIdFormatItem, float pPrix, Format pFormat, Item pItem)
+        public FormatItem(int pIdFormatItem, float pPrix)
         {
             idFormatItem = pIdFormatItem;
             Prix = pPrix;
-            Formats = pFormat;
         }
 
+        public FormatItem(float pPrix)
+        {
+            Prix = pPrix;
+        }
 
         #endregion
     }

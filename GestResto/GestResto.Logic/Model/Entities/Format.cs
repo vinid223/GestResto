@@ -56,6 +56,17 @@ namespace GestResto.Logic.Model.Entities
             Libelle = pLibelle;
         }
 
+        /// <summary>
+        /// Constructeur paramétré qui met tous les paramètres dans les attributs de l'objet qui permet d'inséré dans la BD.
+        /// </summary>
+        /// <param name="pNom">Le nom du format en paramètre.</param>
+        /// <param name="pLibele">Le libelé en paramètre.</param>
+        public Format(string pNom, string pLibelle)
+        {
+            Nom = pNom;
+            Libelle = pLibelle;
+        }
+
         #endregion
     }
 }
