@@ -11,7 +11,7 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <Grid Grid.Column="0" Height="70" Width="80" Name="btnRetour">
+        <Grid Grid.Column="0" Height="70" Width="80" Name="btnRetour" MouseLeftButtonDown="btnRetour_MouseLeftButtonDown">
             <Grid.RowDefinitions>
                 <RowDefinition/>
                 <RowDefinition Height="30"/>
@@ -26,19 +26,104 @@
 
         <StackPanel Grid.Column="1"  Orientation="Horizontal" HorizontalAlignment="Right" Grid.ColumnSpan="2">
 
-            
+            <Grid Name="btnSelection" Grid.Column="1" Height="70" Width="80" MouseLeftButtonDown="btnSelection_MouseLeftButtonDown">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="30"/>
+                </Grid.RowDefinitions>
+                <Border Grid.Row="0" Height="40" Width="40" BorderThickness="1" BorderBrush="Black" CornerRadius="5">
+                    <Image Source="/Images/lines.png" HorizontalAlignment="Left" Margin="4,4,0,0" VerticalAlignment="Top" Width="30" Height="30"/>
+                </Border>
+                <Label HorizontalAlignment="Center" Grid.Row="1" Height="30" FontSize="12">Sélection</Label>
+            </Grid>
 
+            <Grid Name="btnJoindre" Grid.Column="1" Height="70" Width="80" MouseLeftButtonDown="btnJoindre_MouseLeftButtonDown">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="30"/>
+                </Grid.RowDefinitions>
+                <Border Grid.Row="0" Height="40" Width="40" BorderThickness="1" BorderBrush="Black" CornerRadius="5">
+                    <Image Source="/Images/boxes.png" HorizontalAlignment="Left" Margin="4,4,0,0" VerticalAlignment="Top" Width="30" Height="30"/>
+                </Border>
+                <Label HorizontalAlignment="Center" Grid.Row="1" Height="30" FontSize="12">Joindre</Label>
+            </Grid>
 
+            <Grid Name="btnDiviser" Grid.Column="1" Height="70" Width="80" MouseLeftButtonDown="btnDiviser_MouseLeftButtonDown">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="30"/>
+                </Grid.RowDefinitions>
+                <Border Grid.Row="0" Height="40" Width="40" BorderThickness="1" BorderBrush="Black" CornerRadius="5">
+                    <Image Source="/Images/documents.png" HorizontalAlignment="Left" Margin="4,4,0,0" VerticalAlignment="Top" Width="30" Height="30"/>
+                </Border>
+                <Label HorizontalAlignment="Center" Grid.Row="1" Height="30" FontSize="12">Diviser</Label>
+            </Grid>
 
-            <Button Content="Ajouter client" Margin="5"  Width="60" Height="50" Name="btnAjoutClient"/>
-            <Button Content="Diviser/Joindre" Margin="5"  Width="60" Height="50" Name="btnDiviserJoindre"/>
-            <Button Content="Imprimer" Margin="5"  Width="60" Height="50" Name="btnImprimer"/>
-            <Button Content="Payer" Margin="5"  Width="60" Height="50" Name="btnPayer"/>
-            <Button Content="Supprimer Client" Margin="5"  Width="60" Height="50" Name="btnSupprimerClient"/>
-            <Button Content="Générer" Margin="5"  Width="60" Height="50" Name="btnGenerer"/>
-            <Button Content="Rapport" Margin="5"  Width="60" Height="50" Name="btnRapport"/>
-            <Button Content="Créer" Margin="5"  Width="60" Height="50" Name="btnCreer"/>
-            <Button Content="Ajouter" Margin="5"  Width="60" Height="50"  />
+            <!--<Grid Name="btnImprimer" Grid.Column="1" Height="70" Width="80" MouseLeftButtonDown="btnImprimer_MouseLeftButtonDown">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="30"/>
+                </Grid.RowDefinitions>
+                <Border Grid.Row="0" Height="40" Width="40" BorderThickness="1" BorderBrush="Black" CornerRadius="5">
+                    <Image Source="/Images/printer.png" HorizontalAlignment="Left" Margin="4,4,0,0" VerticalAlignment="Top" Width="30" Height="30"/>
+                </Border>
+                <Label HorizontalAlignment="Center" Grid.Row="1" Height="30" FontSize="12">Imprimer</Label>
+            </Grid>
+
+            <Grid Name="btnPayer" Grid.Column="1" Height="70" Width="80" MouseLeftButtonDown="btnPayer_MouseLeftButtonDown">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="30"/>
+                </Grid.RowDefinitions>
+                <Border Grid.Row="0" Height="40" Width="40" BorderThickness="1" BorderBrush="Black" CornerRadius="5">
+                    <Image Source="/Images/dollar.png" HorizontalAlignment="Left" Margin="4,4,0,0" VerticalAlignment="Top" Width="30" Height="30"/>
+                </Border>
+                <Label HorizontalAlignment="Center" Grid.Row="1" Height="30" FontSize="12">Payer</Label>
+            </Grid>
+
+            <Grid Name="btnSupprimer" Grid.Column="1" Height="70" Width="80" MouseLeftButtonDown="btnSupprimer_MouseLeftButtonDown">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="30"/>
+                </Grid.RowDefinitions>
+                <Border Grid.Row="0" Height="40" Width="40" BorderThickness="1" BorderBrush="Black" CornerRadius="5">
+                    <Image Source="/Images/recycle.png" HorizontalAlignment="Left" Margin="4,4,0,0" VerticalAlignment="Top" Width="30" Height="30"/>
+                </Border>
+                <Label HorizontalAlignment="Center" Grid.Row="1" Height="30" FontSize="12">Supprimer</Label>
+            </Grid>
+
+            <Grid Name="btnGenerer" Grid.Column="1" Height="70" Width="80" MouseLeftButtonDown="btnGenerer_MouseLeftButtonDown">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="30"/>
+                </Grid.RowDefinitions>
+                <Border Grid.Row="0" Height="40" Width="40" BorderThickness="1" BorderBrush="Black" CornerRadius="5">
+                    <Image Source="/Images/document.png" HorizontalAlignment="Left" Margin="4,4,0,0" VerticalAlignment="Top" Width="30" Height="30"/>
+                </Border>
+                <Label HorizontalAlignment="Center" Grid.Row="1" Height="30" FontSize="12">Générer</Label>
+            </Grid>-->
+
+            <Grid Name="btnRapport" Grid.Column="1" Height="70" Width="80" MouseLeftButtonDown="btnRapport_MouseLeftButtonDown">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="30"/>
+                </Grid.RowDefinitions>
+                <Border Grid.Row="0" Height="40" Width="40" BorderThickness="1" BorderBrush="Black" CornerRadius="5">
+                    <Image Source="/Images/document.png" HorizontalAlignment="Left" Margin="4,4,0,0" VerticalAlignment="Top" Width="30" Height="30"/>
+                </Border>
+                <Label HorizontalAlignment="Center" Grid.Row="1" Height="30" FontSize="12">Rapport</Label>
+            </Grid>
+
+            <Grid Name="btnCreer" Grid.Column="1" Height="70" Width="80" MouseLeftButtonDown="btnCreer_MouseLeftButtonDown">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="30"/>
+                </Grid.RowDefinitions>
+                <Border Grid.Row="0" Height="40" Width="40" BorderThickness="1" BorderBrush="Black" CornerRadius="5">
+                    <Image Source="/Images/checkmark.png" HorizontalAlignment="Left" Margin="4,4,0,0" VerticalAlignment="Top" Width="30" Height="30"/>
+                </Border>
+                <Label HorizontalAlignment="Center" Grid.Row="1" Height="30" FontSize="12">Créer</Label>
+            </Grid>
 
             <Grid Name="btnEnregistrer" Grid.Column="1" Height="70" Width="80" MouseLeftButtonDown="btnEnregistrer_MouseLeftButtonDown">
                 <Grid.RowDefinitions>
@@ -51,7 +136,7 @@
                 <Label HorizontalAlignment="Center" Grid.Row="1" Height="30" FontSize="12">Enregistrer</Label>
             </Grid>
 
-            <Grid Grid.Column="1" Height="70" Width="80" Name="btnAjouter">
+            <Grid  Name="btnAjouter" Grid.Column="1" Height="70" Width="80" MouseLeftButtonDown="btnAjouter_MouseLeftButtonDown">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition Height="30"/>
@@ -62,7 +147,7 @@
                 <Label HorizontalAlignment="Center" Grid.Row="1" Height="30" FontSize="12">Ajouter</Label>
             </Grid>
 
-            <Grid Grid.Column="1" Height="70" Width="80" Name="btnDeconnexion">
+            <Grid Name="btnDeconnexion" Grid.Column="1" Height="70" Width="80"  MouseLeftButtonDown="btnDeconnexion_MouseLeftButtonDown">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition Height="30"/>
