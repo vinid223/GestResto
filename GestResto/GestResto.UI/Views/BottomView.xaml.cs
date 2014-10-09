@@ -26,5 +26,10 @@ namespace GestResto.UI.Views
 
 
         }
+
+        private void btnEnregistrer_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            MessageBox.Show("Enregistrer");
+        }
     }
 }

@@ -34,9 +34,9 @@ namespace GestResto.UI
             DataContext = new MainViewModel();
             Configure();
 
-            //ViewModel.CurrentView = new AuthentificationView();
+            ViewModel.CurrentView = new BottomView();
             //ViewModel.CurrentView = new CommandeView();
-            ViewModel.CurrentView = new AuthentificationView();
+            //ViewModel.CurrentView = new AuthentificationView();
             //ViewModel.CurrentView = new CategorieView();
 
             
@@ -52,5 +52,6 @@ namespace GestResto.UI
            
             ServiceFactory.Instance.Register<IApplicationService, MainViewModel>((MainViewModel)this.DataContext);
         }
+
     }
 }
