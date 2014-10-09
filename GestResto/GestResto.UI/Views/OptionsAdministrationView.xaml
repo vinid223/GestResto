@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="500">
+             d:DesignHeight="600" d:DesignWidth="1000">
     <Grid>
         <Label Content="Options d'administration&#xD;&#xA;" HorizontalAlignment="Left" VerticalAlignment="Top" Height="24"/>
         <Button x:Name="btnEmployes" Content="Gérer les Employés" HorizontalAlignment="Left" Margin="10,29,0,0" VerticalAlignment="Top" Width="223" Height="39"/>
@@ -13,7 +13,7 @@
         <Button x:Name="btnRapports" Content="Générer des rapports" HorizontalAlignment="Left" Margin="10,117,0,0" VerticalAlignment="Top" Width="223" Height="39"/>
         <Button x:Name="btnFormats" Content="Gérer les formats" HorizontalAlignment="Left" Margin="10,161,0,0" VerticalAlignment="Top" Width="223" Height="39"/>
         <Button x:Name="btnInfoResto" Content="Gérer les Informations du Restaurant" HorizontalAlignment="Left" Margin="267,73,0,0" VerticalAlignment="Top" Width="223" Height="39"/>
-        <Button x:Name="btnCategorie" Content="Gérer les Catégories" HorizontalAlignment="Left" Margin="267,117,0,0" VerticalAlignment="Top" Width="223" Height="39"/>
+        <Button x:Name="btnCategorie" Content="Gérer les Catégories" HorizontalAlignment="Left" Margin="267,117,0,0" VerticalAlignment="Top" Width="223" Height="39" Click="btnGererCategories"/>
 
     </Grid>
 </UserControl>

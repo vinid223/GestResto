@@ -1,4 +1,6 @@
 ﻿using GestResto.Logic.Model.Entities;
+using GestResto.MvvmToolkit.Services;
+using GestResto.MvvmToolkit.Services.Definitions;
 using GestResto.UI.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -40,6 +42,11 @@ namespace GestResto.UI.Views
         {
             Categorie categorie = (Categorie)((sender as Button).CommandParameter);
             ViewModel.Categorie = categorie;
+
+            // On active les champs pour permettre la modification et l'ajout d'information
+            txtNom.IsEnabled = true;
+            cbxActif.IsEnabled = true;
+            cbxComplementaire.IsEnabled = true;
         }
 
         private void btnEnregistrer_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -61,12 +68,23 @@ namespace GestResto.UI.Views
             // On indique dans le view model la nouvelle catégorie créé
             ViewModel.Categorie = categTemp;
 
+            // On active les champs pour permettre la modification et l'ajout d'information
+            txtNom.IsEnabled = true;
+            cbxActif.IsEnabled = true;
+            cbxComplementaire.IsEnabled = true;
+
             // On donne la nouvelle source à notre liste view
             listeBoutonCategories.ItemsSource = listeCategories;
 
             // On rafraichie nottre liste view pour afficher le bouton ajouté
             ICollectionView view = CollectionViewSource.GetDefaultView(listeBoutonCategories.ItemsSource);
             view.Refresh();
+        }
+
+        private void btnRetour_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            IApplicationService mainVM = ServiceFactory.Instance.GetService<IApplicationService>();
+            mainVM.ChangeView<OptionsAdministrationView>(new OptionsAdministrationView());
         }
     }
 }

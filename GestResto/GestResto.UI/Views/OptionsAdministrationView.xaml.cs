@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GestResto.MvvmToolkit.Services;
+using GestResto.MvvmToolkit.Services.Definitions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +25,14 @@ namespace GestResto.UI.Views
         public OptionsAdministrationView()
         {
             InitializeComponent();
+        }
+
+        private void btnGererCategories(object sender, RoutedEventArgs e)
+        {
+            IApplicationService mainVM = ServiceFactory.Instance.GetService<IApplicationService>();
+
+           // Dictionary<string, object> parameters = new Dictionary<string, object>() { { "Propriete", propriete } };
+            mainVM.ChangeView<CategorieView>(new CategorieView());
         }
     }
 }
