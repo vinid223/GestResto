@@ -10,7 +10,6 @@ namespace GestResto.Logic.Services.Definitions
 {
     public interface IRestaurantService
     {
-        void Create(Restaurant item);
         Restaurant Retrieve(RetrieveRestaurantArgs args);
         void Update(Restaurant item);
     }

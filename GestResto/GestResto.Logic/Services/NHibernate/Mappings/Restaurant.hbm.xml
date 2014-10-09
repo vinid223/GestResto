@@ -4,32 +4,32 @@
                    xmlns="urn:nhibernate-mapping-2.2">
   <class name="Restaurant" table="Restaurants">
 
-    <id name="idRestaurant">
+    <id name="IdRestaurant">
       <column name="idRestaurant" not-null="true" sql-type="INTEGER" />
       <generator class="identity" />
     </id>
 
-    <property name="sNom">
+    <property name="Nom">
       <column name="nom" not-null="true" sql-type="VARCHAR" />
     </property>
 
-    <property name="sAdresse">
+    <property name="Adresse">
       <column name="adresse" not-null="true" sql-type="VARCHAR" />
     </property>
 
-    <property name="sTelephone">
+    <property name="Telephone">
       <column name="telephone" not-null="true" sql-type="INTEGER" />
     </property>
 
-    <property name="sFax">
+    <property name="Fax">
       <column name="fax" not-null="true" sql-type="INTEGER" />
     </property>
 
-    <property name="sVille">
+    <property name="Ville">
       <column name="ville" not-null="true" sql-type="VARCHAR" />
     </property>
 
-    <property name="sCodePostal">
+    <property name="CodePostal">
       <column name="codePostal" not-null="true" sql-type="VARCHAR" />
     </property>
   </class>

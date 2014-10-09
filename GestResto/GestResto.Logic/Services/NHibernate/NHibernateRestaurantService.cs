@@ -15,32 +15,28 @@ namespace GestResto.Logic.Services.NHibernate
     public class NHibernateRestaurantService : IRestaurantService
     {
         private ISession session = NHibernateConnexion.OpenSession();
-
-        public void Create(Restaurant item)
-        {
-            using (var transaction = session.BeginTransaction())
-            {
-                session.Save(item);
-                transaction.Commit();
-            }
-        }
+        private ISession sessionLazy = NHibernateConnexion.OpenSession();
 
         public Restaurant Retrieve(RetrieveRestaurantArgs args)
         {
-            var result = from r in session.Query<Restaurant>()
+            sessionLazy = NHibernateConnexion.OpenSession();
+            var result = from r in sessionLazy.Query<Restaurant>()
                          where r.IdRestaurant == args.IIdRestaurant
                          select r;
 
             return result.FirstOrDefault();
+            sessionLazy.Close();
         }
 
         public void Update(Restaurant item)
         {
+            session = NHibernateConnexion.OpenSession();
             using (var transaction = session.BeginTransaction())
             {
                 session.Update(item);
                 transaction.Commit();
             }
+            session.Close();
         }
     }
 }
