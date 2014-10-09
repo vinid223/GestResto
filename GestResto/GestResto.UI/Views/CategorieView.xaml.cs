@@ -42,18 +42,18 @@ namespace GestResto.UI.Views
             ViewModel.Categorie = categorie;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void btnEnregistrer_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             ViewModel.EnregistrerUneCategorie(ViewModel.Categorie);
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void btnAjouter_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             // On crée une catégorie en mémoire
-            Categorie categTemp = new Categorie("Entrez le nom de votre catégorie",true,false);
+            Categorie categTemp = new Categorie("Entrez le nom de votre catégorie", false, false);
 
-            // On enregistre la catégorie dans la base de donnée
-            //ViewModel.EnregistrerUneCategorie(categTemp);
+            // On insert dans la base de donnée la nouvello catégorie et on en retire l'id
+            categTemp.IdCategorie = ViewModel.AjouterUneCategorie(categTemp);
 
             // On ajoute dans la liste la catégorie créé
             listeCategories.Add(categTemp);
