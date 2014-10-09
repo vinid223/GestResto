@@ -41,6 +41,16 @@
                 <Label HorizontalAlignment="Center" Grid.Row="1" Height="30" FontSize="12">Retour</Label>
             </Grid>
             <StackPanel Grid.Column="1"  Orientation="Horizontal" HorizontalAlignment="Right" Grid.ColumnSpan="2">
+                <Grid Name="btnEnregistrer" Grid.Column="1" Height="70" Width="80" MouseLeftButtonDown="btnEnregistrer_MouseLeftButtonDown">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition Height="30"/>
+                    </Grid.RowDefinitions>
+                    <Border Grid.Row="0" Height="40" Width="40" BorderThickness="1" BorderBrush="Black" CornerRadius="5">
+                        <Image Source="/Images/floppy.png" HorizontalAlignment="Left" Margin="4,4,0,0" VerticalAlignment="Top" Width="30" Height="30"/>
+                    </Border>
+                    <Label HorizontalAlignment="Center" Grid.Row="1" Height="30" FontSize="12">Enregistrer</Label>
+                </Grid>
                 <Grid Grid.Column="1" Height="70" Width="80" Name="btnDeconnexion">
                     <Grid.RowDefinitions>
                         <RowDefinition/>

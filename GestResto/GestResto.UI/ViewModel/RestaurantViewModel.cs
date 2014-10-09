@@ -45,5 +45,11 @@ namespace GestResto.UI.ViewModel
             Restaurant restaurant = _restoService.Retrieve(args);
             return restaurant;
         }
+
+        public void EnregistrerRestaurant(Restaurant restaurant)
+        {
+            _restoService.Update(restaurant);
+            return;
+        }
     }
 }
