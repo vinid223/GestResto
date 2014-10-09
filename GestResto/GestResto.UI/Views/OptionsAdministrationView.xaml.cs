@@ -30,9 +30,13 @@ namespace GestResto.UI.Views
         private void btnGererCategories(object sender, RoutedEventArgs e)
         {
             IApplicationService mainVM = ServiceFactory.Instance.GetService<IApplicationService>();
-
-           // Dictionary<string, object> parameters = new Dictionary<string, object>() { { "Propriete", propriete } };
             mainVM.ChangeView<CategorieView>(new CategorieView());
+        }
+
+        private void btnGererInformationsRestaurants(object sender, RoutedEventArgs e)
+        {
+            IApplicationService mainVM = ServiceFactory.Instance.GetService<IApplicationService>();
+            mainVM.ChangeView<RestaurantView>(new RestaurantView());
         }
     }
 }

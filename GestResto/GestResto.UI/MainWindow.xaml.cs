@@ -33,7 +33,7 @@ namespace GestResto.UI
             DataContext = new MainViewModel();
             Configure();
 
-            ViewModel.CurrentView = new CategorieView();
+            ViewModel.CurrentView = new OptionsAdministrationView();
         }
 
         private void Configure()

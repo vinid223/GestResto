@@ -1,7 +1,7 @@
 ﻿<Window x:Name="GestResto" x:Class="GestResto.UI.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="GestResto" Height="600" Width="1000" SizeToContent="WidthAndHeight">
+        Title="GestResto" Width="1000" Height="600" SizeToContent="WidthAndHeight" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen">
     <Grid>
         <ContentPresenter Content="{Binding CurrentView}" />
     </Grid>

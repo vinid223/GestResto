@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:GestResto.UI.Views" x:Class="GestResto.UI.Views.CategorieView" 
              mc:Ignorable="d" 
-             d:DesignHeight="600" d:DesignWidth="1000">
+             Height="600" Width="1000">
     <!-- HorizontalAlignment="Stretch" VerticalAlignment="Stretch"-->
     <Grid>
         <Grid.RowDefinitions>

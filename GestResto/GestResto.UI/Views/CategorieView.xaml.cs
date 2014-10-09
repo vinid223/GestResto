@@ -49,11 +49,17 @@ namespace GestResto.UI.Views
             cbxComplementaire.IsEnabled = true;
         }
 
+        // Fonction qui permet d'enregistrer la catégorie en cour dans la base de donnée.
         private void btnEnregistrer_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
+            var scope = FocusManager.GetFocusScope(txtNom); // elem is the UIElement to unfocus
+            FocusManager.SetFocusedElement(scope, null); // remove logical focus
+            Keyboard.ClearFocus(); // remove keyboard focus
+
             ViewModel.EnregistrerUneCategorie(ViewModel.Categorie);
         }
 
+        // Fonction qui permet d'ajouter dans la base de données une catégorie.
         private void btnAjouter_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             // On crée une catégorie en mémoire
@@ -81,8 +87,10 @@ namespace GestResto.UI.Views
             view.Refresh();
         }
 
+        // Fonction qui sert à revenir à la view précédente
         private void btnRetour_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
+
             IApplicationService mainVM = ServiceFactory.Instance.GetService<IApplicationService>();
             mainVM.ChangeView<OptionsAdministrationView>(new OptionsAdministrationView());
         }
