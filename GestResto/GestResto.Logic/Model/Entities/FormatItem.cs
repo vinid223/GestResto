@@ -12,15 +12,26 @@ namespace GestResto.Logic.Model.Entities
     public class FormatItem
     {
         #region Variables de la classe
+        public virtual int? idFormatItem { get; set; }
         public virtual float Prix { get; set; }
         public virtual Format Formats { get; set; }
-        public virtual Item Items { get; set; }
         #endregion
 
         #region Constructeurs
 
         public FormatItem()
         {
+            idFormatItem = null;
+            Prix = 0;
+            Formats = null;
+
+        }
+
+        public FormatItem(int pIdFormatItem, float pPrix, Format pFormat, Item pItem)
+        {
+            idFormatItem = pIdFormatItem;
+            Prix = pPrix;
+            Formats = pFormat;
         }
 
 

@@ -16,20 +16,13 @@
     <many-to-one name="Categories" class="Categorie">
       <column name="idCategorie" not-null="true" sql-type="INTEGER" />
     </many-to-one>
-    
-    <!--<set name="Formats" table="FormatsItems" generic="true">
-      <key>
-        <column name="IdItem" not-null="true" sql-type="INTEGER" />
-      </key>
 
-      <composite-element class="FormatItem">
-        <many-to-one name="Formats" class="Format" fetch="join">
-          <column name="IdFormat" not-null="true" sql-type="INTEGER" />
-        </many-to-one>
-        <property name="Prix">
-          <column name="Prix" not-null="false" sql-type="FLOAT" />
-        </property>
-      </composite-element>
-    </set>-->
+
+    
+    
+    <bag name="Formats" table="formatsitems">
+      <key column="idItem" />
+      <one-to-many class="FormatItem" />
+    </bag>
   </class>
 </hibernate-mapping>

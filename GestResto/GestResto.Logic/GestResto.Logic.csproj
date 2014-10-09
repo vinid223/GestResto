@@ -57,6 +57,7 @@
     <Compile Include="Model\Args\RetrieveEmployeArgs.cs" />
     <Compile Include="Model\Args\RetrieveFactureArgs.cs" />
     <Compile Include="Model\Args\RetrieveFormatArgs.cs" />
+    <Compile Include="Model\Args\RetrieveFormatItemArgs.cs" />
     <Compile Include="Model\Args\RetrieveItemArgs.cs" />
     <Compile Include="Model\Args\RetrieveRestaurantArgs.cs" />
     <Compile Include="Model\Args\RetrieveTableArgs.cs" />
@@ -79,11 +80,13 @@
     <Compile Include="Services\Definitions\ICommandeService.cs" />
     <Compile Include="Services\Definitions\ICategorieService.cs" />
     <Compile Include="Services\Definitions\IFactureService.cs" />
+    <Compile Include="Services\Definitions\IFormatItemService.cs" />
     <Compile Include="Services\Definitions\IFormatService.cs" />
     <Compile Include="Services\Definitions\IItemService.cs" />
     <Compile Include="Services\Definitions\IRestaurantService.cs" />
     <Compile Include="Services\Helpers\MySqlConnexion.cs" />
     <Compile Include="Services\Helpers\NHibernateConnexion.cs" />
+    <Compile Include="Services\NHibernate\NHibernateFormatItemService.cs" />
     <Compile Include="Services\NHibernate\NHibernateAuthentificationService.cs" />
     <Compile Include="Services\NHibernate\NHibernateClientService.cs" />
     <Compile Include="Services\NHibernate\NHibernateCommandeService.cs" />
@@ -119,6 +122,7 @@
     <EmbeddedResource Include="Services\NHibernate\Mappings\Categorie.hbm.xml" />
     <EmbeddedResource Include="Services\NHibernate\Mappings\Format.hbm.xml" />
     <EmbeddedResource Include="Services\NHibernate\Mappings\Item.hbm.xml" />
+    <EmbeddedResource Include="Services\NHibernate\Mappings\FormatItem.hbm.xml" />
     <Content Include="Services\NHibernate\Mappings\Restaurant.hbm.xml" />
     <Content Include="Services\NHibernate\Mappings\Table.hbm.xml">
       <SubType>Designer</SubType>
