@@ -15,21 +15,25 @@ namespace GestResto.Logic.Services.NHibernate
     public class NHibertateCategorieService : ICategorieService
     {
         private ISession session = NHibernateConnexion.OpenSession();
+        private ISession sessionLazy = NHibernateConnexion.OpenSession();
 
         #region ICategorieService Membres
 
         public void Create(Categorie categorie)
         {
+            session = NHibernateConnexion.OpenSession();
             using (var transaction = session.BeginTransaction())
             {
                 session.Save(categorie);
                 transaction.Commit();
             }
+            session.Close();
         }
 
         public IList<Categorie> RetrieveAll()
         {
-            return session.Query<Categorie>().ToList();
+            IList<Categorie> listeTemp = sessionLazy.Query<Categorie>().ToList();
+            return listeTemp;
         }
 
         public Categorie Retrieve(RetrieveCategorieArgs args)
@@ -43,20 +47,13 @@ namespace GestResto.Logic.Services.NHibernate
 
         public void Update(Categorie categorie)
         {
+            session = NHibernateConnexion.OpenSession();
             using (var transaction = session.BeginTransaction())
             {
                 session.Update(categorie);
                 transaction.Commit();
             }
-        }
-
-        public void Delete(Categorie categorie)
-        {
-            using (var transaction = session.BeginTransaction())
-            {
-                session.Delete(categorie);
-                transaction.Commit();
-            }
+            session.Close();
         }
 
         #endregion

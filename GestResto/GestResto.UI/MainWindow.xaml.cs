@@ -38,6 +38,7 @@ namespace GestResto.UI
             //ViewModel.CurrentView = new CommandeView();
             //ViewModel.CurrentView = new AuthentificationView();
             //ViewModel.CurrentView = new CategorieView();
+            //ViewModel.CurrentView = new CategorieView();
 
             
         }

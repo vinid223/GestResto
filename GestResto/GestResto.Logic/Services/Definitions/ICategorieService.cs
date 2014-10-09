@@ -14,6 +14,5 @@ namespace GestResto.Logic.Services.Definitions
         IList<Categorie> RetrieveAll();
         Categorie Retrieve(RetrieveCategorieArgs args);
         void Update(Categorie categorie);
-        void Delete(Categorie categorie);
     }
 }

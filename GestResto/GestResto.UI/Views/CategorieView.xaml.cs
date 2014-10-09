@@ -2,6 +2,7 @@
 using GestResto.UI.ViewModel;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -23,7 +24,7 @@ namespace GestResto.UI.Views
     /// </summary>
     public partial class CategorieView : UserControl
     {
-        public CategorieViewModel ViewModel { get { return (CategorieViewModel)DataContext;}}
+        public CategorieViewModel ViewModel { get { return (CategorieViewModel)DataContext; } }
         public IList<Categorie> listeCategories;
 
         public CategorieView()
@@ -41,15 +42,31 @@ namespace GestResto.UI.Views
             ViewModel.Categorie = categorie;
         }
 
-        private void EnregistreTout()
-        {
-            ViewModel.EnregistrerToutesLesCategories(listeCategories);
-        }
-
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Thread thread = new Thread(EnregistreTout);
-            thread.Start();
+            ViewModel.EnregistrerUneCategorie(ViewModel.Categorie);
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            // On crée une catégorie en mémoire
+            Categorie categTemp = new Categorie("Entrez le nom de votre catégorie",true,false);
+
+            // On enregistre la catégorie dans la base de donnée
+            //ViewModel.EnregistrerUneCategorie(categTemp);
+
+            // On ajoute dans la liste la catégorie créé
+            listeCategories.Add(categTemp);
+
+            // On indique dans le view model la nouvelle catégorie créé
+            ViewModel.Categorie = categTemp;
+
+            // On donne la nouvelle source à notre liste view
+            listeBoutonCategories.ItemsSource = listeCategories;
+
+            // On rafraichie nottre liste view pour afficher le bouton ajouté
+            ICollectionView view = CollectionViewSource.GetDefaultView(listeBoutonCategories.ItemsSource);
+            view.Refresh();
         }
     }
 }

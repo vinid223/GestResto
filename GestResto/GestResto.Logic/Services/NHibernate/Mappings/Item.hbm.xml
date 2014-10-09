@@ -17,7 +17,7 @@
       <column name="idCategorie" not-null="true" sql-type="INTEGER" />
     </many-to-one>
     
-    <set name="Formats" table="FormatsItems" generic="true">
+    <!--<set name="Formats" table="FormatsItems" generic="true">
       <key>
         <column name="IdItem" not-null="true" sql-type="INTEGER" />
       </key>
@@ -30,6 +30,6 @@
           <column name="Prix" not-null="false" sql-type="FLOAT" />
         </property>
       </composite-element>
-    </set>
+    </set>-->
   </class>
 </hibernate-mapping>
