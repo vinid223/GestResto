@@ -120,7 +120,7 @@
     <Content Include="Services\NHibernate\Mappings\Client.hbm.xml" />
     <Content Include="Services\NHibernate\Mappings\Employe.hbm.xml" />
     <EmbeddedResource Include="Services\NHibernate\Mappings\Categorie.hbm.xml" />
-    <Content Include="Services\NHibernate\Mappings\Format.hbm.xml" />
+    <EmbeddedResource Include="Services\NHibernate\Mappings\Format.hbm.xml" />
     <EmbeddedResource Include="Services\NHibernate\Mappings\Item.hbm.xml">
       <SubType>Designer</SubType>
     </EmbeddedResource>
