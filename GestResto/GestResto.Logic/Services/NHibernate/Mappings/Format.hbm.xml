@@ -17,6 +17,10 @@
       <column name="libelle" not-null="true" sql-type="VARCHAR" />
     </property>
 
+    <property name="EstActif">
+      <column name="actif" not-null="true" sql-type="TINYINT" />
+    </property>
+
 
 
     <!--<set name="Items" table="FormatsItems" generic="true">

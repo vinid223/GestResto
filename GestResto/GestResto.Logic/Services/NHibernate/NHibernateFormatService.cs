@@ -36,8 +36,8 @@ namespace GestResto.Logic.Services.NHibernate
         {
             sessionLazy = NHibernateConnexion.OpenSession();
             IList<Format> listeTemp = sessionLazy.Query<Format>().ToList();
-            return listeTemp;
             sessionLazy.Close();
+            return listeTemp;
         }
 
         public Format Retrieve(RetrieveFormatArgs args)
@@ -47,8 +47,8 @@ namespace GestResto.Logic.Services.NHibernate
                          where c.IdFormat == args.IIdFormat
                          select c;
 
-            return result.FirstOrDefault();
             sessionLazy.Close();
+            return result.FirstOrDefault();
         }
 
         public void Update(Format format)

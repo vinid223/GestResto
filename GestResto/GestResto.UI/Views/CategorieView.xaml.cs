@@ -54,6 +54,10 @@ namespace GestResto.UI.Views
         {
             var scope = FocusManager.GetFocusScope(txtNom); // elem is the UIElement to unfocus
             FocusManager.SetFocusedElement(scope, null); // remove logical focus
+            scope = FocusManager.GetFocusScope(cbxActif); // elem is the UIElement to unfocus
+            FocusManager.SetFocusedElement(scope, null); // remove logical focus
+            scope = FocusManager.GetFocusScope(cbxComplementaire); // elem is the UIElement to unfocus
+            FocusManager.SetFocusedElement(scope, null); // remove logical focus
             Keyboard.ClearFocus(); // remove keyboard focus
 
             ViewModel.EnregistrerUneCategorie(ViewModel.Categorie);
@@ -65,7 +69,7 @@ namespace GestResto.UI.Views
             // On crée une catégorie en mémoire
             Categorie categTemp = new Categorie("Entrez le nom de votre catégorie", false, false);
 
-            // On insert dans la base de donnée la nouvello catégorie et on en retire l'id
+            // On insert dans la base de donnée la nouvelle catégorie et on en retire l'id
             categTemp.IdCategorie = ViewModel.AjouterUneCategorie(categTemp);
 
             // On ajoute dans la liste la catégorie créé

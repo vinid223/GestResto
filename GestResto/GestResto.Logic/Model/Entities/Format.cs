@@ -29,6 +29,7 @@ namespace GestResto.Logic.Model.Entities
         public virtual int? IdFormat { get; set; }
         public virtual string Nom { get; set; }
         public virtual string Libelle { get; set; }
+        public virtual bool EstActif { get; set; }
 
         #endregion
 
@@ -41,6 +42,7 @@ namespace GestResto.Logic.Model.Entities
             IdFormat = null;
             Nom = "";
             Libelle = "";
+            EstActif = false;
         }
 
         /// <summary>
@@ -49,11 +51,13 @@ namespace GestResto.Logic.Model.Entities
         /// <param name="pIdFormat">Le id du format en paramètre</param>
         /// <param name="pNom">Le nom du format en paramètre.</param>
         /// <param name="pLibele">Le libelé en paramètre.</param>
-        public Format(int pIdFormat, string pNom, string pLibelle)
+        /// <param name="pEstActif">Statut du format par true ou false pour actif ou non</param>
+        public Format(int pIdFormat, string pNom, string pLibelle, bool pEstActif)
         {
             IdFormat = pIdFormat;
             Nom = pNom;
             Libelle = pLibelle;
+            EstActif = pEstActif;
         }
 
         /// <summary>
@@ -61,10 +65,12 @@ namespace GestResto.Logic.Model.Entities
         /// </summary>
         /// <param name="pNom">Le nom du format en paramètre.</param>
         /// <param name="pLibele">Le libelé en paramètre.</param>
-        public Format(string pNom, string pLibelle)
+        /// <param name="pEstActif">Statut du format par true ou false pour actif ou non</param>
+        public Format(string pNom, string pLibelle, bool pEstActif)
         {
             Nom = pNom;
             Libelle = pLibelle;
+            EstActif = pEstActif;
         }
 
         #endregion
