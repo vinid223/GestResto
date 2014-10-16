@@ -4,13 +4,13 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="500">
+             d:DesignHeight="600" d:DesignWidth="1000">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="15*"/>
             <RowDefinition Height="38*"/>
-            <RowDefinition Height="232*"/>
-            <RowDefinition Height="15*"/>
+            <RowDefinition Height="216*"/>
+            <RowDefinition Height="31*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="11*"/>
@@ -22,12 +22,70 @@
         <Label Content="Catégorie" HorizontalAlignment="Left" Margin="1,33,0,0" VerticalAlignment="Top" Grid.Column="1" Grid.Row="2" Height="26" Width="61"/>
         <Label Content="Prix" HorizontalAlignment="Left" Margin="1,64,0,0" VerticalAlignment="Top" Width="56" Grid.Column="1" Grid.Row="2" Height="26"/>
         <Label Content="Catégorie" HorizontalAlignment="Left" Margin="11,6,0,0" VerticalAlignment="Top" Grid.Column="2" Grid.Row="1" Height="26" Width="61"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="67,8,0,0" VerticalAlignment="Top" Width="177" Name="txtNom" Grid.Column="1" Grid.Row="2"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="67,8,0,0" VerticalAlignment="Top" Width="177" Name="txtNom" Text="{Binding Item.Nom}" Grid.Column="1" Grid.Row="2"/>
         <ComboBox HorizontalAlignment="Left" Margin="67,36,0,0" VerticalAlignment="Top" Width="177" Name="cboCategorieLiee" Grid.Column="1" Grid.Row="2" Height="22"/>
         <ComboBox HorizontalAlignment="Left" Margin="77,10,0,0" VerticalAlignment="Top" Width="137" Name="cboCategorieAffichee" Grid.Column="2" Grid.Row="1" Height="22"/>
-        <CheckBox Content="Actif" HorizontalAlignment="Left" Margin="200,12,0,0" VerticalAlignment="Top" Name="chkActif" Grid.Column="1" Grid.Row="1" Height="15" Width="44"/>
+        <CheckBox IsChecked="{Binding Item.EstActif}" Content="Actif" HorizontalAlignment="Left" Margin="200,12,0,0" VerticalAlignment="Top" Name="chkActif" Grid.Column="1" Grid.Row="1" Height="15" Width="44"/>
         <ListBox HorizontalAlignment="Left" Height="163" Margin="67,64,0,0" VerticalAlignment="Top" Width="177" Name="lbxListePrix" Grid.Column="1" Grid.Row="2"/>
-        <ListBox HorizontalAlignment="Left" Height="219" Margin="11,8,0,0" VerticalAlignment="Top" Width="203" Name="lbxListeCategorie" Grid.Column="2" Grid.Row="2"/>
+        <ListView HorizontalAlignment="Left" Height="219" Margin="11,8,0,0" VerticalAlignment="Top" Width="400" Name="lbxListeCategorie" Grid.Column="2" Grid.Row="2">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Button Content="{Binding Nom}" CommandParameter="{Binding}" Click="btnItem_Click" Width="300" Height="30"/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <!-- Début boutons navigation -->
+        <Grid Grid.ColumnSpan="3" Grid.Row="3" Margin="0,0,24,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="80"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0" Height="70" Width="80" Name="btnRetour" >
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="30"/>
+                </Grid.RowDefinitions>
+                <Border Grid.Row="0" Height="40" Width="40" BorderThickness="1" BorderBrush="Black" CornerRadius="5">
+                    <Image Source="/Images/forward.png" HorizontalAlignment="Left" Margin="4,4,0,0" VerticalAlignment="Top" Width="30" Height="30"/>
+                </Border>
+                <Label HorizontalAlignment="Center" Grid.Row="1" Height="30" FontSize="12">Retour</Label>
+            </Grid>
+            <StackPanel Grid.Column="1"  Orientation="Horizontal" HorizontalAlignment="Right" Grid.ColumnSpan="2">
+                <Grid Name="btnEnregistrer" Grid.Column="1" Height="70" Width="80" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition Height="30"/>
+                    </Grid.RowDefinitions>
+                    <Border Grid.Row="0" Height="40" Width="40" BorderThickness="1" BorderBrush="Black" CornerRadius="5">
+                        <Image Source="/Images/floppy.png" HorizontalAlignment="Left" Margin="4,4,0,0" VerticalAlignment="Top" Width="30" Height="30"/>
+                    </Border>
+                    <Label HorizontalAlignment="Center" Grid.Row="1" Height="30" FontSize="12">Enregistrer</Label>
+                </Grid>
 
+                <Grid Grid.Column="1" Height="70" Width="80" Name="btnAjouter" MouseLeftButtonDown="btnAjouter_MouseLeftButtonDown">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition Height="30"/>
+                    </Grid.RowDefinitions>
+                    <Border Grid.Row="0" Height="40" Width="40" BorderThickness="1" BorderBrush="Black" CornerRadius="5">
+                        <Image Source="/Images/plus.png" HorizontalAlignment="Left" Margin="4,4,0,0" VerticalAlignment="Top" Width="30" Height="30"/>
+                    </Border>
+                    <Label HorizontalAlignment="Center" Grid.Row="1" Height="30" FontSize="12">Ajouter</Label>
+                </Grid>
+
+                <Grid Grid.Column="1" Height="70" Width="80" Name="btnDeconnexion" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition Height="30"/>
+                    </Grid.RowDefinitions>
+                    <Border Grid.Row="0" Height="40" Width="40" BorderThickness="1" BorderBrush="Black" CornerRadius="5">
+                        <Image Source="/Images/lock.png" HorizontalAlignment="Left" Margin="4,4,0,0" VerticalAlignment="Top" Width="30" Height="30"/>
+                    </Border>
+                    <Label HorizontalAlignment="Center" Grid.Row="1" Height="30" FontSize="12">Déconnexion</Label>
+                </Grid>
+            </StackPanel>
+        </Grid>
+        <!-- Fin Boutons navigations -->
     </Grid>
+
 </UserControl>

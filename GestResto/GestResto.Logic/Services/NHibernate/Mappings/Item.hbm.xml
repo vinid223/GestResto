@@ -14,27 +14,9 @@
     </property>
 
     <many-to-one name="Categories" class="Categorie">
-      <column name="idCategorie" not-null="true" sql-type="INTEGER" />
+      <column name="idCategorie" not-null="false" sql-type="INTEGER" />
     </many-to-one>
 
-
-    <!--<idbag name="Formats" table="formatsitems" inverse="false" lazy="true" >
-      <collection-id column="idFormatItem" type="INTEGER">
-        <generator class="" />
-      </collection-id>
-      <key column="idItem" />
-      <one-to-many column="" class="FormatItem" fetch="join" />
-    </idbag>-->
-
-    <!--<many-to-one name="Formats" column="idFormatItem" not-null="true" />-->
-
-    
-    <!--<set name="Formats" table="formatsitems">
-      <key column="idFormatItem"/>
-      <one-to-many column="idItem"
-          unique="true"
-          class="FormatItem"/>
-    </set>-->
 
     <bag name="Formats" inverse="false" generic="true" lazy="false" cascade="all">
       <key>
@@ -43,5 +25,9 @@
       <one-to-many class="FormatItem"/>
     </bag>
 
+    <property name="EstActif">
+      <column name="actif" not-null="true" sql-type="TINYINT" />
+    </property>
+    
   </class>
 </hibernate-mapping>
