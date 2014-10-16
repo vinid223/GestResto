@@ -20,10 +20,10 @@
         <TextBox x:Name="txtNom" Height="23" Margin="128,41,67,0" TextWrapping="Wrap" Text="{Binding Categorie.Nom}" VerticalAlignment="Top" IsEnabled="False" />
         <CheckBox x:Name="cbxActif" Content="Actif" HorizontalAlignment="Left" Margin="128,80,0,0" VerticalAlignment="Top" IsChecked="{Binding Categorie.EstActif}" Height="15" Width="44" IsEnabled="False"/>
         <CheckBox x:Name="cbxComplementaire" Content="Complémentaire" HorizontalAlignment="Left" Margin="128,100,0,0" VerticalAlignment="Top" IsChecked="{Binding Categorie.EstComplementaire}" Height="15" Width="108" IsEnabled="False"/>
-        <ListView HorizontalContentAlignment="Center" Grid.Column="1" Grid.Row="0" Margin="50,50,50,10" x:Name="listeBoutonCategories">
+        <ListView HorizontalContentAlignment="Stretch" Grid.Column="1" Grid.Row="0" Margin="50,50,50,10" x:Name="listeBoutonCategories">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Button Content="{Binding Nom}" CommandParameter="{Binding}" Click="btnDetail_Click" Width="300" Height="30"/>
+                    <Button Content="{Binding Nom}" CommandParameter="{Binding}" Click="btnDetail_Click" Height="30"/>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
