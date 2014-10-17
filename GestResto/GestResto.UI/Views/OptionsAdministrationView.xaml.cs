@@ -44,5 +44,11 @@ namespace GestResto.UI.Views
             IApplicationService mainVM = ServiceFactory.Instance.GetService<IApplicationService>();
             mainVM.ChangeView<FormatView>(new FormatView());
         }
+
+        private void btnItems_Click(object sender, RoutedEventArgs e)
+        {
+            IApplicationService mainVM = ServiceFactory.Instance.GetService<IApplicationService>();
+            mainVM.ChangeView<ItemsView>(new ItemsView());
+        }
     }
 }

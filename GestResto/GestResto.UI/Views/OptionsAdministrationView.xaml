@@ -12,8 +12,8 @@
         <Label Content="Options d'administration&#xD;&#xA;" HorizontalAlignment="Left" VerticalAlignment="Top" Height="29" Width="493"/>
         <Button x:Name="btnEmployes" Content="Gérer les Employés" Margin="10,34,10,0" VerticalAlignment="Top" Height="60"/>
         <Button x:Name="btnTables" Content="Gérer les Tables" Margin="10,34,10,0" VerticalAlignment="Top" Height="60" Grid.Column="1"/>
-        <Button x:Name="btnItems" Content="Gérer les Items" Margin="10,116,10,0" VerticalAlignment="Top" Height="60"/>
-        <Button x:Name="btnRapports" Content="Générer des rapports" Margin="10,196,10,0" VerticalAlignment="Top" Height="60"/>
+        <Button x:Name="btnItems" Content="Gérer les Items" Margin="10,116,10,0" VerticalAlignment="Top" Height="60" Click="btnItems_Click"/>
+        <Button x:Name="btnRapports" Content="Générer des rapports" Margin="10,196,10,0" VerticalAlignment="Top" Height="60" />
         <Button x:Name="btnFormats" Content="Gérer les formats" Margin="10,272,10,0" VerticalAlignment="Top" Height="60" Click="btnGererFormat"/>
         <Button x:Name="btnInfoResto" Content="Gérer les Informations du Restaurant" Margin="10,116,10,0" VerticalAlignment="Top" Height="60" Click="btnGererInformationsRestaurants" Grid.Column="1"/>
         <Button x:Name="btnCategorie" Content="Gérer les Catégories" Margin="10,196,10,0" VerticalAlignment="Top" Height="60" Click="btnGererCategories" Grid.Column="1"/>

@@ -14,6 +14,7 @@ namespace GestResto.UI.ViewModel
     public class ItemsViewModel : BaseViewModel
     {
         public IItemService _itemService;
+        public ICategorieService _categService;
 
         public Item _item;
 
@@ -63,6 +64,12 @@ namespace GestResto.UI.ViewModel
             i = pItem.IdItem ?? default(int);
 
             return i;
+        }
+
+        public IList<Categorie> ObtenirToutesLesCategories()
+        {
+            IList<Categorie> listeCateg = _categService.RetrieveAll();
+            return listeCateg;
         }
 
     }
