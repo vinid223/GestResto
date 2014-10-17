@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GestResto.Logic.Model.Entities;
+using GestResto.UI.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,6 +22,7 @@ namespace GestResto.UI.Views
     /// </summary>
     public partial class CommandeView : UserControl
     {
+
         public CommandeView()
         {
             InitializeComponent();

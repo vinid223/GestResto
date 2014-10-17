@@ -27,6 +27,7 @@ namespace GestResto.Logic.Model.Entities
         public virtual string Nom { get; set; }
         public virtual Categorie Categories { get; set; }
         public virtual IList<FormatItem> Formats { get; set; }
+        public virtual bool EstActif { get; set; }
 
        // public virtual List<Item> ListeComplements { get; set; }
         #endregion
@@ -42,6 +43,7 @@ namespace GestResto.Logic.Model.Entities
             Formats = new List<FormatItem>();
             Categories = new Categorie();
           //  ListeComplements = new List<Item>();
+            EstActif = true;
         }
 
         /// <summary>
@@ -51,13 +53,14 @@ namespace GestResto.Logic.Model.Entities
         /// <param name="pNom">Nom de l'item</param>
         /// <param name="pFormatItem">Objet format de l'item</param>
         /// <param name="pCategories">Objet catégrie de l'item</param>
-        public Item(int pIdItem, string pNom, List<FormatItem> pFormatItem, Categorie pCategories)
+        public Item(int pIdItem, string pNom, List<FormatItem> pFormatItem, Categorie pCategories, bool pEstActif)
             : this()
         {
             IdItem = pIdItem;
             Nom = pNom;
             Formats = pFormatItem;
             Categories = pCategories;
+            EstActif = pEstActif;
         }
 
         /// <summary>
@@ -66,11 +69,12 @@ namespace GestResto.Logic.Model.Entities
         /// <param name="pNom">Nom de l'item</param>
         /// <param name="pFormatItem">Objet format de l'item</param>
         /// <param name="pCategories">Objet catégrie de l'item</param>
-        public Item(string pNom, List<FormatItem> pFormatItem, Categorie pCategories)
+        public Item(string pNom, List<FormatItem> pFormatItem, Categorie pCategories, bool pEstActif)
         {
             Nom = pNom;
             Formats = pFormatItem;
             Categories = pCategories;
+            EstActif = pEstActif;
         }
 
         #endregion

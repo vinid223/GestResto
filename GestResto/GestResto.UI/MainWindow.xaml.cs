@@ -18,6 +18,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using GestResto.MvvmToolkit.Services.Definitions;
 using GestResto.Logic.Services.NHibernate;
+using GestResto.Logic.Model.Entities;
 
 namespace GestResto.UI
 {
@@ -27,6 +28,8 @@ namespace GestResto.UI
     public partial class MainWindow : Window
     {
         public MainViewModel ViewModel { get { return (MainViewModel)DataContext; } }
+
+
         public MainWindow()
         {
             InitializeComponent();
@@ -41,8 +44,6 @@ namespace GestResto.UI
             //ViewModel.CurrentView = new CommandeView();
             //ViewModel.CurrentView = new AuthentificationView();
            ViewModel.CurrentView = new AuthentificationView();
-            
-            
         }
 
         private void Configure()
