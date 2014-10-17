@@ -8,6 +8,9 @@ using GestResto.Logic.Model.Args;
 
 namespace GestResto.Logic.Services.Definitions
 {
+    /// <summary>
+    /// Interface permettant de définir les fonctions du service Commande
+    /// </summary>
     public interface ICommandeService
     {
         void Create(Commande commande);

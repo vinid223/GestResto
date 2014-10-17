@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace GestResto.Logic.Model.Args
 {
+    /// <summary>
+    /// Classe définissant les arguments de sélection de la classe Employe
+    /// </summary>
     public class RetrieveEmployeArgs
     {
         public int IIdEmploye { get; set; }

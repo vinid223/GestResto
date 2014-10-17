@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace GestResto.Logic.Services.Definitions
 {
+    /// <summary>
+    /// Interface permettant de définir les fonctions du service TypeEmploye
+    /// </summary>
     public interface ITypeEmployeService
     {
         TypeEmploye Retrieve(RetrieveTypeEmployeArgs args);

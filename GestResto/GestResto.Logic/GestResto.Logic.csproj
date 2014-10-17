@@ -61,7 +61,6 @@
     <Compile Include="Model\Args\RetrieveRestaurantArgs.cs" />
     <Compile Include="Model\Args\RetrieveTableArgs.cs" />
     <Compile Include="Model\Args\RetrieveTypeEmployeArgs.cs" />
-    <Compile Include="Model\Entities\Authentification.cs" />
     <Compile Include="Model\Entities\Categorie.cs" />
     <Compile Include="Model\Entities\Client.cs" />
     <Compile Include="Model\Entities\Commande.cs" />

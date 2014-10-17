@@ -8,6 +8,9 @@ using GestResto.Logic.Model.Args;
 
 namespace GestResto.Logic.Services.Definitions
 {
+    /// <summary>
+    /// Interface permettant de définir les fonctions du service Restaurant
+    /// </summary>
     public interface IRestaurantService
     {
         Restaurant Retrieve(RetrieveRestaurantArgs args);

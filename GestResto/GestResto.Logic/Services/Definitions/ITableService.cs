@@ -8,6 +8,9 @@ using GestResto.Logic.Model.Args;
 
 namespace GestResto.Logic.Services.Definitions
 {
+    /// <summary>
+    /// Interface permettant de définir les fonctions du service Table
+    /// </summary>
     public interface ITableService
     {
         void Create(Table table);

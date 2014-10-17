@@ -7,6 +7,9 @@ using GestResto.Logic.Model.Entities;
 
 namespace GestResto.Logic.Model.Args
 {
+    /// <summary>
+    /// Classe définissant les arguments de sélection de la classe Item
+    /// </summary>
     public class RetrieveItemArgs
     {
         public int IIdItem { get; set; }

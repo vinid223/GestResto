@@ -24,6 +24,7 @@ namespace GestResto.UI.Views
     /// </summary>
     public partial class AuthentificationView : UserControl
     {
+        // Variables permettant de sauvegarder les informations d'authentification pour envoyer la requête
         private string NoIdentification = null;
         private string MDPIdentification = null;
         public EmployeViewModel ViewModel = new EmployeViewModel();
@@ -34,48 +35,66 @@ namespace GestResto.UI.Views
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Bouton permettant de confirmet l'entré sélectionné
+        /// </summary>
         private void btnConfirmer_Click(object sender, RoutedEventArgs e)
         {
+            // On vien ici si on a pas donné de numéro d'employé
             if (NoIdentification == null)
             {
+                // On sauvegarde en mémoire le numéro d'authentification et on change la valeur des boites de textes et des label
                 NoIdentification = txtAuthentification.Text.ToString();
                 lblTitreText.Content = "Mot de passe:";
                 txtAuthentification.Text = "";
             }
             else
             {
+                // Sinon, on vien ici pour donner la valeur du mot de passe
                 if (MDPIdentification == null)
                 {
+                    // On sauvegarde en mémoire le mot de passe et on change la valeur des boites de textes et des label
                     MDPIdentification = txtAuthentification.Text.ToString();
                     lblTitreText.Content = "Numéro d'employé:";
                     txtAuthentification.Text = "";
                 }
 
+                // On supprime les espaces pour avoir que les valeurs nécessaires
                 NoIdentification = NoIdentification.Replace(" ", string.Empty);
                 MDPIdentification = MDPIdentification.Replace(" ", string.Empty);
 
+                // On teste si nos champs ne sont pas vide et qu'ils sont valide avec la taille minimal et maximal
                 if (NoIdentification != null && MDPIdentification != null && NoIdentification.Length >= 2 && MDPIdentification.Length >= 2 && NoIdentification.Length <= 4 && MDPIdentification.Length <= 4)
                 {
+                    // On va chercher dans la abse de données l'employé qu'on tente d'authentifier
                     employe = ViewModel.ObtenirEmployeAuthentification(NoIdentification,MDPIdentification);
+
+                    // Si la réponse à la requête est null c'est que l'employé est inexistant
                     if (employe == null)
                     {
+                        // On affiche un message et on réinitialise les variables
                         MessageBox.Show("Les informations d'authentifications ne sont pas valide, veuillez ressayer", "Employé inexistant", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
                         NoIdentification = null;
                         MDPIdentification = null;
                     }
+                        // Sinon, si le type d'employé est null c'est que l'employé n'a pas reçu de type lors de sa création et il n'est pas valide
                     else if (employe.TypeEmployes == null)
                     {
                         MessageBox.Show("L'employe que vous tentez de connecter n'est pas valide. Connectez un administrateur pour corriger le problème", "Employé non valide", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
                     }
+                        // Sinon, si le type employé à un id de 1 ça veut donc dire que c'est un administrateur donc on affiche la fenêtre d'option administrateur
                     else if(employe.TypeEmployes.IdTypeEmploye == 1)
                     {
                         IApplicationService mainVM = ServiceFactory.Instance.GetService<IApplicationService>();
                         mainVM.ChangeView<OptionsAdministrationView>(new OptionsAdministrationView());
                     }
+                        // Sinon, si le type employé a un id de 2 ça veut donc dire que c'est un serveur et on lui affiche donc la fenêtre de gestion des commandes
                     else if(employe.TypeEmployes.IdTypeEmploye == 2)
                     {
-                        MessageBox.Show("L'employe est un serveur");
+                        IApplicationService mainVM = ServiceFactory.Instance.GetService<IApplicationService>();
+                        mainVM.ChangeView<CommandesView>(new CommandesView());
                     }
+                        // Sinon, l'employé a un type inconnu et non géré par le système donc on affiche un message personnalisé.
                     else
                     {
                         MessageBox.Show("L'employé identifié comporte un type inconnu. Veuillez entrer les informations de connexion a nouveau", "Type employé non valide", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
@@ -93,34 +112,55 @@ namespace GestResto.UI.Views
             }
         }
 
+        /// <summary>
+        /// Cette fonction permet au bouton sélectionner d'ajouter le chiffre dans la boite de texte
+        /// </summary>
         private void btn_Click(object sender, RoutedEventArgs e)
         {
+            // On teste si on a atteint le nombre maximal de caractère pour le champ d'authentification
             if (txtAuthentification.Text.Length < 7)
             {
+                // On définie une string avec le contenu du bouton qui est donc un chiffre. Ce qui permet d'ajouter le bon numéro à la chaine
                 string content = (sender as Button).Content.ToString();
+
+                // On test si ce n'est pas le premier champs de la chaine
+                // Si c'est le cas on ajoute un espace pour espacer les chiffres pour que ça soit plus lisible
                 if (txtAuthentification.Text.Length != 0)
                 {
                     txtAuthentification.Text += " ";
                 }
+
+                // On ajoute au champ du texte le numéro en cour
                 txtAuthentification.Text += content;
             }
         }
 
+        /// <summary>
+        /// Cette fonction permet de supprimer dans la chaine de texte un chiffre
+        /// </summary>
         private void btnRetour_Click(object sender, RoutedEventArgs e)
         {
+            // On va enregistrer l'ancien code
             string ancienText = txtAuthentification.Text;
+
+            // On test si l'ancien text a au moins un chiffre
             if (ancienText.Length > 0)
             {
+                // On définie une variable pour la nouvelle chaine
                 string nouveauText;
+
+                // Si l'ancienne chaine a un seul chiffre on supprime qu'un seul caractère
                 if (ancienText.Length == 1)
                 {
                     nouveauText = ancienText.Substring(0, ancienText.Length - 1);
                 }
+                    // Sinon, on supprime 2 caractères puisque nous avons ajouté des espaces entre les chiffres
                 else
                 {
                     nouveauText = ancienText.Substring(0, ancienText.Length - 2);
                 }
             
+                // On définie le champ texte avec la nouvelle chaine
                 txtAuthentification.Text = nouveauText;   
             }
         }

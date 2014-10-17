@@ -29,33 +29,27 @@ namespace GestResto.UI
     {
         public MainViewModel ViewModel { get { return (MainViewModel)DataContext; } }
 
-
         public MainWindow()
         {
             InitializeComponent();
             DataContext = new MainViewModel();
             Configure();
 
-
-            //ViewModel.CurrentView = new OptionsAdministrationView();
-            //ViewModel.CurrentView = new CommandeView();
-            //ViewModel.CurrentView = new CategorieView();
-            //ViewModel.CurrentView = new BottomView();
-            //ViewModel.CurrentView = new CommandeView();
-            //ViewModel.CurrentView = new AuthentificationView();
-           ViewModel.CurrentView = new AuthentificationView();
+            // On appel notre vue principal
+            ViewModel.CurrentView = new AuthentificationView();
         }
 
+        /// <summary>
+        /// Fonction qui permet de configurer nos services pour les lier avec nos interfaces
+        /// </summary>
         private void Configure()
         {
-            //ServiceFactory.Instance.Register<IAuthentificationService, NHibernateAuthentificationService>(new NHibernateAuthentificationService());
             ServiceFactory.Instance.Register<ICategorieService, NHibertateCategorieService>(new NHibertateCategorieService());
             ServiceFactory.Instance.Register<IRestaurantService, NHibernateRestaurantService>(new NHibernateRestaurantService());
             ServiceFactory.Instance.Register<IItemService, NHibernateItemService>(new NHibernateItemService());
             ServiceFactory.Instance.Register<IFormatService, NHibernateFormatService>(new NHibernateFormatService());
             ServiceFactory.Instance.Register<IEmployeService, NHibernateEmployeService>(new NHibernateEmployeService());
             ServiceFactory.Instance.Register<ITypeEmployeService, NHibernateTypeEmployeService>(new NHibernateTypeEmployeService());
-            //ServiceFactory.Instance.Register<IFormatItemService, NHibernateFormatItemService>(new NHibernateFormatItemService());
             
            
             ServiceFactory.Instance.Register<IApplicationService, MainViewModel>((MainViewModel)this.DataContext);

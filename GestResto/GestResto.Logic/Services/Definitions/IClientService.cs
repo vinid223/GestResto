@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace GestResto.Logic.Services.Definitions
 {
+    /// <summary>
+    /// Interface permettant de définir les fonctions du service Client
+    /// </summary>
     public interface IClientService
     {
         void Create(Client client);

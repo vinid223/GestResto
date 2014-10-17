@@ -8,6 +8,9 @@ using GestResto.Logic.Model.Args;
 
 namespace GestResto.Logic.Services.Definitions
 {
+    /// <summary>
+    /// Interface permettant de définir les fonctions du service Item
+    /// </summary>
     public interface IItemService
     {
         void Create(Item item);

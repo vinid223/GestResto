@@ -8,6 +8,9 @@ using GestResto.Logic.Model.Args;
 
 namespace GestResto.Logic.Services.Definitions
 {
+    /// <summary>
+    /// Interface permettant de définir les fonctions du service Catégorie
+    /// </summary>
     public interface ICategorieService
     {
         void Create(Categorie categorie);
