@@ -25,7 +25,6 @@ namespace GestResto.Logic.Services.NHibernate
                          select r;
 
             return result.FirstOrDefault();
-            sessionLazy.Close();
         }
 
         public void Update(Restaurant item)

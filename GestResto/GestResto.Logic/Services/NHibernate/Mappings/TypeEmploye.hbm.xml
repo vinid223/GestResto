@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping assembly="GestResto.Logic"
+                   namespace="GestResto.Logic.Model.Entities"
+                   xmlns="urn:nhibernate-mapping-2.2">
+  <class name="TypeEmploye" table="typesemploye">
+
+    <id name="IdTypeEmploye">
+      <column name="idTypeEmploye" not-null="true" sql-type="INTEGER" />
+      <generator class="identity" />
+    </id>
+
+    <property name="NomType">
+      <column name="nom" not-null="true" sql-type="VARCHAR" />
+    </property>
+  </class>
+
+</hibernate-mapping>

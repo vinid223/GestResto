@@ -67,9 +67,20 @@ namespace GestResto.UI.Views
                     {
                         MessageBox.Show("L'employe que vous tentez de connecter n'est pas valide. Connectez un administrateur pour corriger le problème", "Employé non valide", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
                     }
+                    else if(employe.TypeEmployes.IdTypeEmploye == 1)
+                    {
+                        IApplicationService mainVM = ServiceFactory.Instance.GetService<IApplicationService>();
+                        mainVM.ChangeView<OptionsAdministrationView>(new OptionsAdministrationView());
+                    }
+                    else if(employe.TypeEmployes.IdTypeEmploye == 2)
+                    {
+                        MessageBox.Show("L'employe est un serveur");
+                    }
                     else
                     {
-                        MessageBox.Show("L'employe a un type");
+                        MessageBox.Show("L'employé identifié comporte un type inconnu. Veuillez entrer les informations de connexion a nouveau", "Type employé non valide", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
+                        NoIdentification = null;
+                        MDPIdentification = null;
                     }
                     
                 }

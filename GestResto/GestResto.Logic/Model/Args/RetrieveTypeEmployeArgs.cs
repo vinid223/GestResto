@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GestResto.Logic.Model.Args
 {
-    class RetrieveTypeEmployeArgs
+    public class RetrieveTypeEmployeArgs
     {
         public int IIdTypeEmploye { get; set; }
     }

@@ -41,7 +41,7 @@ namespace GestResto.Logic.Services.NHibernate
         public Categorie Retrieve(RetrieveCategorieArgs args)
         {
             sessionLazy = NHibernateConnexion.OpenSession();
-            var result = from c in session.Query<Categorie>()
+            var result = from c in sessionLazy.Query<Categorie>()
                         where c.IdCategorie == args.idCategorie
                         select c;
 
