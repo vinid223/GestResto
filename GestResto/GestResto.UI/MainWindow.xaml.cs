@@ -40,8 +40,8 @@ namespace GestResto.UI
             //ViewModel.CurrentView = new BottomView();
             //ViewModel.CurrentView = new CommandeView();
             //ViewModel.CurrentView = new AuthentificationView();
-           ViewModel.CurrentView = new FormatView();
-
+           ViewModel.CurrentView = new AuthentificationView();
+            
             
         }
 
@@ -51,8 +51,9 @@ namespace GestResto.UI
             ServiceFactory.Instance.Register<ICategorieService, NHibertateCategorieService>(new NHibertateCategorieService());
             ServiceFactory.Instance.Register<IRestaurantService, NHibernateRestaurantService>(new NHibernateRestaurantService());
             ServiceFactory.Instance.Register<IItemService, NHibernateItemService>(new NHibernateItemService());
-            //ServiceFactory.Instance.Register<IFormatItemService, NHibernateFormatItemService>(new NHibernateFormatItemService());
             ServiceFactory.Instance.Register<IFormatService, NHibernateFormatService>(new NHibernateFormatService());
+            ServiceFactory.Instance.Register<IEmployeService, NHibernateEmployeService>(new NHibernateEmployeService());
+            //ServiceFactory.Instance.Register<IFormatItemService, NHibernateFormatItemService>(new NHibernateFormatItemService());
             
            
             ServiceFactory.Instance.Register<IApplicationService, MainViewModel>((MainViewModel)this.DataContext);
