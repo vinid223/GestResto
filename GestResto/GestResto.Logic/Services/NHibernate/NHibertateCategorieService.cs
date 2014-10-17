@@ -45,7 +45,6 @@ namespace GestResto.Logic.Services.NHibernate
                         where c.IdCategorie == args.idCategorie
                         select c;
 
-            sessionLazy.Close();
             return result.FirstOrDefault();
         }
 

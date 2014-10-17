@@ -1,20 +1,17 @@
-﻿using GestResto.Logic.Model.Args;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using GestResto.Logic.Model.Args;
 using GestResto.Logic.Model.Entities;
 using GestResto.Logic.Services.Definitions;
 using GestResto.Logic.Services.Helpers;
 using NHibernate;
 using NHibernate.Linq;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GestResto.Logic.Services.NHibernate
 {
-    /// <summary>
-    /// 
-    /// </summary>
     public class NHibernateEmployeService : IEmployeService
     {
         private ISession session = NHibernateConnexion.OpenSession();
@@ -37,11 +34,22 @@ namespace GestResto.Logic.Services.NHibernate
 
         public Employe Retrive(RetrieveEmployeArgs args)
         {
-            var result = from c in session.Query<Employe>()
-                         where c.IdEmploye == args.IIdEmploye
-                         select c;
-
-            return result.FirstOrDefault();
+            session = NHibernateConnexion.OpenSession();
+            if (args.MDP != null && args.NoEmploye != null)
+            {
+                var result = from c in session.Query<Employe>()
+                             where c.MotDePasse == args.MDP &&
+                             c.NoEmploye == args.NoEmploye
+                             select c;
+                return result.FirstOrDefault();
+            }
+            else
+            {
+                var result = from c in session.Query<Employe>()
+                             where c.IdEmploye == args.IIdEmploye
+                             select c;
+                return result.FirstOrDefault();
+            }
         }
 
         public void Update(Employe employe)

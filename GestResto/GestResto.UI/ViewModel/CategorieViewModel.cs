@@ -14,7 +14,6 @@ namespace GestResto.UI.ViewModel
     {
         private ICategorieService _categService;
 
-
         private Categorie _categorie;
 
         public Categorie Categorie
@@ -39,7 +38,6 @@ namespace GestResto.UI.ViewModel
 
         public IList<Categorie> ObtenirToutesLesCategories()
         {
-            RetrieveCategorieArgs args = new RetrieveCategorieArgs();
             IList<Categorie> listeCateg = _categService.RetrieveAll();
             return listeCateg;
         }

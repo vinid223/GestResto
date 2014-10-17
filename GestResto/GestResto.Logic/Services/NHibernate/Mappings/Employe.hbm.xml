@@ -18,11 +18,11 @@
     </property>
     
     <property name="NoEmploye">
-      <column name="noEmploye" not-null="true" sql-type="INTEGER" />
+      <column name="noEmploye" not-null="true" sql-type="VARCHAR" />
     </property>
 
     <property name="MotDePasse">
-      <column name="motPasse" not-null="true" sql-type="INTEGER" />
+      <column name="motPasse" not-null="true" sql-type="VARCHAR" />
     </property>
 
     <property name="Adresse">
@@ -52,17 +52,11 @@
     <property name="EstActif">
       <column name="actif" not-null="true" sql-type="BOOLEAN" />
     </property>
-
-    <many-to-one name="Types" class="TypeEmploye" lazy="proxy">
-      <column name="idType" not-null="true" sql-type="INTERGER" />
+    
+    <many-to-one name="TypeEmployes" class="TypeEmploye">
+      <column name="idTypeEmploye" not-null="true" sql-type="INTEGER" />
     </many-to-one>
     
-    <bag name="Commandes" inverse="true" generic="true" lazy="true" cascade="all">
-      <key>
-        <column name="idEmploye" />
-      </key>
-      <one-to-many class="Commande"/>
-    </bag>
   </class>
   
 </hibernate-mapping>

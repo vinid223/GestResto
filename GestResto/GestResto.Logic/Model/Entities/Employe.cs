@@ -11,7 +11,9 @@
 
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -27,7 +29,7 @@ namespace GestResto.Logic.Model.Entities
         public virtual int? IdEmploye { get; set; }
         public virtual string Nom { get; set; }
         public virtual string Prenom { get; set; }
-        public virtual int NoEmploye { get; set; }
+        public virtual string NoEmploye { get; set; }
         public virtual string MotDePasse { get; set; }
         public virtual string Adresse { get; set; }
         public virtual string Ville { get; set; }
@@ -36,8 +38,13 @@ namespace GestResto.Logic.Model.Entities
         public virtual float Salaire { get; set; }
         public virtual string Telephone { get; set; }
         public virtual bool EstActif { get; set; }
-        public virtual TypeEmploye Types { get; set; }
+        public virtual TypeEmploye TypeEmployes { get; set; }
         public virtual List<Commande> ListeCommandes { get; set; }
+
+        // Clés permettant de crypter et de décrypter les chaines qu'on veut
+        private static readonly string PasswordHash = "P@@Sw0rd";
+        private static readonly string SaltKey = "S@LT&KEY";
+        private static readonly string VIKey = "@1B2c3D4e5F6g7H8";
 
         #endregion
 
@@ -50,7 +57,7 @@ namespace GestResto.Logic.Model.Entities
                 IdEmploye = null;
                 Nom = "";
                 Prenom = "";
-                NoEmploye = 0;
+                NoEmploye = "";
                 MotDePasse = "";
                 Adresse = "";
                 Ville = "";
@@ -59,7 +66,7 @@ namespace GestResto.Logic.Model.Entities
                 Salaire = 0;
                 Telephone = "";
                 EstActif = false;
-                Types = null;
+                TypeEmployes = null;
                 ListeCommandes = new List<Commande>();
         }
 
@@ -77,7 +84,7 @@ namespace GestResto.Logic.Model.Entities
         /// <param name="pNAS">NAS de l'employé</param>
         /// <param name="pSalaire">Salaire de l'employé</param>
         /// <param name="pTelephone">Telephone de l'employé</param>
-        Employe(int pIdEmploye, string pNom, string pPrenom, int pNoEmploye, string pMotPasse, string pAdresse, string pVille, string pCodePostal, string pNAS, float pSalaire, string pTelephone, bool pEstActif, TypeEmploye pType)
+        Employe(int pIdEmploye, string pNom, string pPrenom, string pNoEmploye, string pMotPasse, string pAdresse, string pVille, string pCodePostal, string pNAS, float pSalaire, string pTelephone, bool pEstActif, TypeEmploye pType)
         {
             IdEmploye = pIdEmploye;
             Nom = pNom;
@@ -91,8 +98,68 @@ namespace GestResto.Logic.Model.Entities
             Salaire = pSalaire;
             Telephone = pTelephone;
             EstActif = pEstActif;
-            Types = pType;
+            TypeEmployes = pType;
         }
+
+        #region Encryption
+        /*
+         Source de l'encryption : https://social.msdn.microsoft.com/Forums/vstudio/en-US/d6a2836a-d587-4068-8630-94f4fb2a2aeb/encrypt-and-decrypt-a-string-in-c
+         Tout ce qui permet d'encrypter et de décrypter est sur le site de microsoft
+         */
+
+
+        /// <summary>
+        /// Fonction permettant d'encrypter le mot de passe de l'employe
+        /// </summary>
+        /// <param name="plainText">Chaine de texte à encrypter</param>
+        /// <returns>Chaine crypté</returns>
+        public static string Encrypt(string plainText)
+        {
+            byte[] plainTextBytes = Encoding.UTF8.GetBytes(plainText);
+
+            byte[] keyBytes = new Rfc2898DeriveBytes(PasswordHash, Encoding.ASCII.GetBytes(SaltKey)).GetBytes(256 / 8);
+            var symmetricKey = new RijndaelManaged() { Mode = CipherMode.CBC, Padding = PaddingMode.Zeros };
+            var encryptor = symmetricKey.CreateEncryptor(keyBytes, Encoding.ASCII.GetBytes(VIKey));
+
+            byte[] cipherTextBytes;
+
+            using (var memoryStream = new MemoryStream())
+            {
+                using (var cryptoStream = new CryptoStream(memoryStream, encryptor, CryptoStreamMode.Write))
+                {
+                    cryptoStream.Write(plainTextBytes, 0, plainTextBytes.Length);
+                    cryptoStream.FlushFinalBlock();
+                    cipherTextBytes = memoryStream.ToArray();
+                    cryptoStream.Close();
+                }
+                memoryStream.Close();
+            }
+            return Convert.ToBase64String(cipherTextBytes);
+        }
+
+        /// <summary>
+        /// Fonction qui permet de décrypter
+        /// </summary>
+        /// <param name="encryptedText">Chaine crypté</param>
+        /// <returns>Chaine décrypté</returns>
+        public static string Decrypt(string encryptedText)
+        {
+            byte[] cipherTextBytes = Convert.FromBase64String(encryptedText);
+            byte[] keyBytes = new Rfc2898DeriveBytes(PasswordHash, Encoding.ASCII.GetBytes(SaltKey)).GetBytes(256 / 8);
+            var symmetricKey = new RijndaelManaged() { Mode = CipherMode.CBC, Padding = PaddingMode.None };
+
+            var decryptor = symmetricKey.CreateDecryptor(keyBytes, Encoding.ASCII.GetBytes(VIKey));
+            var memoryStream = new MemoryStream(cipherTextBytes);
+            var cryptoStream = new CryptoStream(memoryStream, decryptor, CryptoStreamMode.Read);
+            byte[] plainTextBytes = new byte[cipherTextBytes.Length];
+
+            int decryptedByteCount = cryptoStream.Read(plainTextBytes, 0, plainTextBytes.Length);
+            memoryStream.Close();
+            cryptoStream.Close();
+            return Encoding.UTF8.GetString(plainTextBytes, 0, decryptedByteCount).TrimEnd("\0".ToCharArray());
+        }
+
+        #endregion
 
         #endregion
     }

@@ -9,7 +9,7 @@ namespace GestResto.Logic.Model.Args
     public class RetrieveEmployeArgs
     {
         public int IIdEmploye { get; set; }
-        public int INoEmploye { get; set; }
-        public string SMDP { get; set; }
+        public string NoEmploye { get; set; }
+        public string MDP { get; set; }
     }
 }

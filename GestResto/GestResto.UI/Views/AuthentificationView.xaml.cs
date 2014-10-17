@@ -1,12 +1,12 @@
 ﻿using GestResto.Logic.Model.Entities;
-using GestResto.Logic.Services.Definitions;
 using GestResto.MvvmToolkit.Services;
+using GestResto.MvvmToolkit.Services.Definitions;
 using GestResto.UI.ViewModel;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -26,6 +26,7 @@ namespace GestResto.UI.Views
     {
         private string NoIdentification = null;
         private string MDPIdentification = null;
+        public EmployeViewModel ViewModel = new EmployeViewModel();
         private Employe employe;
 
         public AuthentificationView()
@@ -46,23 +47,71 @@ namespace GestResto.UI.Views
                 if (MDPIdentification == null)
                 {
                     MDPIdentification = txtAuthentification.Text.ToString();
+                    lblTitreText.Content = "Numéro d'employé:";
+                    txtAuthentification.Text = "";
                 }
-            }
 
-            if (NoIdentification != null && MDPIdentification != null && NoIdentification != "" && MDPIdentification != "")
-            {
-                MessageBox.Show("On se connecte pour vérifier si l'employer existe");
+                NoIdentification = NoIdentification.Replace(" ", string.Empty);
+                MDPIdentification = MDPIdentification.Replace(" ", string.Empty);
+
+                if (NoIdentification != null && MDPIdentification != null && NoIdentification.Length >= 2 && MDPIdentification.Length >= 2 && NoIdentification.Length <= 4 && MDPIdentification.Length <= 4)
+                {
+                    employe = ViewModel.ObtenirEmployeAuthentification(NoIdentification,MDPIdentification);
+                    if (employe == null)
+                    {
+                        MessageBox.Show("Les informations d'authentifications ne sont pas valide, veuillez ressayer", "Employé inexistant", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
+                        NoIdentification = null;
+                        MDPIdentification = null;
+                    }
+                    else if (employe.TypeEmployes == null)
+                    {
+                        MessageBox.Show("L'employe que vous tentez de connecter n'est pas valide. Connectez un administrateur pour corriger le problème", "Employé non valide", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
+                    }
+                    else
+                    {
+                        MessageBox.Show("L'employe a un type");
+                    }
+                    
+                }
+                else
+                {
+                    MessageBox.Show("Les informations que vous avez ne sont pas valide, veuillez entrer à nouveau les informations", "Champ non valide", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
+                    NoIdentification = null;
+                    MDPIdentification = null;
+                }
             }
         }
 
         private void btn_Click(object sender, RoutedEventArgs e)
         {
-            string content = (sender as Button).Content.ToString();
-            if (txtAuthentification.Text.Length != 0)
+            if (txtAuthentification.Text.Length < 7)
             {
-                txtAuthentification.Text += " ";
+                string content = (sender as Button).Content.ToString();
+                if (txtAuthentification.Text.Length != 0)
+                {
+                    txtAuthentification.Text += " ";
+                }
+                txtAuthentification.Text += content;
             }
-            txtAuthentification.Text += content;
+        }
+
+        private void btnRetour_Click(object sender, RoutedEventArgs e)
+        {
+            string ancienText = txtAuthentification.Text;
+            if (ancienText.Length > 0)
+            {
+                string nouveauText;
+                if (ancienText.Length == 1)
+                {
+                    nouveauText = ancienText.Substring(0, ancienText.Length - 1);
+                }
+                else
+                {
+                    nouveauText = ancienText.Substring(0, ancienText.Length - 2);
+                }
+            
+                txtAuthentification.Text = nouveauText;   
+            }
         }
     }
 }
