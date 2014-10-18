@@ -48,6 +48,7 @@ namespace GestResto.UI.Views
                 messageErreur.Append(exceptionMessage);
 
                 MessageBox.Show(messageErreur.ToString(), "Une erreur s'est produite", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
+                Constante.LogErreur("Impossible d'afficher la liste des catégories : " + exceptionMessage);
             }
             listeBoutonCategories.ItemsSource = listeCategories;
 
@@ -89,6 +90,7 @@ namespace GestResto.UI.Views
             if (erreur)
             {
                 MessageBox.Show(messageErreur.ToString(), "Informations incomplètes", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
+                Constante.LogErreur("Les champs d'enregistrement d'une catégorie ne sont pas valides");
             }
             else
             {
@@ -107,15 +109,18 @@ namespace GestResto.UI.Views
                     if (Regex.IsMatch(exceptionMessage, @"'nom'$"))
                     {
                         messageErreur.Append("Le nom doit être unique");
+                        Constante.LogErreur("Le nom n'est pas unique lors de l'enregistrement d'une catégorie");
                     }
                     else
                     {
                         messageErreur.Append("Erreur inconnue : ");
                         messageErreur.Append(exceptionMessage);
+                        Constante.LogErreur("Erreur inconnue : " + exceptionMessage + " lors de l'enregistrement d'une catégorie");
                     }
 
                     // On affiche le mmessage d'erreur
                     MessageBox.Show(messageErreur.ToString(), "Erreur", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
+                    
                 }
 
             }
@@ -146,10 +151,12 @@ namespace GestResto.UI.Views
                 if (Regex.IsMatch(exceptionMessage, @"'nom'$"))
                 {
                     messageErreur.Append("Vous devez renommer le nom de votre catégorie avant d'en ajouter une nouvelle");
+                    Constante.LogErreur("Tentative d'ajout d'une catégorie sans avoir modifié la précédente");
                 }
                 else
                 {
                     messageErreur.Append("Erreur inconnue : " + exceptionMessage);
+                    Constante.LogErreur("Erreur inconnue : " + exceptionMessage + " lors de l'ajout d'une catégorie");
                 }
 
                 // On affiche le mmessage d'erreur

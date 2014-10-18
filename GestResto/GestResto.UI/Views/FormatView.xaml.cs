@@ -48,6 +48,7 @@ namespace GestResto.UI.Views
                 messageErreur.Append(exceptionMessage);
 
                 MessageBox.Show(messageErreur.ToString(), "Une erreur s'est produite", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
+                Constante.LogErreur("Impossible d'afficher la liste des formats : " + exceptionMessage);
             }
             listeBoutonFormats.ItemsSource = listeFormat;
         }
@@ -95,6 +96,7 @@ namespace GestResto.UI.Views
             if(erreur)
             {
                 MessageBox.Show(messageErreur.ToString(), "Informations incomplètes", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
+                Constante.LogErreur("Les champs d'enregistrement d'un format ne sont pas valides");
             }
             else
             {
@@ -116,17 +118,20 @@ namespace GestResto.UI.Views
                     if (Regex.IsMatch(exceptionMessage, @"'libelle'$"))
                     {
                         messageErreur.Append("Le libelle doit être unique");
+                        Constante.LogErreur("Le libelle n'est pas unique lors de l'enregistrement d'un format");
                     }
 
                     // On vérifie si l'exception provient du nom
                     else if (Regex.IsMatch(exceptionMessage, @"'nom'$"))
                     {
                         messageErreur.Append("Le nom doit être unique");
+                        Constante.LogErreur("Le nom n'est pas unique lors de l'enregistrement d'un format");
                     }
                     else 
                     {
                         messageErreur.Append("Erreur inconnue : ");
                         messageErreur.Append(exceptionMessage);
+                        Constante.LogErreur("Erreur inconnue : " + exceptionMessage + " lors de l'enregistrement d'un format");
                     }
 
                     // On affiche le mmessage d'erreur
@@ -162,11 +167,13 @@ namespace GestResto.UI.Views
                 // On vérifie si l'exception provient du nom
                 if (Regex.IsMatch(exceptionMessage, @"'nom'$") || Regex.IsMatch(exceptionMessage, @"'libelle'$"))
                 {
-                    messageErreur.Append("Vous devez renommer votre format avant d'en ajouter un nouveau");
+                    messageErreur.Append("Un nouveau format a déjà été ajouté. Vous devez le renommer avant d'en ajouter un nouveau");
+                    Constante.LogErreur("Tentative d'ajout d'un format sans avoir modifié le précédent");
                 }
                 else 
                 {
                     messageErreur.Append("Erreur inconnue : " + exceptionMessage);
+                    Constante.LogErreur(messageErreur.ToString() + " lors de l'ajout d'un format");
                 }
 
                 // On affiche le mmessage d'erreur
