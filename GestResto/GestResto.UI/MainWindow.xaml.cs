@@ -19,6 +19,7 @@ using System.Windows.Shapes;
 using GestResto.MvvmToolkit.Services.Definitions;
 using GestResto.Logic.Services.NHibernate;
 using GestResto.Logic.Model.Entities;
+using System.IO;
 
 namespace GestResto.UI
 {
@@ -65,6 +66,58 @@ namespace GestResto.UI
             employe = null;
             IApplicationService mainVM = ServiceFactory.Instance.GetService<IApplicationService>();
             mainVM.ChangeView<AuthentificationView>(new AuthentificationView());
+        }
+
+        public static void LogNavigation(string MessageDeNavigation)
+        {
+            string MessageHeader = String.Empty;
+            // On définie la string avec le header
+            if (employe == null)
+            {
+                MessageHeader = "-------" + DateTime.Now + "----- Utilisateur: Indéfinie ----- " + MessageDeNavigation + "\n";
+            }
+            else if (employe.IdEmploye == null)
+            {
+                MessageHeader = "-------" + DateTime.Now + "----- Utilisateur: Indéfinie ----- " + MessageDeNavigation + "\n";
+            }
+            else
+            {
+                MessageHeader = "-------" + DateTime.Now + "----- Utilisateur: " + employe.Nom + ", " + employe.Prenom + " ------ " + MessageDeNavigation + "\n";
+            }
+            
+            // On enregistre dans le fichier de log la ligne
+
+            StreamWriter file;
+            file = File.AppendText(".\\Log\\LogNavigation.txt");
+            file.WriteLine(MessageHeader);
+            file.Flush();
+            file.Close();
+
+        }
+
+        public static void LogErreur(string MessageDErreur)
+        {
+            string MessageHeader = String.Empty;
+            // On définie la string avec le header
+            if (employe == null)
+            {
+                MessageHeader = "-------" + DateTime.Now + "----- Utilisateur: Indéfinie ----- " + MessageDErreur + "\n";
+            }
+            else if (employe.IdEmploye == null)
+            {
+                MessageHeader = "-------" + DateTime.Now + "----- Utilisateur: Indéfinie ----- " + MessageDErreur + "\n";
+            }
+            else
+            {
+                MessageHeader = "-------" + DateTime.Now + "----- Utilisateur: " + employe.Nom + ", " + employe.Prenom + " ------ " + MessageDErreur + "\n";
+            }
+
+            // On enregistre dans le fichier de log la ligne
+            StreamWriter file;
+            file = File.AppendText(".\\Log\\LogErreur.txt");
+            file.WriteLine(MessageHeader);
+            file.Flush();
+            file.Close();
         }
     }
 }
