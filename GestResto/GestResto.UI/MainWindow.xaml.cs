@@ -58,8 +58,11 @@ namespace GestResto.UI
 
     public static class Constante
     {
+        public static Employe employe = new Employe();
+
         public static void Deconnexion()
         {
+            employe = null;
             IApplicationService mainVM = ServiceFactory.Instance.GetService<IApplicationService>();
             mainVM.ChangeView<AuthentificationView>(new AuthentificationView());
         }

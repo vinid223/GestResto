@@ -28,7 +28,6 @@ namespace GestResto.UI.Views
         private string NoIdentification = null;
         private string MDPIdentification = null;
         public EmployeViewModel ViewModel = new EmployeViewModel();
-        private Employe employe;
 
         public AuthentificationView()
         {
@@ -67,10 +66,10 @@ namespace GestResto.UI.Views
                 if (NoIdentification != null && MDPIdentification != null && NoIdentification.Length >= 2 && MDPIdentification.Length >= 2 && NoIdentification.Length <= 4 && MDPIdentification.Length <= 4)
                 {
                     // On va chercher dans la abse de données l'employé qu'on tente d'authentifier
-                    employe = ViewModel.ObtenirEmployeAuthentification(NoIdentification,MDPIdentification);
+                    Constante.employe = ViewModel.ObtenirEmployeAuthentification(NoIdentification,MDPIdentification);
 
                     // Si la réponse à la requête est null c'est que l'employé est inexistant
-                    if (employe == null)
+                    if (Constante.employe == null)
                     {
                         // On affiche un message et on réinitialise les variables
                         MessageBox.Show("Les informations d'authentifications ne sont pas valide, veuillez ressayer", "Employé inexistant", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
@@ -78,18 +77,18 @@ namespace GestResto.UI.Views
                         MDPIdentification = null;
                     }
                         // Sinon, si le type d'employé est null c'est que l'employé n'a pas reçu de type lors de sa création et il n'est pas valide
-                    else if (employe.TypeEmployes == null)
+                    else if (Constante.employe.TypeEmployes == null)
                     {
                         MessageBox.Show("L'employe que vous tentez de connecter n'est pas valide. Connectez un administrateur pour corriger le problème", "Employé non valide", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
                     }
                         // Sinon, si le type employé à un id de 1 ça veut donc dire que c'est un administrateur donc on affiche la fenêtre d'option administrateur
-                    else if(employe.TypeEmployes.IdTypeEmploye == 1)
+                    else if (Constante.employe.TypeEmployes.IdTypeEmploye == 1)
                     {
                         IApplicationService mainVM = ServiceFactory.Instance.GetService<IApplicationService>();
                         mainVM.ChangeView<OptionsAdministrationView>(new OptionsAdministrationView());
                     }
                         // Sinon, si le type employé a un id de 2 ça veut donc dire que c'est un serveur et on lui affiche donc la fenêtre de gestion des commandes
-                    else if(employe.TypeEmployes.IdTypeEmploye == 2)
+                    else if (Constante.employe.TypeEmployes.IdTypeEmploye == 2)
                     {
                         IApplicationService mainVM = ServiceFactory.Instance.GetService<IApplicationService>();
                         mainVM.ChangeView<CommandesView>(new CommandesView());
