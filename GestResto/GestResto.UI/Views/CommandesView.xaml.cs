@@ -34,7 +34,8 @@ namespace GestResto.UI.Views
 
         private void btnAjouter_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            MessageBox.Show("Ajouter");
+            IApplicationService mainVM = ServiceFactory.Instance.GetService<IApplicationService>();
+            mainVM.ChangeView<AjoutCommandeView>(new AjoutCommandeView());
         }
         private void btnDeconnexion_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {

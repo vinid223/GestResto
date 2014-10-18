@@ -4,13 +4,68 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="500">
-    <WrapPanel >
-        <Button Content="Table 3" MinWidth="70" Width="Auto" Margin="10" Padding="10"/>
-        <Button Content="Table 5" MinWidth="70" Width="Auto" Margin="10" Padding="10"/>
-        <Button Content="Tables 9" MinWidth="70" Width="Auto" Margin="10" Padding="10"/>
-        <Button Content="Table 10" MinWidth="70" Width="Auto" Margin="10" Padding="10"/>
-        <Button Content="Table 13" MinWidth="70" Width="Auto" Margin="10" Padding="10"/>
-        <Button Content="Table 15" MinWidth="70" Width="Auto" Margin="10" Padding="10"/>
-    </WrapPanel>
+             d:DesignHeight="600" d:DesignWidth="1000">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="75"/>
+        </Grid.RowDefinitions>
+
+        <ScrollViewer VerticalScrollBarVisibility="Auto">   <!-- Lorsque les boutons ne rentrent plus dans la fenêtre, une scoll bar apparait -->
+            <WrapPanel >
+                <Button Click="btn_Click" Content="Table 3" MinWidth="75" Width="Auto" Margin="10" Padding="25"/>
+                <Button Click="btn_Click" Content="Table 5" MinWidth="75" Width="Auto" Margin="10" Padding="25"/>
+                <Button Click="btn_Click" Content="Tables 9" MinWidth="75" Width="Auto" Margin="10" Padding="25"/>
+                <Button Click="btn_Click" Content="Table 10" MinWidth="75" Width="Auto" Margin="10" Padding="25"/>
+                <Button Click="btn_Click" Content="Table 13" MinWidth="75" Width="Auto" Margin="10" Padding="25"/>
+                <Button Click="btn_Click" Content="Table 15" MinWidth="75" Width="Auto" Margin="10" Padding="25"/>
+            </WrapPanel>
+        </ScrollViewer>
+
+        <!-- Boutons de navigation -->
+        <Grid Grid.ColumnSpan="2" Grid.Row="1" Margin="0,0,24,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="80"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0" Height="70" Width="80" Name="btnRetour" MouseLeftButtonDown="btnRetour_MouseLeftButtonDown">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="30"/>
+                </Grid.RowDefinitions>
+                <Border Grid.Row="0" Height="40" Width="40" BorderThickness="1" BorderBrush="Black" CornerRadius="5">
+                    <Image Source="/Images/forward.png" HorizontalAlignment="Left" Margin="4,4,0,0" VerticalAlignment="Top" Width="30" Height="30"/>
+                </Border>
+                <Label HorizontalAlignment="Center" Grid.Row="1" Height="30" FontSize="12">Retour</Label>
+            </Grid>
+
+            <StackPanel Grid.Column="1"  Orientation="Horizontal" HorizontalAlignment="Right" Grid.ColumnSpan="2">
+
+                <Grid Name="btnCreer" Grid.Column="1" Height="70" Width="80" MouseLeftButtonDown="btnCreer_MouseLeftButtonDown">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition Height="30"/>
+                    </Grid.RowDefinitions>
+                    <Border Grid.Row="0" Height="40" Width="40" BorderThickness="1" BorderBrush="Black" CornerRadius="5">
+                        <Image Source="/Images/checkmark.png" HorizontalAlignment="Left" Margin="4,4,0,0" VerticalAlignment="Top" Width="30" Height="30"/>
+                    </Border>
+                    <Label HorizontalAlignment="Center" Grid.Row="1" Height="30" FontSize="12">Créer</Label>
+                </Grid>
+
+                <Grid Grid.Column="1" Height="70" Width="80" Name="btnDeconnexion" MouseLeftButtonDown="btnDeconnexion_MouseLeftButtonDown">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition Height="30"/>
+                    </Grid.RowDefinitions>
+                    <Border Grid.Row="0" Height="40" Width="40" BorderThickness="1" BorderBrush="Black" CornerRadius="5">
+                        <Image Source="/Images/lock.png" HorizontalAlignment="Left" Margin="4,4,0,0" VerticalAlignment="Top" Width="30" Height="30"/>
+                    </Border>
+                    <Label HorizontalAlignment="Center" Grid.Row="1" Height="30" FontSize="12">Déconnexion</Label>
+                </Grid>
+            </StackPanel>
+        </Grid>
+        <!-- Fin des boutons de navigation -->
+
+    </Grid>
 </UserControl>

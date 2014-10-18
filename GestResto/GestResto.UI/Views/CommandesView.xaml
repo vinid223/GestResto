@@ -10,14 +10,17 @@
             <RowDefinition/>
             <RowDefinition Height="75"/>
         </Grid.RowDefinitions>
-        <WrapPanel >
-            <!-- Ici, nous ferons un template avec du binding du même principe que dans Catégorie et Format -->
-            <Button Click="btn_Click" Content="Table 6" MinWidth="75" Width="Auto" Margin="10" Padding="25"/>
-            <Button Click="btn_Click" Content="Tables 11, 12" MinWidth="75" Width="Auto" Margin="10" Padding="25"/>
-            <Button Click="btn_Click" Content="Tables 4, 8, 7, 1" MinWidth="75" Width="Auto" Margin="10" Padding="25"/>
-            <Button Click="btn_Click" Content="Table 14" MinWidth="75" Width="Auto" Margin="10" Padding="25"/>
-            <Button Click="btn_Click" Content="Table 2" MinWidth="75" Width="Auto" Margin="10" Padding="25"/>
-    </WrapPanel>
+
+        <ScrollViewer VerticalScrollBarVisibility="Auto">  <!-- Lorsque les boutons ne rentrent plus dans la fenêtre, une scoll bar apparait -->
+            <WrapPanel >
+                <!-- Ici, nous ferons un template avec du binding du même principe que dans Catégorie et Format -->
+                <Button Click="btn_Click" Content="Table 6" MinWidth="75" Width="Auto" Margin="10" Padding="25"/>
+                <Button Click="btn_Click" Content="Tables 11, 12" MinWidth="75" Width="Auto" Margin="10" Padding="25"/>
+                <Button Click="btn_Click" Content="Tables 4, 8, 7, 1" MinWidth="75" Width="Auto" Margin="10" Padding="25"/>
+                <Button Click="btn_Click" Content="Table 14" MinWidth="75" Width="Auto" Margin="10" Padding="25"/>
+                <Button Click="btn_Click" Content="Table 2" MinWidth="75" Width="Auto" Margin="10" Padding="25"/>
+            </WrapPanel>
+        </ScrollViewer>
 
         <!-- Boutons de navigation -->
         <Grid Grid.ColumnSpan="2" Grid.Row="1" Margin="0,0,24,0">
