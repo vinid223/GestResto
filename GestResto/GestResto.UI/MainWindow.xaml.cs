@@ -57,10 +57,16 @@ namespace GestResto.UI
         }
     }
 
+    /// <summary>
+    /// Classe permettant d'accéder a des variables et des fonctions de base nécessaire au fonctionnement du programme
+    /// </summary>
     public static class Constante
     {
         public static Employe employe = new Employe();
 
+        /// <summary>
+        /// Fonction permettant de déconnecter un utilisateur
+        /// </summary>
         public static void Deconnexion()
         {
             employe = null;
@@ -68,10 +74,15 @@ namespace GestResto.UI
             mainVM.ChangeView<AuthentificationView>(new AuthentificationView());
         }
 
+        /// <summary>
+        /// Fonction permettant de logger les navigations des utilisateurs
+        /// </summary>
+        /// <param name="MessageDeNavigation">Message à écrire dans le log</param>
         public static void LogNavigation(string MessageDeNavigation)
         {
             string MessageHeader = String.Empty;
-            // On définie la string avec le header
+
+            // On définie la string avec le header et la string au complet
             if (employe == null)
             {
                 MessageHeader = "-------" + DateTime.Now + "----- Utilisateur: Indéfinie ----- " + MessageDeNavigation + "\n";
@@ -86,19 +97,26 @@ namespace GestResto.UI
             }
             
             // On enregistre dans le fichier de log la ligne
+            Directory.CreateDirectory(System.IO.Path.GetDirectoryName(".\\Log\\LogNavigation.txt"));
 
-            StreamWriter file;
-            file = File.AppendText(".\\Log\\LogNavigation.txt");
-            file.WriteLine(MessageHeader);
-            file.Flush();
-            file.Close();
-
+            using (StreamWriter sw = File.AppendText(".\\Log\\LogNavigation.txt"))
+            {
+                sw.WriteLine(MessageHeader);
+                sw.Flush();
+                sw.Close();
+            }
         }
 
+
+        /// <summary>
+        /// Fonction permettant de logger les messages d'erreurs
+        /// </summary>
+        /// <param name="MessageDErreur">String comportant le message d'erreur à écrire dans le fichier de log</param>
         public static void LogErreur(string MessageDErreur)
         {
             string MessageHeader = String.Empty;
-            // On définie la string avec le header
+
+            // On définie la string avec le header et la string au complet
             if (employe == null)
             {
                 MessageHeader = "-------" + DateTime.Now + "----- Utilisateur: Indéfinie ----- " + MessageDErreur + "\n";
@@ -113,11 +131,14 @@ namespace GestResto.UI
             }
 
             // On enregistre dans le fichier de log la ligne
-            StreamWriter file;
-            file = File.AppendText(".\\Log\\LogErreur.txt");
-            file.WriteLine(MessageHeader);
-            file.Flush();
-            file.Close();
+            Directory.CreateDirectory(System.IO.Path.GetDirectoryName(".\\Log\\LogErreur.txt"));
+
+            using (StreamWriter sw = File.AppendText(".\\Log\\LogErreur.txt"))
+            {
+                sw.WriteLine(MessageHeader);
+                sw.Flush();
+                sw.Close();
+            }
         }
     }
 }
