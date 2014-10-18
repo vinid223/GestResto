@@ -79,7 +79,8 @@ namespace GestResto.UI.Views
         }
         private void btnDeconnexion_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            MessageBox.Show("Déconnexion");
+            // On appel la fonction de la classe constante qui permet de déconnecter l'utilisateur en cour
+            Constante.Deconnexion();
         }
 
         private void btnRetour_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)

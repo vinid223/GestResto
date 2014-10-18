@@ -1,4 +1,6 @@
 ﻿using GestResto.Logic.Model.Entities;
+using GestResto.MvvmToolkit.Services;
+using GestResto.MvvmToolkit.Services.Definitions;
 using GestResto.UI.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -26,6 +28,45 @@ namespace GestResto.UI.Views
         public CommandeView()
         {
             InitializeComponent();
+        }
+
+        private void btnAjouter_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            MessageBox.Show("Ajouter");
+        }
+
+        private void btnDiviser_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            MessageBox.Show("Diviser");
+        }
+
+        private void btnImprimer_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            MessageBox.Show("Imprimer");
+        }
+
+        private void btnSupprimer_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            MessageBox.Show("Supprimer");
+        }
+
+        private void btnPayer_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            MessageBox.Show("Payer");
+        }
+
+        // Fonction qui sert à nous déconnecter
+        private void btnDeconnexion_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            // On appel la fonction de la classe constante qui permet de déconnecter l'utilisateur en cour
+            Constante.Deconnexion();
+        }
+
+        // Fonction qui sert à revenir à la view précédente
+        private void btnRetour_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            IApplicationService mainVM = ServiceFactory.Instance.GetService<IApplicationService>();
+            mainVM.ChangeView<CommandesView>(new CommandesView());
         }
     }
 }

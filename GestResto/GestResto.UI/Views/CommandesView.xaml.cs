@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GestResto.MvvmToolkit.Services;
+using GestResto.MvvmToolkit.Services.Definitions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -39,5 +41,12 @@ namespace GestResto.UI.Views
             // On appel la fonction de la classe constante qui permet de déconnecter l'utilisateur en cour
             Constante.Deconnexion();
         }
+
+        private void btn_Click(object sender, RoutedEventArgs e)
+        {
+            IApplicationService mainVM = ServiceFactory.Instance.GetService<IApplicationService>();
+            mainVM.ChangeView<CommandeView>(new CommandeView());
+        }
+
     }
 }
