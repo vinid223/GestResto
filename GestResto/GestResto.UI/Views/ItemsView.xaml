@@ -23,8 +23,28 @@
         <Label Content="Prix" HorizontalAlignment="Left" Margin="1,64,0,0" VerticalAlignment="Top" Width="56" Grid.Column="1" Grid.Row="2" Height="26"/>
         <Label Content="Catégorie" HorizontalAlignment="Left" Margin="11,6,0,0" VerticalAlignment="Top" Grid.Column="2" Grid.Row="1" Height="26" Width="61"/>
         <TextBox HorizontalAlignment="Left" Height="23" Margin="67,8,0,0" VerticalAlignment="Top" Width="177" Name="txtNom" Text="{Binding Item.Nom}" Grid.Column="1" Grid.Row="2"/>
-        <ComboBox HorizontalAlignment="Left" Margin="67,36,0,0" VerticalAlignment="Top" Width="177" Name="cboCategorieLiee" Grid.Column="1" Grid.Row="2" Height="22"/>
-        <ComboBox HorizontalAlignment="Left" Margin="77,10,0,0" VerticalAlignment="Top" Width="137" Name="cboCategorieAffichee" Grid.Column="2" Grid.Row="1" Height="22"/>
+        <!-- Combobox catégorie liée à l'item -->
+        <ComboBox 
+            HorizontalAlignment="Left" 
+            Margin="67,36,0,0" 
+            VerticalAlignment="Top" 
+            Width="177" 
+            Name="cboCategorieLiee" 
+            ItemsSource="{Binding Path=Categorie}" 
+            DisplayMemberPath="Nom" 
+            Grid.Column="1" Grid.Row="2" Height="22"/>
+
+        <!-- Catégories possibles dans la Base de données pour afficher les items correspondants. -->
+        <ComboBox 
+            HorizontalAlignment="Left" 
+            Margin="77,10,0,0" 
+            VerticalAlignment="Top" 
+            Width="137" 
+            Name="cboCategorieAffichee" 
+            ItemsSource="{Binding Path=Categorie}" 
+            DisplayMemberPath="Nom" 
+            Grid.Column="2" Grid.Row="1" Height="22" SelectionChanged="cboCategorieAffichee_SelectionChanged"/>
+
         <CheckBox IsChecked="{Binding Item.EstActif}" Content="Actif" HorizontalAlignment="Left" Margin="200,12,0,0" VerticalAlignment="Top" Name="chkActif" Grid.Column="1" Grid.Row="1" Height="15" Width="44"/>
         <ListBox HorizontalAlignment="Left" Height="163" Margin="67,64,0,0" VerticalAlignment="Top" Width="177" Name="lbxListePrix" Grid.Column="1" Grid.Row="2"/>
         <ListView HorizontalAlignment="Left" Height="219" Margin="11,8,0,0" VerticalAlignment="Top" Width="400" Name="lbxListeCategorie" Grid.Column="2" Grid.Row="2">
@@ -51,13 +71,13 @@
                 <Label HorizontalAlignment="Center" Grid.Row="1" Height="30" FontSize="12">Retour</Label>
             </Grid>
             <StackPanel Grid.Column="1"  Orientation="Horizontal" HorizontalAlignment="Right" Grid.ColumnSpan="2">
-                <Grid Name="btnEnregistrer" Grid.Column="1" Height="70" Width="80" >
+                <Grid Name="btnEnregistrer" Grid.Column="1" Height="70" Width="80" MouseLeftButtonDown="btnEnregistrer_MouseLeftButtonDown" >
                     <Grid.RowDefinitions>
                         <RowDefinition/>
                         <RowDefinition Height="30"/>
                     </Grid.RowDefinitions>
                     <Border Grid.Row="0" Height="40" Width="40" BorderThickness="1" BorderBrush="Black" CornerRadius="5">
-                        <Image Source="/Images/floppy.png" HorizontalAlignment="Left" Margin="4,4,0,0" VerticalAlignment="Top" Width="30" Height="30"/>
+                        <Image Source="/Images/floppy.png" HorizontalAlignment="Right" Margin="0,4,4,4" Width="30"/>
                     </Border>
                     <Label HorizontalAlignment="Center" Grid.Row="1" Height="30" FontSize="12">Enregistrer</Label>
                 </Grid>

@@ -27,18 +27,25 @@ namespace GestResto.UI.Views
 
 
         public IList<Item> listeItems;
-       // public IList<Categorie> listeCategories;
+        public IList<Categorie> listeCategories;
 
         public ItemsView()
         {
             InitializeComponent();
             DataContext = new ItemsViewModel();
+
             // Création de la liste d'items
             listeItems = ViewModelItem.ObtenirTousLesItems();
             lbxListeCategorie.ItemsSource = listeItems;
-            // Création de la liste de catégories
-            //listeCategories = ViewModelCategorie.ObtenirToutesLesCategories();
-            //cboCategorieLiee.ItemsSource = listeCategories;
+
+            // Création de la liste de catégories liées à l'item sélectionné
+            listeCategories = ViewModelItem.ObtenirToutesLesCategories();
+            cboCategorieLiee.ItemsSource = listeCategories;
+
+            // Création de la liste des catégories qui affiche les items.
+            listeCategories = ViewModelItem.ObtenirToutesLesCategories();
+            cboCategorieAffichee.ItemsSource = listeCategories;
+
 
         }
         /// <summary>
@@ -52,7 +59,37 @@ namespace GestResto.UI.Views
             Item item = (Item)((sender as Button).CommandParameter);
             ViewModelItem.Item = item;
 
+            // Sélection de la catégorie liée à l'item.
+            cboCategorieLiee.SelectedItem = item.Categories;
+
         }
+
+        /// <summary>
+        /// Fonction qui permet d'enregistrer l'item en cours dans la base de donnée.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnEnregistrer_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            // Permet d'enlever le focus sur les champs pour permettre la sauvegarde de l'item
+            var scope = FocusManager.GetFocusScope(txtNom); 
+            FocusManager.SetFocusedElement(scope, null);
+            scope = FocusManager.GetFocusScope(chkActif);
+            FocusManager.SetFocusedElement(scope, null);
+            scope = FocusManager.GetFocusScope(lbxListePrix); 
+            FocusManager.SetFocusedElement(scope, null);
+            scope = FocusManager.GetFocusScope(cboCategorieAffichee);
+            FocusManager.SetFocusedElement(scope, null);
+            scope = FocusManager.GetFocusScope(cboCategorieLiee);
+            FocusManager.SetFocusedElement(scope, null);
+            Keyboard.ClearFocus();
+
+            // On doit sélectionner la catégorie choisie et la changer dans l'item
+            ViewModelItem.Item.Categories = (Categorie)cboCategorieLiee.SelectedItem;
+            ViewModelItem.EnregistrerUnItem(ViewModelItem.Item);
+
+        }
+
 
         /// <summary>
         /// Lorsque l'utilisateur veut ajouter un item, on vide les champs.
@@ -64,6 +101,23 @@ namespace GestResto.UI.Views
             // Création d'un item temporaire.
             Item itemTemp = new Item("Entrez le nom de l'item.", null, null, true);
 
+            itemTemp.IdItem = ViewModelItem.AjouterUnItem(itemTemp);
+
+            ViewModelItem.Item = itemTemp;
+
+        }
+
+        /// <summary>
+        /// Lorsque cette liste déroulante va changer, la liste d'items va seulement afficher 
+        /// les items de la catégorie choisie dans la liste déroulante.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void cboCategorieAffichee_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Categorie categorie = (Categorie)cboCategorieAffichee.SelectedItem;
+
+            lbxListeCategorie.ItemsSource = ViewModelItem.ObtenirTousLesItemsDeLaCategorie(categorie);
 
         }
     }

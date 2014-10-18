@@ -35,6 +35,7 @@ namespace GestResto.UI.ViewModel
         public ItemsViewModel()
         {
             _itemService = ServiceFactory.Instance.GetService<IItemService>();
+            _categService = ServiceFactory.Instance.GetService<ICategorieService>();
         }
 
         public IList<Item> ObtenirTousLesItems()
@@ -44,12 +45,35 @@ namespace GestResto.UI.ViewModel
             return listeItem;
         }
 
+        public IList<Item> ObtenirTousLesItemsDeLaCategorie(Categorie categorie)
+        {
+            RetrieveItemArgs args = new RetrieveItemArgs();
+            IList<Item> listeItem = _itemService.RetrieveAll();
+            IList<Item> listeItemVerifiee = new List<Item>();
+
+            // Parcours tous les items et vérifie si la catégorie de l'item correspond à la catégorie choisie.
+            foreach (var item in listeItem)
+            {
+                if(item.Categories.IdCategorie == categorie.IdCategorie)
+                {
+                    listeItemVerifiee.Add(item);
+                }
+            }
+
+            return listeItemVerifiee;
+        }
+
         public void EnregistrerTousLesItems(IList<Item> listeItems)
         {
             foreach (var categorie in listeItems)
 	        {
                 _itemService.Update(Item);
 	        }
+        }
+
+        public void EnregistrerUnItem(Item item)
+        {
+            _itemService.Update(item);
         }
 
         public int AjouterUnItem(Item pItem)

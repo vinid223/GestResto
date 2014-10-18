@@ -70,5 +70,29 @@ namespace GestResto.Logic.Model.Entities
             EstComplementaire = pEstComplementaire;
         }
         #endregion
+
+        #region Redéfinition de fonctions de bases
+        /// <summary>
+        /// Permet de comparer deux catégories.
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
+        public override bool Equals(object obj)
+        {
+            if (obj == null)
+            {
+                return false;
+            }
+
+            Categorie p = obj as Categorie;
+
+            if (p == null)
+            {
+                return false;
+            }
+
+            return this.IdCategorie == p.IdCategorie;
+        }
+        #endregion
     }
 }

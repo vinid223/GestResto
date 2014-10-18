@@ -47,7 +47,7 @@ namespace GestResto.UI.Views
             cbxComplementaire.IsEnabled = true;
         }
 
-        // Fonction qui permet d'enregistrer la catégorie en cour dans la base de donnée.
+        // Fonction qui permet d'enregistrer la catégorie en cours dans la base de donnée.
         private void btnEnregistrer_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             var scope = FocusManager.GetFocusScope(txtNom); // elem is the UIElement to unfocus

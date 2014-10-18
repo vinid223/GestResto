@@ -16,6 +16,7 @@ namespace GestResto.Logic.Services.Definitions
         void Create(Item item);
         IList<Item> RetrieveAll();
         Item Retrieve(RetrieveItemArgs args);
+
         void Update(Item item);
     }
 }
