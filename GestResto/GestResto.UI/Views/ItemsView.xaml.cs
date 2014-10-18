@@ -17,6 +17,8 @@ using System.Windows.Shapes;
 
 namespace GestResto.UI.Views
 {
+
+
     /// <summary>
     /// Logique d'interaction pour ItemsView.xaml
     /// </summary>
@@ -28,6 +30,7 @@ namespace GestResto.UI.Views
 
         public IList<Item> listeItems;
         public IList<Categorie> listeCategories;
+        public IList<Format> tousLesFormats;
 
         public ItemsView()
         {
@@ -47,6 +50,8 @@ namespace GestResto.UI.Views
             cboCategorieAffichee.ItemsSource = listeCategories;
 
 
+
+
         }
         /// <summary>
         /// Lorsque l'utilisateur clique sur le bouton d'un item dans la liste, 
@@ -62,6 +67,11 @@ namespace GestResto.UI.Views
             // Sélection de la catégorie liée à l'item.
             cboCategorieLiee.SelectedItem = item.Categories;
 
+            tousLesFormats = ViewModelItem.ObtenirTousLesFormats();
+
+
+            lbxListePrix.ItemsSource = item.Formats;
+            //lbxListePrix.ItemsSource = tousLesFormats;
         }
 
         /// <summary>
@@ -118,6 +128,7 @@ namespace GestResto.UI.Views
             Categorie categorie = (Categorie)cboCategorieAffichee.SelectedItem;
 
             lbxListeCategorie.ItemsSource = ViewModelItem.ObtenirTousLesItemsDeLaCategorie(categorie);
+
 
         }
 

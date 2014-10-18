@@ -13,7 +13,9 @@
       <column name="prix" not-null="true" sql-type="FLOAT" />
     </property>
 
-
+    <many-to-one name="FormatAssocie" class="Format">
+      <column name="idFormat" not-null="false" sql-type="INTEGER" />
+    </many-to-one>
     
   </class>
 </hibernate-mapping>

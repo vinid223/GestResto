@@ -15,6 +15,7 @@ namespace GestResto.UI.ViewModel
     {
         public IItemService _itemService;
         public ICategorieService _categService;
+        private IFormatService _formatService;
 
         public Item _item;
 
@@ -36,6 +37,7 @@ namespace GestResto.UI.ViewModel
         {
             _itemService = ServiceFactory.Instance.GetService<IItemService>();
             _categService = ServiceFactory.Instance.GetService<ICategorieService>();
+            _formatService = ServiceFactory.Instance.GetService<IFormatService>();
         }
 
         public IList<Item> ObtenirTousLesItems()
@@ -96,5 +98,12 @@ namespace GestResto.UI.ViewModel
             return listeCateg;
         }
 
+
+        public IList<Format> ObtenirTousLesFormats()
+        {
+            RetrieveFormatArgs args = new RetrieveFormatArgs();
+            IList<Format> listeFormat = _formatService.RetrieveAll();
+            return listeFormat;
+        }
     }
 }
