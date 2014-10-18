@@ -50,7 +50,7 @@ namespace GestResto.UI.Views
             }
             else
             {
-                // Sinon, on vien ici pour donner la valeur du mot de passe
+                // Sinon, on vient ici pour donner la valeur du mot de passe
                 if (MDPIdentification == null)
                 {
                     // On sauvegarde en mémoire le mot de passe et on change la valeur des boites de textes et des label

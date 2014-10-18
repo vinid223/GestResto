@@ -239,6 +239,7 @@
     <Resource Include="Images\floppy.png" />
     <Resource Include="Images\info.png" />
     <Resource Include="Images\lines.png" />
+    <Resource Include="Images\logo.png" />
     <Resource Include="Images\mastercard.png" />
     <Resource Include="Images\money.png" />
     <Resource Include="Images\plus.png" />

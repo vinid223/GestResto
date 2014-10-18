@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -31,7 +32,23 @@ namespace GestResto.UI.Views
         {
             InitializeComponent();
             DataContext = new CategorieViewModel();
-            listeCategories = ViewModel.ObtenirToutesLesCategories();
+
+            // On tente d'obtenir toutes les catégories
+            try
+            { 
+                listeCategories = ViewModel.ObtenirToutesLesCategories();
+            }
+            // Dans le cas d'une erreur
+            catch(Exception e)
+            {
+                StringBuilder messageErreur = new StringBuilder();
+                string exceptionMessage = e.InnerException.Message;
+
+                messageErreur.Append("Une erreur s'est produite, il est impossible d'afficher la liste des catégories :\n");
+                messageErreur.Append(exceptionMessage);
+
+                MessageBox.Show(messageErreur.ToString(), "Une erreur s'est produite", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
+            }
             listeBoutonCategories.ItemsSource = listeCategories;
 
         }
@@ -50,6 +67,9 @@ namespace GestResto.UI.Views
         // Fonction qui permet d'enregistrer la catégorie en cours dans la base de donnée.
         private void btnEnregistrer_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
+            bool erreur = false;
+            StringBuilder messageErreur = new StringBuilder();
+
             var scope = FocusManager.GetFocusScope(txtNom); // elem is the UIElement to unfocus
             FocusManager.SetFocusedElement(scope, null); // remove logical focus
             scope = FocusManager.GetFocusScope(cbxActif); // elem is the UIElement to unfocus
@@ -58,18 +78,85 @@ namespace GestResto.UI.Views
             FocusManager.SetFocusedElement(scope, null); // remove logical focus
             Keyboard.ClearFocus(); // remove keyboard focus
 
-            ViewModel.EnregistrerUneCategorie(ViewModel.Categorie);
-        }
+            // Si un des champs est vide, on informe l'utilisateur
+            if (ViewModel.Categorie.Nom == "")
+            {
+                erreur = true;
+                messageErreur.Append("Tous les champs doivent être remplis afin d'enregistrer\n");
+            }
 
+            // S'il y a une erreur, on affiche un message
+            if (erreur)
+            {
+                MessageBox.Show(messageErreur.ToString(), "Informations incomplètes", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
+            }
+            else
+            {
+                try
+                {
+                    ViewModel.EnregistrerUneCategorie(ViewModel.Categorie);
+                }
+                catch (Exception exception)
+                {
+                    string exceptionMessage = exception.InnerException.Message;
+                    messageErreur.Clear();  // On s'assure que le message d'erreur soit vide
+
+                    messageErreur.Append("Impossible d'enregistrer la catégorie.\n");
+
+                    // On vérifie si l'exception provient du nom
+                    if (Regex.IsMatch(exceptionMessage, @"'nom'$"))
+                    {
+                        messageErreur.Append("Le nom doit être unique");
+                    }
+                    else
+                    {
+                        messageErreur.Append("Erreur inconnue : ");
+                        messageErreur.Append(exceptionMessage);
+                    }
+
+                    // On affiche le mmessage d'erreur
+                    MessageBox.Show(messageErreur.ToString(), "Erreur", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
+                }
+
+            }
+        }
         // Fonction qui permet d'ajouter dans la base de données une catégorie.
         private void btnAjouter_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             // On crée une catégorie en mémoire
             Categorie categTemp = new Categorie("Entrez le nom de votre catégorie", false, false);
 
-            // On insert dans la base de donnée la nouvelle catégorie et on en retire l'id
-            categTemp.IdCategorie = ViewModel.AjouterUneCategorie(categTemp);
+            StringBuilder messageErreur = new StringBuilder();
 
+
+            // On tente de faire un ajout dans la base de données
+            try
+            {
+                // On insert dans la base de donnée la nouvelle catégorie et on en retire l'id
+                categTemp.IdCategorie = ViewModel.AjouterUneCategorie(categTemp);
+            }
+            catch (Exception exception)
+            {
+                string exceptionMessage = exception.InnerException.Message;
+                messageErreur.Clear();  // On s'assure que le message d'erreur soit vide
+
+                messageErreur.Append("Impossible d'ajouter une catégorie.\n");
+
+                // On vérifie si l'exception provient du nom
+                if (Regex.IsMatch(exceptionMessage, @"'nom'$"))
+                {
+                    messageErreur.Append("Vous devez renommer le nom de votre catégorie avant d'en ajouter une nouvelle");
+                }
+                else
+                {
+                    messageErreur.Append("Erreur inconnue : " + exceptionMessage);
+                }
+
+                // On affiche le mmessage d'erreur
+                MessageBox.Show(messageErreur.ToString(), "Erreur", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
+                return; // On retourne afin d'évite de faire le code qui suis
+
+            }
             // On ajoute dans la liste la catégorie créé
             listeCategories.Add(categTemp);
 

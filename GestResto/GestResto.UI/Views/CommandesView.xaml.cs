@@ -24,5 +24,19 @@ namespace GestResto.UI.Views
         {
             InitializeComponent();
         }
+
+        private void btnRapport_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            MessageBox.Show("Rapport");
+        }
+
+        private void btnAjouter_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            MessageBox.Show("Ajouter");
+        }
+        private void btnDeconnexion_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            MessageBox.Show("Déconnexion");
+        }
     }
 }
