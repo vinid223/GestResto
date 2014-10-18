@@ -34,7 +34,21 @@ namespace GestResto.UI
         {
             InitializeComponent();
             DataContext = new MainViewModel();
-            Configure();
+
+            // On test ici si la connexion à la base de données est disponible
+            try
+            {
+                Configure();
+            }
+            catch (Exception e)
+            {
+                // On écrit un message et on enregistre dans le fichier de log les erreurs
+                MessageBox.Show("Impossible de se connecter à la base de données. Veuillez vérifier votre connexion et ressayez plus tard. Si l'erreur persiste, vérifier avec un administrateur système.", "Erreur de connexion", MessageBoxButton.OK, MessageBoxImage.Error);
+                Constante.LogErreur("Erreur lors de la connexion à la base de données. Erreur 0: " + e.InnerException.ToString());
+
+                // On quitte l'application puisque nous ne pouvons pkus rien faire
+                System.Environment.Exit(0);
+            }
 
             // On appel notre vue principal
             ViewModel.CurrentView = new AuthentificationView();
