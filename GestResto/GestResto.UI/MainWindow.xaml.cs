@@ -54,6 +54,14 @@ namespace GestResto.UI
            
             ServiceFactory.Instance.Register<IApplicationService, MainViewModel>((MainViewModel)this.DataContext);
         }
+    }
 
+    public static class Constante
+    {
+        public static void Deconnexion()
+        {
+            IApplicationService mainVM = ServiceFactory.Instance.GetService<IApplicationService>();
+            mainVM.ChangeView<AuthentificationView>(new AuthentificationView());
+        }
     }
 }

@@ -64,5 +64,11 @@ namespace GestResto.UI.Views
 
             ViewModel.EnregistrerRestaurant(ViewModel.Restaurant);
         }
+
+        private void btnDeconnexion_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            // On appel la fonction de la classe constante qui permet de déconnecter l'utilisateur en cour
+            Constante.Deconnexion();
+        }
     }
 }

@@ -179,8 +179,8 @@ namespace GestResto.UI.Views
         // Fonction qui sert à nous déconnecter
         private void btnDeconnexion_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            MessageBox.Show("Déconnexion"); // TODO Non implémenté pour l'instant 
-            // Nous devrions créer une fonction commune qu'on va appeler
+            // On appel la fonction de la classe constante qui permet de déconnecter l'utilisateur en cour
+            Constante.Deconnexion();
         }
 
         // Fonction qui sert à revenir à la view précédente
