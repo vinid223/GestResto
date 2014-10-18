@@ -71,7 +71,7 @@ namespace GestResto.UI.Views
                     // Si la réponse à la requête est null c'est que l'employé est inexistant
                     if (Constante.employe == null)
                     {
-                        Constante.LogNavigation("Informations de connexion ne sont pas valide");
+                        Constante.LogErreur("Informations de connexion ne sont pas valide");
                         // On affiche un message et on réinitialise les variables
                         MessageBox.Show("Les informations d'authentifications ne sont pas valide, veuillez ressayer", "Employé inexistant", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
                         NoIdentification = null;
@@ -80,7 +80,7 @@ namespace GestResto.UI.Views
                         // Sinon, si le type d'employé est null c'est que l'employé n'a pas reçu de type lors de sa création et il n'est pas valide
                     else if (Constante.employe.TypeEmployes == null)
                     {
-                        Constante.LogNavigation("Le TypeEmploye n'est pas valide = null");
+                        Constante.LogErreur("Le TypeEmploye n'est pas valide = null");
                         MessageBox.Show("L'employe que vous tentez de connecter n'est pas valide. Connectez un administrateur pour corriger le problème", "Employé non valide", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
                     }
                         // Sinon, si le type employé à un id de 1 ça veut donc dire que c'est un administrateur donc on affiche la fenêtre d'option administrateur
@@ -100,7 +100,7 @@ namespace GestResto.UI.Views
                         // Sinon, l'employé a un type inconnu et non géré par le système donc on affiche un message personnalisé.
                     else
                     {
-                        Constante.LogNavigation("Le TypeEmploye n'est pas géré par le système. Type non géré: "+Constante.employe.TypeEmployes.NomType);
+                        Constante.LogErreur("Le TypeEmploye n'est pas géré par le système. Type non géré: " + Constante.employe.TypeEmployes.NomType);
                         MessageBox.Show("L'employé identifié comporte un type inconnu. Veuillez entrer les informations de connexion a nouveau", "Type employé non valide", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
                         NoIdentification = null;
                         MDPIdentification = null;
@@ -109,7 +109,7 @@ namespace GestResto.UI.Views
                 }
                 else
                 {
-                    Constante.LogNavigation("L'utilisateur entre des champs non valide");
+                    Constante.LogErreur("L'utilisateur entre des champs non valide");
                     MessageBox.Show("Les informations que vous avez ne sont pas valide, veuillez entrer à nouveau les informations", "Champ non valide", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
                     NoIdentification = null;
                     MDPIdentification = null;
