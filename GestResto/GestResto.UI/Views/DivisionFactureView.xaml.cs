@@ -1,6 +1,5 @@
 ﻿using GestResto.MvvmToolkit.Services;
 using GestResto.MvvmToolkit.Services.Definitions;
-using GestResto.UI.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,26 +15,29 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace GestResto.UI
+namespace GestResto.UI.Views
 {
     /// <summary>
-    /// Logique d'interaction pour TableView.xaml
+    /// Logique d'interaction pour DivisionFacture.xaml
     /// </summary>
-    public partial class TableView : UserControl
+    public partial class DivisionFactureView : UserControl
     {
-        public TableView()
+        public DivisionFactureView()
         {
             InitializeComponent();
         }
 
-        private void btnEnregistrer_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void btnSelection_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            MessageBox.Show("Enregistrer");
+            MessageBox.Show("Sélection");
         }
-        private void btnAjouter_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+
+        private void btnJoindre_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            MessageBox.Show("Ajouter");
+            IApplicationService mainVM = ServiceFactory.Instance.GetService<IApplicationService>();
+            mainVM.ChangeView<JonctionFactureView>(new JonctionFactureView());
         }
+
         private void btnDeconnexion_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             // On appel la fonction de la classe constante qui permet de déconnecter l'utilisateur en cour
@@ -45,7 +47,7 @@ namespace GestResto.UI
         private void btnRetour_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             IApplicationService mainVM = ServiceFactory.Instance.GetService<IApplicationService>();
-            mainVM.ChangeView<OptionsAdministrationView>(new OptionsAdministrationView());
+            mainVM.ChangeView<CommandeView>(new CommandeView());
         }
     }
 }

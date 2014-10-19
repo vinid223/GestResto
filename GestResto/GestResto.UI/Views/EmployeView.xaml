@@ -6,6 +6,10 @@
              mc:Ignorable="d" 
              Height="600" Width="1000">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="75"/>
+        </Grid.RowDefinitions>
         <Label x:Name="lblTitre" Content="Informations d'un Employé" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <Label x:Name="lblType" Content="Type Employé" HorizontalAlignment="Left" Margin="0,22,0,0" VerticalAlignment="Top"/>
         <ListBox x:Name="lbxListeCategorie" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Height="252" Margin="308,38,0,0" VerticalAlignment="Top" Width="186">
@@ -34,5 +38,60 @@
         <Label Content="Taux Horaire&#xD;&#xA;&#xA;" HorizontalAlignment="Left" Margin="0,270,0,0" VerticalAlignment="Top" Height="27"/>
         <TextBox x:Name="txtTauxHoraire" HorizontalAlignment="Left" Height="23" Margin="89,274,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="118"/>
         <CheckBox x:Name="chkActif" Content="Actif" HorizontalAlignment="Left" Margin="228,278,0,0" VerticalAlignment="Top"/>
+
+        <!-- Boutons de navigation -->
+        <Grid Grid.ColumnSpan="2" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="80"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0" Height="70" Width="80" Name="btnRetour" MouseLeftButtonDown="btnRetour_MouseLeftButtonDown">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="30"/>
+                </Grid.RowDefinitions>
+                <Border Grid.Row="0" Height="40" Width="40" BorderThickness="1" BorderBrush="Black" CornerRadius="5">
+                    <Image Source="/Images/forward.png" HorizontalAlignment="Left" Margin="4,4,0,0" VerticalAlignment="Top" Width="30" Height="30"/>
+                </Border>
+                <Label HorizontalAlignment="Center" Grid.Row="1" Height="30" FontSize="12">Retour</Label>
+            </Grid>
+            <StackPanel Grid.Column="1"  Orientation="Horizontal" HorizontalAlignment="Right" Grid.ColumnSpan="2">
+                <Grid Name="btnEnregistrer" Grid.Column="1" Height="70" Width="80" MouseLeftButtonDown="btnEnregistrer_MouseLeftButtonDown">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition Height="30"/>
+                    </Grid.RowDefinitions>
+                    <Border Grid.Row="0" Height="40" Width="40" BorderThickness="1" BorderBrush="Black" CornerRadius="5">
+                        <Image Source="/Images/floppy.png" HorizontalAlignment="Left" Margin="4,4,0,0" VerticalAlignment="Top" Width="30" Height="30"/>
+                    </Border>
+                    <Label HorizontalAlignment="Center" Grid.Row="1" Height="30" FontSize="12">Enregistrer</Label>
+                </Grid>
+
+                <Grid Grid.Column="1" Height="70" Width="80" Name="btnAjouter" MouseLeftButtonDown="btnAjouter_MouseLeftButtonDown">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition Height="30"/>
+                    </Grid.RowDefinitions>
+                    <Border Grid.Row="0" Height="40" Width="40" BorderThickness="1" BorderBrush="Black" CornerRadius="5">
+                        <Image Source="/Images/plus.png" HorizontalAlignment="Left" Margin="4,4,0,0" VerticalAlignment="Top" Width="30" Height="30"/>
+                    </Border>
+                    <Label HorizontalAlignment="Center" Grid.Row="1" Height="30" FontSize="12">Ajouter</Label>
+                </Grid>
+
+                <Grid Grid.Column="1" Height="70" Width="80" Name="btnDeconnexion" MouseLeftButtonDown="btnDeconnexion_MouseLeftButtonDown">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition Height="30"/>
+                    </Grid.RowDefinitions>
+                    <Border Grid.Row="0" Height="40" Width="40" BorderThickness="1" BorderBrush="Black" CornerRadius="5">
+                        <Image Source="/Images/lock.png" HorizontalAlignment="Left" Margin="4,4,0,0" VerticalAlignment="Top" Width="30" Height="30"/>
+                    </Border>
+                    <Label HorizontalAlignment="Center" Grid.Row="1" Height="30" FontSize="12">Déconnexion</Label>
+                </Grid>
+            </StackPanel>
+        </Grid>
+        <!-- Fin des boutons de navigation -->
+
     </Grid>
 </UserControl>

@@ -1,6 +1,5 @@
 ﻿using GestResto.MvvmToolkit.Services;
 using GestResto.MvvmToolkit.Services.Definitions;
-using GestResto.UI.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,26 +15,23 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace GestResto.UI
+namespace GestResto.UI.Views
 {
     /// <summary>
-    /// Logique d'interaction pour TableView.xaml
+    /// Logique d'interaction pour JonctionFactureView.xaml
     /// </summary>
-    public partial class TableView : UserControl
+    public partial class JonctionFactureView : UserControl
     {
-        public TableView()
+        public JonctionFactureView()
         {
             InitializeComponent();
         }
 
-        private void btnEnregistrer_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void btnCreer_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            MessageBox.Show("Enregistrer");
+            MessageBox.Show("Créer");
         }
-        private void btnAjouter_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            MessageBox.Show("Ajouter");
-        }
+
         private void btnDeconnexion_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             // On appel la fonction de la classe constante qui permet de déconnecter l'utilisateur en cour
@@ -44,8 +40,14 @@ namespace GestResto.UI
 
         private void btnRetour_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
+            // TODO : Attention, il faut ici s'assurer qu'on retourne à la commande en cours
             IApplicationService mainVM = ServiceFactory.Instance.GetService<IApplicationService>();
-            mainVM.ChangeView<OptionsAdministrationView>(new OptionsAdministrationView());
+            mainVM.ChangeView<DivisionFactureView>(new DivisionFactureView());
+        }
+
+        private void btn_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Joindre la client");
         }
     }
 }

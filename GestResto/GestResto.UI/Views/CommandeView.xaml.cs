@@ -37,7 +37,8 @@ namespace GestResto.UI.Views
 
         private void btnDiviser_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            MessageBox.Show("Diviser");
+            IApplicationService mainVM = ServiceFactory.Instance.GetService<IApplicationService>();
+            mainVM.ChangeView<DivisionFactureView>(new DivisionFactureView());
         }
 
         private void btnImprimer_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
