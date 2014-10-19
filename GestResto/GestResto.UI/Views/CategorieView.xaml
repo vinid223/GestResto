@@ -17,7 +17,7 @@
         </Grid.ColumnDefinitions>
         <Label x:Name="lblTitre" Content="Informations d'une catégorie" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="26" Width="163"/>
         <Label x:Name="lblCategorie" Content="Nom de la catégorie" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Height="26" Width="118"/>
-        <TextBox HorizontalAlignment="Stretch" x:Name="txtNom" Height="23" Margin="128,41,0,0" TextWrapping="Wrap" Text="{Binding Categorie.Nom}" VerticalAlignment="Top" IsEnabled="False" />
+        <TextBox HorizontalAlignment="Stretch" x:Name="txtNom" Height="23" Margin="128,41,0,0" TextWrapping="Wrap" Text="{Binding Categorie.Nom, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" IsEnabled="False" />
         <CheckBox x:Name="cbxActif" Content="Actif" HorizontalAlignment="Left" Margin="128,80,0,0" VerticalAlignment="Top" IsChecked="{Binding Categorie.EstActif}" Height="15" Width="44" IsEnabled="False"/>
         <CheckBox x:Name="cbxComplementaire" Content="Complémentaire" HorizontalAlignment="Left" Margin="128,100,0,0" VerticalAlignment="Top" IsChecked="{Binding Categorie.EstComplementaire}" Height="15" Width="108" IsEnabled="False"/>
         <ListView HorizontalContentAlignment="Stretch" Grid.Column="1" Grid.Row="0" Margin="50,50,50,10" x:Name="listeBoutonCategories">

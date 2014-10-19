@@ -26,15 +26,18 @@ namespace GestResto.UI.Views
     public partial class CategorieView : UserControl
     {
         public CategorieViewModel ViewModel { get { return (CategorieViewModel)DataContext; } }
-        public IList<Categorie> listeCategories;
 
         public CategorieView()
         {
             InitializeComponent();
             DataContext = new CategorieViewModel();
+            listeBoutonCategories.ItemsSource = ViewModel.Categories;
 
-            // On tente d'obtenir toutes les catégories
-            try
+
+
+
+            //à demander à yannick
+            /*try
             { 
                 listeCategories = ViewModel.ObtenirToutesLesCategories();
             }
@@ -50,7 +53,12 @@ namespace GestResto.UI.Views
                 MessageBox.Show(messageErreur.ToString(), "Une erreur s'est produite", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
                 Constante.LogErreur("Impossible d'afficher la liste des catégories : " + exceptionMessage);
             }
-            listeBoutonCategories.ItemsSource = listeCategories;
+            listeBoutonCategories.ItemsSource = listeCategories;*/
+
+
+
+
+
 
         }
 
@@ -70,14 +78,6 @@ namespace GestResto.UI.Views
         {
             bool erreur = false;
             StringBuilder messageErreur = new StringBuilder();
-
-            var scope = FocusManager.GetFocusScope(txtNom); // elem is the UIElement to unfocus
-            FocusManager.SetFocusedElement(scope, null); // remove logical focus
-            scope = FocusManager.GetFocusScope(cbxActif); // elem is the UIElement to unfocus
-            FocusManager.SetFocusedElement(scope, null); // remove logical focus
-            scope = FocusManager.GetFocusScope(cbxComplementaire); // elem is the UIElement to unfocus
-            FocusManager.SetFocusedElement(scope, null); // remove logical focus
-            Keyboard.ClearFocus(); // remove keyboard focus
 
             // Si un des champs est vide, on informe l'utilisateur
             if (ViewModel.Categorie.Nom == "")
@@ -165,7 +165,7 @@ namespace GestResto.UI.Views
 
             }
             // On ajoute dans la liste la catégorie créé
-            listeCategories.Add(categTemp);
+            ViewModel.Categories.Add(categTemp);
 
             // On indique dans le view model la nouvelle catégorie créé
             ViewModel.Categorie = categTemp;
@@ -174,9 +174,6 @@ namespace GestResto.UI.Views
             txtNom.IsEnabled = true;
             cbxActif.IsEnabled = true;
             cbxComplementaire.IsEnabled = true;
-
-            // On donne la nouvelle source à notre liste view
-            listeBoutonCategories.ItemsSource = listeCategories;
 
             // On rafraichie nottre liste view pour afficher le bouton ajouté
             ICollectionView view = CollectionViewSource.GetDefaultView(listeBoutonCategories.ItemsSource);

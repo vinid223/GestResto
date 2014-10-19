@@ -5,6 +5,7 @@ using GestResto.MvvmToolkit;
 using GestResto.MvvmToolkit.Services;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 
@@ -13,6 +14,17 @@ namespace GestResto.UI.ViewModel
     public class CategorieViewModel : BaseViewModel
     {
         private ICategorieService _categService;
+        private ObservableCollection<Categorie> _categories = new ObservableCollection<Categorie>();
+
+        public ObservableCollection<Categorie> Categories
+        {
+            get { return _categories; }
+            set
+            {
+                _categories = value;
+                RaisePropertyChanged();
+            }
+        }
 
         private Categorie _categorie;
 
@@ -25,7 +37,6 @@ namespace GestResto.UI.ViewModel
             
             set
             {
-                RaisePropertyChanging();
                 _categorie = value; 
                 RaisePropertyChanged(); 
             } 
@@ -33,6 +44,7 @@ namespace GestResto.UI.ViewModel
 
         public CategorieViewModel()
         {
+            Categories = new ObservableCollection<Categorie>(ServiceFactory.Instance.GetService<ICategorieService>().RetrieveAll());
             _categService = ServiceFactory.Instance.GetService<ICategorieService>();
         }
 
