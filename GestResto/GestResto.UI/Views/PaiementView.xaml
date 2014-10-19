@@ -1,0 +1,105 @@
+﻿<UserControl x:Class="GestResto.UI.Views.PaiementView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="1000">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="75"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1.5*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="150"/>
+        </Grid.ColumnDefinitions>
+
+
+            <Grid Margin="20,20,20,20">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBox Name="txtPrix" Grid.Row="0" TextAlignment="Right" FontSize="36" FontFamily="Adobe Caslon Pro Bold" Grid.Column="0" Grid.ColumnSpan="2" Focusable="False"/>
+            <Button Margin="1" Grid.Row ="3" Grid.Column="0" Content="1" Name="btnUn"  />
+            <Button Margin="1" Grid.Row ="3" Grid.Column="1" Content="2" Name="btnDeux"  />
+            <Button Margin="1" Grid.Row ="3" Grid.Column="2" Content="3" Name="btnTrois"  />
+            <Button Margin="1" Grid.Row ="2" Grid.Column="0" Content="4" Name="btnQuatre"  />
+            <Button Margin="1" Grid.Row ="2" Grid.Column="1" Content="5" Name="btnCinq"  />
+            <Button Margin="1" Grid.Row ="2" Grid.Column="2" Content="6" Name="btnSix"  />
+            <Button Margin="1" Grid.Row ="1" Grid.Column="0" Content="7" Name="btnSept"  />
+            <Button Margin="1" Grid.Row ="1" Grid.Column="1" Content="8" Name="btnHuit" />
+            <Button Margin="1" Grid.Row ="1" Grid.Column="2" Content="9" Name="btnNeuf"   />
+            <Button Margin="1" Grid.Row ="4" Grid.Column="0" Content="00" Name="btnZeroZero" />
+            <Button Margin="1" Grid.Row ="4" Grid.Column="1" Content="0" Name="btnZero" />
+            <Button Margin="1" Grid.Row ="0" Grid.Column="2" Content="Retour" Name="btnRetourClavier" />
+            <Button Margin="1" Grid.Row ="4" Grid.Column="2" Content="Valider" Name="btnValider" />
+                
+
+        </Grid>
+
+            <!-- La liste de la commande -->
+        <ScrollViewer Grid.Column="1" Grid.Row="0" VerticalScrollBarVisibility="Auto"> <!-- Lorsque les boutons ne rentrent plus dans la fenêtre, une scoll bar apparait -->
+            <ListBox Margin="5,5,5,5">
+                <ListBoxItem>Pizza Moyenne</ListBoxItem>
+                <ListBoxItem Padding="10,0,0,0" Background="#cee9ff">Tout garni</ListBoxItem>
+                <ListBoxItem Padding="10,0,0,0">Extra bacon</ListBoxItem>
+                <ListBoxItem Background="#cee9ff">1 Root Bear</ListBoxItem>
+                <ListBoxItem Padding="10,0,0,0" >Pas de glace</ListBoxItem>
+            </ListBox>
+        </ScrollViewer>
+
+        <!-- Modes de paiement -->
+        <StackPanel Grid.Column="2">
+            <Image Source="/Images/money.png" HorizontalAlignment="Center" Margin="0,0,0,0" Height="100" Width="100" VerticalAlignment="Top" />
+            <Image Source="/Images/debit.png" HorizontalAlignment="Center" Margin="0,0,0,0" Height="100" Width="100" VerticalAlignment="Top" />
+            <Image Source="/Images/visa.png" HorizontalAlignment="Center" Margin="0,0,0,0" Height="100" Width="100" VerticalAlignment="Top" />
+            <Image Source="/Images/mastercard.png" HorizontalAlignment="Center" Margin="0,0,0,0" Height="100" Width="100" VerticalAlignment="Top" />
+            <Image Source="/Images/amex.png" HorizontalAlignment="Center" Margin="0,0,0,0" Height="100" Width="100" VerticalAlignment="Top" />
+        </StackPanel>
+
+        <!-- Boutons de navigation -->
+        <Grid Grid.ColumnSpan="3" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="80"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0" Height="70" Width="80" Name="btnRetour" MouseLeftButtonDown="btnRetour_MouseLeftButtonDown">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="30"/>
+                </Grid.RowDefinitions>
+                <Border Grid.Row="0" Height="40" Width="40" BorderThickness="1" BorderBrush="Black" CornerRadius="5">
+                    <Image Source="/Images/forward.png" HorizontalAlignment="Left" Margin="4,4,0,0" VerticalAlignment="Top" Width="30" Height="30"/>
+                </Border>
+                <Label HorizontalAlignment="Center" Grid.Row="1" Height="30" FontSize="12">Retour</Label>
+            </Grid>
+            <StackPanel Grid.Column="1"  Orientation="Horizontal" HorizontalAlignment="Right" Grid.ColumnSpan="2">
+
+                <Grid Grid.Column="1" Height="70" Width="80" Name="btnDeconnexion" MouseLeftButtonDown="btnDeconnexion_MouseLeftButtonDown">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition Height="30"/>
+                    </Grid.RowDefinitions>
+                    <Border Grid.Row="0" Height="40" Width="40" BorderThickness="1" BorderBrush="Black" CornerRadius="5">
+                        <Image Source="/Images/lock.png" HorizontalAlignment="Left" Margin="4,4,0,0" VerticalAlignment="Top" Width="30" Height="30"/>
+                    </Border>
+                    <Label HorizontalAlignment="Center" Grid.Row="1" Height="30" FontSize="12">Déconnexion</Label>
+                </Grid>
+            </StackPanel>
+        </Grid>
+        <!-- Fin des boutons de navigation -->
+    </Grid>
+</UserControl>

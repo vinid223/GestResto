@@ -65,7 +65,7 @@
                     <TextBlock TextAlignment="Center" TextWrapping="Wrap">2 souvlakis</TextBlock>
                 </Button>
                 <Button HorizontalAlignment="Left" Margin="5,0,0,5" Height="53" Width="100" VerticalAlignment="Top">
-                    <TextBlock TextAlignment="Center" TextWrapping="Wrap">"Filet mignon</TextBlock>
+                        <TextBlock TextAlignment="Center" TextWrapping="Wrap">Filet mignon</TextBlock>
                 </Button>
                 <Button HorizontalAlignment="Left" Margin="5,0,0,5" Height="53" Width="100" VerticalAlignment="Top">
                     <TextBlock TextAlignment="Center" TextWrapping="Wrap">2 filets médaillons</TextBlock>

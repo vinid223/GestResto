@@ -52,7 +52,8 @@ namespace GestResto.UI.Views
 
         private void btnPayer_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            MessageBox.Show("Payer");
+            IApplicationService mainVM = ServiceFactory.Instance.GetService<IApplicationService>();
+            mainVM.ChangeView<PaiementView>(new PaiementView());
         }
 
         // Fonction qui sert à nous déconnecter
