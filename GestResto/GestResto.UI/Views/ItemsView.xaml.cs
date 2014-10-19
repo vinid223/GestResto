@@ -18,39 +18,20 @@ using System.Windows.Shapes;
 namespace GestResto.UI.Views
 {
 
-
     /// <summary>
     /// Logique d'interaction pour ItemsView.xaml
     /// </summary>
     public partial class ItemsView : UserControl
     {
         public ItemsViewModel ViewModelItem { get { return (ItemsViewModel)DataContext; } }
-        //public CategorieViewModel ViewModelCategorie { get { return (CategorieViewModel)DataContext; } }
-
-
-        public IList<Item> listeItems;
-        public IList<Categorie> listeCategories;
-        public IList<Format> tousLesFormats;
 
         public ItemsView()
         {
             InitializeComponent();
             DataContext = new ItemsViewModel();
 
-            // Création de la liste d'items
-            listeItems = ViewModelItem.ObtenirTousLesItems();
-            lbxListeCategorie.ItemsSource = listeItems;
-
-            // Création de la liste de catégories liées à l'item sélectionné
-            listeCategories = ViewModelItem.ObtenirToutesLesCategories();
-            cboCategorieLiee.ItemsSource = listeCategories;
-
-            // Création de la liste des catégories qui affiche les items.
-            listeCategories = ViewModelItem.ObtenirToutesLesCategories();
-            cboCategorieAffichee.ItemsSource = listeCategories;
-
-
-
+            // Mets tous les items dans la listes d'items dans l'écran.
+            lbxListeCategorie.ItemsSource = ViewModelItem.Items;
 
         }
         /// <summary>
@@ -64,15 +45,8 @@ namespace GestResto.UI.Views
             Item item = (Item)((sender as Button).CommandParameter);
             ViewModelItem.Item = item;
 
-            // Sélection de la catégorie liée à l'item.
-            cboCategorieLiee.SelectedItem = item.Categories;
-
-            tousLesFormats = ViewModelItem.ObtenirTousLesFormats();
-
-
-            lbxListePrix.ItemsSource = item.Formats;
-            //lbxListePrix.ItemsSource = tousLesFormats;
         }
+
 
         /// <summary>
         /// Fonction qui permet d'enregistrer l'item en cours dans la base de donnée.
@@ -86,7 +60,7 @@ namespace GestResto.UI.Views
             FocusManager.SetFocusedElement(scope, null);
             scope = FocusManager.GetFocusScope(chkActif);
             FocusManager.SetFocusedElement(scope, null);
-            scope = FocusManager.GetFocusScope(lbxListePrix); 
+            scope = FocusManager.GetFocusScope(dataGridPrix); 
             FocusManager.SetFocusedElement(scope, null);
             scope = FocusManager.GetFocusScope(cboCategorieAffichee);
             FocusManager.SetFocusedElement(scope, null);

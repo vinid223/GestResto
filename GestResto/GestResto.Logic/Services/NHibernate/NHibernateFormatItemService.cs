@@ -33,7 +33,7 @@ namespace GestResto.Logic.Services.NHibernate
         public FormatItem Retrieve(RetrieveFormatItemArgs args)
         {
             var result = from c in session.Query<FormatItem>()
-                         where c.idFormatItem == args.IdFormatItem
+                         where c.IdFormatItem == args.IdFormatItem
                          select c;
 
             return result.FirstOrDefault();

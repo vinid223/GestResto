@@ -5,6 +5,7 @@ using GestResto.MvvmToolkit;
 using GestResto.MvvmToolkit.Services;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,31 +15,66 @@ namespace GestResto.UI.ViewModel
     public class ItemsViewModel : BaseViewModel
     {
         public IItemService _itemService;
-        public ICategorieService _categService;
-        private IFormatService _formatService;
+
+        public ItemsViewModel()
+        {
+            Formats = new ObservableCollection<Format>(ServiceFactory.Instance.GetService<IFormatService>().RetrieveAll());
+            Items = new ObservableCollection<Item>(ServiceFactory.Instance.GetService<IItemService>().RetrieveAll());
+            Categories = new ObservableCollection<Categorie>(ServiceFactory.Instance.GetService<ICategorieService>().RetrieveAll());
+
+            _itemService = ServiceFactory.Instance.GetService<IItemService>();
+        }
+
+
+        #region Bindables
+
+        private ObservableCollection<Format> _formats = new ObservableCollection<Format>();
+        private ObservableCollection<Categorie> _categories = new ObservableCollection<Categorie>();
+        private ObservableCollection<Item> _items = new ObservableCollection<Item>();
+
+        public ObservableCollection<Item> Items
+        {
+            get { return _items; }
+            set
+            {
+                _items = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        public ObservableCollection<Categorie> Categories
+        {
+            get { return _categories; }
+            set
+            {
+                _categories = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        public ObservableCollection<Format> Formats
+        {
+            get{ return _formats; }
+            set
+            {
+                _formats = value;
+                RaisePropertyChanged();
+            }
+        }
 
         public Item _item;
 
         public Item Item
-        { 
-            get 
-            { 
-                return _item; 
-            } 
-            
-            set 
-            { 
-                _item = value; 
-                RaisePropertyChanged(); 
-            } 
+        {
+            get{ return _item; }
+            set
+            {
+                _item = value;
+                RaisePropertyChanged();
+            }
         }
 
-        public ItemsViewModel()
-        {
-            _itemService = ServiceFactory.Instance.GetService<IItemService>();
-            _categService = ServiceFactory.Instance.GetService<ICategorieService>();
-            _formatService = ServiceFactory.Instance.GetService<IFormatService>();
-        }
+        #endregion
 
         public IList<Item> ObtenirTousLesItems()
         {
@@ -92,7 +128,7 @@ namespace GestResto.UI.ViewModel
             return i;
         }
 
-        public IList<Categorie> ObtenirToutesLesCategories()
+        /*public IList<Categorie> ObtenirToutesLesCategories()
         {
             IList<Categorie> listeCateg = _categService.RetrieveAll();
             return listeCateg;
@@ -104,6 +140,6 @@ namespace GestResto.UI.ViewModel
             RetrieveFormatArgs args = new RetrieveFormatArgs();
             IList<Format> listeFormat = _formatService.RetrieveAll();
             return listeFormat;
-        }
+        }*/
     }
 }

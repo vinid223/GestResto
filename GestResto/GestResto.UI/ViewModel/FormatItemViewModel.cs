@@ -60,7 +60,7 @@ namespace GestResto.UI.ViewModel
             int i;
 
             // Puisque l'id de l'objet est nullable on doit la transformer pour s'en servir
-            i = pFormatItem.idFormatItem ?? default(int);
+            i = pFormatItem.IdFormatItem ?? default(int);
 
             return i;
         }

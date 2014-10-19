@@ -12,24 +12,24 @@ namespace GestResto.Logic.Model.Entities
     public class FormatItem
     {
         #region Variables de la classe
-        public virtual int? idFormatItem { get; set; }
+        public virtual int? IdFormatItem { get; set; }
         public virtual float Prix { get; set; }
         public virtual Format FormatAssocie { get; set; }
+        public virtual Item ItemAssocie { get; set; }
         #endregion
 
         #region Constructeurs
 
         public FormatItem()
         {
-            idFormatItem = null;
+            IdFormatItem = null;
             Prix = 0;
-            FormatAssocie = null;
 
         }
 
         public FormatItem(int pIdFormatItem, float pPrix, Format pFormat)
         {
-            idFormatItem = pIdFormatItem;
+            IdFormatItem = pIdFormatItem;
             Prix = pPrix;
             FormatAssocie = pFormat;
         }
@@ -63,8 +63,15 @@ namespace GestResto.Logic.Model.Entities
                 return false;
             }
 
-            return this.idFormatItem == p.idFormatItem;
+            return this.IdFormatItem == p.IdFormatItem;
         }
+
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
+
         #endregion
     }
 }

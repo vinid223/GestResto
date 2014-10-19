@@ -29,6 +29,7 @@ namespace GestResto.Logic.Model.Entities
         public virtual IList<FormatItem> Formats { get; set; }
         public virtual bool EstActif { get; set; }
 
+
        // public virtual List<Item> ListeComplements { get; set; }
         #endregion
 

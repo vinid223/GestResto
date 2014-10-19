@@ -98,6 +98,19 @@ namespace GestResto.Logic.Model.Entities
 
             return this.IdFormat == p.IdFormat;
         }
+
+
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
+
+        public override string ToString()
+        {
+            StringBuilder builder = new StringBuilder();
+            return builder.Append(Nom).ToString();
+        }
         #endregion
     }
 }
