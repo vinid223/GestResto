@@ -50,5 +50,18 @@ namespace GestResto.UI.Views
             IApplicationService mainVM = ServiceFactory.Instance.GetService<IApplicationService>();
             mainVM.ChangeView<ItemsView>(new ItemsView());
         }
+
+        private void btnRapports_Click(object sender, RoutedEventArgs e)
+        {
+            IApplicationService mainVM = ServiceFactory.Instance.GetService<IApplicationService>();
+            mainVM.ChangeView<RapportView>(new RapportView());
+        }
+
+        // Fonction qui sert à nous déconnecter
+        private void btnDeconnexion_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            // On appel la fonction de la classe constante qui permet de déconnecter l'utilisateur en cour
+            Constante.Deconnexion();
+        }
     }
 }

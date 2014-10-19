@@ -88,6 +88,9 @@
     <Compile Include="Views\ItemsView.xaml.cs">
       <DependentUpon>ItemsView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\PaiementView.xaml.cs">
+      <DependentUpon>PaiementView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\TableView.xaml.cs">
       <DependentUpon>TableView.xaml</DependentUpon>
     </Compile>
@@ -145,6 +148,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ItemsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PaiementView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -246,6 +253,9 @@
     <Resource Include="Images\printer.png" />
     <Resource Include="Images\recycle.png" />
     <Resource Include="Images\visa.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\infoMini.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

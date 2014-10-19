@@ -4,35 +4,153 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="500">
+             d:DesignHeight="600" d:DesignWidth="1000">
     <Grid>
-        <Label x:Name="lblPeriode" Content="Période" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="lblDu" Content="Du" HorizontalAlignment="Left" Margin="0,41,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="lblAu" Content="Au" HorizontalAlignment="Left" Margin="188,41,0,0" VerticalAlignment="Top"/>
-        <DatePicker x:Name="dpkDebut" HorizontalAlignment="Left" Margin="61,41,0,0" VerticalAlignment="Top" Width="127"/>
-        <DatePicker x:Name="dpkFin" HorizontalAlignment="Left" Margin="213,43,0,0" VerticalAlignment="Top" Width="127"/>
-        <RadioButton x:Name="optCategorie" Content="Par Categorie" HorizontalAlignment="Left" Margin="359,10,0,0" VerticalAlignment="Top"/>
-        <RadioButton Content="Par Item" HorizontalAlignment="Left" Margin="359,58,0,0" VerticalAlignment="Top" />
-        <ComboBox x:Name="cboListeCategorie" HorizontalAlignment="Left" Margin="359,31,0,0" VerticalAlignment="Top" Width="120"/>
-        <ComboBox x:Name="cboListe" HorizontalAlignment="Left" Margin="359,79,0,0" VerticalAlignment="Top" Width="120" />
-        <Label x:Name="lblPour" Content="Pour" HorizontalAlignment="Left" Margin="0,67,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="cboListeEmployes" HorizontalAlignment="Left" Margin="61,70,0,0" VerticalAlignment="Top" Width="279"/>
-        <TextBox x:Name="txtPrixMinimum" HorizontalAlignment="Left" Height="23" Margin="267,99,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="73"/>
-        <TextBox x:Name="txtPrixMaximum" HorizontalAlignment="Left" Height="23" Margin="121,99,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="67"/>
-        <Label x:Name="lblPrix" Content="Prix" HorizontalAlignment="Left" Margin="0,96,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="lblMinimum" Content="Minimum" HorizontalAlignment="Left" Margin="55,97,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="lblMaximum" Content="Maximum" HorizontalAlignment="Left" Margin="193,97,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="lblOrdre" Content="Ordre" HorizontalAlignment="Left" Margin="0,127,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="cboOrdreChamp" HorizontalAlignment="Left" Margin="61,131,0,0" VerticalAlignment="Top" Width="127" />
-        <ComboBox x:Name="cboOrdreCroissant" HorizontalAlignment="Left" Margin="213,131,0,0" VerticalAlignment="Top" Width="127" />
-        <TextBox x:Name="txtNbMaximumLignes" HorizontalAlignment="Left" Height="23" Margin="132,161,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="81"/>
-        <Label x:Name="lblNbMaximumLignes" Content="Maximum de lignes" HorizontalAlignment="Left" Margin="2,158,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="lblRepertoire" Content="Répertoire &#xD;&#xA;d'enregistrement" HorizontalAlignment="Left" Margin="2,189,0,0" VerticalAlignment="Top"/>
-        <DockPanel x:Name="dpnRepertoire" HorizontalAlignment="Left" Height="23" LastChildFill="False" Margin="102,208,0,0" VerticalAlignment="Top" Width="273">
-            <Button x:Name="btnParcourirRepertoire" Margin="0" Padding="2" DockPanel.Dock="Right" Width="Auto" ScrollViewer.CanContentScroll="True" Height="23" VerticalAlignment="Top">Parcourir</Button>
-            <TextBox x:Name="txtRepertoire" Height="Auto" HorizontalAlignment="Stretch" DockPanel.Dock="Right" 
-           Text="" Width="211" />
-        </DockPanel>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="75"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="127*"/>
+            <ColumnDefinition Width="60*"/>
+        </Grid.ColumnDefinitions>
+        
+        <StackPanel Grid.Column="0" Margin="10,0,0,0">
+
+            <!-- L'intervalle de temps -->
+            <Label Name="lblPeriode" Content="Période" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top"/>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <DockPanel Grid.Column="0" Height="30" Margin="0,0,0,0" VerticalAlignment="Top" HorizontalAlignment="Stretch">
+                    <Label Name="lblDu" Content="Du" HorizontalAlignment="Left" />
+                    <DatePicker Name="dpkDebut" HorizontalAlignment="Stretch"  />
+                </DockPanel>
+                <DockPanel Grid.Column="1" Height="30" Margin="0,0,0,0" VerticalAlignment="Top" HorizontalAlignment="Stretch">
+                    <Label Name="lblAu" Content="Au" HorizontalAlignment="Right" />
+                    <DatePicker Name="dpkFin" HorizontalAlignment="Stretch" />
+                </DockPanel>
+            </Grid>
+
+            <!-- Pour l'employé -->
+            <DockPanel Margin="0,10,0,0" >
+                <Label Name="lblPour" Content="Pour" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <ComboBox x:Name="cboListeEmployes" HorizontalAlignment="Stretch" VerticalAlignment="Top" />
+            </DockPanel>
+            
+            <!-- Pour le prix -->
+            <Grid Margin="0,10,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <DockPanel>
+                    <Label Grid.Column="0" Name="lblPrix" Content="Prix"/>
+                    <Image Source="/Images/infoMini.png" Height="16" Width="16" />
+                </DockPanel>
+                <DockPanel Grid.Column="1" Height="30" Margin="0,0,0,0">
+                    <Label Name="lblMinimum" Content="Minimum"/>
+                    <TextBox Name="txtPrixMinimum" Height="23" HorizontalAlignment="Stretch"/>
+                </DockPanel>
+                <DockPanel Grid.Column="2" Height="30" Margin="0,0,0,0" HorizontalAlignment="Stretch">
+                    <Label Name="lblMaximum" Content="Maximum"/>
+                    <TextBox Name="txtPrixMaximum" Height="23" HorizontalAlignment="Stretch"/>
+                </DockPanel>
+            </Grid>
+
+            <!-- Pour le tri (Croissant décroissant, par nom, par prix,...) -->
+            <Grid Margin="0,10,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+                <Label Grid.Column="0" Name="lblOrdre" Content="Ordre" HorizontalAlignment="Left"/>
+                <ComboBox Grid.Column="1" Name="cboOrdreChamp" HorizontalAlignment="Stretch" />
+                <ComboBox Margin="5,0,0,0" Grid.Column="2"  Name="cboOrdreCroissant" HorizontalAlignment="Stretch" />
+            </Grid>
+
+            <!-- Pour le nombre maximal de lignes -->
+            <DockPanel Margin="0,10,0,0">
+                <Label Name="lblNbMaximumLignes" Content="Maximum de lignes" />
+                <TextBox Name="txtNbMaximumLignes" Height="23" />
+            </DockPanel>
+            
+            
+            
+            
+            <!-- Pour le répertoire d'enregistrement -->
+            <DockPanel Margin="0,10,0,0" Name="dpnRepertoire" >
+                <Label Name="lblRepertoire" Content="Répertoire d'enregistrement"/>
+                <Button Name="btnParcourirRepertoire" Padding="2" DockPanel.Dock="Right" Height="23">Parcourir</Button>
+                <TextBox Name="txtRepertoire"  HorizontalAlignment="Stretch" Height="23" />
+            </DockPanel>
+        </StackPanel>
+        <!--  Pour plus tard dans le xaml.cs
+        http://chanmingman.wordpress.com/2012/05/27/choose-a-folder-using-folderbrowsedialog-in-wpf/
+        privatevoid btnFolder_Click(object sender, RoutedEventArgs e)
+        {
+          var dialog = new System.Windows.Forms.FolderBrowserDialog();
+          System.Windows.Forms.DialogResult result = dialog.ShowDialog();
+         
+          txtXML.Text = dialog.SelectedPath;
+        }
+        -->
+        
+
+        <!-- Les boutons radio pour le choix du tri (Par catégorie ou item) -->
+        <StackPanel Grid.Column="1" HorizontalAlignment="Stretch"  Height="250" VerticalAlignment="Top" Margin="10,10,10,0" >
+            <RadioButton Name="optCategorie" Content="Par Categorie" VerticalAlignment="Top" Margin="0,5,0,0" Checked="optCategorie_Checked"/>
+            <ComboBox Name="cboListeCategorie" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="0,5,0,0" IsEnabled="False"/>
+            <RadioButton Name="optItem" Content="Par Item" VerticalAlignment="Top" Margin="0,5,0,0" Checked="optItem_Checked"/>
+            <ComboBox Name="cboListeItem" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="0,5,0,0" IsEnabled="False"/>
+        </StackPanel>
+        <!-- Boutons de navigation -->
+        <Grid Grid.ColumnSpan="3" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="80"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0" Height="70" Width="80" Name="btnRetour" MouseLeftButtonDown="btnRetour_MouseLeftButtonDown">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="30"/>
+                </Grid.RowDefinitions>
+                <Border Grid.Row="0" Height="40" Width="40" BorderThickness="1" BorderBrush="Black" CornerRadius="5">
+                    <Image Source="/Images/forward.png" HorizontalAlignment="Left" Margin="4,4,0,0" VerticalAlignment="Top" Width="30" Height="30"/>
+                </Border>
+                <Label HorizontalAlignment="Center" Grid.Row="1" Height="30" FontSize="12">Retour</Label>
+            </Grid>
+            <StackPanel Grid.Column="1"  Orientation="Horizontal" HorizontalAlignment="Right" Grid.ColumnSpan="2">
+
+                <Grid Name="btnGenerer" Grid.Column="1" Height="70" Width="80" MouseLeftButtonDown="btnGenerer_MouseLeftButtonDown">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition Height="30"/>
+                    </Grid.RowDefinitions>
+                    <Border Grid.Row="0" Height="40" Width="40" BorderThickness="1" BorderBrush="Black" CornerRadius="5">
+                        <Image Source="/Images/document.png" HorizontalAlignment="Left" Margin="4,4,0,0" VerticalAlignment="Top" Width="30" Height="30"/>
+                    </Border>
+                    <Label HorizontalAlignment="Center" Grid.Row="1" Height="30" FontSize="12">Générer</Label>
+                </Grid>
+
+                <Grid Grid.Column="1" Height="70" Width="80" Name="btnDeconnexion" MouseLeftButtonDown="btnDeconnexion_MouseLeftButtonDown">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition Height="30"/>
+                    </Grid.RowDefinitions>
+                    <Border Grid.Row="0" Height="40" Width="40" BorderThickness="1" BorderBrush="Black" CornerRadius="5">
+                        <Image Source="/Images/lock.png" HorizontalAlignment="Left" Margin="4,4,0,0" VerticalAlignment="Top" Width="30" Height="30"/>
+                    </Border>
+                    <Label HorizontalAlignment="Center" Grid.Row="1" Height="30" FontSize="12">Déconnexion</Label>
+                </Grid>
+            </StackPanel>
+        </Grid>
+        <!-- Fin des boutons de navigation -->
 
     </Grid>
 </UserControl>

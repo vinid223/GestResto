@@ -9,14 +9,37 @@
             <ColumnDefinition Width="383*"/>
             <ColumnDefinition Width="379*"/>
         </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="75"/>
+        </Grid.RowDefinitions>
         <Label Content="Options d'administration&#xD;&#xA;" HorizontalAlignment="Left" VerticalAlignment="Top" Height="29" Width="493"/>
         <Button x:Name="btnEmployes" Content="Gérer les Employés" Margin="10,34,10,0" VerticalAlignment="Top" Height="60"/>
         <Button x:Name="btnTables" Content="Gérer les Tables" Margin="10,34,10,0" VerticalAlignment="Top" Height="60" Grid.Column="1"/>
         <Button x:Name="btnItems" Content="Gérer les Items" Margin="10,116,10,0" VerticalAlignment="Top" Height="60" Click="btnItems_Click"/>
-        <Button x:Name="btnRapports" Content="Générer des rapports" Margin="10,196,10,0" VerticalAlignment="Top" Height="60" />
-        <Button x:Name="btnFormats" Content="Gérer les formats" Margin="10,272,10,0" VerticalAlignment="Top" Height="60" Click="btnGererFormat"/>
+        <Button x:Name="btnRapports" Content="Générer des Rapports" Margin="10,196,10,0" VerticalAlignment="Top" Height="60" Click="btnRapports_Click" />
+        <Button x:Name="btnFormats" Content="Gérer les Formats" Margin="10,272,10,0" VerticalAlignment="Top" Height="60" Click="btnGererFormat"/>
         <Button x:Name="btnInfoResto" Content="Gérer les Informations du Restaurant" Margin="10,116,10,0" VerticalAlignment="Top" Height="60" Click="btnGererInformationsRestaurants" Grid.Column="1"/>
         <Button x:Name="btnCategorie" Content="Gérer les Catégories" Margin="10,196,10,0" VerticalAlignment="Top" Height="60" Click="btnGererCategories" Grid.Column="1"/>
 
+
+        <!-- Boutons de navigation -->
+        <Grid Grid.ColumnSpan="2" Grid.Row="1">
+
+            <StackPanel Grid.Column="1"  Orientation="Horizontal" HorizontalAlignment="Right" Grid.ColumnSpan="2">
+
+                <Grid Grid.Column="1" Height="70" Width="80" Name="btnDeconnexion" MouseLeftButtonDown="btnDeconnexion_MouseLeftButtonDown">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition Height="30"/>
+                    </Grid.RowDefinitions>
+                    <Border Grid.Row="0" Height="40" Width="40" BorderThickness="1" BorderBrush="Black" CornerRadius="5">
+                        <Image Source="/Images/lock.png" HorizontalAlignment="Left" Margin="4,4,0,0" VerticalAlignment="Top" Width="30" Height="30"/>
+                    </Border>
+                    <Label HorizontalAlignment="Center" Grid.Row="1" Height="30" FontSize="12">Déconnexion</Label>
+                </Grid>
+            </StackPanel>
+        </Grid>
+        <!-- Fin des boutons de navigation -->
     </Grid>
 </UserControl>
