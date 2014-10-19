@@ -55,23 +55,7 @@ namespace GestResto.UI.Views
         /// <param name="e"></param>
         private void btnEnregistrer_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            // Permet d'enlever le focus sur les champs pour permettre la sauvegarde de l'item
-            var scope = FocusManager.GetFocusScope(txtNom); 
-            FocusManager.SetFocusedElement(scope, null);
-            scope = FocusManager.GetFocusScope(chkActif);
-            FocusManager.SetFocusedElement(scope, null);
-            scope = FocusManager.GetFocusScope(dataGridPrix); 
-            FocusManager.SetFocusedElement(scope, null);
-            scope = FocusManager.GetFocusScope(cboCategorieAffichee);
-            FocusManager.SetFocusedElement(scope, null);
-            scope = FocusManager.GetFocusScope(cboCategorieLiee);
-            FocusManager.SetFocusedElement(scope, null);
-            Keyboard.ClearFocus();
-
-            // On doit sélectionner la catégorie choisie et la changer dans l'item
-            ViewModelItem.Item.Categories = (Categorie)cboCategorieLiee.SelectedItem;
             ViewModelItem.EnregistrerUnItem(ViewModelItem.Item);
-
         }
 
 
@@ -82,6 +66,7 @@ namespace GestResto.UI.Views
         /// <param name="e"></param>
         private void btnAjouter_MouseLeftButtonDown(object sender, RoutedEventArgs e)
         {
+
             // Création d'un item temporaire.
             Item itemTemp = new Item("Entrez le nom de l'item.", null, null, true);
 

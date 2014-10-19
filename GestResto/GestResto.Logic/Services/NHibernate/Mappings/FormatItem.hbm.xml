@@ -17,7 +17,7 @@
       <column name="idFormat" not-null="true" sql-type="INTEGER" />
     </many-to-one>
 
-    <many-to-one name="ItemAssocie" class="Item">
+    <many-to-one name="ItemAssocie" class="Item" lazy="false">
       <column name="idItem" not-null="true" sql-type="INTEGER" />
     </many-to-one>
   

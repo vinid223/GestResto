@@ -3,6 +3,7 @@ using GestResto.Logic.Model.Entities;
 using GestResto.Logic.Services.Definitions;
 using GestResto.MvvmToolkit;
 using GestResto.MvvmToolkit.Services;
+using GestResto.MvvmToolkit.Services.Definitions;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -111,7 +112,10 @@ namespace GestResto.UI.ViewModel
 
         public void EnregistrerUnItem(Item item)
         {
+            item.Formats.Where(v => v.ItemAssocie == null).ToList().ForEach(v => v.ItemAssocie = item);
             _itemService.Update(item);
+
+
         }
 
         public int AjouterUnItem(Item pItem)
@@ -127,19 +131,5 @@ namespace GestResto.UI.ViewModel
 
             return i;
         }
-
-        /*public IList<Categorie> ObtenirToutesLesCategories()
-        {
-            IList<Categorie> listeCateg = _categService.RetrieveAll();
-            return listeCateg;
-        }
-
-
-        public IList<Format> ObtenirTousLesFormats()
-        {
-            RetrieveFormatArgs args = new RetrieveFormatArgs();
-            IList<Format> listeFormat = _formatService.RetrieveAll();
-            return listeFormat;
-        }*/
     }
 }
