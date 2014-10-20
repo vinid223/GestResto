@@ -108,7 +108,6 @@ namespace GestResto.UI.Views
             Constante.Deconnexion();
         }
 
-<<<<<<< HEAD
         private void AjoutFormatItem_Click(object sender, RoutedEventArgs e)
         {
 
@@ -117,8 +116,6 @@ namespace GestResto.UI.Views
         }
 
         // Fonction qui sert à revenir à la view précédente
-=======
->>>>>>> origin/master
         private void btnRetour_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             IApplicationService mainVM = ServiceFactory.Instance.GetService<IApplicationService>();
