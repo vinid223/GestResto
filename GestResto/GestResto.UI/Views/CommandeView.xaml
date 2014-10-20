@@ -115,7 +115,7 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
-            <Grid Grid.Column="0" Height="70" Width="80" Name="btnRetour" MouseLeftButtonDown="btnRetour_MouseLeftButtonDown">
+            <Grid Grid.Column="0" Height="70" Width="80" Name="btnRetour" MouseLeftButtonUp="MouseLeftButtonUp" MouseLeftButtonDown="btnRetour_MouseLeftButtonDown">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition Height="30"/>
@@ -128,7 +128,7 @@
 
             <StackPanel Grid.Column="1"  Orientation="Horizontal" HorizontalAlignment="Right" Grid.ColumnSpan="2">
 
-                <Grid Name="btnSupprimer" Grid.Column="1" Height="70" Width="80" MouseLeftButtonDown="btnSupprimer_MouseLeftButtonDown">
+                <Grid Name="btnSupprimer" Grid.Column="1" Height="70" Width="80" MouseLeftButtonUp="MouseLeftButtonUp" MouseLeftButtonDown="btnSupprimer_MouseLeftButtonDown">
                     <Grid.RowDefinitions>
                         <RowDefinition/>
                         <RowDefinition Height="30"/>
@@ -139,29 +139,29 @@
                     <Label HorizontalAlignment="Center" Grid.Row="1" Height="30" FontSize="12">Supprimer</Label>
                 </Grid>
 
-                <Grid Grid.Column="1" Height="70" Width="80" Name="btnAjouter" MouseLeftButtonDown="btnAjouter_MouseLeftButtonDown">
+                <Grid Grid.Column="1" Height="70" Width="80" Name="btnAjouter" MouseLeftButtonUp="MouseLeftButtonUp" MouseLeftButtonDown="btnAjouter_MouseLeftButtonDown">
                     <Grid.RowDefinitions>
                         <RowDefinition/>
                         <RowDefinition Height="30"/>
                     </Grid.RowDefinitions>
-                    <Border Grid.Row="0" Height="40" Width="40" BorderThickness="1" BorderBrush="Black" CornerRadius="5">
+                    <Border Name="brdAjouter" Grid.Row="0" Height="40" Width="40" BorderThickness="1" BorderBrush="Black" CornerRadius="5">
                         <Image Source="/Images/plus.png" HorizontalAlignment="Left" Margin="4,4,0,0" VerticalAlignment="Top" Width="30" Height="30"/>
                     </Border>
                     <Label HorizontalAlignment="Center" Grid.Row="1" Height="30" FontSize="12">Ajouter</Label>
                 </Grid>
 
-                <Grid Name="btnPayer" Grid.Column="1" Height="70" Width="80" MouseLeftButtonDown="btnPayer_MouseLeftButtonDown">
+                <Grid Name="btnPayer" Grid.Column="1" Height="70" Width="80" MouseLeftButtonUp="MouseLeftButtonUp" MouseLeftButtonDown="btnPayer_MouseLeftButtonDown">
                     <Grid.RowDefinitions>
                         <RowDefinition/>
                         <RowDefinition Height="30"/>
                     </Grid.RowDefinitions>
-                    <Border Grid.Row="0" Height="40" Width="40" BorderThickness="1" BorderBrush="Black" CornerRadius="5">
+                    <Border Name="brdPayer" Grid.Row="0" Height="40" Width="40" BorderThickness="1" BorderBrush="Black" CornerRadius="5">
                         <Image Source="/Images/dollar.png" HorizontalAlignment="Left" Margin="4,4,0,0" VerticalAlignment="Top" Width="30" Height="30"/>
                     </Border>
                     <Label HorizontalAlignment="Center" Grid.Row="1" Height="30" FontSize="12">Payer</Label>
                 </Grid>
 
-                <Grid Name="btnImprimer" Grid.Column="1" Height="70" Width="80" MouseLeftButtonDown="btnImprimer_MouseLeftButtonDown">
+                <Grid Name="btnImprimer" Grid.Column="1" Height="70" Width="80" MouseLeftButtonUp="MouseLeftButtonUp" MouseLeftButtonDown="btnImprimer_MouseLeftButtonDown">
                     <Grid.RowDefinitions>
                         <RowDefinition/>
                         <RowDefinition Height="30"/>
@@ -172,7 +172,7 @@
                     <Label HorizontalAlignment="Center" Grid.Row="1" Height="30" FontSize="12">Imprimer</Label>
                 </Grid>
 
-                <Grid Name="btnDiviser" Grid.Column="1" Height="70" Width="80" MouseLeftButtonDown="btnDiviser_MouseLeftButtonDown">
+                <Grid Name="btnDiviser" Grid.Column="1" Height="70" Width="80" MouseLeftButtonUp="MouseLeftButtonUp" MouseLeftButtonDown="btnDiviser_MouseLeftButtonDown">
                     <Grid.RowDefinitions>
                         <RowDefinition/>
                         <RowDefinition Height="30"/>
@@ -185,7 +185,7 @@
 
 
 
-                <Grid Grid.Column="1" Height="70" Width="80" Name="btnDeconnexion" MouseLeftButtonDown="btnDeconnexion_MouseLeftButtonDown">
+                <Grid Grid.Column="1" Height="70" Width="80" Name="btnDeconnexion" MouseLeftButtonUp="MouseLeftButtonUp" MouseLeftButtonDown="btnDeconnexion_MouseLeftButtonDown">
                     <Grid.RowDefinitions>
                         <RowDefinition/>
                         <RowDefinition Height="30"/>

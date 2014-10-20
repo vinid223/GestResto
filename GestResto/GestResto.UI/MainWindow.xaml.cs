@@ -154,5 +154,24 @@ namespace GestResto.UI
                 sw.Close();
             }
         }
+
+        /// <summary>
+        /// Fonction permettant de changer le background des bouton lorsqu'ils sont pressés
+        /// </summary>
+        /// <param name="sender">L'objet qui a déclanché l'événement</param>
+        /// <param name="e">Données pour les événements liés au boutons</param>
+        public static void onPressButton(object sender, MouseButtonEventArgs e)
+        {
+            Grid grid = (sender as Grid);
+            Border border = (grid.Children[0] as Border);
+            border.Background = new SolidColorBrush(Color.FromRgb(204, 204, 255));
+        }
+
+        public static void onReleaseButton(object sender, MouseButtonEventArgs e)
+        {
+            Grid grid = (sender as Grid);
+            Border border = (grid.Children[0] as Border);
+            border.Background = new SolidColorBrush(Colors.White);
+        }
     }
 }

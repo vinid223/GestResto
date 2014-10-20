@@ -32,27 +32,29 @@ namespace GestResto.UI.Views
 
         private void btnAjouter_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            MessageBox.Show("Ajouter");
+            Constante.onPressButton(sender, e); // On ajoute l'effet du bouton pressé
         }
 
         private void btnDiviser_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
+            Constante.onPressButton(sender, e); // On ajoute l'effet du bouton pressé
             IApplicationService mainVM = ServiceFactory.Instance.GetService<IApplicationService>();
             mainVM.ChangeView<DivisionFactureView>(new DivisionFactureView());
         }
 
         private void btnImprimer_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            MessageBox.Show("Imprimer");
+            Constante.onPressButton(sender, e); // On ajoute l'effet du bouton pressé
         }
 
         private void btnSupprimer_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            MessageBox.Show("Supprimer");
+            Constante.onPressButton(sender, e); // On ajoute l'effet du bouton pressé
         }
 
         private void btnPayer_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
+            Constante.onPressButton(sender, e); // On ajoute l'effet du bouton pressé
             IApplicationService mainVM = ServiceFactory.Instance.GetService<IApplicationService>();
             mainVM.ChangeView<PaiementView>(new PaiementView());
         }
@@ -60,6 +62,7 @@ namespace GestResto.UI.Views
         // Fonction qui sert à nous déconnecter
         private void btnDeconnexion_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
+            Constante.onPressButton(sender, e); // On ajoute l'effet du bouton pressé
             // On appel la fonction de la classe constante qui permet de déconnecter l'utilisateur en cour
             Constante.Deconnexion();
         }
@@ -67,8 +70,14 @@ namespace GestResto.UI.Views
         // Fonction qui sert à revenir à la view précédente
         private void btnRetour_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
+            Constante.onPressButton(sender, e); // On ajoute l'effet du bouton pressé
             IApplicationService mainVM = ServiceFactory.Instance.GetService<IApplicationService>();
             mainVM.ChangeView<CommandesView>(new CommandesView());
+        }
+
+        private void MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            Constante.onReleaseButton(sender, e);
         }
     }
 }
