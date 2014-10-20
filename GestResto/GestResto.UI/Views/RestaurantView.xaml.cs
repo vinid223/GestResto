@@ -37,14 +37,16 @@ namespace GestResto.UI.Views
         }
 
         // Fonction qui sert à revenir à la view précédente
-        private void btnRetour_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void btnRetour_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
+            Constante.onReleaseButton(sender, e); // On enlève l'effet du bouton pressé
             IApplicationService mainVM = ServiceFactory.Instance.GetService<IApplicationService>();
             mainVM.ChangeView<OptionsAdministrationView>(new OptionsAdministrationView());
         }
 
-        private void btnEnregistrer_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void btnEnregistrer_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
+            Constante.onReleaseButton(sender, e); // On enlève l'effet du bouton pressé
             // On enleve le focus sur tous les champs text
             var scope = FocusManager.GetFocusScope(txtAdresse); // elem is the UIElement to unfocus
             FocusManager.SetFocusedElement(scope, null); // remove logical focus
@@ -65,10 +67,16 @@ namespace GestResto.UI.Views
             ViewModel.EnregistrerRestaurant(ViewModel.Restaurant);
         }
 
-        private void btnDeconnexion_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void btnDeconnexion_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
+            Constante.onReleaseButton(sender, e); // On enlève l'effet du bouton pressé
             // On appel la fonction de la classe constante qui permet de déconnecter l'utilisateur en cour
             Constante.Deconnexion();
+        }
+
+        private void MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            Constante.onPressButton(sender, e); // On ajoute l'effet du bouton pressé
         }
     }
 }

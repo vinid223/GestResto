@@ -64,8 +64,9 @@ namespace GestResto.UI.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void btnEnregistrer_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void btnEnregistrer_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
+            Constante.onReleaseButton(sender, e); // On enlève l'effet du bouton pressé
             ViewModelItem.EnregistrerUnItem(ViewModelItem.Item);
         }
 
@@ -75,9 +76,10 @@ namespace GestResto.UI.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void btnAjouter_MouseLeftButtonDown(object sender, RoutedEventArgs e)
+        private void btnAjouter_MouseLeftButtonUp(object sender, RoutedEventArgs e)
         {
-
+            MouseButtonEventArgs m = null;
+            Constante.onReleaseButton(sender, m); // On enlève l'effet du bouton pressé
             // Création d'un item temporaire.
             Item itemTemp = new Item("Entrez le nom de l'item.", null, null, true);
 
@@ -102,24 +104,30 @@ namespace GestResto.UI.Views
 
         }
 
-        private void btnDeconnexion_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void btnDeconnexion_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            // On appel la fonction de la classe constante qui permet de déconnecter l'utilisateur en cour
+            Constante.onReleaseButton(sender, e); // On enlève l'effet du bouton pressé
+            // On appel la fonction de la classe constante qui permet de déconnecter l'utilisateur en cours
             Constante.Deconnexion();
         }
 
         private void AjoutFormatItem_Click(object sender, RoutedEventArgs e)
         {
-
             ViewModelItem.Item.Formats.Add(new FormatItem());
             dataGridPrix.Items.Refresh();
         }
 
         // Fonction qui sert à revenir à la view précédente
-        private void btnRetour_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void btnRetour_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
+            Constante.onReleaseButton(sender, e); // On enlève l'effet du bouton pressé
             IApplicationService mainVM = ServiceFactory.Instance.GetService<IApplicationService>();
             mainVM.ChangeView<OptionsAdministrationView>(new OptionsAdministrationView());
+        }
+
+        private void MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            Constante.onPressButton(sender, e); // On ajoute l'effet du bouton pressé
         }
     }
 }

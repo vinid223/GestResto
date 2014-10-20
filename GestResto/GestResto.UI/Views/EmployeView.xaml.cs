@@ -27,26 +27,34 @@ namespace GestResto.UI.Views
             InitializeComponent();
         }
 
-        private void btnEnregistrer_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void btnEnregistrer_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
+            Constante.onReleaseButton(sender, e); // On enlève l'effet du bouton pressé
             MessageBox.Show("Enregistrer");
         }
-        private void btnAjouter_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void btnAjouter_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
+            Constante.onReleaseButton(sender, e); // On enlève l'effet du bouton pressé
             MessageBox.Show("Ajouter");
         }
-        private void btnDeconnexion_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void btnDeconnexion_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
+            Constante.onReleaseButton(sender, e); // On enlève l'effet du bouton pressé
             // On appel la fonction de la classe constante qui permet de déconnecter l'utilisateur en cours
             Constante.Deconnexion();
         }
 
-        private void btnRetour_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void btnRetour_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
+            Constante.onReleaseButton(sender, e); // On enlève l'effet du bouton pressé
             IApplicationService mainVM = ServiceFactory.Instance.GetService<IApplicationService>();
             mainVM.ChangeView<OptionsAdministrationView>(new OptionsAdministrationView());
         }
-    
+
+        private void MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            Constante.onPressButton(sender, e); // On ajoute l'effet du bouton pressé
+        }
     
 public  object licationService { get; set; }}
 }

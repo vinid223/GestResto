@@ -29,6 +29,7 @@
         </ListView>
 
         <Label Content="Liste de toutes les catégories" HorizontalContentAlignment="Center" VerticalAlignment="Top" Grid.Column="1" Height="26" Margin="50,10,50,0"/>
+        
         <!-- Boutons de navigation -->
         <Grid Grid.ColumnSpan="2" Grid.Row="1">
             <Grid.ColumnDefinitions>
@@ -36,7 +37,7 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
-            <Grid Grid.Column="0" Height="70" Width="80" Name="btnRetour" MouseLeftButtonDown="btnRetour_MouseLeftButtonDown">
+            <Grid Grid.Column="0" Height="70" Width="80" Name="btnRetour" MouseLeftButtonDown="MouseLeftButtonDown" MouseLeftButtonUp="btnRetour_MouseLeftButtonUp">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition Height="30"/>
@@ -47,7 +48,7 @@
                 <Label HorizontalAlignment="Center" Grid.Row="1" Height="30" FontSize="12">Retour</Label>
             </Grid>
             <StackPanel Grid.Column="1"  Orientation="Horizontal" HorizontalAlignment="Right" Grid.ColumnSpan="2">
-                <Grid Name="btnEnregistrer" Grid.Column="1" Height="70" Width="80" MouseLeftButtonDown="btnEnregistrer_MouseLeftButtonDown">
+                <Grid Name="btnEnregistrer" Grid.Column="1" Height="70" Width="80" MouseLeftButtonDown="MouseLeftButtonDown" MouseLeftButtonUp="btnEnregistrer_MouseLeftButtonUp">
                     <Grid.RowDefinitions>
                         <RowDefinition/>
                         <RowDefinition Height="30"/>
@@ -58,7 +59,7 @@
                     <Label HorizontalAlignment="Center" Grid.Row="1" Height="30" FontSize="12">Enregistrer</Label>
                 </Grid>
 
-                <Grid Grid.Column="1" Height="70" Width="80" Name="btnAjouter" MouseLeftButtonDown="btnAjouter_MouseLeftButtonDown">
+                <Grid Grid.Column="1" Height="70" Width="80" Name="btnAjouter" MouseLeftButtonDown="MouseLeftButtonDown" MouseLeftButtonUp="btnAjouter_MouseLeftButtonUp">
                     <Grid.RowDefinitions>
                         <RowDefinition/>
                         <RowDefinition Height="30"/>
@@ -69,7 +70,7 @@
                     <Label HorizontalAlignment="Center" Grid.Row="1" Height="30" FontSize="12">Ajouter</Label>
                 </Grid>
 
-                <Grid Grid.Column="1" Height="70" Width="80" Name="btnDeconnexion" MouseLeftButtonDown="btnDeconnexion_MouseLeftButtonDown">
+                <Grid Grid.Column="1" Height="70" Width="80" Name="btnDeconnexion" MouseLeftButtonDown="MouseLeftButtonDown" MouseLeftButtonUp="btnDeconnexion_MouseLeftButtonUp">
                     <Grid.RowDefinitions>
                         <RowDefinition/>
                         <RowDefinition Height="30"/>

@@ -24,13 +24,15 @@
         <TextBox x:Name="txtCodePostal" HorizontalAlignment="Stretch" Height="26" Margin="111,186,10,0" TextWrapping="Wrap" Text="{Binding Restaurant. CodePostal}" VerticalAlignment="Top"/>
         <TextBox x:Name="txtTelephone" HorizontalAlignment="Stretch" Height="26" Margin="111,232,10,0" TextWrapping="Wrap" Text="{Binding Restaurant. Telephone}" VerticalAlignment="Top"/>
         <TextBox x:Name="txtFax" HorizontalAlignment="Stretch" Height="26" Margin="111,281,10,0" TextWrapping="Wrap" Text="{Binding Restaurant. Fax}" VerticalAlignment="Top"/>
+
+        <!-- Boutons de navigation -->
         <Grid Grid.ColumnSpan="2" Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="80"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
-            <Grid Grid.Column="0" Height="70" Width="80" Name="btnRetour" MouseLeftButtonDown="btnRetour_MouseLeftButtonDown">
+            <Grid Grid.Column="0" Height="70" Width="80" Name="btnRetour" MouseLeftButtonDown="MouseLeftButtonDown" MouseLeftButtonUp="btnRetour_MouseLeftButtonUp">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition Height="30"/>
@@ -41,7 +43,7 @@
                 <Label HorizontalAlignment="Center" Grid.Row="1" Height="30" FontSize="12">Retour</Label>
             </Grid>
             <StackPanel Grid.Column="1"  Orientation="Horizontal" HorizontalAlignment="Right" Grid.ColumnSpan="2">
-                <Grid Name="btnEnregistrer" Grid.Column="1" Height="70" Width="80" MouseLeftButtonDown="btnEnregistrer_MouseLeftButtonDown">
+                <Grid Name="btnEnregistrer" Grid.Column="1" Height="70" Width="80" MouseLeftButtonDown="MouseLeftButtonDown" MouseLeftButtonUp="btnEnregistrer_MouseLeftButtonUp">
                     <Grid.RowDefinitions>
                         <RowDefinition/>
                         <RowDefinition Height="30"/>
@@ -51,7 +53,7 @@
                     </Border>
                     <Label HorizontalAlignment="Center" Grid.Row="1" Height="30" FontSize="12">Enregistrer</Label>
                 </Grid>
-                <Grid Grid.Column="1" Height="70" Width="80" Name="btnDeconnexion" MouseLeftButtonDown="btnDeconnexion_MouseLeftButtonDown">
+                <Grid Grid.Column="1" Height="70" Width="80" Name="btnDeconnexion" MouseLeftButtonDown="MouseLeftButtonDown" MouseLeftButtonUp="btnDeconnexion_MouseLeftButtonUp">
                     <Grid.RowDefinitions>
                         <RowDefinition/>
                         <RowDefinition Height="30"/>
@@ -63,5 +65,6 @@
                 </Grid>
             </StackPanel>
         </Grid>
+        <!-- Fin des boutons de navigation -->
     </Grid>
 </UserControl>

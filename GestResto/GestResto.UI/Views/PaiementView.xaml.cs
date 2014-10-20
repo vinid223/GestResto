@@ -28,18 +28,25 @@ namespace GestResto.UI.Views
         }
 
         // Fonction qui sert à nous déconnecter
-        private void btnDeconnexion_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void btnDeconnexion_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
+            Constante.onReleaseButton(sender, e); // On enlève l'effet du bouton pressé
             // On appel la fonction de la classe constante qui permet de déconnecter l'utilisateur en cour
             Constante.Deconnexion();
         }
 
         // Fonction qui sert à revenir à la view précédente
-        private void btnRetour_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void btnRetour_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
+            Constante.onReleaseButton(sender, e); // On enlève l'effet du bouton pressé
             // TO DO : Nous devons re venir à la même commande. Il faudrait peut-être faire une variable globale ?
             IApplicationService mainVM = ServiceFactory.Instance.GetService<IApplicationService>();
             mainVM.ChangeView<CommandeView>(new CommandeView());
+        }
+
+        private void MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            Constante.onPressButton(sender, e); // On ajoute l'effet du bouton pressé
         }
     }
 }

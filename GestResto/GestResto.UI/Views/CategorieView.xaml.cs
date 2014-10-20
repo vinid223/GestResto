@@ -74,8 +74,9 @@ namespace GestResto.UI.Views
         }
 
         // Fonction qui permet d'enregistrer la catégorie en cours dans la base de donnée.
-        private void btnEnregistrer_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void btnEnregistrer_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
+            Constante.onReleaseButton(sender, e); // On enlève l'effet du bouton pressé
             bool erreur = false;
             StringBuilder messageErreur = new StringBuilder();
 
@@ -126,8 +127,9 @@ namespace GestResto.UI.Views
             }
         }
         // Fonction qui permet d'ajouter dans la base de données une catégorie.
-        private void btnAjouter_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void btnAjouter_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
+            Constante.onReleaseButton(sender, e); // On enlève l'effet du bouton pressé
             // On crée une catégorie en mémoire
             Categorie categTemp = new Categorie("Entrez le nom de votre catégorie", false, false);
 
@@ -181,17 +183,24 @@ namespace GestResto.UI.Views
         }
 
         // Fonction qui sert à nous déconnecter
-        private void btnDeconnexion_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void btnDeconnexion_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
+            Constante.onReleaseButton(sender, e); // On enlève l'effet du bouton pressé
             // On appel la fonction de la classe constante qui permet de déconnecter l'utilisateur en cour
             Constante.Deconnexion();
         }
 
         // Fonction qui sert à revenir à la view précédente
-        private void btnRetour_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void btnRetour_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
+            Constante.onReleaseButton(sender, e); // On enlève l'effet du bouton pressé
             IApplicationService mainVM = ServiceFactory.Instance.GetService<IApplicationService>();
             mainVM.ChangeView<OptionsAdministrationView>(new OptionsAdministrationView());
+        }
+
+        private void MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            Constante.onPressButton(sender, e); // On ajoute l'effet du bouton pressé
         }
     }
 }

@@ -30,54 +30,57 @@ namespace GestResto.UI.Views
             InitializeComponent();
         }
 
-        private void btnAjouter_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void btnAjouter_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            Constante.onPressButton(sender, e); // On ajoute l'effet du bouton pressé
+            Constante.onReleaseButton(sender, e); /// On enlève l'effet du bouton pressé
+            MessageBox.Show("Ajouter");
         }
 
-        private void btnDiviser_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void btnDiviser_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            Constante.onPressButton(sender, e); // On ajoute l'effet du bouton pressé
+            Constante.onReleaseButton(sender, e); /// On enlève l'effet du bouton pressé
             IApplicationService mainVM = ServiceFactory.Instance.GetService<IApplicationService>();
             mainVM.ChangeView<DivisionFactureView>(new DivisionFactureView());
         }
 
-        private void btnImprimer_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void btnImprimer_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            Constante.onPressButton(sender, e); // On ajoute l'effet du bouton pressé
+            Constante.onReleaseButton(sender, e); // On enlève l'effet du bouton pressé
+            MessageBox.Show("Imprimer");
         }
 
-        private void btnSupprimer_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void btnSupprimer_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            Constante.onPressButton(sender, e); // On ajoute l'effet du bouton pressé
+            Constante.onReleaseButton(sender, e); // On enlève l'effet du bouton pressé
+            MessageBox.Show("Supprimer");
         }
 
-        private void btnPayer_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void btnPayer_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            Constante.onPressButton(sender, e); // On ajoute l'effet du bouton pressé
+            Constante.onReleaseButton(sender, e); // On enlève l'effet du bouton pressé
             IApplicationService mainVM = ServiceFactory.Instance.GetService<IApplicationService>();
             mainVM.ChangeView<PaiementView>(new PaiementView());
         }
 
         // Fonction qui sert à nous déconnecter
-        private void btnDeconnexion_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void btnDeconnexion_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            Constante.onPressButton(sender, e); // On ajoute l'effet du bouton pressé
+            Constante.onReleaseButton(sender, e); // On enlève l'effet du bouton pressé
             // On appel la fonction de la classe constante qui permet de déconnecter l'utilisateur en cour
             Constante.Deconnexion();
         }
 
         // Fonction qui sert à revenir à la view précédente
-        private void btnRetour_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void btnRetour_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            Constante.onPressButton(sender, e); // On ajoute l'effet du bouton pressé
+            Constante.onReleaseButton(sender, e); // On enlève l'effet du bouton pressé
             IApplicationService mainVM = ServiceFactory.Instance.GetService<IApplicationService>();
             mainVM.ChangeView<CommandesView>(new CommandesView());
         }
 
-        private void MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        private void MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            Constante.onReleaseButton(sender, e);
+            Constante.onPressButton(sender, e); // On ajoute l'effet du bouton pressé
         }
     }
 }
