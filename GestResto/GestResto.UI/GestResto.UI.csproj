@@ -60,10 +60,12 @@
     <Compile Include="ViewModel\CategorieViewModel.cs" />
     <Compile Include="ViewModel\Commandes.ViewModel.cs" />
     <Compile Include="ViewModel\CommandeViewModel.cs" />
+    <Compile Include="ViewModel\DivisionFactureViewModel.cs" />
     <Compile Include="ViewModel\EmployeViewModel.cs" />
     <Compile Include="ViewModel\FormatItemViewModel.cs" />
     <Compile Include="ViewModel\FormatViewModel.cs" />
-    <Compile Include="ViewModel\GestionPaiementViewModel.cs" />
+    <Compile Include="ViewModel\JonctionFactureViewModel.cs" />
+    <Compile Include="ViewModel\PaiementViewModel.cs" />
     <Compile Include="ViewModel\ItemsViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\OptionsAdministrationViewModel.cs" />
@@ -85,8 +87,14 @@
     <Compile Include="Views\CommandeView.xaml.cs">
       <DependentUpon>CommandeView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\DivisionFactureView.xaml.cs">
+      <DependentUpon>DivisionFactureView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ItemsView.xaml.cs">
       <DependentUpon>ItemsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\JonctionFactureView.xaml.cs">
+      <DependentUpon>JonctionFactureView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\PaiementView.xaml.cs">
       <DependentUpon>PaiementView.xaml</DependentUpon>
@@ -102,9 +110,6 @@
     </Compile>
     <Compile Include="Views\FormatView.xaml.cs">
       <DependentUpon>FormatView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\GestionPaiementView.xaml.cs">
-      <DependentUpon>GestionPaiementView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\OptionsAdministrationView.xaml.cs">
       <DependentUpon>OptionsAdministrationView.xaml</DependentUpon>
@@ -147,7 +152,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\DivisionFactureView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\ItemsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\JonctionFactureView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -168,10 +181,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\FormatView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\GestionPaiementView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

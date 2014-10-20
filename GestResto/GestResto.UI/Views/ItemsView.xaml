@@ -87,12 +87,16 @@
             </ListView.ItemTemplate>
         </ListView>
         <!-- Début boutons navigation -->
-        <Grid Grid.ColumnSpan="3" Grid.Row="4" Margin="0,0,24,0">
+        <Grid Grid.ColumnSpan="3" Grid.Row="4">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="80"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
+<<<<<<< HEAD
             <Grid Grid.Column="0" Height="70" Width="80" Name="btnRetour"  MouseLeftButtonDown="btnRetour_MouseLeftButtonDown" >
+=======
+            <Grid Grid.Column="0" Height="70" Width="80" Name="btnRetour" MouseLeftButtonDown="btnRetour_MouseLeftButtonDown" >
+>>>>>>> origin/master
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition Height="30"/>

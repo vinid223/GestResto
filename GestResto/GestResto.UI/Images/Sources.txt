@@ -1,7 +1,7 @@
 forward.png : http://www.flaticon.com/free-icon/forward-arrow_24219
 arrow(Right/Left/Up/Down) : http://www.flaticon.com/free-icon/play-symbol_26061
 lock.png : http://www.flaticon.com/free-icon/lock_25239
-info.png : http://www.flaticon.com/free-icon/info-button_7915
+info.png (et infoMini.png) : http://www.flaticon.com/free-icon/info-button_7915
 plus.png : http://www.flaticon.com/free-icon/plus-positive-add-mathematical-symbol_43869
 documents.png : http://www.flaticon.com/free-icon/documents-symbol_35920
 document.png : http://www.flaticon.com/free-icon/document-symbol-with-text-lines_36165
