@@ -45,9 +45,20 @@ namespace GestResto.Logic.Services.NHibernate
 
         public void Update(Item item)
         {
+
             using (var transaction = session.BeginTransaction())
             {
                 session.Update(item);
+                transaction.Commit();
+            }
+        }
+
+        public void Delete(FormatItem formatItem)
+        {
+
+            using (var transaction = session.BeginTransaction())
+            {
+                session.Delete(formatItem);
                 transaction.Commit();
             }
         }

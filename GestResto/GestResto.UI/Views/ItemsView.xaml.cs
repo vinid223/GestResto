@@ -1,4 +1,6 @@
 ﻿using GestResto.Logic.Model.Entities;
+using GestResto.MvvmToolkit.Services;
+using GestResto.MvvmToolkit.Services.Definitions;
 using GestResto.UI.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -45,8 +47,17 @@ namespace GestResto.UI.Views
             Item item = (Item)((sender as Button).CommandParameter);
             ViewModelItem.Item = item;
 
+
         }
 
+        private void btnSupprimer_Click(object sender, RoutedEventArgs e)
+        {
+            FormatItem formatitem = (FormatItem)((sender as Button).CommandParameter);
+
+
+            ViewModelItem.DeleteFormatItem(formatitem);
+            dataGridPrix.Items.Refresh();
+        }
 
         /// <summary>
         /// Fonction qui permet d'enregistrer l'item en cours dans la base de donnée.
@@ -95,6 +106,20 @@ namespace GestResto.UI.Views
         {
             // On appel la fonction de la classe constante qui permet de déconnecter l'utilisateur en cour
             Constante.Deconnexion();
+        }
+
+        private void AjoutFormatItem_Click(object sender, RoutedEventArgs e)
+        {
+
+            ViewModelItem.Item.Formats.Add(new FormatItem());
+            dataGridPrix.Items.Refresh();
+        }
+
+        // Fonction qui sert à revenir à la view précédente
+        private void btnRetour_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            IApplicationService mainVM = ServiceFactory.Instance.GetService<IApplicationService>();
+            mainVM.ChangeView<OptionsAdministrationView>(new OptionsAdministrationView());
         }
     }
 }

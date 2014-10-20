@@ -17,5 +17,6 @@ namespace GestResto.Logic.Services.Definitions
         IList<FormatItem> RetrieveAll();
         FormatItem Retrieve(RetrieveFormatItemArgs args);
         void Update(FormatItem formatItem);
+        void Delete(FormatItem formatItem);
     }
 }

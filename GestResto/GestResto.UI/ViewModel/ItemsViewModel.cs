@@ -1,6 +1,7 @@
 ﻿using GestResto.Logic.Model.Args;
 using GestResto.Logic.Model.Entities;
 using GestResto.Logic.Services.Definitions;
+using GestResto.Logic.Services.Helpers;
 using GestResto.MvvmToolkit;
 using GestResto.MvvmToolkit.Services;
 using GestResto.MvvmToolkit.Services.Definitions;
@@ -32,6 +33,7 @@ namespace GestResto.UI.ViewModel
         private ObservableCollection<Format> _formats = new ObservableCollection<Format>();
         private ObservableCollection<Categorie> _categories = new ObservableCollection<Categorie>();
         private ObservableCollection<Item> _items = new ObservableCollection<Item>();
+
 
         public ObservableCollection<Item> Items
         {
@@ -110,11 +112,13 @@ namespace GestResto.UI.ViewModel
 	        }
         }
 
+
         public void EnregistrerUnItem(Item item)
         {
-            item.Formats.Where(v => v.ItemAssocie == null).ToList().ForEach(v => v.ItemAssocie = item);
-            _itemService.Update(item);
 
+            item.Formats.Where(v => v.ItemAssocie == null).ToList().ForEach(v => v.ItemAssocie = item);
+
+            _itemService.Update(item);
 
         }
 
@@ -131,5 +135,13 @@ namespace GestResto.UI.ViewModel
 
             return i;
         }
+
+        public void DeleteFormatItem(FormatItem formatitem)
+        {
+
+            Item.Formats.Remove(formatitem);
+            _itemService.Delete(formatitem);
+        }
+
     }
 }

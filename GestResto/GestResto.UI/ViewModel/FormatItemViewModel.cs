@@ -64,5 +64,11 @@ namespace GestResto.UI.ViewModel
 
             return i;
         }
+
+
+        public void SupprimerFormatItem(FormatItem formatItem)
+        {
+            _FormatItemService.Delete(formatItem);
+        }
     }
 }
