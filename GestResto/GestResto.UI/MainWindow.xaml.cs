@@ -165,6 +165,9 @@ namespace GestResto.UI
             Grid grid = (sender as Grid);
             Border border = (grid.Children[0] as Border);
             border.Background = new SolidColorBrush(Color.FromRgb(204, 204, 255));
+            border.BorderThickness = new Thickness(1, 1, 1, 1.75);
+            border.Margin = new Thickness(0,0,1.25,0);
+            border.Height -= 1.25;
         }
 
         public static void onReleaseButton(object sender, MouseButtonEventArgs e)
@@ -172,6 +175,9 @@ namespace GestResto.UI
             Grid grid = (sender as Grid);
             Border border = (grid.Children[0] as Border);
             border.Background = new SolidColorBrush(Colors.White);
+            border.BorderThickness = new Thickness(1, 1, 1, 3);
+            border.Margin = new Thickness(0);
+            border.Height += 1.25;
         }
     }
 }

@@ -11,151 +11,150 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <Grid Grid.Column="0" Height="70" Width="80" Name="btnRetour" MouseLeftButtonDown="MouseLeftButtonDown" MouseLeftButtonUp="btnRetour_MouseLeftButtonUp">
+        <Grid Grid.Column="0" Style="{StaticResource BoutonGrid}" Name="btnRetour" MouseLeftButtonDown="MouseLeftButtonDown" MouseLeftButtonUp="btnRetour_MouseLeftButtonUp">
             <Grid.RowDefinitions>
                 <RowDefinition/>
                 <RowDefinition Height="30"/>
             </Grid.RowDefinitions>
-            <Border Grid.Row="0" Height="40" Width="40" BorderThickness="1" BorderBrush="Black" CornerRadius="5">
-                <Image Source="/Images/forward.png" HorizontalAlignment="Left" Margin="4,4,0,0" VerticalAlignment="Top" Width="30" Height="30"/>
+            <Border Style="{StaticResource BoutonBorder}">
+                <Image Source="/Images/forward.png" Style="{StaticResource BoutonImage}"/>
             </Border>
-            <Label HorizontalAlignment="Center" Grid.Row="1" Height="30" FontSize="12">Retour</Label>
+            <Label Style="{StaticResource BoutonLabel}">Retour</Label>
         </Grid>
-        <!--<Button Content="Retour" Margin="5"  Width="60" Height="50" Name="btnRetour"/>-->
 
 
         <StackPanel Grid.Column="1"  Orientation="Horizontal" HorizontalAlignment="Right" Grid.ColumnSpan="2">
 
-            <Grid Name="btnSelection" Grid.Column="1" Height="70" Width="80" MouseLeftButtonDown="MouseLeftButtonDown" MouseLeftButtonUp="btnSelection_MouseLeftButtonUp">
+            <Grid Name="btnSelection" Grid.Column="1" Style="{StaticResource BoutonGrid}" MouseLeftButtonDown="MouseLeftButtonDown" MouseLeftButtonUp="btnSelection_MouseLeftButtonUp">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition Height="30"/>
                 </Grid.RowDefinitions>
-                <Border Grid.Row="0" Height="40" Width="40" BorderThickness="1" BorderBrush="Black" CornerRadius="5">
-                    <Image Source="/Images/lines.png" HorizontalAlignment="Left" Margin="4,4,0,0" VerticalAlignment="Top" Width="30" Height="30"/>
+                <Border Style="{StaticResource BoutonBorder}">
+                    <Image Source="/Images/lines.png" Style="{StaticResource BoutonImage}"/>
                 </Border>
-                <Label HorizontalAlignment="Center" Grid.Row="1" Height="30" FontSize="12">Sélection</Label>
+                <Label Style="{StaticResource BoutonLabel}">Sélection</Label>
             </Grid>
 
-            <Grid Name="btnJoindre" Grid.Column="1" Height="70" Width="80" MouseLeftButtonDown="MouseLeftButtonDown" MouseLeftButtonUp="btnJoindre_MouseLeftButtonUp">
+            <Grid Name="btnJoindre" Grid.Column="1" Style="{StaticResource BoutonGrid}" MouseLeftButtonDown="MouseLeftButtonDown" MouseLeftButtonUp="btnJoindre_MouseLeftButtonUp">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition Height="30"/>
                 </Grid.RowDefinitions>
-                <Border Grid.Row="0" Height="40" Width="40" BorderThickness="1" BorderBrush="Black" CornerRadius="5">
-                    <Image Source="/Images/boxes.png" HorizontalAlignment="Left" Margin="4,4,0,0" VerticalAlignment="Top" Width="30" Height="30"/>
+                <Border Style="{StaticResource BoutonBorder}">
+                    <Image Source="/Images/boxes.png" Style="{StaticResource BoutonImage}"/>
                 </Border>
-                <Label HorizontalAlignment="Center" Grid.Row="1" Height="30" FontSize="12">Joindre</Label>
+                <Label Style="{StaticResource BoutonLabel}">Joindre</Label>
             </Grid>
 
-            <Grid Name="btnDiviser" Grid.Column="1" Height="70" Width="80" MouseLeftButtonDown="MouseLeftButtonDown" MouseLeftButtonUp="btnDiviser_MouseLeftButtonUp">
+            <Grid Name="btnDiviser" Grid.Column="1" Style="{StaticResource BoutonGrid}" MouseLeftButtonDown="MouseLeftButtonDown" MouseLeftButtonUp="btnDiviser_MouseLeftButtonUp">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition Height="30"/>
                 </Grid.RowDefinitions>
-                <Border Grid.Row="0" Height="40" Width="40" BorderThickness="1" BorderBrush="Black" CornerRadius="5">
-                    <Image Source="/Images/documents.png" HorizontalAlignment="Left" Margin="4,4,0,0" VerticalAlignment="Top" Width="30" Height="30"/>
+                <Border Style="{StaticResource BoutonBorder}">
+                    <Image Source="/Images/documents.png" Style="{StaticResource BoutonImage}"/>
                 </Border>
-                <Label HorizontalAlignment="Center" Grid.Row="1" Height="30" FontSize="12">Diviser</Label>
+                <Label Style="{StaticResource BoutonLabel}">Diviser</Label>
             </Grid>
 
-            <!--<Grid Name="btnImprimer" Grid.Column="1" Height="70" Width="80" MouseLeftButtonDown="MouseLeftButtonDown" MouseLeftButtonUp="btnImprimer_MouseLeftButtonDown">
+            <!--<Grid Name="btnImprimer" Grid.Column="1" Style="{StaticResource BoutonGrid}" MouseLeftButtonDown="MouseLeftButtonDown" MouseLeftButtonUp="btnImprimer_MouseLeftButtonDown">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition Height="30"/>
                 </Grid.RowDefinitions>
-                <Border Grid.Row="0" Height="40" Width="40" BorderThickness="1" BorderBrush="Black" CornerRadius="5">
-                    <Image Source="/Images/printer.png" HorizontalAlignment="Left" Margin="4,4,0,0" VerticalAlignment="Top" Width="30" Height="30"/>
+                <Border Style="{StaticResource BoutonBorder}">
+                    <Image Source="/Images/printer.png" Style="{StaticResource BoutonImage}"/>
                 </Border>
-                <Label HorizontalAlignment="Center" Grid.Row="1" Height="30" FontSize="12">Imprimer</Label>
+                <Label Style="{StaticResource BoutonLabel}">Imprimer</Label>
             </Grid>
 
-            <Grid Name="btnPayer" Grid.Column="1" Height="70" Width="80" MouseLeftButtonDown="MouseLeftButtonDown" MouseLeftButtonUp="btnPayer_MouseLeftButtonDown">
+            <Grid Name="btnPayer" Grid.Column="1" Style="{StaticResource BoutonGrid}" MouseLeftButtonDown="MouseLeftButtonDown" MouseLeftButtonUp="btnPayer_MouseLeftButtonDown">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition Height="30"/>
                 </Grid.RowDefinitions>
-                <Border Grid.Row="0" Height="40" Width="40" BorderThickness="1" BorderBrush="Black" CornerRadius="5">
-                    <Image Source="/Images/dollar.png" HorizontalAlignment="Left" Margin="4,4,0,0" VerticalAlignment="Top" Width="30" Height="30"/>
+                <Border Style="{StaticResource BoutonBorder}">
+                    <Image Source="/Images/dollar.png" Style="{StaticResource BoutonImage}"/>
                 </Border>
-                <Label HorizontalAlignment="Center" Grid.Row="1" Height="30" FontSize="12">Payer</Label>
+                <Label Style="{StaticResource BoutonLabel}">Payer</Label>
             </Grid>
 
-            <Grid Name="btnSupprimer" Grid.Column="1" Height="70" Width="80" MouseLeftButtonDown="MouseLeftButtonDown" MouseLeftButtonUp="btnSupprimer_MouseLeftButtonDown">
+            <Grid Name="btnSupprimer" Grid.Column="1" Style="{StaticResource BoutonGrid}" MouseLeftButtonDown="MouseLeftButtonDown" MouseLeftButtonUp="btnSupprimer_MouseLeftButtonDown">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition Height="30"/>
                 </Grid.RowDefinitions>
-                <Border Grid.Row="0" Height="40" Width="40" BorderThickness="1" BorderBrush="Black" CornerRadius="5">
-                    <Image Source="/Images/recycle.png" HorizontalAlignment="Left" Margin="4,4,0,0" VerticalAlignment="Top" Width="30" Height="30"/>
+                <Border Style="{StaticResource BoutonBorder}">
+                    <Image Source="/Images/recycle.png" Style="{StaticResource BoutonImage}"/>
                 </Border>
-                <Label HorizontalAlignment="Center" Grid.Row="1" Height="30" FontSize="12">Supprimer</Label>
+                <Label Style="{StaticResource BoutonLabel}">Supprimer</Label>
             </Grid>
 
-            <Grid Name="btnGenerer" Grid.Column="1" Height="70" Width="80" MouseLeftButtonDown="MouseLeftButtonDown" MouseLeftButtonUp="btnGenerer_MouseLeftButtonDown">
+            <Grid Name="btnGenerer" Grid.Column="1" Style="{StaticResource BoutonGrid}" MouseLeftButtonDown="MouseLeftButtonDown" MouseLeftButtonUp="btnGenerer_MouseLeftButtonDown">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition Height="30"/>
                 </Grid.RowDefinitions>
-                <Border Grid.Row="0" Height="40" Width="40" BorderThickness="1" BorderBrush="Black" CornerRadius="5">
-                    <Image Source="/Images/document.png" HorizontalAlignment="Left" Margin="4,4,0,0" VerticalAlignment="Top" Width="30" Height="30"/>
+                <Border Style="{StaticResource BoutonBorder}">
+                    <Image Source="/Images/document.png" Style="{StaticResource BoutonImage}"/>
                 </Border>
-                <Label HorizontalAlignment="Center" Grid.Row="1" Height="30" FontSize="12">Générer</Label>
+                <Label HStyle="{StaticResource BoutonLabel}">Générer</Label>
             </Grid>-->
 
-            <Grid Name="btnRapport" Grid.Column="1" Height="70" Width="80" MouseLeftButtonDown="MouseLeftButtonDown" MouseLeftButtonUp="btnRapport_MouseLeftButtonUp">
+            <Grid Name="btnRapport" Grid.Column="1" Style="{StaticResource BoutonGrid}" MouseLeftButtonDown="MouseLeftButtonDown" MouseLeftButtonUp="btnRapport_MouseLeftButtonUp">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition Height="30"/>
                 </Grid.RowDefinitions>
-                <Border Grid.Row="0" Height="40" Width="40" BorderThickness="1" BorderBrush="Black" CornerRadius="5">
-                    <Image Source="/Images/document.png" HorizontalAlignment="Left" Margin="4,4,0,0" VerticalAlignment="Top" Width="30" Height="30"/>
+                <Border Style="{StaticResource BoutonBorder}">
+                    <Image Source="/Images/document.png" Style="{StaticResource BoutonImage}"/>
                 </Border>
-                <Label HorizontalAlignment="Center" Grid.Row="1" Height="30" FontSize="12">Rapport</Label>
+                <Label Style="{StaticResource BoutonLabel}">Rapport</Label>
             </Grid>
 
-            <Grid Name="btnCreer" Grid.Column="1" Height="70" Width="80" MouseLeftButtonDown="MouseLeftButtonDown" MouseLeftButtonUp="btnCreer_MouseLeftButtonUp">
+            <Grid Name="btnCreer" Grid.Column="1" Style="{StaticResource BoutonGrid}" MouseLeftButtonDown="MouseLeftButtonDown" MouseLeftButtonUp="btnCreer_MouseLeftButtonUp">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition Height="30"/>
                 </Grid.RowDefinitions>
-                <Border Grid.Row="0" Height="40" Width="40" BorderThickness="1" BorderBrush="Black" CornerRadius="5">
-                    <Image Source="/Images/checkmark.png" HorizontalAlignment="Left" Margin="4,4,0,0" VerticalAlignment="Top" Width="30" Height="30"/>
+                <Border Style="{StaticResource BoutonBorder}">
+                    <Image Source="/Images/checkmark.png" Style="{StaticResource BoutonImage}"/>
                 </Border>
-                <Label HorizontalAlignment="Center" Grid.Row="1" Height="30" FontSize="12">Créer</Label>
+                <Label Style="{StaticResource BoutonLabel}">Créer</Label>
             </Grid>
 
-            <Grid Name="btnEnregistrer" Grid.Column="1" Height="70" Width="80" MouseLeftButtonDown="MouseLeftButtonDown" MouseLeftButtonUp="btnEnregistrer_MouseLeftButtonUp">
+            <Grid Name="btnEnregistrer" Grid.Column="1" Style="{StaticResource BoutonGrid}" MouseLeftButtonDown="MouseLeftButtonDown" MouseLeftButtonUp="btnEnregistrer_MouseLeftButtonUp">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition Height="30"/>
                 </Grid.RowDefinitions>
-                <Border Grid.Row="0" Height="40" Width="40" BorderThickness="1" BorderBrush="Black" CornerRadius="5">
-                    <Image Source="/Images/floppy.png" HorizontalAlignment="Left" Margin="4,4,0,0" VerticalAlignment="Top" Width="30" Height="30"/>
+                <Border Style="{StaticResource BoutonBorder}">
+                    <Image Source="/Images/floppy.png" Style="{StaticResource BoutonImage}"/>
                 </Border>
-                <Label HorizontalAlignment="Center" Grid.Row="1" Height="30" FontSize="12">Enregistrer</Label>
+                <Label Style="{StaticResource BoutonLabel}">Enregistrer</Label>
             </Grid>
 
-            <Grid  Name="btnAjouter" Grid.Column="1" Height="70" Width="80" MouseLeftButtonDown="MouseLeftButtonDown" MouseLeftButtonUp="btnAjouter_MouseLeftButtonUp">
+            <Grid  Name="btnAjouter" Grid.Column="1" Style="{StaticResource BoutonGrid}" MouseLeftButtonDown="MouseLeftButtonDown" MouseLeftButtonUp="btnAjouter_MouseLeftButtonUp">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition Height="30"/>
                 </Grid.RowDefinitions>
-                <Border Grid.Row="0" Height="40" Width="40" BorderThickness="1" BorderBrush="Black" CornerRadius="5">
-                    <Image Source="/Images/plus.png" HorizontalAlignment="Left" Margin="4,4,0,0" VerticalAlignment="Top" Width="30" Height="30"/>
+                <Border Style="{StaticResource BoutonBorder}">
+                    <Image Source="/Images/plus.png" Style="{StaticResource BoutonImage}"/>
                 </Border>
-                <Label HorizontalAlignment="Center" Grid.Row="1" Height="30" FontSize="12">Ajouter</Label>
+                <Label Style="{StaticResource BoutonLabel}">Ajouter</Label>
             </Grid>
 
-            <Grid Name="btnDeconnexion" Grid.Column="1" Height="70" Width="80" MouseLeftButtonDown="MouseLeftButtonDown"  MouseLeftButtonUp="btnDeconnexion_MouseLeftButtonUp">
+            <Grid Name="btnDeconnexion" Grid.Column="1" Style="{StaticResource BoutonGrid}" MouseLeftButtonDown="MouseLeftButtonDown"  MouseLeftButtonUp="btnDeconnexion_MouseLeftButtonUp">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition Height="30"/>
                 </Grid.RowDefinitions>
-                <Border Grid.Row="0" Height="40" Width="40" BorderThickness="1" BorderBrush="Black" CornerRadius="5">
-                    <Image Source="/Images/lock.png" HorizontalAlignment="Left" Margin="4,4,0,0" VerticalAlignment="Top" Width="30" Height="30"/>
+                <Border Style="{StaticResource BoutonBorder}">
+                    <Image Source="/Images/lock.png" Style="{StaticResource BoutonImage}"/>
                 </Border>
-                <Label HorizontalAlignment="Center" Grid.Row="1" Height="30" FontSize="12">Déconnexion</Label>
+                <Label Style="{StaticResource BoutonLabel}">Déconnexion</Label>
             </Grid>
 
         </StackPanel>
