@@ -46,7 +46,20 @@ namespace GestResto.UI.ViewModel
 
         public void EnregistrerUnFormat(Format format)
         {
-            _formatService.Update(format);
+            try
+            {
+                _formatService.Update(format);
+            }
+            catch (NHibernate.Exceptions.GenericADOException adoE)
+            {
+               MySql.Data.MySqlClient.MySqlException mysqlExeception = (adoE.InnerException as MySql.Data.MySqlClient.MySqlException);
+               throw mysqlExeception;
+            }
+            catch(Exception e)
+            {
+                throw e;
+            }
+            
         }
 
         public int AjouterUnFormat(Format format)

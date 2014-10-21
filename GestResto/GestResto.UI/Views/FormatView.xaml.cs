@@ -79,18 +79,28 @@ namespace GestResto.UI.Views
             FocusManager.SetFocusedElement(scope, null); // remove logical focus
             Keyboard.ClearFocus(); // remove keyboard focus
 
-            // Si un des champs est vide, on informe l'utilisateur
-            if (ViewModel.Format.Nom == "" || ViewModel.Format.Libelle == "")
+            // Si les champs ne sont pas activé, ça veut dire qu'aucun format n'est sélectionné
+            if(!txtNomFormat.IsEnabled)
             {
                 erreur = true;
-                messageErreur.Append("Tous les champs doivent être remplis afin d'enregistrer\n");
+                messageErreur.Append("Vous devez sélectionner un format avant d'enregistrer\n");
             }
+            else 
+            { 
+                // Si un des champs est vide, on informe l'utilisateur
+                if (ViewModel.Format.Nom == "" || ViewModel.Format.Libelle == "")
+                {
+                    erreur = true;
+                    messageErreur.Append("Tous les champs doivent être remplis afin d'enregistrer\n");
+                }
 
-            // Si le libellé n'est pas entre 1 et 3 caractères
-            if (ViewModel.Format.Libelle.Length > 3 || ViewModel.Format.Libelle.Length < 1)
-            {
-                erreur = true;
-                messageErreur.Append("Le libellé doit faire entre 1 et 3 caractères\n");
+                // Si le libellé n'est pas entre 1 et 3 caractères
+                if ( ViewModel.Format.Libelle.Length > 3 || ViewModel.Format.Libelle.Length < 1) 
+                {
+                    erreur = true;
+                    messageErreur.Append("Le libellé doit faire entre 1 et 3 caractères\n");
+                }
+
             }
 
             // S'il y a une erreur, on affiche un message
@@ -107,6 +117,15 @@ namespace GestResto.UI.Views
                     ViewModel.EnregistrerUnFormat(ViewModel.Format);
                 }
                 // S'il y a eu un erreur dans l'enregistrement du format
+                catch (MySql.Data.MySqlClient.MySqlException mysqlException)
+                {
+                    if(mysqlException.Number == 1602)
+                    {
+                    
+
+                    }
+                }
+                
                 catch (Exception exception)
                 {
                     string exceptionMessage = exception.InnerException.Message;
