@@ -18,25 +18,25 @@
         <StackPanel Grid.Column="0" Margin="10,0,0,0">
 
             <!-- L'intervalle de temps -->
-            <Label Name="lblPeriode" Content="Période" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top"/>
+            <Label Foreground="White" Name="lblPeriode" Content="Période" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top"/>
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="1*"/>
                     <ColumnDefinition Width="1*"/>
                 </Grid.ColumnDefinitions>
                 <DockPanel Grid.Column="0" Height="30" Margin="0,0,0,0" VerticalAlignment="Top" HorizontalAlignment="Stretch">
-                    <Label Name="lblDu" Content="Du" HorizontalAlignment="Left" />
+                    <Label Foreground="White" Name="lblDu" Content="Du" HorizontalAlignment="Left" />
                     <DatePicker Name="dpkDebut" HorizontalAlignment="Stretch"  />
                 </DockPanel>
                 <DockPanel Grid.Column="1" Height="30" Margin="0,0,0,0" VerticalAlignment="Top" HorizontalAlignment="Stretch">
-                    <Label Name="lblAu" Content="Au" HorizontalAlignment="Right" />
+                    <Label Foreground="White" Name="lblAu" Content="Au" HorizontalAlignment="Right" />
                     <DatePicker Name="dpkFin" HorizontalAlignment="Stretch" />
                 </DockPanel>
             </Grid>
 
             <!-- Pour l'employé -->
             <DockPanel Margin="0,10,0,0" >
-                <Label Name="lblPour" Content="Pour" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <Label Foreground="White" Name="lblPour" Content="Pour" HorizontalAlignment="Left" VerticalAlignment="Top"/>
                 <ComboBox x:Name="cboListeEmployes" HorizontalAlignment="Stretch" VerticalAlignment="Top" />
             </DockPanel>
             
@@ -48,15 +48,15 @@
                     <ColumnDefinition Width="1*"/>
                 </Grid.ColumnDefinitions>
                 <DockPanel>
-                    <Label Grid.Column="0" Name="lblPrix" Content="Prix"/>
+                    <Label Foreground="White" Grid.Column="0" Name="lblPrix" Content="Prix"/>
                     <Image Source="/Images/infoMini.png" Height="16" Width="16" />
                 </DockPanel>
                 <DockPanel Grid.Column="1" Height="30" Margin="0,0,0,0">
-                    <Label Name="lblMinimum" Content="Minimum"/>
+                    <Label Foreground="White" Name="lblMinimum" Content="Minimum"/>
                     <TextBox Name="txtPrixMinimum" Height="23" HorizontalAlignment="Stretch"/>
                 </DockPanel>
                 <DockPanel Grid.Column="2" Height="30" Margin="0,0,0,0" HorizontalAlignment="Stretch">
-                    <Label Name="lblMaximum" Content="Maximum"/>
+                    <Label Foreground="White" Name="lblMaximum" Content="Maximum"/>
                     <TextBox Name="txtPrixMaximum" Height="23" HorizontalAlignment="Stretch"/>
                 </DockPanel>
             </Grid>
@@ -68,14 +68,14 @@
                 <ColumnDefinition Width="1*"/>
                 <ColumnDefinition Width="1*"/>
             </Grid.ColumnDefinitions>
-                <Label Grid.Column="0" Name="lblOrdre" Content="Ordre" HorizontalAlignment="Left"/>
+                <Label Foreground="White" Grid.Column="0" Name="lblOrdre" Content="Ordre" HorizontalAlignment="Left"/>
                 <ComboBox Grid.Column="1" Name="cboOrdreChamp" HorizontalAlignment="Stretch" />
                 <ComboBox Margin="5,0,0,0" Grid.Column="2"  Name="cboOrdreCroissant" HorizontalAlignment="Stretch" />
             </Grid>
 
             <!-- Pour le nombre maximal de lignes -->
             <DockPanel Margin="0,10,0,0">
-                <Label Name="lblNbMaximumLignes" Content="Maximum de lignes" />
+                <Label Foreground="White" Name="lblNbMaximumLignes" Content="Maximum de lignes" />
                 <TextBox Name="txtNbMaximumLignes" Height="23" />
             </DockPanel>
             
@@ -84,7 +84,7 @@
             
             <!-- Pour le répertoire d'enregistrement -->
             <DockPanel Margin="0,10,0,0" Name="dpnRepertoire" >
-                <Label Name="lblRepertoire" Content="Répertoire d'enregistrement"/>
+                <Label Foreground="White" Name="lblRepertoire" Content="Répertoire d'enregistrement"/>
                 <Button Name="btnParcourirRepertoire" Padding="2" DockPanel.Dock="Right" Height="23">Parcourir</Button>
                 <TextBox Name="txtRepertoire"  HorizontalAlignment="Stretch" Height="23" />
             </DockPanel>
@@ -103,9 +103,9 @@
 
         <!-- Les boutons radio pour le choix du tri (Par catégorie ou item) -->
         <StackPanel Grid.Column="1" HorizontalAlignment="Stretch"  Height="250" VerticalAlignment="Top" Margin="10,10,10,0" >
-            <RadioButton Name="optCategorie" Content="Par Categorie" VerticalAlignment="Top" Margin="0,5,0,0" Checked="optCategorie_Checked"/>
+            <RadioButton Foreground="White" Name="optCategorie" Content="Par Categorie" VerticalAlignment="Top" Margin="0,5,0,0" Checked="optCategorie_Checked"/>
             <ComboBox Name="cboListeCategorie" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="0,5,0,0" IsEnabled="False"/>
-            <RadioButton Name="optItem" Content="Par Item" VerticalAlignment="Top" Margin="0,5,0,0" Checked="optItem_Checked"/>
+            <RadioButton Foreground="White" Name="optItem" Content="Par Item" VerticalAlignment="Top" Margin="0,5,0,0" Checked="optItem_Checked"/>
             <ComboBox Name="cboListeItem" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="0,5,0,0" IsEnabled="False"/>
         </StackPanel>
         <!-- Boutons de navigation -->

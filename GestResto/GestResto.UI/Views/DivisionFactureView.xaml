@@ -19,7 +19,7 @@
                         <RowDefinition Height="25"/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
-                    <Label Content="Client #1" FontSize="14" FontWeight="SemiBold" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Top" Height="25"/>
+                    <Label Foreground="White" Content="Client #1" FontSize="14" FontWeight="SemiBold" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Top" Height="25"/>
                     <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" Width="300">
                         <!-- Lorsque les boutons ne rentrent plus dans la fenêtre, une scoll bar apparait -->
                         <ListBox Margin="10,10,10,10">
@@ -37,7 +37,7 @@
                         <RowDefinition Height="25"/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
-                    <Label Content="Client #2" FontSize="14" FontWeight="SemiBold" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Top" Height="25"/>
+                    <Label Foreground="White" Content="Client #2" FontSize="14" FontWeight="SemiBold" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Top" Height="25"/>
                     <ScrollViewer VerticalScrollBarVisibility="Auto" Width="300" Grid.Row="1">
                         <!-- Lorsque les boutons ne rentrent plus dans la fenêtre, une scoll bar apparait -->
                         <ListBox Margin="10,10,10,10">
@@ -54,7 +54,7 @@
                         <RowDefinition Height="25"/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
-                    <Label Content="Client #3" FontSize="14" FontWeight="SemiBold" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Top" Height="25"/>
+                    <Label Foreground="White" Content="Client #3" FontSize="14" FontWeight="SemiBold" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Top" Height="25"/>
                     <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" Width="300">
                         <!-- Lorsque les boutons ne rentrent plus dans la fenêtre, une scoll bar apparait -->
                         <ListBox Margin="10,10,10,10">

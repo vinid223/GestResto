@@ -14,14 +14,14 @@
             <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
-        <Label Content="Informations d'un format" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="155"/>
-        <Label Content="Nom du format" HorizontalAlignment="Left" Margin="10,52,0,0" VerticalAlignment="Top" Width="94"/>
+        <Label Foreground="White" Content="Informations d'un format" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="155"/>
+        <Label Foreground="White" Content="Nom du format" HorizontalAlignment="Left" Margin="10,52,0,0" VerticalAlignment="Top" Width="94"/>
         <TextBox  HorizontalAlignment="Stretch" Height="23" Text="{Binding Format.Nom}" Margin="109,52,0,0" VerticalAlignment="Top"  Name="txtNomFormat" IsEnabled="False"/>
-        <Label Content="Libellé" HorizontalAlignment="Left" Margin="10,83,0,0" VerticalAlignment="Top" Width="94"/>
+        <Label Foreground="White" Content="Libellé" HorizontalAlignment="Left" Margin="10,83,0,0" VerticalAlignment="Top" Width="94"/>
         <TextBox HorizontalAlignment="Stretch" Height="23" Text="{Binding Format.Libelle}" Margin="109,83,0,0" VerticalAlignment="Top" Name="txtLibelle" IsEnabled="False"/>
-        <CheckBox Content="Actif" HorizontalAlignment="Left" IsChecked="{Binding Format.EstActif}" Margin="109,111,0,0" VerticalAlignment="Top" Width="56" Name="cbxActif" IsEnabled="False"/>
-       
-        <Label Content="Liste des formats" HorizontalAlignment="Center" Margin="50,10,50,0" VerticalAlignment="Top" Grid.Column="1"/>
+        <CheckBox Foreground="White" Content="Actif" HorizontalAlignment="Left" IsChecked="{Binding Format.EstActif}" Margin="109,111,0,0" VerticalAlignment="Top" Width="56" Name="cbxActif" IsEnabled="False"/>
+
+        <Label Foreground="White" Content="Liste des formats" HorizontalAlignment="Center" Margin="50,10,50,0" VerticalAlignment="Top" Grid.Column="1"/>
 
         <ListView HorizontalContentAlignment="Stretch" Grid.Column="1" Grid.Row="0" Margin="50,50,50,10" x:Name="listeBoutonFormats">
             <ListView.ItemTemplate>

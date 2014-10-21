@@ -13,11 +13,11 @@
         <ListBox x:Name="lbxListeTable" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Height="252" Margin="308,38,0,0" VerticalAlignment="Top" Width="186">
             <Button x:Name="btn49" Content="49" Width="163" Height="30"/>
         </ListBox>
-        <Label x:Name="lblListeTable" Content="Liste de toutes les tables" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="296,10,0,0" VerticalAlignment="Top" Width="194"/>
-        <Label x:Name="lblTitre" Content="Informations d'une table" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0"/>
-        <Label x:Name="lblNumeroTable" Content="Numéro de la table" HorizontalAlignment="Left" Margin="10,42,0,0" VerticalAlignment="Top"/>
+        <Label Foreground="White" x:Name="lblListeTable" Content="Liste de toutes les tables" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="296,10,0,0" VerticalAlignment="Top" Width="194"/>
+        <Label Foreground="White" x:Name="lblTitre" Content="Informations d'une table" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0"/>
+        <Label Foreground="White" x:Name="lblNumeroTable" Content="Numéro de la table" HorizontalAlignment="Left" Margin="10,42,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="txtNumeroTable" HorizontalAlignment="Left" Height="23" Margin="127,45,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="153"/>
-        <CheckBox x:Name="chkActif" Content="Actif" HorizontalAlignment="Left" Margin="127,86,0,0" VerticalAlignment="Top"/>
+        <CheckBox Foreground="White" x:Name="chkActif" Content="Actif" HorizontalAlignment="Left" Margin="127,86,0,0" VerticalAlignment="Top"/>
 
         <!-- Boutons de navigation -->
         <Grid Grid.ColumnSpan="2" Grid.Row="1">

@@ -2,6 +2,9 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="GestResto" Width="1000" Height="600" WindowStartupLocation="CenterScreen" SizeToContent="Manual" Icon="Images/logo.png">
+    <Window.Background>
+        <ImageBrush ImageSource="Images/Background.jpg" Opacity="75"/>
+    </Window.Background>
     <Grid>
         <ContentPresenter Content="{Binding CurrentView}" />
     </Grid>

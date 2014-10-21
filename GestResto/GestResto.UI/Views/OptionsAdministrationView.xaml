@@ -13,7 +13,7 @@
             <RowDefinition/>
             <RowDefinition Height="75"/>
         </Grid.RowDefinitions>
-        <Label Content="Options d'administration&#xD;&#xA;" HorizontalAlignment="Left" VerticalAlignment="Top" Height="29" Width="493"/>
+        <Label Foreground="White" Content="Options d'administration&#xD;&#xA;" HorizontalAlignment="Left" VerticalAlignment="Top" Height="29" Width="493"/>
         <Button x:Name="btnEmployes" Content="Gérer les Employés" Margin="10,34,10,0" VerticalAlignment="Top" Height="60" Click="btnEmployes_Click"/>
         <Button x:Name="btnTables" Content="Gérer les Tables" Margin="10,34,10,0" VerticalAlignment="Top" Height="60" Grid.Column="1" Click="btnTables_Click"/>
         <Button x:Name="btnItems" Content="Gérer les Items" Margin="10,116,10,0" VerticalAlignment="Top" Height="60" Click="btnItems_Click"/>

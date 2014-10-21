@@ -19,11 +19,11 @@
             <ColumnDefinition Width="127*"/>
             <ColumnDefinition Width="112*"/>
         </Grid.ColumnDefinitions>
-        <Label Content="Informations d'un item" HorizontalAlignment="Left" Margin="1,6,0,0" VerticalAlignment="Top" Width="145" Grid.Column="1" Grid.Row="1" Height="26"/>
-        <Label Content="Nom" HorizontalAlignment="Left" Margin="1,2,0,0" VerticalAlignment="Top" Width="56" Grid.Column="1" Grid.Row="2" Height="26"/>
-        <Label Content="Catégorie" HorizontalAlignment="Left" Margin="1,33,0,0" VerticalAlignment="Top" Grid.Column="1" Grid.Row="2" Height="26" Width="61"/>
-        <Label Content="Prix et format associé" HorizontalAlignment="Left" Margin="1,64,0,0" VerticalAlignment="Top" Width="145" Grid.Column="1" Grid.Row="2" Height="26"/>
-        <Label Content="Catégorie" HorizontalAlignment="Left" Margin="11,6,0,0" VerticalAlignment="Top" Grid.Column="2" Grid.Row="1" Height="26" Width="61"/>
+        <Label Foreground="White" Content="Informations d'un item" HorizontalAlignment="Left" Margin="1,6,0,0" VerticalAlignment="Top" Width="145" Grid.Column="1" Grid.Row="1" Height="26"/>
+        <Label Foreground="White" Content="Nom" HorizontalAlignment="Left" Margin="1,2,0,0" VerticalAlignment="Top" Width="56" Grid.Column="1" Grid.Row="2" Height="26"/>
+        <Label Foreground="White" Content="Catégorie" HorizontalAlignment="Left" Margin="1,33,0,0" VerticalAlignment="Top" Grid.Column="1" Grid.Row="2" Height="26" Width="61"/>
+        <Label Foreground="White" Content="Prix et format associé" HorizontalAlignment="Left" Margin="1,64,0,0" VerticalAlignment="Top" Width="145" Grid.Column="1" Grid.Row="2" Height="26"/>
+        <Label Foreground="White" Content="Catégorie" HorizontalAlignment="Left" Margin="11,6,0,0" VerticalAlignment="Top" Grid.Column="2" Grid.Row="1" Height="26" Width="61"/>
         <Button Content="+" Grid.Column="1" HorizontalAlignment="Left" Margin="146,67,0,0" Grid.Row="2" VerticalAlignment="Top" Width="21" Click="AjoutFormatItem_Click"/>
         <TextBox HorizontalAlignment="Left" Height="23" Margin="67,8,0,0" VerticalAlignment="Top" Width="226" Name="txtNom" Text="{Binding Item.Nom, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" Grid.Row="2"/>
         <!-- Combobox catégorie liée à l'item -->
@@ -49,7 +49,7 @@
             DisplayMemberPath="Nom" 
             Grid.Column="2" Grid.Row="1" Height="22" SelectionChanged="cboCategorieAffichee_SelectionChanged"/>
 
-        <CheckBox IsChecked="{Binding Item.EstActif}" Content="Actif" HorizontalAlignment="Left" Margin="200,12,0,0" VerticalAlignment="Top" Name="chkActif" Grid.Column="1" Grid.Row="1" Height="15" Width="44"/>
+        <CheckBox Foreground="White" IsChecked="{Binding Item.EstActif}" Content="Actif" HorizontalAlignment="Left" Margin="200,12,0,0" VerticalAlignment="Top" Name="chkActif" Grid.Column="1" Grid.Row="1" Height="15" Width="44"/>
 
 
         <DataGrid Grid.Column="1" Grid.Row="3"  Margin="10" 

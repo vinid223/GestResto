@@ -10,13 +10,13 @@
             <RowDefinition/>
             <RowDefinition Height="75"/>
         </Grid.RowDefinitions>
-        <Label x:Name="lblRestaurant" Content="Informations du restaurant" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="26" Width="151"/>
-        <Label x:Name="lblNom" Content="Nom" HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top" Width="55" Height="26"/>
-        <Label x:Name="lblAdresse" Content="Adresse" HorizontalAlignment="Left" Margin="10,97,0,0" VerticalAlignment="Top" Width="55" Height="26"/>
-        <Label x:Name="lblVille" Content="Ville" HorizontalAlignment="Left" Margin="10,141,0,0" VerticalAlignment="Top" Width="55" Height="26"/>
-        <Label x:Name="lblCodePostal" Content="Code Postal" HorizontalAlignment="Left" Margin="10,184,0,0" VerticalAlignment="Top" Width="84" Height="26"/>
-        <Label x:Name="lblTelephone" Content="Téléphone" HorizontalAlignment="Left" Margin="10,230,0,0" VerticalAlignment="Top" Width="84" Height="26"/>
-        <Label x:Name="lblFax" Content="Fax" HorizontalAlignment="Left" Margin="10,279,0,0" VerticalAlignment="Top" Width="84" Height="26"/>
+        <Label Foreground="White" x:Name="lblRestaurant" Content="Informations du restaurant" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="26" Width="151"/>
+        <Label Foreground="White" x:Name="lblNom" Content="Nom" HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top" Width="55" Height="26"/>
+        <Label Foreground="White" x:Name="lblAdresse" Content="Adresse" HorizontalAlignment="Left" Margin="10,97,0,0" VerticalAlignment="Top" Width="55" Height="26"/>
+        <Label Foreground="White" x:Name="lblVille" Content="Ville" HorizontalAlignment="Left" Margin="10,141,0,0" VerticalAlignment="Top" Width="55" Height="26"/>
+        <Label Foreground="White" x:Name="lblCodePostal" Content="Code Postal" HorizontalAlignment="Left" Margin="10,184,0,0" VerticalAlignment="Top" Width="84" Height="26"/>
+        <Label Foreground="White" x:Name="lblTelephone" Content="Téléphone" HorizontalAlignment="Left" Margin="10,230,0,0" VerticalAlignment="Top" Width="84" Height="26"/>
+        <Label Foreground="White" x:Name="lblFax" Content="Fax" HorizontalAlignment="Left" Margin="10,279,0,0" VerticalAlignment="Top" Width="84" Height="26"/>
 
         <TextBox x:Name="txtNom" HorizontalAlignment="Stretch" Height="26" Margin="111,50,10,0" TextWrapping="Wrap" Text="{Binding Restaurant. Nom}" VerticalAlignment="Top" />
         <TextBox x:Name="txtAdresse" HorizontalAlignment="Stretch" Height="26" Margin="111,97,10,0" TextWrapping="Wrap" Text="{Binding Restaurant. Adresse}" VerticalAlignment="Top"/>
