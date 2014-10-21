@@ -95,7 +95,7 @@ namespace GestResto.UI.ViewModel
             // Parcours tous les items et vérifie si la catégorie de l'item correspond à la catégorie choisie.
             foreach (var item in listeItem)
             {
-                if(item.Categories.IdCategorie == categorie.IdCategorie)
+                if(item.Categories != null && item.Categories.IdCategorie == categorie.IdCategorie)
                 {
                     listeItemVerifiee.Add(item);
                 }

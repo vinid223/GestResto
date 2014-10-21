@@ -18,8 +18,6 @@ namespace GestResto.Logic.Services.NHibernate
 
         #region IItemService Membres
 
-        #endregion
-
         public void Create(Item item)
         {
             using (var transaction = session.BeginTransaction())
@@ -31,11 +29,17 @@ namespace GestResto.Logic.Services.NHibernate
 
         public IList<Item> RetrieveAll()
         {
-            return session.Query<Item>().ToList();
+            var result = from i in session.Query<Item>()
+                orderby i.EstActif descending
+                select i;
+
+            IList<Item> listeTemp = result.ToList();
+            return listeTemp;
         }
 
         public Item Retrieve(RetrieveItemArgs args)
         {
+
             var result = from i in session.Query<Item>()
                          where i.IdItem == args.IIdItem
                          select i;
@@ -45,7 +49,6 @@ namespace GestResto.Logic.Services.NHibernate
 
         public void Update(Item item)
         {
-
             using (var transaction = session.BeginTransaction())
             {
                 session.Update(item);
@@ -55,12 +58,12 @@ namespace GestResto.Logic.Services.NHibernate
 
         public void Delete(FormatItem formatItem)
         {
-
             using (var transaction = session.BeginTransaction())
             {
                 session.Delete(formatItem);
                 transaction.Commit();
             }
         }
+        #endregion
     }
 }
