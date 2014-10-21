@@ -1,4 +1,5 @@
-﻿using GestResto.MvvmToolkit.Services;
+﻿using GestResto.Logic.Model.Entities;
+using GestResto.MvvmToolkit.Services;
 using GestResto.MvvmToolkit.Services.Definitions;
 using GestResto.UI.ViewModel;
 using System;
@@ -27,6 +28,7 @@ namespace GestResto.UI.Views
         public EmployeView()
         {
             InitializeComponent();
+            DataContext = new EmployeViewModel();
             listeBoutonEmploye.ItemsSource = ViewModel.Employes;
         }
 
@@ -59,10 +61,27 @@ namespace GestResto.UI.Views
             Constante.onPressButton(sender, e); // On ajoute l'effet du bouton pressé
         }
 
+        /// <summary>
+        /// Bouton permettant d'afficher les détails d'un employé
+        /// </summary>
         private void btnDetail_Click(object sender, RoutedEventArgs e)
         {
+            Employe employe= (Employe)((sender as Button).CommandParameter);
+            ViewModel.employe = employe;
 
+            // On active les champs pour permettre la modification et l'ajout d'informations
+            txtNom.IsEnabled = true;
+            cbxType.IsEnabled = true;
+            txtAdresse.IsEnabled = true;
+            txtCP.IsEnabled = true;
+            txtMDP.IsEnabled = true;
+            txtNAS.IsEnabled = true;
+            txtNum.IsEnabled = true;
+            txtPrenom.IsEnabled = true;
+            txtTauxHoraire.IsEnabled = true;
+            txtTel.IsEnabled = true;
+            txtVille.IsEnabled = true;
+            chkActif.IsEnabled = true;
         }
-    
-public  object licationService { get; set; }}
+    }
 }

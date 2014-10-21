@@ -54,34 +54,6 @@ namespace GestResto.UI.Views
             {
                 listeBoutonCategories.ItemsSource = ViewModel.Categories;
             }
-
-
-
-
-            //à demander à yannick
-            /*try
-            { 
-                listeCategories = ViewModel.ObtenirToutesLesCategories();
-            }
-            // Dans le cas d'une erreur
-            catch(Exception e)
-            {
-                StringBuilder messageErreur = new StringBuilder();
-                string exceptionMessage = e.InnerException.Message;
-
-                messageErreur.Append("Une erreur s'est produite, il est impossible d'afficher la liste des catégories :\n");
-                messageErreur.Append(exceptionMessage);
-
-                MessageBox.Show(messageErreur.ToString(), "Une erreur s'est produite", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
-                Constante.LogErreur("Impossible d'afficher la liste des catégories : " + exceptionMessage);
-            }
-            listeBoutonCategories.ItemsSource = listeCategories;*/
-
-
-
-
-
-
         }
 
         private void btnDetail_Click(object sender, RoutedEventArgs e)
@@ -89,7 +61,7 @@ namespace GestResto.UI.Views
             Categorie categorie = (Categorie)((sender as Button).CommandParameter);
             ViewModel.Categorie = categorie;
 
-            // On active les champs pour permettre la modification et l'ajout d'information
+            // On active les champs pour permettre la modification et l'ajout d'informations
             txtNom.IsEnabled = true;
             cbxActif.IsEnabled = true;
             cbxComplementaire.IsEnabled = true;

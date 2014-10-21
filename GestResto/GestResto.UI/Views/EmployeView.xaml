@@ -15,31 +15,31 @@
             <RowDefinition Height="75"/>
         </Grid.RowDefinitions>
         <Label Foreground="White" Name="lblTitre" Content="Informations d'un Employé" VerticalAlignment="Top" Height="26" Width="163" Margin="10,10,327,0"/>
-        <Label Foreground="White" Name="lblType" Content="Type Employé" Margin="19,38,397,0" VerticalAlignment="Top"/>
+        <Label Foreground="White" Name="lblType" Content="Type Employé" Margin="10,38,381,0" VerticalAlignment="Top"/>
         <Label Foreground="White" Content="Liste de tous les employés" HorizontalContentAlignment="Center" Margin="10,19,10,0" VerticalAlignment="Top" Grid.Column="1"/>
-        <ComboBox Name="cbxType" Margin="108,41,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="194"/>
-        <Label Foreground="White" Content="Numéro" HorizontalAlignment="Left" Margin="307,38,0,0" VerticalAlignment="Top"/>
-        <TextBox Name="txtNum" Height="23" Margin="366,41,10,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
-        <Label Foreground="White" Content="Nom" Margin="19,70,445,0" VerticalAlignment="Top"/>
-        <TextBox Name="txtNom" Height="23" Margin="108,74,10,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
-        <Label Foreground="White" Content="Mot De Passe&#xD;&#xA;" Margin="19,175,399,0" VerticalAlignment="Top" Height="25"/>
-        <TextBox Name="txtMDP" Height="23" Margin="108,179,10,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.525,-0.043"/>
-        <Label Foreground="White" Content="Prénom" Margin="19,107,430,0" VerticalAlignment="Top"/>
-        <TextBox Name="txtPrenom" Height="23" Margin="108,109,10,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
-        <Label Foreground="White" Content="Téléphone&#xD;&#xA;" Margin="19,142,415,0" VerticalAlignment="Top" Height="26"/>
-        <TextBox Name="txtTel" Height="23" Margin="108,144,10,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
-        <Label Foreground="White" Content="Ville&#xD;&#xA;&#xA;" Margin="19,246,449,0" VerticalAlignment="Top" Height="23"/>
-        <TextBox Name="txtVille" Height="23" Margin="108,250,10,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.525,-0.043"/>
-        <Label Foreground="White" Content="Adresse&#xD;&#xA;" Margin="19,212,429,0" VerticalAlignment="Top" Height="26"/>
-        <TextBox Name="txtAdresse" Height="23" Margin="108,215,10,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
-        <Label Foreground="White" Content="Code Postal&#xD;&#xA;&#xA;" Margin="19,280,408,0" VerticalAlignment="Top" Height="27"/>
-        <TextBox Name="txtCP" Height="23" Margin="108,284,10,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
-        <Label Foreground="White" Content="NAS&#xD;&#xA;&#xA;" Margin="19,315,448,0" VerticalAlignment="Top" Height="27"/>
-        <TextBox Name="txtNAS" Height="23" Margin="108,319,10,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
-        <Label Foreground="White" Content="Taux Horaire&#xD;&#xA;&#xA;" Margin="19,351,404,0" VerticalAlignment="Top" Height="27"/>
-        <TextBox Name="txtTauxHoraire" Height="23" Margin="108,355,78,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
-        <CheckBox Foreground="White" Name="chkActif" Content="Actif" Margin="427,357,10,0" VerticalAlignment="Top"/>
-        
+        <ComboBox Name="cbxType" Margin="119,41,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="188" IsEnabled="False"/>
+        <Label Foreground="White" Content="Numéro" HorizontalAlignment="Left" Margin="312,38,0,0" VerticalAlignment="Top" Width="58"/>
+        <TextBox Name="txtNum" Height="23" Margin="370,41,10,0" TextWrapping="Wrap" Text="{Binding employe.NoEmploye}" VerticalAlignment="Top" IsEnabled="False"/>
+        <Label Foreground="White" Content="Nom" Margin="10,70,381,0" VerticalAlignment="Top"/>
+        <TextBox Name="txtNom" Height="23" Margin="119,74,10,0" TextWrapping="Wrap" VerticalAlignment="Top" IsEnabled="False" Text="{Binding employe.Nom}"/>
+        <Label Foreground="White" Content="Mot De Passe" Margin="10,175,381,0" VerticalAlignment="Top"/>
+        <TextBox Name="txtMDP" Height="23" Margin="119,179,10,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.525,-0.043" IsEnabled="False" Text="{Binding employe.MotDePasse}"/>
+        <Label Foreground="White" Content="Prénom" Margin="10,107,381,0" VerticalAlignment="Top"/>
+        <TextBox Name="txtPrenom" Height="23" Margin="119,109,10,0" TextWrapping="Wrap" VerticalAlignment="Top" IsEnabled="False" Text="{Binding employe.Prenom}"/>
+        <Label Foreground="White" Content="Téléphone" Margin="10,142,381,0" VerticalAlignment="Top"/>
+        <TextBox Name="txtTel" Height="23" Margin="119,144,10,0" TextWrapping="Wrap" VerticalAlignment="Top" IsEnabled="False" Text="{Binding employe.Telephone}"/>
+        <Label Foreground="White" Content="Ville" Margin="10,246,381,0" VerticalAlignment="Top"/>
+        <TextBox Name="txtVille" Height="23" Margin="119,250,10,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.525,-0.043" IsEnabled="False" Text="{Binding employe.Ville}"/>
+        <Label Foreground="White" Content="Adresse" Margin="10,212,381,0" VerticalAlignment="Top"/>
+        <TextBox Name="txtAdresse" Height="23" Margin="119,215,10,0" TextWrapping="Wrap" VerticalAlignment="Top" IsEnabled="False" Text="{Binding employe.Adresse}"/>
+        <Label Foreground="White" Content="Code Postal" Margin="10,280,381,0" VerticalAlignment="Top"/>
+        <TextBox Name="txtCP" Height="23" Margin="119,284,10,0" TextWrapping="Wrap" VerticalAlignment="Top" IsEnabled="False" Text="{Binding employe.CodePostal}"/>
+        <Label Foreground="White" Content="NAS" Margin="10,315,381,0" VerticalAlignment="Top"/>
+        <TextBox Name="txtNAS" Height="23" Margin="119,319,10,0" TextWrapping="Wrap" VerticalAlignment="Top" IsEnabled="False" Text="{Binding employe.NAS}"/>
+        <Label Foreground="White" Content="Taux Horaire" Margin="10,351,381,0" VerticalAlignment="Top"/>
+        <TextBox Name="txtTauxHoraire" Height="23" Margin="119,355,0,0" TextWrapping="Wrap" VerticalAlignment="Top" IsEnabled="False" Text="{Binding employe.Salaire}" HorizontalAlignment="Left" Width="305"/>
+        <CheckBox Foreground="White" Name="chkActif" Content="Actif" Margin="429,357,10,0" VerticalAlignment="Top" IsEnabled="False" IsChecked="{Binding employe.EstActif}"/>
+
         <!-- Définition de la liste view-->
         <ListView HorizontalContentAlignment="Stretch" Grid.Column="1" Grid.Row="0" Margin="50,50,50,10" Name="listeBoutonEmploye">
             <ListView.ItemTemplate>
