@@ -37,7 +37,6 @@ namespace GestResto.UI.ViewModel
 
             set
             {
-                RaisePropertyChanging();
                 _employe = value;
                 RaisePropertyChanged();
             }
@@ -45,6 +44,7 @@ namespace GestResto.UI.ViewModel
 
         public EmployeViewModel()
         {
+            Employes = new ObservableCollection<Employe>(ServiceFactory.Instance.GetService<IEmployeService>().RetriveAll());
             _employeService = ServiceFactory.Instance.GetService<IEmployeService>();
         }
 

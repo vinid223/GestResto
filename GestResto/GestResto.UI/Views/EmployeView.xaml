@@ -41,7 +41,7 @@
         <CheckBox Foreground="White" Name="chkActif" Content="Actif" Margin="427,357,10,0" VerticalAlignment="Top"/>
         
         <!-- Définition de la liste view-->
-        <ListView HorizontalContentAlignment="Stretch" Grid.Column="1" Grid.Row="0" Margin="50,50,50,10" x:Name="listeBoutonEmploye">
+        <ListView HorizontalContentAlignment="Stretch" Grid.Column="1" Grid.Row="0" Margin="50,50,50,10" Name="listeBoutonEmploye">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Button Content="{Binding Nom}" CommandParameter="{Binding}" Click="btnDetail_Click" Height="30"/>
