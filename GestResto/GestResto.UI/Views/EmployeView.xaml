@@ -4,40 +4,50 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             Height="600" Width="1000">
+              d:DesignHeight="600" d:DesignWidth="1000">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition Height="75"/>
         </Grid.RowDefinitions>
-        <Label x:Name="lblTitre" Content="Informations d'un Employé" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <Label x:Name="lblType" Content="Type Employé" HorizontalAlignment="Left" Margin="0,22,0,0" VerticalAlignment="Top"/>
-        <ListBox x:Name="lbxListeCategorie" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Height="252" Margin="308,38,0,0" VerticalAlignment="Top" Width="186">
-            <Button x:Name="btn123" Content="Vincent Desrosiers #123" Width="163" Height="30"/>
-        </ListBox>
-        <Label Content="Liste de tous les employés" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="296,10,0,0" VerticalAlignment="Top" Width="194"/>
-        <ComboBox x:Name="cbxType" HorizontalAlignment="Left" Margin="89,25,0,0" VerticalAlignment="Top" Width="64"/>
-        <Label Content="Numéro" HorizontalAlignment="Left" Margin="159,21,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtNum" HorizontalAlignment="Left" Height="23" Margin="218,25,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="54"/>
-        <Label Content="Nom" HorizontalAlignment="Left" Margin="0,48,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtNom" HorizontalAlignment="Left" Height="23" Margin="89,52,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="183"/>
-        <Label Content="Mot De Passe&#xD;&#xA;" HorizontalAlignment="Left" Margin="0,130,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtMDP" HorizontalAlignment="Left" Height="23" Margin="89,134,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="183" RenderTransformOrigin="0.525,-0.043"/>
-        <Label Content="Prénom" HorizontalAlignment="Left" Margin="0,76,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtPrenom" HorizontalAlignment="Left" Height="23" Margin="89,78,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="183"/>
-        <Label Content="Téléphone&#xD;&#xA;" HorizontalAlignment="Left" Margin="0,104,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtTel" HorizontalAlignment="Left" Height="23" Margin="89,106,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="183"/>
-        <Label Content="Ville&#xD;&#xA;&#xA;" HorizontalAlignment="Left" Margin="0,186,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtVille" HorizontalAlignment="Left" Height="23" Margin="89,190,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="183" RenderTransformOrigin="0.525,-0.043"/>
-        <Label Content="Adresse&#xD;&#xA;" HorizontalAlignment="Left" Margin="0,160,0,0" VerticalAlignment="Top" Height="26"/>
-        <TextBox x:Name="txtAdresse" HorizontalAlignment="Left" Height="23" Margin="89,163,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="183"/>
-        <Label Content="Code Postal&#xD;&#xA;&#xA;" HorizontalAlignment="Left" Margin="0,214,0,0" VerticalAlignment="Top" Height="27"/>
-        <TextBox x:Name="txtCP" HorizontalAlignment="Left" Height="23" Margin="89,218,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="183"/>
-        <Label Content="NAS&#xD;&#xA;&#xA;" HorizontalAlignment="Left" Margin="0,242,0,0" VerticalAlignment="Top" Height="27"/>
-        <TextBox x:Name="txtNAS" HorizontalAlignment="Left" Height="23" Margin="89,246,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="183"/>
-        <Label Content="Taux Horaire&#xD;&#xA;&#xA;" HorizontalAlignment="Left" Margin="0,270,0,0" VerticalAlignment="Top" Height="27"/>
-        <TextBox x:Name="txtTauxHoraire" HorizontalAlignment="Left" Height="23" Margin="89,274,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="118"/>
-        <CheckBox x:Name="chkActif" Content="Actif" HorizontalAlignment="Left" Margin="228,278,0,0" VerticalAlignment="Top"/>
+        <Label Foreground="White" Name="lblTitre" Content="Informations d'un Employé" VerticalAlignment="Top" Height="26" Width="163" Margin="10,10,327,0"/>
+        <Label Foreground="White" Name="lblType" Content="Type Employé" Margin="19,38,397,0" VerticalAlignment="Top"/>
+        <Label Foreground="White" Content="Liste de tous les employés" HorizontalContentAlignment="Center" Margin="10,19,10,0" VerticalAlignment="Top" Grid.Column="1"/>
+        <ComboBox Name="cbxType" Margin="108,41,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="194"/>
+        <Label Foreground="White" Content="Numéro" HorizontalAlignment="Left" Margin="307,38,0,0" VerticalAlignment="Top"/>
+        <TextBox Name="txtNum" Height="23" Margin="366,41,10,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
+        <Label Foreground="White" Content="Nom" Margin="19,70,445,0" VerticalAlignment="Top"/>
+        <TextBox Name="txtNom" Height="23" Margin="108,74,10,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <Label Foreground="White" Content="Mot De Passe&#xD;&#xA;" Margin="19,175,399,0" VerticalAlignment="Top" Height="25"/>
+        <TextBox Name="txtMDP" Height="23" Margin="108,179,10,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.525,-0.043"/>
+        <Label Foreground="White" Content="Prénom" Margin="19,107,430,0" VerticalAlignment="Top"/>
+        <TextBox Name="txtPrenom" Height="23" Margin="108,109,10,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <Label Foreground="White" Content="Téléphone&#xD;&#xA;" Margin="19,142,415,0" VerticalAlignment="Top" Height="26"/>
+        <TextBox Name="txtTel" Height="23" Margin="108,144,10,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <Label Foreground="White" Content="Ville&#xD;&#xA;&#xA;" Margin="19,246,449,0" VerticalAlignment="Top" Height="23"/>
+        <TextBox Name="txtVille" Height="23" Margin="108,250,10,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.525,-0.043"/>
+        <Label Foreground="White" Content="Adresse&#xD;&#xA;" Margin="19,212,429,0" VerticalAlignment="Top" Height="26"/>
+        <TextBox Name="txtAdresse" Height="23" Margin="108,215,10,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <Label Foreground="White" Content="Code Postal&#xD;&#xA;&#xA;" Margin="19,280,408,0" VerticalAlignment="Top" Height="27"/>
+        <TextBox Name="txtCP" Height="23" Margin="108,284,10,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <Label Foreground="White" Content="NAS&#xD;&#xA;&#xA;" Margin="19,315,448,0" VerticalAlignment="Top" Height="27"/>
+        <TextBox Name="txtNAS" Height="23" Margin="108,319,10,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <Label Foreground="White" Content="Taux Horaire&#xD;&#xA;&#xA;" Margin="19,351,404,0" VerticalAlignment="Top" Height="27"/>
+        <TextBox Name="txtTauxHoraire" Height="23" Margin="108,355,78,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <CheckBox Foreground="White" Name="chkActif" Content="Actif" Margin="427,357,10,0" VerticalAlignment="Top"/>
+        
+        <!-- Définition de la liste view-->
+        <ListView HorizontalContentAlignment="Stretch" Grid.Column="1" Grid.Row="0" Margin="50,50,50,10" x:Name="listeBoutonEmploye">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Button Content="{Binding Nom}" CommandParameter="{Binding}" Click="btnDetail_Click" Height="30"/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
 
         <!-- Boutons de navigation -->
         <Grid Grid.ColumnSpan="2" Grid.Row="1">

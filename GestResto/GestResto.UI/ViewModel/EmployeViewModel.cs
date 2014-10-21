@@ -5,6 +5,7 @@ using GestResto.MvvmToolkit;
 using GestResto.MvvmToolkit.Services;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 
@@ -13,6 +14,17 @@ namespace GestResto.UI.ViewModel
     public class EmployeViewModel : BaseViewModel
     {
         private IEmployeService _employeService;
+        private ObservableCollection<Employe> _employes = new ObservableCollection<Employe>();
+
+        public ObservableCollection<Employe> Employes
+        {
+            get { return _employes; }
+            set
+            {
+                _employes = value;
+                RaisePropertyChanged();
+            }
+        }
 
         private Employe _employe;
 

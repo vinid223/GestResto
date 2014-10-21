@@ -1,5 +1,6 @@
 ﻿using GestResto.MvvmToolkit.Services;
 using GestResto.MvvmToolkit.Services.Definitions;
+using GestResto.UI.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,9 +23,11 @@ namespace GestResto.UI.Views
     /// </summary>
     public partial class EmployeView : UserControl
     {
+        public EmployeViewModel ViewModel { get { return (EmployeViewModel)DataContext; } }
         public EmployeView()
         {
             InitializeComponent();
+            listeBoutonEmploye.ItemsSource = ViewModel.Employes;
         }
 
         private void btnEnregistrer_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
@@ -54,6 +57,11 @@ namespace GestResto.UI.Views
         private void MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             Constante.onPressButton(sender, e); // On ajoute l'effet du bouton pressé
+        }
+
+        private void btnDetail_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     
 public  object licationService { get; set; }}

@@ -33,7 +33,12 @@ namespace GestResto.Logic.Services.NHibernate
         public IList<Categorie> RetrieveAll()
         {
             sessionLazy = NHibernateConnexion.OpenSession();
-            IList<Categorie> listeTemp = sessionLazy.Query<Categorie>().ToList();
+
+            var result = from c in sessionLazy.Query<Categorie>()
+                         orderby c.EstActif descending
+                         select c;
+
+            IList<Categorie> listeTemp = result.ToList();
             sessionLazy.Close();
             return listeTemp;
         }

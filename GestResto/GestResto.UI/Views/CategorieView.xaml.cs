@@ -26,12 +26,34 @@ namespace GestResto.UI.Views
     public partial class CategorieView : UserControl
     {
         public CategorieViewModel ViewModel { get { return (CategorieViewModel)DataContext; } }
+        public bool Erreur = false;
 
         public CategorieView()
         {
             InitializeComponent();
-            DataContext = new CategorieViewModel();
-            listeBoutonCategories.ItemsSource = ViewModel.Categories;
+
+            try
+            {
+                DataContext = new CategorieViewModel();
+            }
+            catch (Exception e)
+            {
+
+                StringBuilder messageErreur = new StringBuilder();
+                string exceptionMessage = e.InnerException.Message;
+
+                messageErreur.Append("Une erreur s'est produite, il est impossible d'afficher la liste des catégories :\n");
+                messageErreur.Append(exceptionMessage);
+
+                MessageBox.Show(messageErreur.ToString(), "Une erreur s'est produite", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
+                Constante.LogErreur("Impossible d'afficher la liste des catégories: " + exceptionMessage);
+                Erreur = true;
+            }
+
+            if (!Erreur)
+            {
+                listeBoutonCategories.ItemsSource = ViewModel.Categories;
+            }
 
 
 

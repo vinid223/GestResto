@@ -50,7 +50,16 @@ namespace GestResto.UI.ViewModel
 
         public IList<Categorie> ObtenirToutesLesCategories()
         {
-            IList<Categorie> listeCateg = _categService.RetrieveAll();
+            IList<Categorie> listeCateg = null;
+            try
+            {
+                listeCateg = _categService.RetrieveAll();
+            }
+            // Dans le cas d'une erreur
+            catch (Exception e)
+            {
+                throw e;
+            }
             return listeCateg;
         }
 
