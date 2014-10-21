@@ -77,6 +77,14 @@ namespace GestResto.UI.Views
         private void btnEnregistrer_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             Constante.onReleaseButton(sender, e); // On enlève l'effet du bouton pressé
+
+            // On test si un des champs sont désactivé pour éviter de créer une erreur lors de la sauvegarde
+            if (!txtNom.IsEnabled)
+            {
+                MessageBox.Show("Vous devez avoir choisi une catégorie pour sauvegarder", "Erreur de sauvegarde", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                return;
+            }
+
             bool erreur = false;
             StringBuilder messageErreur = new StringBuilder();
 
