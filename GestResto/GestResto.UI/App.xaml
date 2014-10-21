@@ -13,7 +13,7 @@
             <Setter Property="Border.Height" Value="40"/>
             <Setter Property="Border.Width" Value="40"/>
             <Setter Property="Border.BorderThickness" Value="1, 1, 1, 3"/>
-            <Setter Property="Border.BorderBrush" Value="Black"/>
+            <Setter Property="Border.BorderBrush" Value="#1C2841"/>
             <Setter Property="Border.CornerRadius" Value="5"/>
             <Setter Property="Border.Background" Value="White"/>
         </Style>
