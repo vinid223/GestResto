@@ -32,7 +32,7 @@
                     </TransformGroup>
                 </Label.RenderTransform>
             </Label>
-            <TextBox BorderBrush="Transparent" Background="Transparent" x:Name="txtAuthentification" Margin="53,35,54,33" Panel.ZIndex="2" Grid.Row="0" MaxLength="4" TextAlignment="Right" FontSize="36" TextDecorations="{x:Null}" FontFamily="Adobe Caslon Pro Bold" Grid.Column="1" Grid.ColumnSpan="3" Focusable="False"/>
+            <TextBox BorderBrush="Transparent" Background="Transparent" x:Name="txtAuthentification" Margin="45,35,45,33" Panel.ZIndex="2" Grid.Row="0" MaxLength="4" TextAlignment="Right" FontSize="36" TextDecorations="{x:Null}" FontFamily="Adobe Caslon Pro Bold" Grid.Column="1" Grid.ColumnSpan="3" Focusable="False"/>
             <Button Margin="1" Grid.Row ="3" Grid.Column="1" Content="1" Name="btnUn" Click="btn_Click" />
             <Button Margin="1" Grid.Row ="3" Grid.Column="2" Content="2" Name="btnDeux" Click="btn_Click" />
             <Button Margin="1" Grid.Row ="3" Grid.Column="3" Content="3" Name="btnTrois" Click="btn_Click" />
