@@ -18,3 +18,4 @@ lines.png : http://www.flaticon.com/free-icon/menu-symbol-of-four-lines_51351
 boxes.png : http://www.flaticon.com/free-icon/two-overlapped-squares-outlined-symbol_55070
 floppy.png : http://www.flaticon.com/free-icon/floppy-disc-vintage-storage-disk-format-save-interface-button_13842
 logo.png : http://www.flaticon.com/free-icon/fork-and-knife-cutlery-circle-interface-symbol-for-restaurant_45605
+Background.jpg : http://www.blirk.net/gradient-wallpaper/3/1920x1080/
