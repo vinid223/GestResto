@@ -1,19 +1,30 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using GestResto.Logic.Model.Args;
+﻿using GestResto.Logic.Model.Args;
 using GestResto.Logic.Model.Entities;
 using GestResto.Logic.Services.Definitions;
 using GestResto.MvvmToolkit;
 using GestResto.MvvmToolkit.Services;
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.Text;
 
 namespace GestResto.UI.ViewModel
 {
     public class FormatViewModel : BaseViewModel
     {
         private IFormatService _formatService;
+        private ObservableCollection<Format> _formats = new ObservableCollection<Format>();
+
+        public ObservableCollection<Format> Formats
+        {
+            get { return _formats; }
+            set
+            {
+                _formats = value;
+                RaisePropertyChanged();
+            }
+        }
 
         private Format _format;
 
@@ -26,7 +37,6 @@ namespace GestResto.UI.ViewModel
         
             set
             {
-                RaisePropertyChanging();
                 _format = value;
                 RaisePropertyChanged();
             }
@@ -34,6 +44,7 @@ namespace GestResto.UI.ViewModel
 
         public FormatViewModel()
         {
+            Formats = new ObservableCollection<Format>(ServiceFactory.Instance.GetService<IFormatService>().RetrieveAll());
             _formatService = ServiceFactory.Instance.GetService<IFormatService>();
         }
 

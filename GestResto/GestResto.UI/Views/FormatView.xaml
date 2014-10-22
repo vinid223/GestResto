@@ -16,9 +16,9 @@
         </Grid.ColumnDefinitions>
         <Label Foreground="White" Content="Informations d'un format" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="155"/>
         <Label Foreground="White" Content="Nom du format" HorizontalAlignment="Left" Margin="10,52,0,0" VerticalAlignment="Top" Width="94"/>
-        <TextBox  HorizontalAlignment="Stretch" Height="23" Text="{Binding Format.Nom}" Margin="109,52,0,0" VerticalAlignment="Top"  Name="txtNomFormat" IsEnabled="False"/>
+        <TextBox  HorizontalAlignment="Stretch" Height="23" Text="{Binding Format.Nom, UpdateSourceTrigger=PropertyChanged}" Margin="109,52,0,0" VerticalAlignment="Top"  Name="txtNomFormat" IsEnabled="False"/>
         <Label Foreground="White" Content="Libellé" HorizontalAlignment="Left" Margin="10,83,0,0" VerticalAlignment="Top" Width="94"/>
-        <TextBox HorizontalAlignment="Stretch" Height="23" Text="{Binding Format.Libelle}" Margin="109,83,0,0" VerticalAlignment="Top" Name="txtLibelle" IsEnabled="False"/>
+        <TextBox HorizontalAlignment="Stretch" Height="23" Text="{Binding Format.Libelle, UpdateSourceTrigger=PropertyChanged}" Margin="109,83,0,0" VerticalAlignment="Top" Name="txtLibelle" IsEnabled="False"/>
         <CheckBox Foreground="White" Content="Actif" HorizontalAlignment="Left" IsChecked="{Binding Format.EstActif}" Margin="109,111,0,0" VerticalAlignment="Top" Width="56" Name="cbxActif" IsEnabled="False"/>
 
         <Label Foreground="White" Content="Liste des formats" HorizontalAlignment="Center" Margin="50,10,50,0" VerticalAlignment="Top" Grid.Column="1"/>
