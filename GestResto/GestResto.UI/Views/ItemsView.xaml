@@ -12,7 +12,7 @@
             <RowDefinition Height="91*"/>
 
             <RowDefinition Height="321*"/>
-            <RowDefinition Height="98*"/>
+            <RowDefinition Height="75"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="11*"/>
@@ -43,11 +43,11 @@
             HorizontalAlignment="Left" 
             Margin="77,10,0,0" 
             VerticalAlignment="Top" 
-            Width="137" 
+            Width="179" 
             Name="cboCategorieAffichee" 
-            ItemsSource="{Binding Categories}" 
+            ItemsSource="{Binding categsTest}" 
             DisplayMemberPath="Nom" 
-            Grid.Column="2" Grid.Row="1" Height="22" SelectionChanged="cboCategorieAffichee_SelectionChanged"/>
+            Grid.Column="2" Grid.Row="1" Height="22" SelectionChanged="cboCategorieAffichee_SelectionChanged" SelectedIndex="0"/>
 
         <CheckBox Foreground="White" IsChecked="{Binding Item.EstActif}" Content="Actif" HorizontalAlignment="Left" Margin="200,12,0,0" VerticalAlignment="Top" Name="chkActif" Grid.Column="1" Grid.Row="1" Height="15" Width="44"/>
 

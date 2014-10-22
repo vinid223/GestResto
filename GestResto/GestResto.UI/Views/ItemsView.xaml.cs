@@ -41,6 +41,10 @@ namespace GestResto.UI.Views
             // Empêche l'utilisateur de faire des modifications sur un items qui n'existe pas.
             ModifierDispoChampsItem(false);
 
+            // Sélection de la catégorie Tous les items
+            lbxListeCategorie.SelectedItem = ViewModelItem.categTest;
+            
+
         }
         /// <summary>
         /// Lorsque l'utilisateur clique sur le bouton d'un item dans la liste, 
@@ -165,6 +169,7 @@ namespace GestResto.UI.Views
             Categorie categorie = (Categorie)cboCategorieAffichee.SelectedItem;
 
             lbxListeCategorie.ItemsSource = ViewModelItem.ObtenirTousLesItemsDeLaCategorie(categorie);
+
 
 
         }
