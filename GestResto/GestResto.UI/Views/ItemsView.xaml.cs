@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -29,6 +30,7 @@ namespace GestResto.UI.Views
         public ItemsViewModel ViewModelItem { get { return (ItemsViewModel)DataContext; } }
 
         StringBuilder messageErreur = new StringBuilder();
+        List<FormatItem> listeFormatItemASupprimer = new List<FormatItem>();
 
         public ItemsView()
         {
@@ -67,7 +69,11 @@ namespace GestResto.UI.Views
             FormatItem formatitem = (FormatItem)((sender as Button).CommandParameter);
 
 
-            ViewModelItem.DeleteFormatItem(formatitem);
+            
+            ViewModelItem.Item.Formats.Remove(formatitem);
+            listeFormatItemASupprimer.Add(formatitem);
+
+            dataGridPrix.CommitEdit();
             dataGridPrix.Items.Refresh();
         }
 
@@ -85,22 +91,47 @@ namespace GestResto.UI.Views
             {
                 Constante.onReleaseButton(sender, e); // On enlève l'effet du bouton pressé
 
+                // Avant d'enregistrer l'item, je dois vérifier si les formatItems ne sont pas null.
+                foreach (var formatItem in ViewModelItem.Item.Formats)
+                {
+                    // S'il a un formatItem ayant un champ null, le formatItem n'est pas complété.
+                    if(formatItem.FormatAssocie == null)
+                    {
+                        // On affiche un mmessage d'erreur
+                        MessageBox.Show("Votre prix et le format associé ne doit pas être vide.", "Erreur", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
+                        return;
+                    }
+                }
+
+                // Avant d'enregistrer je dois vérifier si l'item a subit des suppressions de formatItems
+                foreach (var formatItem in listeFormatItemASupprimer)
+                {
+                    ViewModelItem.DeleteFormatItem(formatItem);
+                }
+                // Réinitialise.
+                listeFormatItemASupprimer.Clear() ;
+
                 try
                 {
                     ViewModelItem.EnregistrerUnItem(ViewModelItem.Item);
                 }
                 catch (Exception exception)
                 {
-                    string exceptionMessage = exception.InnerException.Message;
+                    string exceptionMessage = exception.Message;
                     messageErreur.Clear();  // On s'assure que le message d'erreur soit vide
 
                     messageErreur.Append("Impossible d'enregistrer l'item.\n");
 
                     // On vérifie si l'exception provient du nom
-                    if (Regex.IsMatch(exceptionMessage, @"'nom'$"))
+                    if (exception.InnerException != null && Regex.IsMatch(exception.InnerException.Message, @"'nom'$"))
                     {
                         messageErreur.Append("Le nom : ").Append(ViewModelItem.Item.Nom).Append(" existe déjà.");
                         Constante.LogErreur("Le nom n'est pas unique lors de l'enregistrement d'un item");
+                    }
+                    else if (Regex.IsMatch(exceptionMessage, @"not-null"))
+                    {
+                        messageErreur.Append("Le format et le prix ne peuvent pas être vide.");
+                        ViewModelItem.Items = ViewModelItem.Items;
                     }
                     else
                     {
@@ -184,6 +215,8 @@ namespace GestResto.UI.Views
         private void AjoutFormatItem_Click(object sender, RoutedEventArgs e)
         {
             ViewModelItem.Item.Formats.Add(new FormatItem());
+
+
             dataGridPrix.Items.Refresh();
         }
 
