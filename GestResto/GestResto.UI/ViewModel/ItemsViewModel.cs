@@ -26,8 +26,8 @@ namespace GestResto.UI.ViewModel
             Categories = new ObservableCollection<Categorie>(ServiceFactory.Instance.GetService<ICategorieService>().RetrieveAll());
             categsTest = new ObservableCollection<Categorie>(ServiceFactory.Instance.GetService<ICategorieService>().RetrieveAll());
             
+            // Insère une catégorie seulement dans la liste en mémoire.
             categTest = new Categorie(-1, "Tous les items", true, false);
-
             categsTest.Insert(0, categTest);
 
             _itemService = ServiceFactory.Instance.GetService<IItemService>();

@@ -4,29 +4,29 @@
                    xmlns="urn:nhibernate-mapping-2.2">
   <class name="Table" table="Tables">
 
-    <id name="idTable">
+    <id name="IdTable">
       <column name="idTable" not-null="true" sql-type="INTEGER" />
       <generator class="identity" />
     </id>
 
-    <property name="noTable">
+    <property name="NoTable">
       <column name="noTable" not-null="true" sql-type="INTEGER" />
     </property>
 
-    <property name="bActif">
+    <property name="EstActif">
       <column name="actif" not-null="true" sql-type="BOOLEAN" />
     </property>
 
-    <property name="bAssigne">
+    <property name="EstAssigne">
       <column name="assigne" not-null="true" sql-type="BOOLEAN" />
     </property>
 
-    <bag name="Clients" inverse="true" generic="true" lazy="true" cascade="all">
+    <!--<bag name="Clients" inverse="true" generic="true" lazy="true" cascade="all">
       <key>
         <column name="idTable" />
       </key>
       <one-to-many class="Table"/>
-    </bag>
+    </bag>-->
   </class>
 
 </hibernate-mapping>

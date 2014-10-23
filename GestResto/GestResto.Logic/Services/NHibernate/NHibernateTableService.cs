@@ -15,6 +15,7 @@ namespace GestResto.Logic.Services.NHibernate
     public class NHibernateTableService : ITableService
     {
         private ISession session = NHibernateConnexion.OpenSession();
+        
 
         #region ITableService Membres
 
@@ -29,9 +30,19 @@ namespace GestResto.Logic.Services.NHibernate
             }
         }
 
+        /// <summary>
+        /// Retourne les tables en ordre de EstActif
+        /// </summary>
+        /// <returns>La liste de tables</returns>
         public IList<Table> RetrieveAll()
         {
-            return session.Query<Table>().ToList();
+            var result = from i in session.Query<Table>()
+                         orderby i.EstActif descending
+                         select i;
+
+            IList<Table> listeTemp = result.ToList();
+
+            return listeTemp;
         }
 
         public Table Retrieve(RetrieveTableArgs args)
