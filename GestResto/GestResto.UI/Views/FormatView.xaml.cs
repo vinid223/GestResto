@@ -235,7 +235,7 @@ namespace GestResto.UI.Views
             cbxActif.IsEnabled = true;
 
             // On donne la nouvelle source à notre liste view
-            listeBoutonFormats.ItemsSource = listeFormat;
+            listeBoutonFormats.ItemsSource = ViewModel.Formats;
 
             // On rafraichie notre liste view pour afficher le bouton ajouté
             ICollectionView view = CollectionViewSource.GetDefaultView(listeBoutonFormats.ItemsSource);
