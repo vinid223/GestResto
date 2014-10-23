@@ -11,8 +11,10 @@
 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,14 +24,60 @@ namespace GestResto.Logic.Model.Entities
     /// <summary>
     /// Classe contenant toutes les informations d'un employé
     /// </summary>
-    public class Employe
+    public class Employe : INotifyPropertyChanged, INotifyPropertyChanging
     {
         #region Variables appartenant à la classe Employe
 
+        private string _nom;
+        private string _prenom;
+        private string _noEmploye;
+
         public virtual int? IdEmploye { get; set; }
-        public virtual string Nom { get; set; }
-        public virtual string Prenom { get; set; }
-        public virtual string NoEmploye { get; set; }
+        public virtual string Nom
+        {
+            get
+            {
+                return _nom;
+            }
+            set
+            {
+                RaisePropertyChanging();
+                RaisePropertyChanging("NomComplet");
+                _nom = value;
+                RaisePropertyChanged();
+                RaisePropertyChanged("NomComplet");
+            }
+        }
+        public virtual string Prenom
+        {
+            get
+            {
+                return _prenom;
+            }
+            set
+            {
+                RaisePropertyChanging();
+                RaisePropertyChanging("NomComplet");
+                _prenom = value;
+                RaisePropertyChanged();
+                RaisePropertyChanged("NomComplet");
+            }
+        }
+        public virtual string NoEmploye
+        {
+            get
+            {
+                return _noEmploye;
+            }
+            set
+            {
+                RaisePropertyChanging();
+                RaisePropertyChanging("NomComplet");
+                _noEmploye = value;
+                RaisePropertyChanged();
+                RaisePropertyChanged("NomComplet");
+            }
+        }
         public virtual string MotDePasse { get; set; }
         public virtual string Adresse { get; set; }
         public virtual string Ville { get; set; }
@@ -48,26 +96,63 @@ namespace GestResto.Logic.Model.Entities
 
         #endregion
 
+        #region Proprieté changed
+
+        public virtual event PropertyChangedEventHandler PropertyChanged;
+
+        public virtual PropertyChangedEventHandler PropertyChangedHandler
+        {
+            get { return PropertyChanged; }
+        }
+
+        public virtual event PropertyChangingEventHandler PropertyChanging;
+
+        public virtual PropertyChangingEventHandler PropertyChangingHandler
+        {
+            get { return PropertyChanging; }
+        }
+
+
+        public virtual void RaisePropertyChanging([CallerMemberName] string propertyName = null)
+        {
+            var handler = PropertyChanging;
+            if (handler != null)
+            {
+                handler(this, new PropertyChangingEventArgs(propertyName));
+            }
+        }
+
+        public virtual void RaisePropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            var handler = PropertyChanged;
+            if (handler != null)
+            {
+                handler(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+
+        #endregion
+
         #region Tous les constructeurs de la classe Employes
         /// <summary>
         /// Constructeur par défaut de la classe Employé. Elle initialise toutes les variables pour une valeur null ou vide.
         /// </summary>
         public Employe()
         {
-                IdEmploye = null;
-                Nom = "";
-                Prenom = "";
-                NoEmploye = "";
-                MotDePasse = "";
-                Adresse = "";
-                Ville = "";
-                CodePostal = "";
-                NAS = "";
-                Salaire = 0;
-                Telephone = "";
-                EstActif = false;
-                TypeEmployes = null;
-                ListeCommandes = new List<Commande>();
+            IdEmploye = null;
+            Nom = "";
+            Prenom = "";
+            NoEmploye = "";
+            MotDePasse = "";
+            Adresse = "";
+            Ville = "";
+            CodePostal = "";
+            NAS = "";
+            Salaire = 0;
+            Telephone = "";
+            EstActif = false;
+            TypeEmployes = null;
+            ListeCommandes = new List<Commande>();
         }
 
         /// <summary>
@@ -84,9 +169,38 @@ namespace GestResto.Logic.Model.Entities
         /// <param name="pNAS">NAS de l'employé</param>
         /// <param name="pSalaire">Salaire de l'employé</param>
         /// <param name="pTelephone">Telephone de l'employé</param>
-        Employe(int pIdEmploye, string pNom, string pPrenom, string pNoEmploye, string pMotPasse, string pAdresse, string pVille, string pCodePostal, string pNAS, float pSalaire, string pTelephone, bool pEstActif, TypeEmploye pType)
+        public Employe(int pIdEmploye, string pNom, string pPrenom, string pNoEmploye, string pMotPasse, string pAdresse, string pVille, string pCodePostal, string pNAS, float pSalaire, string pTelephone, bool pEstActif, TypeEmploye pType)
         {
             IdEmploye = pIdEmploye;
+            Nom = pNom;
+            Prenom = pPrenom;
+            NoEmploye = pNoEmploye;
+            MotDePasse = pMotPasse;
+            Adresse = pAdresse;
+            Ville = pVille;
+            CodePostal = pCodePostal;
+            NAS = pNAS;
+            Salaire = pSalaire;
+            Telephone = pTelephone;
+            EstActif = pEstActif;
+            TypeEmployes = pType;
+        }
+
+        /// <summary>
+        /// Constructeur d'employer sans id d'employer
+        /// </summary>
+        /// <param name="pNom">Nom de l'employé</param>
+        /// <param name="pPrenom">Prenom de l'employé</param>
+        /// <param name="pNoEmploye">Numero de l'employé</param>
+        /// <param name="pMotPasse">Mot de passe de l'employé</param>
+        /// <param name="pAdresse">Adresse de l'employé</param>
+        /// <param name="pVille">Ville de l'employé</param>
+        /// <param name="pCodePostal">Code postal de l'employé</param>
+        /// <param name="pNAS">NAS de l'employé</param>
+        /// <param name="pSalaire">Salaire de l'employé</param>
+        /// <param name="pTelephone">Telephone de l'employé</param>
+        public Employe(string pNom, string pPrenom, string pNoEmploye, string pMotPasse, string pAdresse, string pVille, string pCodePostal, string pNAS, float pSalaire, string pTelephone, bool pEstActif, TypeEmploye pType)
+        {
             Nom = pNom;
             Prenom = pPrenom;
             NoEmploye = pNoEmploye;
@@ -162,7 +276,8 @@ namespace GestResto.Logic.Model.Entities
         #endregion
 
         #endregion
-        
+
+        #region Fonctions complémentaires
         /// <summary>
         /// Fonction qui redéfinie la fonction ToString pour permettre la concaténation du nom et du prenom
         /// </summary>
@@ -172,5 +287,18 @@ namespace GestResto.Logic.Model.Entities
             StringBuilder builder = new StringBuilder();
             return builder.Append(Nom).Append(", ").Append(Prenom).Append(" - ").Append(NoEmploye).ToString();
         }
+
+        /// <summary>
+        /// Fonction permettant de définir la chaine qui sera affiché sur le bouton de l'employé
+        /// </summary>
+        public virtual string NomComplet
+        {
+            get
+            {
+                return ToString();
+            }
+        }
+
+        #endregion
     }
 }

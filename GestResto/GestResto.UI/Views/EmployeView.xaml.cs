@@ -4,6 +4,7 @@ using GestResto.MvvmToolkit.Services.Definitions;
 using GestResto.UI.ViewModel;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -25,16 +26,38 @@ namespace GestResto.UI.Views
     /// </summary>
     public partial class EmployeView : UserControl
     {
+        // On définie notre viewmodel
         public EmployeViewModel ViewModel { get { return (EmployeViewModel)DataContext; } }
+
+        // Définition du constructeur de viewModel
         public EmployeView()
         {
             InitializeComponent();
+
+
+
+
+
+
+            // À FAIRE UN TRY CATCH - SIMON
             DataContext = new EmployeViewModel();
+
+
+
+
+
+
+
+
+
 
             // On va charger la source de notre liste d'employé
             listeBoutonEmploye.ItemsSource = ViewModel.Employes;
         }
 
+        /// <summary>
+        /// Fonction permettant d'enregistrer l'employé sélectionné
+        /// </summary>
         private void btnEnregistrer_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             Constante.onReleaseButton(sender, e); // On enlève l'effet du bouton presséConstante.onReleaseButton(sender, e); // On enlève l'effet du bouton pressé
@@ -63,6 +86,7 @@ namespace GestResto.UI.Views
                 ViewModel.employe.Ville         == "")
             {
                 erreur = true;
+                // On définie le message d'erreur
                 messageErreur.Append("Tous les champs doivent être remplis afin d'enregistrer\n");
             }
 
@@ -88,18 +112,19 @@ namespace GestResto.UI.Views
 
                     messageErreur.Append("Impossible d'enregistrer l'employer.\n");
 
-                    // On vérifie si l'exception provient du nom
-                    if (Regex.IsMatch(exceptionMessage, @"'nom'$"))
-                    {
-                        messageErreur.Append("Le nom doit être unique");
-                        Constante.LogErreur("Le nom n'est pas unique lors de l'enregistrement d'un employer");
-                    }
-                    else
-                    {
-                        messageErreur.Append("Erreur inconnue : ");
-                        messageErreur.Append(exceptionMessage);
-                        Constante.LogErreur("Erreur inconnue : " + exceptionMessage + " lors de l'enregistrement d'un employer");
-                    }
+
+
+
+
+
+
+                    // SIMON TU AS DU STOCK À FAIRE ICI
+
+
+
+
+
+
 
                     // On affiche le mmessage d'erreur
                     MessageBox.Show(messageErreur.ToString(), "Erreur", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
@@ -115,7 +140,54 @@ namespace GestResto.UI.Views
         private void btnAjouter_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             Constante.onReleaseButton(sender, e); // On enlève l'effet du bouton pressé
-            MessageBox.Show("Ajouter");
+            // On crée une catégorie en mémoire
+            Employe employeTemp = new Employe("Veuillez entrer les informations de votre employé","","","","","","","",0,"",false,ViewModel.TypesEmployes[0]);
+
+            StringBuilder messageErreur = new StringBuilder();
+
+
+            // On tente de faire un ajout dans la base de données
+            try
+            {
+                // On insert dans la base de donnée la nouvelle catégorie et on en retire l'id
+                employeTemp.IdEmploye = ViewModel.AjouterUnEmployer(employeTemp);
+            }
+            catch (Exception exception)
+            {
+                string exceptionMessage = exception.InnerException.Message;
+                messageErreur.Clear();  // On s'assure que le message d'erreur soit vide
+
+                messageErreur.Append("Impossible d'ajouter un employé.\n");
+
+                // On vérifie si l'exception provient du nom
+                if (Regex.IsMatch(exceptionMessage, @"'noEmploye'$"))
+                {
+                    messageErreur.Append("Le numéro d'employé que vous avez entré est déjà utilisé. Veuillez en utiliser un autre");
+                    Constante.LogErreur("Tentative d'ajout d'un employé avec un numéro déjà utilisé.");
+                }
+                else
+                {
+                    messageErreur.Append("Erreur inconnue : " + exceptionMessage);
+                    Constante.LogErreur("Erreur inconnue : " + exceptionMessage + " lors de l'ajout d'un employé");
+                }
+
+                // On affiche le mmessage d'erreur
+                MessageBox.Show(messageErreur.ToString(), "Erreur", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
+                return; // On retourne afin d'évite de faire le code qui suis
+
+            }
+            // On ajoute dans la liste la catégorie créé
+            ViewModel.Employes.Add(employeTemp);
+
+            // On indique dans le view model la nouvelle catégorie créé
+            ViewModel.employe = employeTemp;
+
+            // On active les champs pour permettre la modification et l'ajout d'information
+            ActiverDesactiverChamp(true, true);
+
+            // On rafraichie nottre liste view pour afficher le bouton ajouté
+            ICollectionView view = CollectionViewSource.GetDefaultView(listeBoutonEmploye.ItemsSource);
+            view.Refresh();
         }
 
         /// <summary>
@@ -132,6 +204,7 @@ namespace GestResto.UI.Views
         /// </summary>
         private void btnRetour_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
+            // On redirige à la fenêtre d'option d'administration
             IApplicationService mainVM = ServiceFactory.Instance.GetService<IApplicationService>();
             mainVM.ChangeView<OptionsAdministrationView>(new OptionsAdministrationView());
         }
@@ -149,7 +222,10 @@ namespace GestResto.UI.Views
         /// </summary>
         private void btnDetail_Click(object sender, RoutedEventArgs e)
         {
+            // Définition de l'employé par le bouton
             Employe employe= (Employe)((sender as Button).CommandParameter);
+
+            // On définie l'employé en cour d'utilisation dans le view model
             ViewModel.employe = employe;
 
             // On active les champs pour permettre la modification et l'ajout d'informations
