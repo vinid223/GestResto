@@ -75,9 +75,20 @@ namespace GestResto.UI.ViewModel
 
         public int AjouterUnFormat(Format format)
         {
-            // On insert l'enregistrement dans la base de donnée
-            _formatService.Create(format);
-
+            try
+            {
+                // On insert l'enregistrement dans la base de donnée
+                _formatService.Create(format);
+            }
+            catch (NHibernate.Exceptions.GenericADOException adoE)
+            {
+                MySql.Data.MySqlClient.MySqlException mysqlExeception = (adoE.InnerException as MySql.Data.MySqlClient.MySqlException);
+                throw mysqlExeception;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
             // On va chercher l'id lors de l'enregistrement
             int i;
 

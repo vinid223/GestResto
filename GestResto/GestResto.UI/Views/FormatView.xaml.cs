@@ -78,10 +78,15 @@ namespace GestResto.UI.Views
             else 
             { 
                 // Si un des champs est vide, on informe l'utilisateur
-                if (ViewModel.Format.Nom == "" || ViewModel.Format.Libelle == "")
+                if (ViewModel.Format.Nom == "")
                 {
                     erreur = true;
-                    messageErreur.Append("Tous les champs doivent être remplis afin d'enregistrer\n");
+                    messageErreur.Append("Vous devez inscrire un nom\n");
+                }
+                if (ViewModel.Format.Libelle == "")
+                {
+                    erreur = true;
+                    messageErreur.Append("Vous devez inscrire un libellé\n");
                 }
 
                 // Si le libellé n'est pas entre 1 et 3 caractères
@@ -98,6 +103,7 @@ namespace GestResto.UI.Views
             {
                 MessageBox.Show(messageErreur.ToString(), "Informations incomplètes", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
                 Constante.LogErreur("Les champs d'enregistrement d'un format ne sont pas valides");
+                return; // On retourne afin d'évite de faire le code qui suit
             }
             else
             {
@@ -106,38 +112,31 @@ namespace GestResto.UI.Views
                 {
                     ViewModel.EnregistrerUnFormat(ViewModel.Format);
                 }
-                // S'il y a eu un erreur dans l'enregistrement du format
+                // S'il y a eu un erreur dans l'enregistrement du format avec MySql
                 catch (MySql.Data.MySqlClient.MySqlException mysqlException)
                 {
-                    if(mysqlException.Number == 1602)
-                    {
-                    
-
-                    }
-                }
-                
-                catch (Exception exception)
-                {
-                    string exceptionMessage = exception.InnerException.Message;
                     messageErreur.Clear();  // On s'assure que le message d'erreur soit vide
-
                     messageErreur.Append("Impossible d'enregistrer le format.\n");
+                    string exceptionMessage = mysqlException.Message;
 
-
-                    // On vérifie si l'exception provient du libellé
-                    if (Regex.IsMatch(exceptionMessage, @"'libelle'$"))
+                    // S'il y a un erreur de doublon
+                    if(mysqlException.Number == 1062)
                     {
-                        messageErreur.Append("Le libelle doit être unique");
-                        Constante.LogErreur("Le libelle n'est pas unique lors de l'enregistrement d'un format");
-                    }
+                        // On vérifie si l'exception provient du libellé
+                        if (Regex.IsMatch(exceptionMessage, @"'libelle'$"))
+                        {
+                            messageErreur.Append("Le libelle doit être unique");
+                            Constante.LogErreur("Le libelle n'est pas unique lors de l'enregistrement d'un format");
+                        }
 
-                    // On vérifie si l'exception provient du nom
-                    else if (Regex.IsMatch(exceptionMessage, @"'nom'$"))
-                    {
-                        messageErreur.Append("Le nom doit être unique");
-                        Constante.LogErreur("Le nom n'est pas unique lors de l'enregistrement d'un format");
+                        // On vérifie si l'exception provient du nom
+                        else if (Regex.IsMatch(exceptionMessage, @"'nom'$"))
+                        {
+                            messageErreur.Append("Le nom doit être unique");
+                            Constante.LogErreur("Le nom n'est pas unique lors de l'enregistrement d'un format");
+                        }
                     }
-                    else 
+                    else
                     {
                         messageErreur.Append("Erreur inconnue : ");
                         messageErreur.Append(exceptionMessage);
@@ -146,9 +145,29 @@ namespace GestResto.UI.Views
 
                     // On affiche le mmessage d'erreur
                     MessageBox.Show(messageErreur.ToString(), "Erreur", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
+                    return; // On retourne afin d'évite de faire le code qui suit
                 }
-            }
+                // Pour toute autre exception
+                catch (Exception exception)
+                {
+                    string exceptionMessage = exception.InnerException.Message;
+                    messageErreur.Clear();  // On s'assure que le message d'erreur soit vide
 
+                    messageErreur.Append("Impossible d'enregistrer le format.\n");
+
+
+                    messageErreur.Append("Erreur inconnue : ");
+                    messageErreur.Append(exceptionMessage);
+                    Constante.LogErreur("Erreur inconnue : " + exceptionMessage + " lors de l'enregistrement d'un format");
+
+
+                    // On affiche le mmessage d'erreur
+                    MessageBox.Show(messageErreur.ToString(), "Erreur", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
+                    return; // On retourne afin d'évite de faire le code qui suit
+                }
+                Constante.LogNavigation("Enregistrement du format " + ViewModel.Format.Nom.ToString());
+            }
+            
         }
 
         // Fonction qui permet d'ajouter dans la base de données un format.
@@ -168,28 +187,45 @@ namespace GestResto.UI.Views
                 // On insert dans la base de donnée le nouveau format et on en retire l'id
                 formatTemp.IdFormat = ViewModel.AjouterUnFormat(formatTemp);
             }
-            catch (Exception exception)
+            // S'il y a eu un erreur dans l'enregistrement du format avec MySql
+            catch (MySql.Data.MySqlClient.MySqlException mysqlException)
             {
-                string exceptionMessage = exception.InnerException.Message;
                 messageErreur.Clear();  // On s'assure que le message d'erreur soit vide
+                messageErreur.Append("Impossible d'enregistrer le format.\n");
+                string exceptionMessage = mysqlException.Message;
 
-                messageErreur.Append("Impossible d'ajouter un format.\n");
-
-                // On vérifie si l'exception provient du nom
-                if (Regex.IsMatch(exceptionMessage, @"'nom'$") || Regex.IsMatch(exceptionMessage, @"'libelle'$"))
+                if (mysqlException.Number == 1062)
                 {
-                    messageErreur.Append("Un nouveau format a déjà été ajouté. Vous devez le renommer avant d'en ajouter un nouveau");
-                    Constante.LogErreur("Tentative d'ajout d'un format sans avoir modifié le précédent");
+                    // On vérifie s'il y a un doublon
+                    if (Regex.IsMatch(exceptionMessage, @"'nom'$") || Regex.IsMatch(exceptionMessage, @"'libelle'$"))
+                    {
+                        messageErreur.Append("Un nouveau format a déjà été ajouté. Vous devez le renommer avant d'en ajouter un nouveau");
+                        Constante.LogErreur("Tentative d'ajout d'un format sans avoir modifié le précédent");
+                    }
                 }
-                else 
+                else
                 {
-                    messageErreur.Append("Erreur inconnue : " + exceptionMessage);
-                    Constante.LogErreur(messageErreur.ToString() + " lors de l'ajout d'un format");
+                    messageErreur.Append("Erreur inconnue : ");
+                    messageErreur.Append(exceptionMessage);
+                    Constante.LogErreur("Erreur inconnue : " + exceptionMessage + " lors de l'ajout d'un format");
                 }
 
                 // On affiche le mmessage d'erreur
                 MessageBox.Show(messageErreur.ToString(), "Erreur", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
-                return; // On retourne afin d'évite de faire le code qui suis
+                return; // On retourne afin d'évite de faire le code qui suit
+            }
+            // Pour toute autre exception
+            catch (Exception exception)
+            {
+                string exceptionMessage = exception.InnerException.Message;
+                messageErreur.Clear();  // On s'assure que le message d'erreur soit vide
+                messageErreur.Append("Impossible d'ajouter un format.\n");
+                messageErreur.Append("Erreur inconnue : " + exceptionMessage);
+                Constante.LogErreur(messageErreur.ToString() + " lors de l'ajout d'un format");
+
+                // On affiche le mmessage d'erreur
+                MessageBox.Show(messageErreur.ToString(), "Erreur", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
+                return; // On retourne afin d'évite de faire le code qui suit
             }
 
             // On ajoute dans la liste le format créé
@@ -203,15 +239,18 @@ namespace GestResto.UI.Views
             txtLibelle.IsEnabled = true;
             cbxActif.IsEnabled = true;
 
-            // On rafraichie nottre liste view pour afficher le bouton ajouté
+            // On donne la nouvelle source à notre liste view
+            listeBoutonFormats.ItemsSource = ViewModel.Formats;
+
+            // On rafraichie notre liste view pour afficher le bouton ajouté
             ICollectionView view = CollectionViewSource.GetDefaultView(listeBoutonFormats.ItemsSource);
             view.Refresh();
+            Constante.LogNavigation("Ajout d'un nouveau format");
         }
 
         // Fonction qui sert à nous déconnecter
         private void btnDeconnexion_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            Constante.onReleaseButton(sender, e); // On enlève l'effet du bouton pressé
             // On appel la fonction de la classe constante qui permet de déconnecter l'utilisateur en cour
             Constante.Deconnexion();
         }
@@ -219,7 +258,6 @@ namespace GestResto.UI.Views
         // Fonction qui sert à revenir à la view précédente
         private void btnRetour_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            Constante.onReleaseButton(sender, e); // On enlève l'effet du bouton pressé
             IApplicationService mainVM = ServiceFactory.Instance.GetService<IApplicationService>();
             mainVM.ChangeView<OptionsAdministrationView>(new OptionsAdministrationView());
         }

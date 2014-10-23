@@ -57,13 +57,38 @@ namespace GestResto.UI.ViewModel
 
         public void EnregistrerUneCategorie(Categorie categorie)
         {
-            _categService.Update(categorie);
+            try
+            {
+                _categService.Update(categorie);
+            }
+            catch (NHibernate.Exceptions.GenericADOException adoE)
+            {
+               MySql.Data.MySqlClient.MySqlException mysqlExeception = (adoE.InnerException as MySql.Data.MySqlClient.MySqlException);
+               throw mysqlExeception;
+            }
+            catch(Exception e)
+            {
+                throw e;
+            }
         }
 
         public int AjouterUneCategorie(Categorie categorie)
         {
-            // On insert l'enregistrement dans la base de donnée
-            _categService.Create(categorie);
+
+            try
+            {
+                // On insert l'enregistrement dans la base de donnée
+                _categService.Create(categorie);
+            }
+            catch (NHibernate.Exceptions.GenericADOException adoE)
+            {
+                MySql.Data.MySqlClient.MySqlException mysqlExeception = (adoE.InnerException as MySql.Data.MySqlClient.MySqlException);
+                throw mysqlExeception;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
 
             // On va chercher l'id lors de l'enregistrement
             int i;
