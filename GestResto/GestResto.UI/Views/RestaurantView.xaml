@@ -18,12 +18,12 @@
         <Label Foreground="White" x:Name="lblTelephone" Content="Téléphone" HorizontalAlignment="Left" Margin="10,230,0,0" VerticalAlignment="Top" Width="84" Height="26"/>
         <Label Foreground="White" x:Name="lblFax" Content="Fax" HorizontalAlignment="Left" Margin="10,279,0,0" VerticalAlignment="Top" Width="84" Height="26"/>
 
-        <TextBox x:Name="txtNom" HorizontalAlignment="Stretch" Height="26" Margin="111,50,10,0" TextWrapping="Wrap" Text="{Binding Restaurant. Nom}" VerticalAlignment="Top" />
-        <TextBox x:Name="txtAdresse" HorizontalAlignment="Stretch" Height="26" Margin="111,97,10,0" TextWrapping="Wrap" Text="{Binding Restaurant. Adresse}" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtVille" HorizontalAlignment="Stretch" Height="26" Margin="111,141,10,0" TextWrapping="Wrap" Text="{Binding Restaurant. Ville}" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtCodePostal" HorizontalAlignment="Stretch" Height="26" Margin="111,186,10,0" TextWrapping="Wrap" Text="{Binding Restaurant. CodePostal}" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtTelephone" HorizontalAlignment="Stretch" Height="26" Margin="111,232,10,0" TextWrapping="Wrap" Text="{Binding Restaurant. Telephone}" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtFax" HorizontalAlignment="Stretch" Height="26" Margin="111,281,10,0" TextWrapping="Wrap" Text="{Binding Restaurant. Fax}" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtNom" HorizontalAlignment="Stretch" Height="26" Margin="111,50,10,0" TextWrapping="Wrap" Text="{Binding Restaurant. Nom, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" />
+        <TextBox x:Name="txtAdresse" HorizontalAlignment="Stretch" Height="26" Margin="111,97,10,0" TextWrapping="Wrap" Text="{Binding Restaurant. Adresse, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtVille" HorizontalAlignment="Stretch" Height="26" Margin="111,141,10,0" TextWrapping="Wrap" Text="{Binding Restaurant. Ville, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtCodePostal" HorizontalAlignment="Stretch" Height="26" Margin="111,186,10,0" TextWrapping="Wrap" Text="{Binding Restaurant. CodePostal, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtTelephone"  HorizontalAlignment="Stretch" Height="26" Margin="111,232,10,0" TextWrapping="Wrap" Text="{Binding Restaurant. Telephone, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtFax" HorizontalAlignment="Stretch" Height="26" Margin="111,281,10,0" TextWrapping="Wrap" Text="{Binding Restaurant. Fax, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top"/>
 
         <!-- Boutons de navigation -->
         <Grid Grid.ColumnSpan="2" Grid.Row="1">

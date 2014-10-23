@@ -78,10 +78,15 @@ namespace GestResto.UI.Views
             else 
             { 
                 // Si un des champs est vide, on informe l'utilisateur
-                if (ViewModel.Format.Nom == "" || ViewModel.Format.Libelle == "")
+                if (ViewModel.Format.Nom == "")
                 {
                     erreur = true;
-                    messageErreur.Append("Tous les champs doivent être remplis afin d'enregistrer\n");
+                    messageErreur.Append("Vous devez inscrire un nom\n");
+                }
+                if (ViewModel.Format.Libelle == "")
+                {
+                    erreur = true;
+                    messageErreur.Append("Vous devez inscrire un libellé\n");
                 }
 
                 // Si le libellé n'est pas entre 1 et 3 caractères
@@ -98,6 +103,7 @@ namespace GestResto.UI.Views
             {
                 MessageBox.Show(messageErreur.ToString(), "Informations incomplètes", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
                 Constante.LogErreur("Les champs d'enregistrement d'un format ne sont pas valides");
+                return; // On retourne afin d'évite de faire le code qui suit
             }
             else
             {
@@ -159,8 +165,9 @@ namespace GestResto.UI.Views
                     MessageBox.Show(messageErreur.ToString(), "Erreur", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
                     return; // On retourne afin d'évite de faire le code qui suit
                 }
+                Constante.LogNavigation("Enregistrement du format " + ViewModel.Format.Nom.ToString());
             }
-            Constante.LogNavigation("Enregistrement du format " + ViewModel.Format.Nom.ToString());
+            
         }
 
         // Fonction qui permet d'ajouter dans la base de données un format.
