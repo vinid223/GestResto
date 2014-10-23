@@ -7,7 +7,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -29,17 +28,42 @@ namespace GestResto.UI.Views
         public ItemsViewModel ViewModelItem { get { return (ItemsViewModel)DataContext; } }
 
         StringBuilder messageErreur = new StringBuilder();
+        List<FormatItem> listeFormatItemASupprimer = new List<FormatItem>();
+        bool Erreur = false;
 
         public ItemsView()
         {
             InitializeComponent();
-            DataContext = new ItemsViewModel();
+            try
+            {
+                DataContext = new ItemsViewModel();
+            }
+            catch(Exception e)
+            {
+                messageErreur.Clear();
+                string exceptionMessage = e.InnerException.Message;
 
-            // Mets tous les items dans la listes d'items dans l'écran.
-            lbxListeCategorie.ItemsSource = ViewModelItem.Items;
+                messageErreur.Append("Une erreur s'est produite, il est impossible d'afficher la liste d'items : ");
+                messageErreur.Append(exceptionMessage);
 
-            // Empêche l'utilisateur de faire des modifications sur un items qui n'existe pas.
-            ModifierDispoChampsItem(false);
+                MessageBox.Show(messageErreur.ToString(), "Une erreur s'est produite", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
+                Constante.LogErreur(messageErreur.ToString());
+                Erreur = true;
+
+            }
+            if (!Erreur)
+            {
+                // Mets tous les items dans la listes d'items dans l'écran.
+                lbxListeCategorie.ItemsSource = ViewModelItem.Items;
+
+                // Empêche l'utilisateur de faire des modifications sur un items qui n'existe pas.
+                ModifierDispoChampsItem(false);
+
+                // Sélection de la catégorie Tous les items
+                lbxListeCategorie.SelectedItem = ViewModelItem.categTest;
+            }
+            else
+                ModifierDispoChampsItem(false, true);
 
         }
         /// <summary>
@@ -62,8 +86,10 @@ namespace GestResto.UI.Views
         {
             FormatItem formatitem = (FormatItem)((sender as Button).CommandParameter);
 
+            ViewModelItem.Item.Formats.Remove(formatitem);
+            listeFormatItemASupprimer.Add(formatitem);
 
-            ViewModelItem.DeleteFormatItem(formatitem);
+            dataGridPrix.CommitEdit();
             dataGridPrix.Items.Refresh();
         }
 
@@ -81,22 +107,48 @@ namespace GestResto.UI.Views
             {
                 Constante.onReleaseButton(sender, e); // On enlève l'effet du bouton pressé
 
+                // Avant d'enregistrer l'item, je dois vérifier si les formatItems ne sont pas null.
+                foreach (var formatItem in ViewModelItem.Item.Formats)
+                {
+                    // S'il a un formatItem ayant un champ null, le formatItem n'est pas complété.
+                    if(formatItem.FormatAssocie == null)
+                    {
+                        // On affiche un mmessage d'erreur
+                        MessageBox.Show("Votre prix et le format associé ne doit pas être vide.", "Erreur", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
+                        return;
+                    }
+                }
+
+                // Avant d'enregistrer je dois vérifier si l'item a subit des suppressions de formatItems
+                foreach (var formatItem in listeFormatItemASupprimer)
+                {
+                    Constante.LogNavigation(" a supprimé un formatItem.");
+                    ViewModelItem.DeleteFormatItem(formatItem);
+                }
+                // Réinitialise.
+                listeFormatItemASupprimer.Clear() ;
+
                 try
                 {
                     ViewModelItem.EnregistrerUnItem(ViewModelItem.Item);
                 }
                 catch (Exception exception)
                 {
-                    string exceptionMessage = exception.InnerException.Message;
+                    string exceptionMessage = exception.Message;
                     messageErreur.Clear();  // On s'assure que le message d'erreur soit vide
 
                     messageErreur.Append("Impossible d'enregistrer l'item.\n");
 
                     // On vérifie si l'exception provient du nom
-                    if (Regex.IsMatch(exceptionMessage, @"'nom'$"))
+                    if (exception.InnerException != null && Regex.IsMatch(exception.InnerException.Message, @"'nom'$"))
                     {
                         messageErreur.Append("Le nom : ").Append(ViewModelItem.Item.Nom).Append(" existe déjà.");
                         Constante.LogErreur("Le nom n'est pas unique lors de l'enregistrement d'un item");
+                    }
+                    else if (Regex.IsMatch(exceptionMessage, @"not-null"))
+                    {
+                        messageErreur.Append("Le format et le prix ne peuvent pas être vide.");
+                        ViewModelItem.Items = ViewModelItem.Items;
                     }
                     else
                     {
@@ -104,10 +156,8 @@ namespace GestResto.UI.Views
                         messageErreur.Append(exceptionMessage);
                         Constante.LogErreur("Erreur inconnue : " + exceptionMessage + " lors de l'enregistrement d'une catégorie");
                     }
-
                     // On affiche le mmessage d'erreur
                     MessageBox.Show(messageErreur.ToString(), "Erreur", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
-
                 }
             }
             else
@@ -133,7 +183,7 @@ namespace GestResto.UI.Views
             // Création d'un item temporaire.
             Item itemTemp = new Item("Entrez le nom de l'item.", null, null, true);
 
-
+            Constante.LogNavigation(" a créé un item.");
 
             // Si l'item par défaut existe déjà, je ne l'ajoute pas à la BD, je fais seulement l'afficher.
             foreach (var item in ViewModelItem.Items)
@@ -165,13 +215,10 @@ namespace GestResto.UI.Views
             Categorie categorie = (Categorie)cboCategorieAffichee.SelectedItem;
 
             lbxListeCategorie.ItemsSource = ViewModelItem.ObtenirTousLesItemsDeLaCategorie(categorie);
-
-
         }
 
         private void btnDeconnexion_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            Constante.onReleaseButton(sender, e); // On enlève l'effet du bouton pressé
             // On appel la fonction de la classe constante qui permet de déconnecter l'utilisateur en cours
             Constante.Deconnexion();
         }
@@ -185,7 +232,6 @@ namespace GestResto.UI.Views
         // Fonction qui sert à revenir à la view précédente
         private void btnRetour_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            Constante.onReleaseButton(sender, e); // On enlève l'effet du bouton pressé
             IApplicationService mainVM = ServiceFactory.Instance.GetService<IApplicationService>();
             mainVM.ChangeView<OptionsAdministrationView>(new OptionsAdministrationView());
         }
@@ -199,13 +245,20 @@ namespace GestResto.UI.Views
         /// Permet de modifier le IsEnable de tous les contrôles consernant l'item binder.
         /// </summary>
         /// <param name="EstActif"></param>
-        private void ModifierDispoChampsItem(bool EstActif)
+        private void ModifierDispoChampsItem(bool EstActif, bool BoutonsAussi = false)
         {
             txtNom.IsEnabled = EstActif;
             chkActif.IsEnabled = EstActif;
             cboCategorieLiee.IsEnabled = EstActif;
             btnAjoutFormatItem.IsEnabled = EstActif;
+
+            if(BoutonsAussi)
+            {
+                btnAjouter.IsEnabled = EstActif;
+                btnEnregistrer.IsEnabled = EstActif;
+            }
             
         }
+
     }
 }

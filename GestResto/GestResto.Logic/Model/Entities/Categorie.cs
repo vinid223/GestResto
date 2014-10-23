@@ -86,6 +86,9 @@ namespace GestResto.Logic.Model.Entities
 
             Categorie p = obj as Categorie;
 
+            if (p.IdCategorie == -1)
+                return true;
+
             if (p == null)
             {
                 return false;
