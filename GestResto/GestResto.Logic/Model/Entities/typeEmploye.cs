@@ -50,5 +50,27 @@ namespace GestResto.Logic.Model.Entities
         }
 
         #endregion
+
+        public override string ToString()
+        {
+            return NomType.ToString();
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (obj == null)
+            {
+                return false;
+            }
+
+            TypeEmploye p = obj as TypeEmploye;
+
+            if (p == null)
+            {
+                return false;
+            }
+
+            return this.IdTypeEmploye == p.IdTypeEmploye;
+        }
     }
 }

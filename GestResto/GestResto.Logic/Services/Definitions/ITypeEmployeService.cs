@@ -14,5 +14,6 @@ namespace GestResto.Logic.Services.Definitions
     public interface ITypeEmployeService
     {
         TypeEmploye Retrieve(RetrieveTypeEmployeArgs args);
+        IList<TypeEmploye> RetriveAll();
     }
 }

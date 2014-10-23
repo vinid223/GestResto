@@ -23,5 +23,14 @@ namespace GestResto.Logic.Services.NHibernate
                          select c;
             return result.FirstOrDefault();
         }
+
+
+        public IList<TypeEmploye> RetriveAll()
+        {
+            session = NHibernateConnexion.OpenSession();
+            IList<TypeEmploye> listeTemp = session.Query<TypeEmploye>().ToList();
+            session.Close();
+            return listeTemp;
+        }
     }
 }
