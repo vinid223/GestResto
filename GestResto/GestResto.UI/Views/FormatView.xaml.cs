@@ -27,16 +27,14 @@ namespace GestResto.UI.Views
     public partial class FormatView : UserControl
     {
         public FormatViewModel ViewModel { get { return (FormatViewModel)DataContext; } }
-        public IList<Format> listeFormat;
 
         public FormatView()
         {
             InitializeComponent();
-            DataContext = new FormatViewModel();
             // On tente d'obtenir tous les formats
-            try 
-            { 
-                listeFormat = ViewModel.ObtenirTousLesFormats();
+            try
+            {
+                DataContext = new FormatViewModel();
             }
             // Dans le cas d'une erreur
             catch(Exception e)
@@ -50,7 +48,7 @@ namespace GestResto.UI.Views
                 MessageBox.Show(messageErreur.ToString(), "Une erreur s'est produite", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
                 Constante.LogErreur("Impossible d'afficher la liste des formats : " + exceptionMessage);
             }
-            listeBoutonFormats.ItemsSource = listeFormat;
+            listeBoutonFormats.ItemsSource = ViewModel.Formats;
         }
 
         private void btnDetail_Click(object sender, RoutedEventArgs e)
@@ -70,14 +68,6 @@ namespace GestResto.UI.Views
             Constante.onReleaseButton(sender, e); // On enlève l'effet du bouton pressé
             bool erreur = false;
             StringBuilder messageErreur = new StringBuilder();
-
-            var scope = FocusManager.GetFocusScope(txtNomFormat); // elem is the UIElement to unfocus
-            FocusManager.SetFocusedElement(scope, null); // remove logical focus
-            scope = FocusManager.GetFocusScope(txtLibelle); // elem is the UIElement to unfocus
-            FocusManager.SetFocusedElement(scope, null); // remove logical focus
-            scope = FocusManager.GetFocusScope(cbxActif); // elem is the UIElement to unfocus
-            FocusManager.SetFocusedElement(scope, null); // remove logical focus
-            Keyboard.ClearFocus(); // remove keyboard focus
 
             // Si les champs ne sont pas activé, ça veut dire qu'aucun format n'est sélectionné
             if(!txtNomFormat.IsEnabled)
@@ -234,7 +224,7 @@ namespace GestResto.UI.Views
             }
 
             // On ajoute dans la liste le format créé
-            listeFormat.Add(formatTemp);
+            ViewModel.Formats.Add(formatTemp);
 
             // On indique dans le view model le nouveau format créé
             ViewModel.Format = formatTemp;

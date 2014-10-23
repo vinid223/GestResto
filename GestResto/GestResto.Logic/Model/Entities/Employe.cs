@@ -162,5 +162,15 @@ namespace GestResto.Logic.Model.Entities
         #endregion
 
         #endregion
+        
+        /// <summary>
+        /// Fonction qui redéfinie la fonction ToString pour permettre la concaténation du nom et du prenom
+        /// </summary>
+        /// <returns>Retourne le résultat de la concaténation</returns>
+        public override string ToString()
+        {
+            StringBuilder builder = new StringBuilder();
+            return builder.Append(Nom).Append(", ").Append(Prenom).Append(" - ").Append(NoEmploye).ToString();
+        }
     }
 }

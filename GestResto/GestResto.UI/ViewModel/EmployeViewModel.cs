@@ -15,6 +15,7 @@ namespace GestResto.UI.ViewModel
     {
         private IEmployeService _employeService;
         private ObservableCollection<Employe> _employes = new ObservableCollection<Employe>();
+        private ObservableCollection<TypeEmploye> _typesEmployes = new ObservableCollection<TypeEmploye>();
 
         public ObservableCollection<Employe> Employes
         {
@@ -22,6 +23,16 @@ namespace GestResto.UI.ViewModel
             set
             {
                 _employes = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        public ObservableCollection<TypeEmploye> TypesEmployes
+        {
+            get { return _typesEmployes; }
+            set
+            {
+                _typesEmployes = value;
                 RaisePropertyChanged();
             }
         }
@@ -45,6 +56,7 @@ namespace GestResto.UI.ViewModel
         public EmployeViewModel()
         {
             Employes = new ObservableCollection<Employe>(ServiceFactory.Instance.GetService<IEmployeService>().RetriveAll());
+            TypesEmployes = new ObservableCollection<TypeEmploye>(ServiceFactory.Instance.GetService<ITypeEmployeService>().RetriveAll());
             _employeService = ServiceFactory.Instance.GetService<IEmployeService>();
         }
 
@@ -54,6 +66,11 @@ namespace GestResto.UI.ViewModel
             args.NoEmploye = PNoEmploye;
             args.MDP = Employe.Encrypt(PMDPEmploye);
             return _employeService.Retrive(args);
+        }
+
+        public void EnregistrerUnEmployer(Employe employe)
+        {
+            _employeService.Update(employe);
         }
     }
 }

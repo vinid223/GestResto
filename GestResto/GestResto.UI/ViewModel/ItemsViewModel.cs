@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace GestResto.UI.ViewModel
@@ -23,6 +24,11 @@ namespace GestResto.UI.ViewModel
             Formats = new ObservableCollection<Format>(ServiceFactory.Instance.GetService<IFormatService>().RetrieveAll());
             Items = new ObservableCollection<Item>(ServiceFactory.Instance.GetService<IItemService>().RetrieveAll());
             Categories = new ObservableCollection<Categorie>(ServiceFactory.Instance.GetService<ICategorieService>().RetrieveAll());
+            categsTest = new ObservableCollection<Categorie>(ServiceFactory.Instance.GetService<ICategorieService>().RetrieveAll());
+            
+            categTest = new Categorie(-1, "Tous les items", true, false);
+
+            categsTest.Insert(0, categTest);
 
             _itemService = ServiceFactory.Instance.GetService<IItemService>();
         }
@@ -32,8 +38,10 @@ namespace GestResto.UI.ViewModel
 
         private ObservableCollection<Format> _formats = new ObservableCollection<Format>();
         private ObservableCollection<Categorie> _categories = new ObservableCollection<Categorie>();
+        private ObservableCollection<Categorie> _categoriesTest = new ObservableCollection<Categorie>();
         private ObservableCollection<Item> _items = new ObservableCollection<Item>();
 
+        public Categorie categTest;
 
         public ObservableCollection<Item> Items
         {
@@ -41,6 +49,16 @@ namespace GestResto.UI.ViewModel
             set
             {
                 _items = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        public ObservableCollection<Categorie> categsTest
+        {
+            get { return _categoriesTest; }
+            set
+            {
+                _categoriesTest = value;
                 RaisePropertyChanged();
             }
         }
@@ -92,12 +110,19 @@ namespace GestResto.UI.ViewModel
             IList<Item> listeItem = _itemService.RetrieveAll();
             IList<Item> listeItemVerifiee = new List<Item>();
 
-            // Parcours tous les items et vérifie si la catégorie de l'item correspond à la catégorie choisie.
-            foreach (var item in listeItem)
+            if (categorie.Nom == "Tous les items")
             {
-                if(item.Categories != null && item.Categories.IdCategorie == categorie.IdCategorie)
+                listeItemVerifiee = listeItem;
+            }
+            else
+            {
+                // Parcours tous les items et vérifie si la catégorie de l'item correspond à la catégorie choisie.
+                foreach (var item in listeItem)
                 {
-                    listeItemVerifiee.Add(item);
+                    if (item.Categories != null && item.Categories.IdCategorie == categorie.IdCategorie)
+                    {
+                        listeItemVerifiee.Add(item);
+                    }
                 }
             }
 
