@@ -71,19 +71,18 @@ namespace GestResto.UI.Views
         private void btnEnregistrer_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             Constante.onReleaseButton(sender, e); // On enlève l'effet du bouton pressé
-
-            // On test si un des champs sont désactivé pour éviter de créer une erreur lors de la sauvegarde
-            if (!txtNom.IsEnabled)
-            {
-                MessageBox.Show("Vous devez avoir choisi une catégorie pour sauvegarder", "Erreur de sauvegarde", MessageBoxButton.OK, MessageBoxImage.Exclamation);
-                return;
-            }
-
             bool erreur = false;
             StringBuilder messageErreur = new StringBuilder();
 
+            // On test si un des champs est désactivé pour éviter de créer une erreur lors de la sauvegarde
+            if (!txtNom.IsEnabled)
+            {
+                erreur = true;
+                messageErreur.Append("Vous devez sélectionner une catégorie avant d'enregistrer\n");   
+            }
+
             // Si un des champs est vide, on informe l'utilisateur
-            if (ViewModel.Categorie.Nom == "")
+            else if (ViewModel.Categorie.Nom == "")
             {
                 erreur = true;
                 messageErreur.Append("Tous les champs doivent être remplis afin d'enregistrer\n");
@@ -97,19 +96,20 @@ namespace GestResto.UI.Views
             }
             else
             {
+                // On tente d'enregistrer la catégorie
                 try
                 {
                     ViewModel.EnregistrerUneCategorie(ViewModel.Categorie);
                 }
-                catch (Exception exception)
+                // S'il y a eu un erreur dans l'enregistrement du format avec MySql
+                catch (MySql.Data.MySqlClient.MySqlException mysqlException)
                 {
-                    string exceptionMessage = exception.InnerException.Message;
+                    string exceptionMessage = mysqlException.Message;
                     messageErreur.Clear();  // On s'assure que le message d'erreur soit vide
-
                     messageErreur.Append("Impossible d'enregistrer la catégorie.\n");
 
-                    // On vérifie si l'exception provient du nom
-                    if (Regex.IsMatch(exceptionMessage, @"'nom'$"))
+                    // S'il y a un erreur de doublon
+                    if(mysqlException.Number == 1062)
                     {
                         messageErreur.Append("Le nom doit être unique");
                         Constante.LogErreur("Le nom n'est pas unique lors de l'enregistrement d'une catégorie");
@@ -120,13 +120,26 @@ namespace GestResto.UI.Views
                         messageErreur.Append(exceptionMessage);
                         Constante.LogErreur("Erreur inconnue : " + exceptionMessage + " lors de l'enregistrement d'une catégorie");
                     }
+                    // On affiche le mmessage d'erreur
+                    MessageBox.Show(messageErreur.ToString(), "Erreur", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
+                }
+                catch (Exception exception)
+                {
+                    string exceptionMessage = exception.InnerException.Message;
+                    messageErreur.Clear();  // On s'assure que le message d'erreur soit vide
+                    messageErreur.Append("Impossible d'enregistrer la catégorie.\n");
+
+                    messageErreur.Append("Erreur inconnue : ");
+                    messageErreur.Append(exceptionMessage);
+                    Constante.LogErreur("Erreur inconnue : " + exceptionMessage + " lors de l'enregistrement d'une catégorie");
+                    
 
                     // On affiche le mmessage d'erreur
                     MessageBox.Show(messageErreur.ToString(), "Erreur", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
-                    
                 }
 
             }
+            Constante.LogNavigation("Enregistrement de la catégorie " + ViewModel.Categorie.Nom.ToString());
         }
         // Fonction qui permet d'ajouter dans la base de données une catégorie.
         private void btnAjouter_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
@@ -182,6 +195,7 @@ namespace GestResto.UI.Views
             // On rafraichie nottre liste view pour afficher le bouton ajouté
             ICollectionView view = CollectionViewSource.GetDefaultView(listeBoutonCategories.ItemsSource);
             view.Refresh();
+            Constante.LogNavigation("Ajout d'une nouvelle catégorie");
         }
 
         // Fonction qui sert à nous déconnecter
