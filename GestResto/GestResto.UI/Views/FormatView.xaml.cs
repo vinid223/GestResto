@@ -212,9 +212,7 @@ namespace GestResto.UI.Views
             {
                 string exceptionMessage = exception.InnerException.Message;
                 messageErreur.Clear();  // On s'assure que le message d'erreur soit vide
-
                 messageErreur.Append("Impossible d'ajouter un format.\n");
-     
                 messageErreur.Append("Erreur inconnue : " + exceptionMessage);
                 Constante.LogErreur(messageErreur.ToString() + " lors de l'ajout d'un format");
 
@@ -246,7 +244,6 @@ namespace GestResto.UI.Views
         // Fonction qui sert à nous déconnecter
         private void btnDeconnexion_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            Constante.onReleaseButton(sender, e); // On enlève l'effet du bouton pressé
             // On appel la fonction de la classe constante qui permet de déconnecter l'utilisateur en cour
             Constante.Deconnexion();
         }
@@ -254,7 +251,6 @@ namespace GestResto.UI.Views
         // Fonction qui sert à revenir à la view précédente
         private void btnRetour_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            Constante.onReleaseButton(sender, e); // On enlève l'effet du bouton pressé
             IApplicationService mainVM = ServiceFactory.Instance.GetService<IApplicationService>();
             mainVM.ChangeView<OptionsAdministrationView>(new OptionsAdministrationView());
         }

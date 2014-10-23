@@ -93,6 +93,7 @@ namespace GestResto.UI.Views
             {
                 MessageBox.Show(messageErreur.ToString(), "Informations incomplètes", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
                 Constante.LogErreur("Les champs d'enregistrement d'une catégorie ne sont pas valides");
+                return; // On retourne afin d'évite de faire le code qui suit
             }
             else
             {
@@ -122,20 +123,20 @@ namespace GestResto.UI.Views
                     }
                     // On affiche le mmessage d'erreur
                     MessageBox.Show(messageErreur.ToString(), "Erreur", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
+                    return; // On retourne afin d'évite de faire le code qui suit
                 }
                 catch (Exception exception)
                 {
                     string exceptionMessage = exception.InnerException.Message;
                     messageErreur.Clear();  // On s'assure que le message d'erreur soit vide
                     messageErreur.Append("Impossible d'enregistrer la catégorie.\n");
-
                     messageErreur.Append("Erreur inconnue : ");
                     messageErreur.Append(exceptionMessage);
-                    Constante.LogErreur("Erreur inconnue : " + exceptionMessage + " lors de l'enregistrement d'une catégorie");
-                    
+                    Constante.LogErreur("Erreur inconnue : " + exceptionMessage + " lors de l'enregistrement d'une catégorie");     
 
                     // On affiche le mmessage d'erreur
                     MessageBox.Show(messageErreur.ToString(), "Erreur", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
+                    return; // On retourne afin d'évite de faire le code qui suit
                 }
 
             }
@@ -157,29 +158,42 @@ namespace GestResto.UI.Views
                 // On insert dans la base de donnée la nouvelle catégorie et on en retire l'id
                 categTemp.IdCategorie = ViewModel.AjouterUneCategorie(categTemp);
             }
-            catch (Exception exception)
+            catch (MySql.Data.MySqlClient.MySqlException mysqlException)
             {
-                string exceptionMessage = exception.InnerException.Message;
                 messageErreur.Clear();  // On s'assure que le message d'erreur soit vide
-
                 messageErreur.Append("Impossible d'ajouter une catégorie.\n");
+                string exceptionMessage = mysqlException.Message;
 
-                // On vérifie si l'exception provient du nom
-                if (Regex.IsMatch(exceptionMessage, @"'nom'$"))
+                if (mysqlException.Number == 1062)
                 {
-                    messageErreur.Append("Vous devez renommer le nom de votre catégorie avant d'en ajouter une nouvelle");
-                    Constante.LogErreur("Tentative d'ajout d'une catégorie sans avoir modifié la précédente");
+                    // On vérifie s'il y a un doublon
+                    if (Regex.IsMatch(exceptionMessage, @"'nom'$"))
+                    {
+                        messageErreur.Append("Vous devez renommer le nom de votre catégorie avant d'en ajouter une nouvelle");
+                        Constante.LogErreur("Tentative d'ajout d'une catégorie sans avoir modifié la précédente");
+                    }
                 }
                 else
                 {
                     messageErreur.Append("Erreur inconnue : " + exceptionMessage);
                     Constante.LogErreur("Erreur inconnue : " + exceptionMessage + " lors de l'ajout d'une catégorie");
                 }
-
+                // On affiche le mmessage d'erreur
+                MessageBox.Show(messageErreur.ToString(), "Erreur", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
+                return; // On retourne afin d'évite de faire le code qui suit
+            }
+            // Pour toute autre exception
+            catch (Exception exception)
+            {
+                string exceptionMessage = exception.InnerException.Message;
+                messageErreur.Clear();  // On s'assure que le message d'erreur soit vide
+                messageErreur.Append("Impossible d'ajouter une catégorie.\n");
+                messageErreur.Append("Erreur inconnue : " + exceptionMessage);
+                Constante.LogErreur("Erreur inconnue : " + exceptionMessage + " lors de l'ajout d'une catégorie");
+                
                 // On affiche le mmessage d'erreur
                 MessageBox.Show(messageErreur.ToString(), "Erreur", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
                 return; // On retourne afin d'évite de faire le code qui suis
-
             }
             // On ajoute dans la liste la catégorie créé
             ViewModel.Categories.Add(categTemp);
@@ -201,7 +215,6 @@ namespace GestResto.UI.Views
         // Fonction qui sert à nous déconnecter
         private void btnDeconnexion_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            Constante.onReleaseButton(sender, e); // On enlève l'effet du bouton pressé
             // On appel la fonction de la classe constante qui permet de déconnecter l'utilisateur en cour
             Constante.Deconnexion();
         }
@@ -209,7 +222,6 @@ namespace GestResto.UI.Views
         // Fonction qui sert à revenir à la view précédente
         private void btnRetour_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            Constante.onReleaseButton(sender, e); // On enlève l'effet du bouton pressé
             IApplicationService mainVM = ServiceFactory.Instance.GetService<IApplicationService>();
             mainVM.ChangeView<OptionsAdministrationView>(new OptionsAdministrationView());
         }
