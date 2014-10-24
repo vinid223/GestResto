@@ -2,7 +2,7 @@
 <hibernate-mapping assembly="GestResto.Logic"
                    namespace="GestResto.Logic.Model.Entities"
                    xmlns="urn:nhibernate-mapping-2.2">
-  <class name="Format" table="Formats">
+  <class name="Format" table="formats">
 
     <id name="IdFormat">
       <column name="idFormat" not-null="true" sql-type="INTEGER" />
