@@ -225,6 +225,13 @@ namespace GestResto.UI.Views
 
         private void AjoutFormatItem_Click(object sender, RoutedEventArgs e)
         {
+            // Enlève un bug, lors de l'ajout d'un item venant d'être créé.
+            if (ViewModelItem.Item.Formats == null)
+            {
+                ViewModelItem.Item.Formats = new List<FormatItem>();
+                dataGridPrix.ItemsSource = ViewModelItem.Item.Formats;
+            }
+
             ViewModelItem.Item.Formats.Add(new FormatItem());
             dataGridPrix.Items.Refresh();
         }
