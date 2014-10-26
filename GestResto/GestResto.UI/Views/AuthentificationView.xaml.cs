@@ -27,6 +27,8 @@ namespace GestResto.UI.Views
         // Variables permettant de sauvegarder les informations d'authentification pour envoyer la requête
         private string NoIdentification = null;
         private string MDPIdentification = null;
+
+        // On définie notre view model
         public EmployeViewModel ViewModel = new EmployeViewModel();
 
         public AuthentificationView()
@@ -52,8 +54,7 @@ namespace GestResto.UI.Views
                 // Sinon, on vient ici pour donner la valeur du mot de passe
                 if (MDPIdentification == null)
                 {
-                    // On sauvegarde en mémoire le mot de passe et on change la valeur des boites de textes et des label
-                    MDPIdentification = txtAuthentification.Text.ToString();
+                    // On change la valeur des boites de textes et des label
                     lblTitreText.Content = "Numéro d'employé:";
                     txtAuthentification.Text = "";
                 }
@@ -135,8 +136,25 @@ namespace GestResto.UI.Views
                     txtAuthentification.Text += " ";
                 }
 
-                // On ajoute au champ du texte le numéro en cour
-                txtAuthentification.Text += content;
+
+                // Si nous avons déjà entré notre numéro d'identification on remplit le mot de passe
+                if (NoIdentification != null)
+                {
+                    // On ajoute un espace seulement si on est avec le mot de passe
+                    if (txtAuthentification.Text.Length != 0)
+                    {
+                        MDPIdentification += " ";
+                    }
+
+                    // On définie le nouveau contenu
+                    MDPIdentification += content;
+                    txtAuthentification.Text += "•";
+                }
+                else
+                {
+                    // On ajoute au champ du texte le numéro en cour
+                    txtAuthentification.Text += content;
+                }
             }
         }
 
@@ -147,26 +165,31 @@ namespace GestResto.UI.Views
         {
             // On va enregistrer l'ancien code
             string ancienText = txtAuthentification.Text;
+            string ancienMDP = MDPIdentification;
 
             // On test si l'ancien text a au moins un chiffre
             if (ancienText.Length > 0)
             {
                 // On définie une variable pour la nouvelle chaine
                 string nouveauText;
+                string nouveauMDP;
 
                 // Si l'ancienne chaine a un seul chiffre on supprime qu'un seul caractère
                 if (ancienText.Length == 1)
                 {
                     nouveauText = ancienText.Substring(0, ancienText.Length - 1);
+                    nouveauMDP = ancienMDP.Substring(0, ancienText.Length - 1);
                 }
                     // Sinon, on supprime 2 caractères puisque nous avons ajouté des espaces entre les chiffres
                 else
                 {
                     nouveauText = ancienText.Substring(0, ancienText.Length - 2);
+                    nouveauMDP = ancienMDP.Substring(0, ancienText.Length - 2);
                 }
-            
+
                 // On définie le champ texte avec la nouvelle chaine
-                txtAuthentification.Text = nouveauText;   
+                txtAuthentification.Text = nouveauText;
+                MDPIdentification = nouveauMDP;   
             }
         }
     }
