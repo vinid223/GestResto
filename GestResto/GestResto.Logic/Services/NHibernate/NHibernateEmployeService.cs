@@ -47,8 +47,14 @@ namespace GestResto.Logic.Services.NHibernate
             // On redéfinie la variable de session
             sessionLazy = NHibernateConnexion.OpenSession();
 
+            // On définie la requète à la base de données
+            var result = from c in sessionLazy.Query<Employe>()
+                            orderby c.EstActif descending, 
+                            c.Nom ascending, c.Prenom ascending
+                            select c;
+
             // On se définie une liste temporaire
-            IList<Employe> listeTemp = sessionLazy.Query<Employe>().ToList();
+            IList<Employe> listeTemp = result.ToList();
 
             // On boucle dans tous nos résultat pour décrypter le mot de passe
             // pour ne pas boucler dans la vue pour les mots de passe
