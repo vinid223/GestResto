@@ -26,7 +26,7 @@
         <Label Foreground="White" x:Name="lblListeTable" Content="Liste de toutes les tables" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="296,10,0,0" VerticalAlignment="Top" Width="194" Grid.ColumnSpan="2" Height="26"/>
         <Label Foreground="White" x:Name="lblTitre" Content="Informations d'une table" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" Height="26" Width="140"/>
         <Label Foreground="White" x:Name="lblNumeroTable" Content="Numéro de la table" HorizontalAlignment="Left" Margin="10,42,0,0" VerticalAlignment="Top" Height="26" Width="112"/>
-        <TextBox x:Name="txtNumeroTable" Text="{Binding table.NoTable, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Height="23" Margin="127,45,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="153"/>
+        <TextBox x:Name="txtNumeroTable" MaxLength="5" Text="{Binding table.NoTable, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Height="23" Margin="127,45,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="153"/>
         <CheckBox Foreground="White"  IsChecked="{Binding table.EstActif, UpdateSourceTrigger=PropertyChanged}" x:Name="chkActif" Content="Actif" HorizontalAlignment="Left" Margin="127,86,0,0" VerticalAlignment="Top" Height="15" Width="44"/>
 
         <!-- Boutons de navigation -->

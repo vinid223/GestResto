@@ -72,5 +72,10 @@ namespace GestResto.Logic.Model.Entities
 
             return this.IdTypeEmploye == p.IdTypeEmploye;
         }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
     }
 }
