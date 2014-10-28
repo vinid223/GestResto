@@ -59,13 +59,13 @@ namespace GestResto.UI.Views
                     txtAuthentification.Text = "";
                 }
 
-                // On supprime les espaces pour avoir que les valeurs nécessaires
-                NoIdentification = NoIdentification.Replace(" ", string.Empty);
-                MDPIdentification = MDPIdentification.Replace(" ", string.Empty);
-
                 // On teste si nos champs ne sont pas vide et qu'ils sont valide avec la taille minimal et maximal
-                if (NoIdentification != null && MDPIdentification != null && NoIdentification.Length >= 2 && MDPIdentification.Length >= 2 && NoIdentification.Length <= 4 && MDPIdentification.Length <= 4)
+                if (NoIdentification != null && MDPIdentification != null && NoIdentification.Length >= 3 && MDPIdentification.Length >= 3 && NoIdentification.Length <= 7 && MDPIdentification.Length <= 7)
                 {
+                    // On supprime les espaces pour avoir que les valeurs nécessaires
+                    NoIdentification = NoIdentification.Replace(" ", string.Empty);
+                    MDPIdentification = MDPIdentification.Replace(" ", string.Empty);
+
                     // On va chercher dans la abse de données l'employé qu'on tente d'authentifier
                     Constante.employe = ViewModel.ObtenirEmployeAuthentification(NoIdentification,MDPIdentification);
 
@@ -77,12 +77,20 @@ namespace GestResto.UI.Views
                         MessageBox.Show("Les informations d'authentifications ne sont pas valide, veuillez ressayer", "Employé inexistant", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
                         NoIdentification = null;
                         MDPIdentification = null;
+
+                        // On change la valeur des boites de textes et des label
+                        lblTitreText.Content = "Numéro d'employé:";
+                        txtAuthentification.Text = "";
                     }
                         // Sinon, si le type d'employé est null c'est que l'employé n'a pas reçu de type lors de sa création et il n'est pas valide
                     else if (Constante.employe.TypeEmployes == null)
                     {
                         Constante.LogErreur("Le TypeEmploye n'est pas valide = null");
                         MessageBox.Show("L'employe que vous tentez de connecter n'est pas valide. Connectez un administrateur pour corriger le problème", "Employé non valide", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
+
+                        // On change la valeur des boites de textes et des label
+                        lblTitreText.Content = "Numéro d'employé:";
+                        txtAuthentification.Text = "";
                     }
                         // Sinon, si le type employé à un id de 1 ça veut donc dire que c'est un administrateur donc on affiche la fenêtre d'option administrateur
                     else if (Constante.employe.TypeEmployes.IdTypeEmploye == 1)
@@ -105,6 +113,10 @@ namespace GestResto.UI.Views
                         MessageBox.Show("L'employé identifié comporte un type inconnu. Veuillez entrer les informations de connexion a nouveau", "Type employé non valide", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
                         NoIdentification = null;
                         MDPIdentification = null;
+
+                        // On change la valeur des boites de textes et des label
+                        lblTitreText.Content = "Numéro d'employé:";
+                        txtAuthentification.Text = "";
                     }
                     
                 }
@@ -114,6 +126,10 @@ namespace GestResto.UI.Views
                     MessageBox.Show("Les informations que vous avez ne sont pas valide, veuillez entrer à nouveau les informations", "Champ non valide", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
                     NoIdentification = null;
                     MDPIdentification = null;
+                    
+                    // On change la valeur des boites de textes et des label
+                    lblTitreText.Content = "Numéro d'employé:";
+                    txtAuthentification.Text = "";
                 }
             }
         }
