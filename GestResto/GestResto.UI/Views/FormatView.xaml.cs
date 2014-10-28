@@ -191,7 +191,7 @@ namespace GestResto.UI.Views
             catch (MySql.Data.MySqlClient.MySqlException mysqlException)
             {
                 messageErreur.Clear();  // On s'assure que le message d'erreur soit vide
-                messageErreur.Append("Impossible d'enregistrer le format.\n");
+                messageErreur.Append("Impossible d'enregistrer le format\n");
                 string exceptionMessage = mysqlException.Message;
 
                 if (mysqlException.Number == 1062)
