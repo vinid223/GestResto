@@ -241,6 +241,9 @@ namespace GestResto.UI.Views
             {
                 itemTemp.IdItem = ViewModelItem.AjouterUnItem(itemTemp);
                 ViewModelItem.Item = itemTemp;
+                ViewModelItem.Items.Add(ViewModelItem.Item);
+
+                lbxListeCategorie.ItemsSource = ViewModelItem.Items;
                 Constante.LogNavigation(" a créé un item.");
             }
 

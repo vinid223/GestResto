@@ -20,11 +20,13 @@ namespace GestResto.Logic.Services.NHibernate
 
         public void Create(Item item)
         {
+            session = NHibernateConnexion.OpenSession();
             using (var transaction = session.BeginTransaction())
             {
                 session.Save(item);
                 transaction.Commit();
             }
+            session.Close();
         }
 
         public IList<Item> RetrieveAll()
