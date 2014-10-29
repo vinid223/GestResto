@@ -40,7 +40,7 @@ namespace GestResto.UI.Views
             catch(Exception e)
             {
                 StringBuilder messageErreur = new StringBuilder();
-                string exceptionMessage = e.InnerException.Message;
+                string exceptionMessage = e.ToString();
 
                 messageErreur.Append("Une erreur s'est produite, il est impossible d'afficher la liste des formats :\n");
                 messageErreur.Append(exceptionMessage);

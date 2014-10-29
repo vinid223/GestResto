@@ -35,7 +35,7 @@ namespace GestResto.Logic.Services.NHibernate
         public IList<Format> RetrieveAll()
         {
             sessionLazy = NHibernateConnexion.OpenSession();
-            var result = from c in session.Query<Format>()
+            var result = from c in sessionLazy.Query<Format>()
                          orderby c.EstActif descending
                          select c;
             IList<Format> listeTemp = result.ToList();
@@ -45,12 +45,11 @@ namespace GestResto.Logic.Services.NHibernate
 
         public Format Retrieve(RetrieveFormatArgs args)
         {
-            sessionLazy = NHibernateConnexion.OpenSession();
+            session = NHibernateConnexion.OpenSession();
             var result = from c in session.Query<Format>()
                          where c.IdFormat == args.IIdFormat
                          select c;
 
-            sessionLazy.Close();
             return result.FirstOrDefault();
         }
 
