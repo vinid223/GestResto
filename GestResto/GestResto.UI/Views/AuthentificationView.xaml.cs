@@ -219,7 +219,7 @@ namespace GestResto.UI.Views
                     nouveauText = ancienText.Substring(0, ancienText.Length - 2);
 
                     // On s'assure que le champ mot de passe à bien ue valeur
-                    if (nouveauMDP != null)
+                    if (ancienMDP != null)
                     {
                         nouveauMDP = ancienMDP.Substring(0, ancienText.Length - 2);
                     }
