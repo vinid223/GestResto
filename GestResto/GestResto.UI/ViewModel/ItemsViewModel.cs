@@ -168,5 +168,10 @@ namespace GestResto.UI.ViewModel
             _itemService.Delete(formatitem);
         }
 
+        public void FermerSession()
+        {
+            _itemService.FermerSession();
+        }
+
     }
 }

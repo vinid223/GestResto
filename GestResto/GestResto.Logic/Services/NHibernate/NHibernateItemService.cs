@@ -29,6 +29,7 @@ namespace GestResto.Logic.Services.NHibernate
 
         public IList<Item> RetrieveAll()
         {
+            session = NHibernateConnexion.OpenSession();
             var result = from i in session.Query<Item>()
                 orderby i.EstActif descending
                 select i;
@@ -39,12 +40,11 @@ namespace GestResto.Logic.Services.NHibernate
 
         public Item Retrieve(RetrieveItemArgs args)
         {
-
             var result = from i in session.Query<Item>()
                          where i.IdItem == args.IIdItem
                          select i;
-
-            return result.FirstOrDefault();
+            Item itemTemp = result.FirstOrDefault();
+            return itemTemp;
         }
 
         public void Update(Item item)
@@ -64,6 +64,13 @@ namespace GestResto.Logic.Services.NHibernate
                 transaction.Commit();
             }
         }
+
+        public void FermerSession()
+        {
+            session.Close();
+        }
         #endregion
+
+
     }
 }
