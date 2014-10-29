@@ -15,7 +15,7 @@ namespace GestResto.Logic.Services.NHibernate
     public class NHibernateTableService : ITableService
     {
         private ISession session = NHibernateConnexion.OpenSession();
-        
+        private ISession sessionLazy = NHibernateConnexion.OpenSession();        
 
         #region ITableService Membres
 
@@ -23,11 +23,13 @@ namespace GestResto.Logic.Services.NHibernate
 
         public void Create(Table table)
         {
+            session = NHibernateConnexion.OpenSession();
             using (var transaction = session.BeginTransaction())
             {
                 session.Save(table);
                 transaction.Commit();
             }
+            session.Close();
         }
 
         /// <summary>
@@ -36,31 +38,37 @@ namespace GestResto.Logic.Services.NHibernate
         /// <returns>La liste de tables</returns>
         public IList<Table> RetrieveAll()
         {
-            var result = from i in session.Query<Table>()
+            sessionLazy = NHibernateConnexion.OpenSession();
+            var result = from i in sessionLazy.Query<Table>()
                          orderby i.EstActif descending
                          select i;
 
             IList<Table> listeTemp = result.ToList();
-
             return listeTemp;
         }
 
         public Table Retrieve(RetrieveTableArgs args)
         {
+            session = NHibernateConnexion.OpenSession();
             var result = from c in session.Query<Table>()
                          where c.IdTable == args.IIdTable
                          select c;
+            Table tableTemp = result.FirstOrDefault();
 
-            return result.FirstOrDefault();
+            session.Close();
+
+            return tableTemp;
         }
 
         public void Update(Table table)
         {
+            session = NHibernateConnexion.OpenSession();
             using (var transaction = session.BeginTransaction())
             {
                 session.Update(table);
                 transaction.Commit();
             }
+            session.Close();
         }
     }
 }
