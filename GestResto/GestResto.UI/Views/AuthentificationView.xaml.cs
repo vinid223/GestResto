@@ -91,6 +91,18 @@ namespace GestResto.UI.Views
                         // On change la valeur des boites de textes et des label
                         lblTitreText.Content = "Numéro d'employé:";
                         txtAuthentification.Text = "";
+                        NoIdentification = null;
+                        MDPIdentification = null;
+                    }
+                        // On test si l'employé n'est pas actif.
+                    else if (!Constante.employe.EstActif)
+                    {
+                        Constante.LogErreur("L'employé est inactif.");
+                        MessageBox.Show("L'employé que vous venez d'authentifier est inactif. Veuillez tenter un autre login ou contactez un administrateur.", "Employé inactif", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
+
+                        // On change la valeur des boites de textes et des label
+                        lblTitreText.Content = "Numéro d'employé:";
+                        txtAuthentification.Text = "";
                     }
                         // Sinon, si le type employé à un id de 1 ça veut donc dire que c'est un administrateur donc on affiche la fenêtre d'option administrateur
                     else if (Constante.employe.TypeEmployes.IdTypeEmploye == 1)
@@ -188,19 +200,29 @@ namespace GestResto.UI.Views
             {
                 // On définie une variable pour la nouvelle chaine
                 string nouveauText;
-                string nouveauMDP;
+                string nouveauMDP = null;
 
                 // Si l'ancienne chaine a un seul chiffre on supprime qu'un seul caractère
                 if (ancienText.Length == 1)
                 {
                     nouveauText = ancienText.Substring(0, ancienText.Length - 1);
-                    nouveauMDP = ancienMDP.Substring(0, ancienText.Length - 1);
+
+                    // On s'assure que le champ mot de passe à bien ue valeur
+                    if (ancienMDP != null)
+                    {
+                        nouveauMDP = ancienMDP.Substring(0, ancienText.Length - 1);
+                    }
                 }
                     // Sinon, on supprime 2 caractères puisque nous avons ajouté des espaces entre les chiffres
                 else
                 {
                     nouveauText = ancienText.Substring(0, ancienText.Length - 2);
-                    nouveauMDP = ancienMDP.Substring(0, ancienText.Length - 2);
+
+                    // On s'assure que le champ mot de passe à bien ue valeur
+                    if (nouveauMDP != null)
+                    {
+                        nouveauMDP = ancienMDP.Substring(0, ancienText.Length - 2);
+                    }
                 }
 
                 // On définie le champ texte avec la nouvelle chaine
