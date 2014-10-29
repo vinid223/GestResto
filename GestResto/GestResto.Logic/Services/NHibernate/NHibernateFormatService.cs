@@ -39,7 +39,6 @@ namespace GestResto.Logic.Services.NHibernate
                          orderby c.EstActif descending
                          select c;
             IList<Format> listeTemp = result.ToList();
-            sessionLazy.Close();
             return listeTemp;
         }
 

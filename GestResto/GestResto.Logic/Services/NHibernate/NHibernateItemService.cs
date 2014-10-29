@@ -63,8 +63,11 @@ namespace GestResto.Logic.Services.NHibernate
                 transaction.Commit();
             }
         }
+
+        public void ClearSession()
+        {
+            session.Clear();
+        }
         #endregion
-
-
     }
 }
