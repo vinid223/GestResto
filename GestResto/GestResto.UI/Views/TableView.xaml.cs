@@ -37,17 +37,48 @@ namespace GestResto.UI
         private void btnEnregistrer_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             Constante.onReleaseButton(sender, e); // On enlève l'effet du bouton pressé
+
+            int i = 0;
+            // Vérification s'il existe un doublons.
+            foreach (var table in ViewModel.Tables)
+            {
+                i = ViewModel.Tables.Where(j => j.NoTable == table.NoTable).Count();
+                // S'il a plus d'une table identique, il y a un doublon.
+                if(i > 1)
+                {
+                    MessageBox.Show("Il existe plusieurs tables identiques, veuillez avoir seulement des numéros de table uniques.", "Erreur", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
+                    return;
+                }
+            }
+
+
             ViewModel.EnregistrerTable(ViewModel.table);
         }
         private void btnAjouter_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
+            bool Existe = false;
             Constante.onReleaseButton(sender, e); // On enlève l'effet du bouton pressé
 
             Table tableTemp = new Table();
 
-            tableTemp.IdTable = ViewModel.AjouterUneTable(tableTemp);
-            ViewModel.table = tableTemp;
-            ViewModel.Tables.Add(ViewModel.table);
+
+
+            // Si la table par défaut existe déjà, je ne l'ajoute pas à la BD, je fais seulement l'afficher.
+            foreach (var table in ViewModel.Tables)
+            {
+                if (table.NoTable == tableTemp.NoTable)
+                {
+                    ViewModel.table = table;
+                    Existe = true;
+                }
+            }
+
+            if (!Existe)
+            {
+                tableTemp.IdTable = ViewModel.AjouterUneTable(tableTemp);
+                ViewModel.table = tableTemp;
+                ViewModel.Tables.Add(ViewModel.table);
+            }
 
             
         }

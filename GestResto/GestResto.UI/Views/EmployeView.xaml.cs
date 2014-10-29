@@ -33,24 +33,23 @@ namespace GestResto.UI.Views
         public EmployeView()
         {
             InitializeComponent();
+            // On tente d'obtenir tous le employés
+            try
+            {
+                DataContext = new EmployeViewModel();
+            }
+            // Dans le cas d'une erreur
+            catch (Exception e)
+            {
+                StringBuilder messageErreur = new StringBuilder();
+                string exceptionMessage = e.InnerException.Message;
 
+                messageErreur.Append("Une erreur s'est produite, il est impossible d'afficher la liste des employés :\n");
+                messageErreur.Append(exceptionMessage);
 
-
-
-
-
-            // À FAIRE UN TRY CATCH - SIMON
-            DataContext = new EmployeViewModel();
-
-
-
-
-
-
-
-
-
-
+                MessageBox.Show(messageErreur.ToString(), "Une erreur s'est produite", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
+                Constante.LogErreur("Impossible d'afficher la liste des employés : " + exceptionMessage);
+            }
             // On va charger la source de notre liste d'employé
             listeBoutonEmploye.ItemsSource = ViewModel.Employes;
         }
@@ -60,42 +59,101 @@ namespace GestResto.UI.Views
         /// </summary>
         private void btnEnregistrer_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            Constante.onReleaseButton(sender, e); // On enlève l'effet du bouton presséConstante.onReleaseButton(sender, e); // On enlève l'effet du bouton pressé
+            Constante.onReleaseButton(sender, e); // On enlève l'effet du bouton pressé
+            bool erreur = false;
+            StringBuilder messageErreur = new StringBuilder();
 
             // On test si un des champs sont désactivé pour éviter de créer une erreur lors de la sauvegarde
             if (!txtNom.IsEnabled)
             {
-                MessageBox.Show("Vous devez avoir choisi un Employer pour sauvegarder", "Erreur de sauvegarde", MessageBoxButton.OK, MessageBoxImage.Exclamation);
-                return;
+                erreur = true; 
+                messageErreur.Append("Vous devez sélectionner un employé avant d'enregistrer\n");
             }
-
-            // On définie les variables nécessaires pour le test d'erreur
-            bool erreur = false;
-            StringBuilder messageErreur = new StringBuilder();
-
-            // Si un des champs est vide, on informe l'utilisateur
-            if (ViewModel.employe.Nom           == "" ||
-                ViewModel.employe.Adresse       == "" ||
-                ViewModel.employe.CodePostal    == "" ||
-                ViewModel.employe.MotDePasse    == "" ||
-                ViewModel.employe.NAS           == "" ||
-                ViewModel.employe.NoEmploye     == "" ||
-                ViewModel.employe.Prenom        == "" ||
-                ViewModel.employe.Salaire       == null ||
-                ViewModel.employe.Telephone     == "" ||
-                ViewModel.employe.Ville         == "")
+            // On peut valider les champs
+            else 
             {
-                erreur = true;
-                // On définie le message d'erreur
-                messageErreur.Append("Tous les champs doivent être remplis afin d'enregistrer\n");
+                // Si le numéro de l'emploé n'est pas valide
+                if (ViewModel.employe.NoEmploye == "")
+                {
+                    erreur = true;
+                    messageErreur.Append("Vous devez choisir un numéro d'employé\n");
+                    Constante.LogErreur("Aucun numéro d'employé n'est indiquée pour l'employé");
+                }
+                if (!Regex.IsMatch(ViewModel.employe.NoEmploye, @"^([0-9]{1,4})$"))
+                {
+                    erreur = true;
+                    messageErreur.Append("Le numéro d'employé doit être entre 1 et 4 chiffre inclusivement\n");
+                    Constante.LogErreur("Le numéro d'employé n'est pas entre 1 et 4 chiffre inclusivement");
+                }
+                // Si le prénom est vide
+                if (ViewModel.employe.Prenom == "")
+                {
+                    erreur = true;
+                    messageErreur.Append("Vous devez inscrire un prénom\n");
+                    Constante.LogErreur("Aucun prénom n'est indiquée pour l'employé");
+                }
+                // Si le nom est vide
+                if (ViewModel.employe.Nom == "")
+                {
+                    erreur = true;
+                    messageErreur.Append("Vous devez inscrire un nom\n");
+                    Constante.LogErreur("Aucun nom n'est indiquée pour l'employé");
+                }
+                // Si le numéro de téléphone n'est pas valide | Peut ête nul
+                if (!Regex.IsMatch(ViewModel.employe.Telephone, @"^([0-9]{10}|)$"))
+                {
+                    erreur = true;
+                    messageErreur.Append("Le numéro de téléphone doit contenir 10 chiffres\n");
+                    Constante.LogErreur("Le numéro de téléphone de l'employé ne contient pas 10 chiffres");
+                }
+                // Si le mot de passe n'est pas valide
+                if (ViewModel.employe.MotDePasse == "")
+                {
+                    erreur = true;
+                    messageErreur.Append("Vous devez choisir un mot de passe\n");
+                    Constante.LogErreur("Aucun mot de passe n'est indiquée pour l'employé");
+                }
+                if (!Regex.IsMatch(ViewModel.employe.MotDePasse, @"^([0-9]{2,4})$"))
+                {
+                    erreur = true;
+                    messageErreur.Append("Le mot de passe doit être entre 2 et 4 chiffre inclusivement\n");
+                    Constante.LogErreur("Le mot de passe n'est pas entre 2 et 4 chiffre inclusivement");
+                }
+                // Si le code postal n'est pas valide | Peut ête nul
+                if (!Regex.IsMatch(ViewModel.employe.CodePostal, @"^([a-zA-Z][0-9]){3}|$"))
+                {
+                    erreur = true;
+                    messageErreur.Append("Le code postal doit être sous le format A1A1A1\n");
+                    Constante.LogErreur("Le code postal de l'employé n'est pas sous le format A1A1A1");
+                }
+                if (ViewModel.employe.NAS == "")
+                {
+                    erreur = true;
+                    messageErreur.Append("Vous devez choisir un numéro d'assurance social (NAS)\n");
+                    Constante.LogErreur("Aucun numéro d'assurance social (NAS) n'est indiquée pour l'employé");
+                }
+                // Si le NAS n'est pas valide
+                if (!Regex.IsMatch(ViewModel.employe.NAS, @"^([0-9]{9})$"))
+                {
+                    erreur = true;
+                    messageErreur.Append("Le numéro d'assurance social (NAS) doit contenir 9 chiffres\n");
+                    Constante.LogErreur("Le numéro d'assurance social (NAS) de l'employé ne contient pas 9 chiffres");
+                }
+                // On vérifie dans le champ du taux horaire
+                if (!Regex.IsMatch(txtTauxHoraire.Text, @"^\d{1,6}(?:\.\d{0,2})?$"))
+                {
+                    erreur = true;
+                    messageErreur.Append("Le salaire de l'employé doit être un nombre numérique d'au maximum 6 chiffres et maximum 2 décimales\n");
+                    Constante.LogErreur("Le salaire de l'employé n'est pas valide");
+                }
             }
-
+            
             // S'il y a une erreur, on affiche un message
             if (erreur)
             {
                 // On affiche un message d'erreur à l'utilisateur et on le log
                 MessageBox.Show(messageErreur.ToString(), "Informations incomplètes", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
-                Constante.LogErreur("Les champs d'enregistrement d'un Employé ne sont pas valides: " + messageErreur.ToString());
+                return; // On retourne afin d'évite de faire le code qui suit
             }
             else
             {
@@ -104,33 +162,59 @@ namespace GestResto.UI.Views
                 {
                     ViewModel.EnregistrerUnEmployer(ViewModel.employe);
                 }
-                    // S'il y a une erreur on va chercher le message et on le log
+                // S'il y a eu un erreur dans l'enregistrement du format avec MySql
+                catch (MySql.Data.MySqlClient.MySqlException mysqlException)
+                {
+                    messageErreur.Clear();  // On s'assure que le message d'erreur soit vide
+                    messageErreur.Append("Impossible d'enregistrer le format.\n");
+                    string exceptionMessage = mysqlException.Message;
+
+                    // S'il y a un erreur de doublon
+                    if(mysqlException.Number == 1062)
+                    {
+                        // On vérifie si l'exception provient du libellé
+                        if (Regex.IsMatch(exceptionMessage, @"'noEmploye'$"))
+                        {
+                            messageErreur.Append("Le numéro d'employé doit être unique");
+                            Constante.LogErreur("Le numéro d'employé n'est pas unique lors de l'enregistrement d'un employé");
+                        }
+
+                        // On vérifie si l'exception provient du nom
+                        else if (Regex.IsMatch(exceptionMessage, @"'NAS'$"))
+                        {
+                            messageErreur.Append("Le numéro d'assurance sociale (NAS) doit être unique");
+                            Constante.LogErreur("e numéro d'assurance sociale (NAS) n'est pas unique lors de l'enregistrement d'un employé");
+                        }
+                    }
+                    else
+                    {
+                        messageErreur.Append("Erreur inconnue : ");
+                        messageErreur.Append(exceptionMessage);
+                        Constante.LogErreur("Erreur inconnue : " + exceptionMessage + " lors de l'enregistrement d'un employé");
+                    }
+
+                    // On affiche le mmessage d'erreur
+                    MessageBox.Show(messageErreur.ToString(), "Erreur", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
+                    return; // On retourne afin d'évite de faire le code qui suit
+                }
+                // Pour toute autre exception
                 catch (Exception exception)
                 {
                     string exceptionMessage = exception.InnerException.Message;
                     messageErreur.Clear();  // On s'assure que le message d'erreur soit vide
 
-                    messageErreur.Append("Impossible d'enregistrer l'employer.\n");
+                    messageErreur.Append("Impossible d'enregistrer l'employé\n");
 
-
-
-
-
-
-
-                    // SIMON TU AS DU STOCK À FAIRE ICI
-
-
-
-
-
+                    messageErreur.Append("Erreur inconnue : ");
+                    messageErreur.Append(exceptionMessage);
+                    Constante.LogErreur("Erreur inconnue : " + exceptionMessage + " lors de l'enregistrement d'un employé");
 
 
                     // On affiche le mmessage d'erreur
                     MessageBox.Show(messageErreur.ToString(), "Erreur", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
-
+                    return; // On retourne afin d'évite de faire le code qui suit
                 }
-
+                Constante.LogNavigation("Enregistrement de l'employé " + ViewModel.employe.Nom.ToString());
             }
         }
 
@@ -152,13 +236,42 @@ namespace GestResto.UI.Views
                 // On insert dans la base de donnée la nouvelle catégorie et on en retire l'id
                 employeTemp.IdEmploye = ViewModel.AjouterUnEmployer(employeTemp);
             }
+            catch (MySql.Data.MySqlClient.MySqlException mysqlException)
+            {
+                messageErreur.Clear();  // On s'assure que le message d'erreur soit vide
+                messageErreur.Append("Impossible d'enregistrer l'employé\n");
+                string exceptionMessage = mysqlException.Message;
+
+                if (mysqlException.Number == 1062)
+                {
+                    // On vérifie s'il y a un doublon
+                    if (Regex.IsMatch(exceptionMessage, @"'NAS'$") || Regex.IsMatch(exceptionMessage, @"'noEmploye'$"))
+                    {
+                        messageErreur.Append("Un nouvel employé a déjà été ajouté. Vous devez le renommer avant d'en ajouter un nouveau");
+                        Constante.LogErreur("Tentative d'ajout d'un employé sans avoir modifié le précédent");
+                    }
+                }
+                else
+                {
+                    messageErreur.Append("Erreur inconnue : ");
+                    messageErreur.Append(exceptionMessage);
+                    Constante.LogErreur("Erreur inconnue : " + exceptionMessage + " lors de l'ajout d'un employé");
+                }
+
+                // On affiche le mmessage d'erreur
+                MessageBox.Show(messageErreur.ToString(), "Erreur", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
+                return; // On retourne afin d'évite de faire le code qui suit
+            }
+            // Pour toute autre exception
             catch (Exception exception)
             {
                 string exceptionMessage = exception.InnerException.Message;
                 messageErreur.Clear();  // On s'assure que le message d'erreur soit vide
-
                 messageErreur.Append("Impossible d'ajouter un employé.\n");
-
+                messageErreur.Append("Erreur inconnue : " + exceptionMessage);
+                Constante.LogErreur(messageErreur.ToString() + " lors de l'ajout d'un employé");
+                
+                
                 // On vérifie si l'exception provient du nom
                 if (Regex.IsMatch(exceptionMessage, @"'noEmploye'$"))
                 {
@@ -167,7 +280,8 @@ namespace GestResto.UI.Views
                 }
                 else
                 {
-                    messageErreur.Append("Erreur inconnue : " + exceptionMessage);
+                    messageErreur.Append("Erreur inconnue : ");
+                    messageErreur.Append(exceptionMessage);
                     Constante.LogErreur("Erreur inconnue : " + exceptionMessage + " lors de l'ajout d'un employé");
                 }
 
@@ -188,6 +302,7 @@ namespace GestResto.UI.Views
             // On rafraichie nottre liste view pour afficher le bouton ajouté
             ICollectionView view = CollectionViewSource.GetDefaultView(listeBoutonEmploye.ItemsSource);
             view.Refresh();
+            Constante.LogNavigation("Ajout d'un nouvel employé");
         }
 
         /// <summary>

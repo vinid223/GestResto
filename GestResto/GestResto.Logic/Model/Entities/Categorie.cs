@@ -96,6 +96,11 @@ namespace GestResto.Logic.Model.Entities
 
             return this.IdCategorie == p.IdCategorie;
         }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
         #endregion
     }
 }

@@ -107,6 +107,25 @@ namespace GestResto.UI.Views
             {
                 Constante.onReleaseButton(sender, e); // On enlève l'effet du bouton pressé
 
+
+                // Boucle qui permet de vérifier si les formats sont uniques,
+                // pour empêcher le droit d'avoir 2 formats grands avec deux prix différents.
+                int i = 0;
+                foreach (var formatitem in ViewModelItem.Item.Formats)
+                {
+                    foreach (var formatitem2 in ViewModelItem.Item.Formats)
+                    {
+                        if (formatitem.FormatAssocie == formatitem2.FormatAssocie)
+                            i++;
+                    }
+                }
+                // Vérification s'il a plus de format identique que le nombre de formatItem dans la liste.
+                if (i > ViewModelItem.Item.Formats.Count)
+                {
+                    MessageBox.Show("Il existe plusieurs formats identiques, veuillez avoir seulement des formats uniques associés au prix.", "Erreur", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
+                    return;
+                }
+
                 // Avant d'enregistrer l'item, je dois vérifier si les formatItems ne sont pas null.
                 foreach (var formatItem in ViewModelItem.Item.Formats)
                 {

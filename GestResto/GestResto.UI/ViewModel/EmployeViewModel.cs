@@ -95,8 +95,20 @@ namespace GestResto.UI.ViewModel
         /// <param name="employe">Employé à modifier</param>
         public void EnregistrerUnEmployer(Employe employe)
         {
-            // On effectue l'update dans la base de données
-            _employeService.Update(employe);
+            try
+            {
+                // On effectue l'update dans la base de données
+                _employeService.Update(employe);
+            }
+            catch (NHibernate.Exceptions.GenericADOException adoE)
+            {
+               MySql.Data.MySqlClient.MySqlException mysqlExeception = (adoE.InnerException as MySql.Data.MySqlClient.MySqlException);
+               throw mysqlExeception;
+            }
+            catch(Exception e)
+            {
+                throw e;
+            }
         }
 
         /// <summary>
@@ -106,8 +118,20 @@ namespace GestResto.UI.ViewModel
         /// <returns>Retourne le ID de l'employé inséré</returns>
         public int AjouterUnEmployer(Employe employe)
         {
-            // On insert l'enregistrement dans la base de donnée
-            _employeService.Create(employe);
+             try
+            {
+                // On insert l'enregistrement dans la base de donnée
+                _employeService.Create(employe);
+            }
+            catch (NHibernate.Exceptions.GenericADOException adoE)
+            {
+                MySql.Data.MySqlClient.MySqlException mysqlExeception = (adoE.InnerException as MySql.Data.MySqlClient.MySqlException);
+                throw mysqlExeception;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
 
             // On va chercher l'id lors de l'enregistrement
             int i;
