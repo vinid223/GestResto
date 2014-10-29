@@ -29,7 +29,22 @@ namespace GestResto.UI
         public TableView()
         {
             InitializeComponent();
-            DataContext = new TableViewModel();
+            try
+            {
+                DataContext = new TableViewModel();
+            }
+            // Dans le cas d'une erreur
+            catch (Exception e)
+            {
+                StringBuilder messageErreur = new StringBuilder();
+                string exceptionMessage = e.InnerException.Message;
+
+                messageErreur.Append("Une erreur s'est produite, il est impossible d'afficher la liste des tables :\n");
+                messageErreur.Append(exceptionMessage);
+
+                MessageBox.Show(messageErreur.ToString(), "Une erreur s'est produite", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
+                Constante.LogErreur("Impossible d'afficher la liste des tables : " + exceptionMessage);
+            }
 
             lvwListeTable.ItemsSource = ViewModel.Tables;
         }
@@ -37,6 +52,21 @@ namespace GestResto.UI
         private void btnEnregistrer_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             Constante.onReleaseButton(sender, e); // On enlève l'effet du bouton pressé
+
+            // Si les champs ne sont pas activé, ça veut dire qu'aucun format n'est sélectionné
+            if (!txtNumeroTable.IsEnabled)
+            {
+                MessageBox.Show("Vous devez sélectionner une table avant d'enregistrer\n", "Information", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
+                Constante.LogErreur("Les champs d'enregistrement d'une table ne sont pas valides/nAucun numéro de table choisi");
+                return;
+            }
+            
+            if(txtNumeroTable.Text == "")
+            {
+                MessageBox.Show("Vous devez choisir un numéro de table", "Information", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
+                Constante.LogErreur("Les champs d'enregistrement d'une table ne sont pas valides/nAucun numéro de table choisi");
+                return;
+            }
 
             int i = 0;
             // Vérification s'il existe un doublons.
@@ -51,7 +81,7 @@ namespace GestResto.UI
                 }
             }
 
-
+            Constante.LogNavigation("Enregistrement de table #" + ViewModel.table.NoTable);
             ViewModel.EnregistrerTable(ViewModel.table);
         }
         private void btnAjouter_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
@@ -70,6 +100,8 @@ namespace GestResto.UI
                 {
                     ViewModel.table = table;
                     Existe = true;
+                    MessageBox.Show("Une nouvelle table a déjà été ajouté. Vous devez le renommer avant d'en ajouter une nouvelle", "Erreur", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
+                    Constante.LogErreur("Tentative d'ajout d'une table sans avoir modifié la précédente");
                 }
             }
 
@@ -78,13 +110,13 @@ namespace GestResto.UI
                 tableTemp.IdTable = ViewModel.AjouterUneTable(tableTemp);
                 ViewModel.table = tableTemp;
                 ViewModel.Tables.Add(ViewModel.table);
+                Constante.LogNavigation("Ajout d'une nouvelle table");
             }
 
             
         }
         private void btnDeconnexion_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            Constante.onReleaseButton(sender, e); // On enlève l'effet du bouton pressé
             // On appel la fonction de la classe constante qui permet de déconnecter l'utilisateur en cour
             Constante.Deconnexion();
         }
@@ -110,6 +142,10 @@ namespace GestResto.UI
         {
             Table table = (Table)((sender as Button).CommandParameter);
             ViewModel.table = table;
+
+            // On active les champs pour permettre la modification et l'ajout d'information
+            txtNumeroTable.IsEnabled = true;
+            chkActif.IsEnabled = true;
         }
 
         /// <summary>
@@ -118,12 +154,6 @@ namespace GestResto.UI
         /// <param name="EstActif"></param>
         private void ModifierDispoChampsItem(bool EstActif, bool BoutonsAussi = false)
         {
-
-            if (BoutonsAussi)
-            {
-                btnAjouter.IsEnabled = EstActif;
-                btnEnregistrer.IsEnabled = EstActif;
-            }
 
         }
 
