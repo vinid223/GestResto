@@ -18,6 +18,5 @@ namespace GestResto.Logic.Services.Definitions
         Item Retrieve(RetrieveItemArgs args);
         void Update(Item item);
         void Delete(FormatItem item);
-        void FermerSession();
     }
 }

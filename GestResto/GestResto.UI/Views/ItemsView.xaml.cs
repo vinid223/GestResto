@@ -63,7 +63,9 @@ namespace GestResto.UI.Views
                 lbxListeCategorie.SelectedItem = ViewModelItem.categTest;
             }
             else
+            {
                 ModifierDispoChampsItem(false, true);
+            }
 
         }
         /// <summary>
@@ -284,7 +286,6 @@ namespace GestResto.UI.Views
         // Fonction qui sert à revenir à la view précédente
         private void btnRetour_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            ViewModelItem.FermerSession();
             IApplicationService mainVM = ServiceFactory.Instance.GetService<IApplicationService>();
             mainVM.ChangeView<OptionsAdministrationView>(new OptionsAdministrationView());
         }

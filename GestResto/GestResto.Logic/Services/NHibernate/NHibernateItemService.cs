@@ -29,7 +29,6 @@ namespace GestResto.Logic.Services.NHibernate
 
         public IList<Item> RetrieveAll()
         {
-            session = NHibernateConnexion.OpenSession();
             var result = from i in session.Query<Item>()
                 orderby i.EstActif descending
                 select i;
@@ -63,11 +62,6 @@ namespace GestResto.Logic.Services.NHibernate
                 session.Delete(formatItem);
                 transaction.Commit();
             }
-        }
-
-        public void FermerSession()
-        {
-            session.Close();
         }
         #endregion
 
