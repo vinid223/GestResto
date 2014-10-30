@@ -26,11 +26,11 @@
             <!-- La liste de la commande -->
             <ScrollViewer Grid.Column="0" Grid.Row="1" VerticalScrollBarVisibility="Auto"> <!-- Lorsque les boutons ne rentrent plus dans la fenêtre, une scoll bar apparait -->
                 <ListBox Margin="5,5,5,5">
-                    <ListBoxItem>Pizza Moyenne</ListBoxItem>
-                    <ListBoxItem Padding="10,0,0,0" Background="#cee9ff">Tout garni</ListBoxItem>
-                    <ListBoxItem Padding="10,0,0,0">Extra bacon</ListBoxItem>
-                    <ListBoxItem Background="#cee9ff">1 Root Bear</ListBoxItem>
-                    <ListBoxItem Padding="10,0,0,0" >Pas de glace</ListBoxItem>
+                    <ListBoxItem Style="{StaticResource ListboxItemRow}" >Pizza Moyenne</ListBoxItem>
+                    <ListBoxItem Style="{StaticResource ListboxItemSecondRowChild}">Tout garni</ListBoxItem>
+                    <ListBoxItem Style="{StaticResource ListboxItemRowChild}">Extra bacon</ListBoxItem>
+                    <ListBoxItem Style="{StaticResource ListboxItemSecondRow}">1 Root Bear</ListBoxItem>
+                    <ListBoxItem Style="{StaticResource ListboxItemRowChild}" >Pas de glace</ListBoxItem>
                 </ListBox>
             </ScrollViewer>
             <Label Foreground="White" Content="Client #1" Grid.Column="0" HorizontalAlignment="Center" Margin="0,5,0,0" VerticalAlignment="Top" Height="26" FontSize="14" FontWeight="SemiBold"/>
