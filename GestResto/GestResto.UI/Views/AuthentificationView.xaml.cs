@@ -103,6 +103,8 @@ namespace GestResto.UI.Views
                         // On change la valeur des boites de textes et des label
                         lblTitreText.Content = "Numéro d'employé:";
                         txtAuthentification.Text = "";
+                        NoIdentification = null;
+                        MDPIdentification = null;
                     }
                         // Sinon, si le type employé à un id de 1 ça veut donc dire que c'est un administrateur donc on affiche la fenêtre d'option administrateur
                     else if (Constante.employe.TypeEmployes.IdTypeEmploye == 1)
