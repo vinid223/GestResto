@@ -38,7 +38,7 @@ namespace GestResto.UI.Views
             {
                 DataContext = new ItemsViewModel();
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 messageErreur.Clear();
                 string exceptionMessage = e.InnerException.Message;
@@ -63,9 +63,7 @@ namespace GestResto.UI.Views
                 lbxListeCategorie.SelectedItem = ViewModelItem.categTest;
             }
             else
-            {
                 ModifierDispoChampsItem(false, true);
-            }
 
         }
         /// <summary>
@@ -88,33 +86,11 @@ namespace GestResto.UI.Views
         {
             FormatItem formatitem = (FormatItem)((sender as Button).CommandParameter);
 
-            try
-            {
-                ViewModelItem.Item.Formats.Remove(formatitem);
-                listeFormatItemASupprimer.Add(formatitem);
-            }
-
-            catch (Exception exception)
-            {
-                string exceptionMessage = exception.InnerException.Message;
-                messageErreur.Clear();  // On s'assure que le message d'erreur soit vide
-
-                messageErreur.Append("Impossible de supprimer le format associé à l'item\n");
-
-
-                messageErreur.Append("Erreur inconnue : ");
-                messageErreur.Append(exceptionMessage);
-                Constante.LogErreur(messageErreur + " lors de la supression d'un format-item");
-
-
-                // On affiche le mmessage d'erreur
-                MessageBox.Show(messageErreur.ToString(), "Erreur", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
-                return; // On retourne afin d'évite de faire le code qui suit
-            }
+            ViewModelItem.Item.Formats.Remove(formatitem);
+            listeFormatItemASupprimer.Add(formatitem);
 
             dataGridPrix.CommitEdit();
             dataGridPrix.Items.Refresh();
-
         }
 
         /// <summary>
@@ -125,26 +101,47 @@ namespace GestResto.UI.Views
         private void btnEnregistrer_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             messageErreur.Clear();
-            Constante.onReleaseButton(sender, e); // On enlève l'effet du bouton pressé
 
             // Si l'item est null, je ne peux pas l'enregistrer.
             if (ViewModelItem.Item != null)
             {
+                Constante.onReleaseButton(sender, e); // On enlève l'effet du bouton pressé
+
+
                 // Boucle qui permet de vérifier si les formats sont uniques,
-                // pour empêcher le droit d'avoir 2 formats grands avec deux prix différents.
-                int i = 0;
-                foreach (var formatitem in ViewModelItem.Item.Formats)
+                // pour empêcher le droit d'avoir 2 formats grands avec deux prix différents. 
+                if (ViewModelItem.Item.Formats != null)
                 {
-                    foreach (var formatitem2 in ViewModelItem.Item.Formats)
+                    int i = 0;
+                    foreach (var formatitem in ViewModelItem.Item.Formats)
                     {
-                        if (formatitem.FormatAssocie == formatitem2.FormatAssocie)
-                            i++;
+                        foreach (var formatitem2 in ViewModelItem.Item.Formats)
+                        {
+                            if (formatitem.FormatAssocie == formatitem2.FormatAssocie)
+                                i++;
+                        }
+                    }
+
+                    // Vérification s'il a plus de format identique que le nombre de formatItem dans la liste.
+                    if (i > ViewModelItem.Item.Formats.Count)
+                    {
+                        MessageBox.Show("Il existe plusieurs formats identiques, veuillez avoir seulement des formats uniques associés au prix.", "Erreur", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
+                        Constante.LogErreur("Il existe plusieurs formats identiques de l'item, veuillez avoir seulement des formats uniques associés au prix.");
+                        return;
                     }
                 }
-                // Vérification s'il a plus de format identique que le nombre de formatItem dans la liste.
-                if (i > ViewModelItem.Item.Formats.Count)
+                else
                 {
-                    MessageBox.Show("Il existe plusieurs formats identiques, veuillez avoir seulement des formats uniques associés au prix.", "Erreur", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
+                    MessageBox.Show("L'item doit posséder au moins un prix et un format associé.", "Erreur", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
+                    Constante.LogErreur("L'item doit posséder au moins un prix et un format associé.");
+                    return;
+                }
+
+                // Si la catégorie n'est pas sélectionnée
+                if (ViewModelItem.Item.Categories == null)
+                {
+                    MessageBox.Show("L'item doit posséder une catégorie.", "Erreur", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
+                    Constante.LogErreur("L'item doit posséder une catégorie.");
                     return;
                 }
 
@@ -152,10 +149,11 @@ namespace GestResto.UI.Views
                 foreach (var formatItem in ViewModelItem.Item.Formats)
                 {
                     // S'il a un formatItem ayant un champ null, le formatItem n'est pas complété.
-                    if(formatItem.FormatAssocie == null)
+                    if (formatItem.FormatAssocie == null)
                     {
                         // On affiche un mmessage d'erreur
                         MessageBox.Show("Votre prix et le format associé ne doit pas être vide.", "Erreur", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
+                        Constante.LogErreur("Votre prix et le format associé ne doit pas être vide d'un item.");
                         return;
                     }
                 }
@@ -167,7 +165,7 @@ namespace GestResto.UI.Views
                     ViewModelItem.DeleteFormatItem(formatItem);
                 }
                 // Réinitialise.
-                listeFormatItemASupprimer.Clear() ;
+                listeFormatItemASupprimer.Clear();
 
                 try
                 {
@@ -222,20 +220,18 @@ namespace GestResto.UI.Views
             MouseButtonEventArgs m = null;
             Constante.onReleaseButton(sender, m); // On enlève l'effet du bouton pressé
             // Création d'un item temporaire.
-            Item itemTemp = new Item("Entrez le nom de l'item.", null, null, true);
+            Item itemTemp = new Item("Entrez le nom de l'item.", null, null, false);
 
-           
+            Constante.LogNavigation(" a créé un item.");
 
             // Si l'item par défaut existe déjà, je ne l'ajoute pas à la BD, je fais seulement l'afficher.
             foreach (var item in ViewModelItem.Items)
             {
                 if (item.Nom == itemTemp.Nom)
-	            {
+                {
                     ViewModelItem.Item = item;
                     Existe = true;
-                    MessageBox.Show("Un nouveau format a déjà été ajouté. Vous devez le renommer avant d'en ajouter un nouveau", "Erreur", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
-                    Constante.LogErreur("Tentative d'ajout d'un format sans avoir modifié le précédent");
-	            }
+                }
             }
 
             // Si l'item par défaut n'existe pas, j'utilise le nouvel item avec l'item temporaire. 
@@ -243,10 +239,6 @@ namespace GestResto.UI.Views
             {
                 itemTemp.IdItem = ViewModelItem.AjouterUnItem(itemTemp);
                 ViewModelItem.Item = itemTemp;
-                ViewModelItem.Items.Add(ViewModelItem.Item);
-
-                lbxListeCategorie.ItemsSource = ViewModelItem.Items;
-                Constante.LogNavigation(" a créé un item.");
             }
 
         }
@@ -286,7 +278,6 @@ namespace GestResto.UI.Views
         // Fonction qui sert à revenir à la view précédente
         private void btnRetour_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            ViewModelItem.ClearSession();
             IApplicationService mainVM = ServiceFactory.Instance.GetService<IApplicationService>();
             mainVM.ChangeView<OptionsAdministrationView>(new OptionsAdministrationView());
         }
@@ -307,12 +298,12 @@ namespace GestResto.UI.Views
             cboCategorieLiee.IsEnabled = EstActif;
             btnAjoutFormatItem.IsEnabled = EstActif;
 
-            if(BoutonsAussi)
+            if (BoutonsAussi)
             {
                 btnAjouter.IsEnabled = EstActif;
                 btnEnregistrer.IsEnabled = EstActif;
             }
-            
+
         }
 
     }
