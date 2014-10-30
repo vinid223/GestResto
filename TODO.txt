@@ -1,4 +1,18 @@
 TODO
 
-Rendre les boutons �Enregistrer� Disable par d�fault
-Rendre tous les champs Disable par d�faut
+Rendre les boutons «Enregistrer» Disable par défault
+Rendre tous les champs Disable par défaut
+
+Try catch sur loading de toutes les views. Désactiver les boutons si on a une erreur a la bd
+
+Ajouter les log aux commandes
+
+Ajouter des commentaires
+
+Modifier mot de passe pour afficher des points
+
+idRestaurant dans employé dans la bd. Not null pour le moment mais vérifier
+
+S'assurer qu'on enregistre avant de revenir, sinon supprimer l'objet ajouté.
+
+Dans item, s'assurer qu'il y a au moins un format.
