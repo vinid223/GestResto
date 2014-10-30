@@ -11,7 +11,7 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <Grid Grid.Column="0" Style="{StaticResource BoutonGrid}" Name="btnRetour" MouseLeftButtonDown="MouseLeftButtonDown" MouseLeftButtonUp="btnRetour_MouseLeftButtonUp">
+        <Grid Grid.Column="0" Style="{StaticResource BoutonGrid}" Name="btnRetour" MouseLeftButtonDown="btn_MouseLeftButtonDown" MouseLeftButtonUp="btnRetour_MouseLeftButtonUp">
             <Grid.RowDefinitions>
                 <RowDefinition/>
                 <RowDefinition Height="30"/>
@@ -25,7 +25,7 @@
 
         <StackPanel Grid.Column="1"  Orientation="Horizontal" HorizontalAlignment="Right" Grid.ColumnSpan="2">
 
-            <Grid Name="btnSelection" Grid.Column="1" Style="{StaticResource BoutonGrid}" MouseLeftButtonDown="MouseLeftButtonDown" MouseLeftButtonUp="btnSelection_MouseLeftButtonUp">
+            <Grid Name="btnSelection" Grid.Column="1" Style="{StaticResource BoutonGrid}" MouseLeftButtonDown="btn_MouseLeftButtonDown" MouseLeftButtonUp="btnSelection_MouseLeftButtonUp">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition Height="30"/>
@@ -36,7 +36,7 @@
                 <Label Style="{StaticResource BoutonLabel}">Sélection</Label>
             </Grid>
 
-            <Grid Name="btnJoindre" Grid.Column="1" Style="{StaticResource BoutonGrid}" MouseLeftButtonDown="MouseLeftButtonDown" MouseLeftButtonUp="btnJoindre_MouseLeftButtonUp">
+            <Grid Name="btnJoindre" Grid.Column="1" Style="{StaticResource BoutonGrid}" MouseLeftButtonDown="btn_MouseLeftButtonDown" MouseLeftButtonUp="btnJoindre_MouseLeftButtonUp">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition Height="30"/>
@@ -47,7 +47,7 @@
                 <Label Style="{StaticResource BoutonLabel}">Joindre</Label>
             </Grid>
 
-            <Grid Name="btnDiviser" Grid.Column="1" Style="{StaticResource BoutonGrid}" MouseLeftButtonDown="MouseLeftButtonDown" MouseLeftButtonUp="btnDiviser_MouseLeftButtonUp">
+            <Grid Name="btnDiviser" Grid.Column="1" Style="{StaticResource BoutonGrid}" MouseLeftButtonDown="btn_MouseLeftButtonDown" MouseLeftButtonUp="btnDiviser_MouseLeftButtonUp">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition Height="30"/>
@@ -58,7 +58,7 @@
                 <Label Style="{StaticResource BoutonLabel}">Diviser</Label>
             </Grid>
 
-            <!--<Grid Name="btnImprimer" Grid.Column="1" Style="{StaticResource BoutonGrid}" MouseLeftButtonDown="MouseLeftButtonDown" MouseLeftButtonUp="btnImprimer_MouseLeftButtonDown">
+            <!--<Grid Name="btnImprimer" Grid.Column="1" Style="{StaticResource BoutonGrid}" MouseLeftButtonDown="btn_MouseLeftButtonDown" MouseLeftButtonUp="btnImprimer_MouseLeftButtonDown">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition Height="30"/>
@@ -69,7 +69,7 @@
                 <Label Style="{StaticResource BoutonLabel}">Imprimer</Label>
             </Grid>
 
-            <Grid Name="btnPayer" Grid.Column="1" Style="{StaticResource BoutonGrid}" MouseLeftButtonDown="MouseLeftButtonDown" MouseLeftButtonUp="btnPayer_MouseLeftButtonDown">
+            <Grid Name="btnPayer" Grid.Column="1" Style="{StaticResource BoutonGrid}" MouseLeftButtonDown="btn_MouseLeftButtonDown" MouseLeftButtonUp="btnPayer_MouseLeftButtonDown">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition Height="30"/>
@@ -80,7 +80,7 @@
                 <Label Style="{StaticResource BoutonLabel}">Payer</Label>
             </Grid>
 
-            <Grid Name="btnSupprimer" Grid.Column="1" Style="{StaticResource BoutonGrid}" MouseLeftButtonDown="MouseLeftButtonDown" MouseLeftButtonUp="btnSupprimer_MouseLeftButtonDown">
+            <Grid Name="btnSupprimer" Grid.Column="1" Style="{StaticResource BoutonGrid}" MouseLeftButtonDown="btn_MouseLeftButtonDown" MouseLeftButtonUp="btnSupprimer_MouseLeftButtonDown">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition Height="30"/>
@@ -91,7 +91,7 @@
                 <Label Style="{StaticResource BoutonLabel}">Supprimer</Label>
             </Grid>
 
-            <Grid Name="btnGenerer" Grid.Column="1" Style="{StaticResource BoutonGrid}" MouseLeftButtonDown="MouseLeftButtonDown" MouseLeftButtonUp="btnGenerer_MouseLeftButtonDown">
+            <Grid Name="btnGenerer" Grid.Column="1" Style="{StaticResource BoutonGrid}" MouseLeftButtonDown="btn_MouseLeftButtonDown" MouseLeftButtonUp="btnGenerer_MouseLeftButtonDown">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition Height="30"/>
@@ -102,7 +102,7 @@
                 <Label HStyle="{StaticResource BoutonLabel}">Générer</Label>
             </Grid>-->
 
-            <Grid Name="btnRapport" Grid.Column="1" Style="{StaticResource BoutonGrid}" MouseLeftButtonDown="MouseLeftButtonDown" MouseLeftButtonUp="btnRapport_MouseLeftButtonUp">
+            <Grid Name="btnRapport" Grid.Column="1" Style="{StaticResource BoutonGrid}" MouseLeftButtonDown="btn_MouseLeftButtonDown" MouseLeftButtonUp="btnRapport_MouseLeftButtonUp">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition Height="30"/>
@@ -113,7 +113,7 @@
                 <Label Style="{StaticResource BoutonLabel}">Rapport</Label>
             </Grid>
 
-            <Grid Name="btnCreer" Grid.Column="1" Style="{StaticResource BoutonGrid}" MouseLeftButtonDown="MouseLeftButtonDown" MouseLeftButtonUp="btnCreer_MouseLeftButtonUp">
+            <Grid Name="btnCreer" Grid.Column="1" Style="{StaticResource BoutonGrid}" MouseLeftButtonDown="btn_MouseLeftButtonDown" MouseLeftButtonUp="btnCreer_MouseLeftButtonUp">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition Height="30"/>
@@ -124,7 +124,7 @@
                 <Label Style="{StaticResource BoutonLabel}">Créer</Label>
             </Grid>
 
-            <Grid Name="btnEnregistrer" Grid.Column="1" Style="{StaticResource BoutonGrid}" MouseLeftButtonDown="MouseLeftButtonDown" MouseLeftButtonUp="btnEnregistrer_MouseLeftButtonUp">
+            <Grid Name="btnEnregistrer" Grid.Column="1" Style="{StaticResource BoutonGrid}" MouseLeftButtonDown="btn_MouseLeftButtonDown" MouseLeftButtonUp="btnEnregistrer_MouseLeftButtonUp">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition Height="30"/>
@@ -135,7 +135,7 @@
                 <Label Style="{StaticResource BoutonLabel}">Enregistrer</Label>
             </Grid>
 
-            <Grid  Name="btnAjouter" Grid.Column="1" Style="{StaticResource BoutonGrid}" MouseLeftButtonDown="MouseLeftButtonDown" MouseLeftButtonUp="btnAjouter_MouseLeftButtonUp">
+            <Grid  Name="btnAjouter" Grid.Column="1" Style="{StaticResource BoutonGrid}" MouseLeftButtonDown="btn_MouseLeftButtonDown" MouseLeftButtonUp="btnAjouter_MouseLeftButtonUp">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition Height="30"/>
@@ -146,7 +146,7 @@
                 <Label Style="{StaticResource BoutonLabel}">Ajouter</Label>
             </Grid>
 
-            <Grid Name="btnDeconnexion" Grid.Column="1" Style="{StaticResource BoutonGrid}" MouseLeftButtonDown="MouseLeftButtonDown"  MouseLeftButtonUp="btnDeconnexion_MouseLeftButtonUp">
+            <Grid Name="btnDeconnexion" Grid.Column="1" Style="{StaticResource BoutonGrid}" MouseLeftButtonDown="btn_MouseLeftButtonDown"  MouseLeftButtonUp="btnDeconnexion_MouseLeftButtonUp">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition Height="30"/>

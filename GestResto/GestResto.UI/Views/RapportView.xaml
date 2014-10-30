@@ -115,7 +115,7 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
-            <Grid Grid.Column="0" Style="{StaticResource BoutonGrid}" Name="btnRetour" MouseLeftButtonDown="MouseLeftButtonDown" MouseLeftButtonUp="btnRetour_MouseLeftButtonUp">
+            <Grid Grid.Column="0" Style="{StaticResource BoutonGrid}" Name="btnRetour" MouseLeftButtonDown="btn_MouseLeftButtonDown" MouseLeftButtonUp="btnRetour_MouseLeftButtonUp">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition Height="30"/>
@@ -127,7 +127,7 @@
             </Grid>
             <StackPanel Grid.Column="1"  Orientation="Horizontal" HorizontalAlignment="Right" Grid.ColumnSpan="2">
 
-                <Grid Name="btnGenerer" Grid.Column="1" Style="{StaticResource BoutonGrid}" MouseLeftButtonDown="MouseLeftButtonDown" MouseLeftButtonUp="btnGenerer_MouseLeftButtonUp">
+                <Grid Name="btnGenerer" Grid.Column="1" Style="{StaticResource BoutonGrid}" MouseLeftButtonDown="btn_MouseLeftButtonDown" MouseLeftButtonUp="btnGenerer_MouseLeftButtonUp">
                     <Grid.RowDefinitions>
                         <RowDefinition/>
                         <RowDefinition Height="30"/>
@@ -138,7 +138,7 @@
                     <Label Style="{StaticResource BoutonLabel}">Générer</Label>
                 </Grid>
 
-                <Grid Grid.Column="1" Style="{StaticResource BoutonGrid}" Name="btnDeconnexion" MouseLeftButtonDown="MouseLeftButtonDown" MouseLeftButtonUp="btnDeconnexion_MouseLeftButtonUp">
+                <Grid Grid.Column="1" Style="{StaticResource BoutonGrid}" Name="btnDeconnexion" MouseLeftButtonDown="btn_MouseLeftButtonDown" MouseLeftButtonUp="btnDeconnexion_MouseLeftButtonUp">
                     <Grid.RowDefinitions>
                         <RowDefinition/>
                         <RowDefinition Height="30"/>

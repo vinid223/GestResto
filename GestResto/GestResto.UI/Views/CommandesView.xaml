@@ -28,7 +28,7 @@
             
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
 
-                <Grid Name="btnRapport" Grid.Column="1" Style="{StaticResource BoutonGrid}" MouseLeftButtonDown="MouseLeftButtonDown" MouseLeftButtonUp="btnRapport_MouseLeftButtonUp">
+                <Grid Name="btnRapport" Grid.Column="1" Style="{StaticResource BoutonGrid}" MouseLeftButtonDown="btn_MouseLeftButtonDown" MouseLeftButtonUp="btnRapport_MouseLeftButtonUp">
                     <Grid.RowDefinitions>
                         <RowDefinition/>
                         <RowDefinition Height="30"/>
@@ -39,7 +39,7 @@
                     <Label Style="{StaticResource BoutonLabel}">Rapport</Label>
                 </Grid>
 
-                <Grid Grid.Column="1" Style="{StaticResource BoutonGrid}" Name="btnAjouter" MouseLeftButtonDown="MouseLeftButtonDown" MouseLeftButtonUp="btnAjouter_MouseLeftButtonUp">
+                <Grid Grid.Column="1" Style="{StaticResource BoutonGrid}" Name="btnAjouter" MouseLeftButtonDown="btn_MouseLeftButtonDown" MouseLeftButtonUp="btnAjouter_MouseLeftButtonUp">
                     <Grid.RowDefinitions>
                         <RowDefinition/>
                         <RowDefinition Height="30"/>
@@ -50,7 +50,7 @@
                     <Label Style="{StaticResource BoutonLabel}">Ajouter</Label>
                 </Grid>
 
-                <Grid Grid.Column="1" Style="{StaticResource BoutonGrid}" Name="btnDeconnexion" MouseLeftButtonDown="MouseLeftButtonDown" MouseLeftButtonUp="btnDeconnexion_MouseLeftButtonUp">
+                <Grid Grid.Column="1" Style="{StaticResource BoutonGrid}" Name="btnDeconnexion" MouseLeftButtonDown="btn_MouseLeftButtonDown" MouseLeftButtonUp="btnDeconnexion_MouseLeftButtonUp">
                     <Grid.RowDefinitions>
                         <RowDefinition/>
                         <RowDefinition Height="30"/>

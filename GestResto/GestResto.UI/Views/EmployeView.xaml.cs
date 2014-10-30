@@ -327,7 +327,7 @@ namespace GestResto.UI.Views
         /// <summary>
         /// Fonction permettant de rendre nos boutons plus réel lors de la pression
         /// </summary>
-        private void MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void btn_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             Constante.onPressButton(sender, e); // On ajoute l'effet du bouton pressé
         }

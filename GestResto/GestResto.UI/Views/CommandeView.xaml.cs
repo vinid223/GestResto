@@ -78,7 +78,7 @@ namespace GestResto.UI.Views
             mainVM.ChangeView<CommandesView>(new CommandesView());
         }
 
-        private void MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void btn_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             Constante.onPressButton(sender, e); // On ajoute l'effet du bouton pressé
         }
