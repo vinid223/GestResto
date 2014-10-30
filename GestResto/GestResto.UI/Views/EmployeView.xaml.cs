@@ -166,7 +166,11 @@ namespace GestResto.UI.Views
                 catch (MySql.Data.MySqlClient.MySqlException mysqlException)
                 {
                     messageErreur.Clear();  // On s'assure que le message d'erreur soit vide
-                    messageErreur.Append("Impossible d'enregistrer le format.\n");
+                    messageErreur.Append("Impossible d'enregistrer l'employé\n");
+
+                    // On décrypte le mot de passe de l'employé s'il y a eu un problème
+                    ViewModel.employe.MotDePasse = Employe.Decrypt(ViewModel.employe.MotDePasse.ToString());
+
                     string exceptionMessage = mysqlException.Message;
 
                     // S'il y a un erreur de doublon
