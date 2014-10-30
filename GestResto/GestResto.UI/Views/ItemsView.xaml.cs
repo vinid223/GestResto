@@ -238,6 +238,8 @@ namespace GestResto.UI.Views
             if (!Existe)
             {
                 itemTemp.IdItem = ViewModelItem.AjouterUnItem(itemTemp);
+                ViewModelItem.Items.Add(itemTemp);
+                lbxListeCategorie.ItemsSource = ViewModelItem.Items;
                 ViewModelItem.Item = itemTemp;
             }
 
