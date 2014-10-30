@@ -26,13 +26,44 @@
             <Setter Property="Image.HorizontalAlignment" Value="Center"/>
         </Style>
 
+        <DropShadowEffect x:Key="BoutonLabelShadowEffect" ShadowDepth="1" BlurRadius="10" Color="Black"  />
         <Style x:Key="BoutonLabel">
             <Setter Property="Label.Height" Value="30"/>
             <Setter Property="Grid.Row" Value="2"/>
             <Setter Property="Label.HorizontalAlignment" Value="Center"/>
             <Setter Property="Label.FontSize" Value="12"/>
             <Setter Property="Label.Foreground" Value="White"/>
+            <Setter Property="Label.Effect" Value="{StaticResource BoutonLabelShadowEffect}" />
         </Style>
+
+        <Style x:Key="BoutonList" TargetType="Button">
+            <Setter Property="Height"  Value="50"/>
+        </Style>
+
+        <!-- Style pour un ListboxItem -->
+        <Style x:Key="ListboxItemRow" TargetType="{x:Type ListBoxItem}">
+            <Setter Property="Height"  Value="30"/>
+            <Setter Property="FontSize"  Value="15"/>
+        </Style>
+
+        <!-- Style pour un ListboxItem qui est une seconde ligne. Une ligne sur deux a un différent background -->
+        <Style x:Key="ListboxItemSecondRow" TargetType="{x:Type ListBoxItem}" BasedOn="{StaticResource ListboxItemRow}">
+            <Setter Property="Background"  Value="#cee9ff"/>
+        </Style>
+
+        <!-- Style pour un ListboxItem qui est un item enfant -->
+        <Style x:Key="ListboxItemRowChild" TargetType="{x:Type ListBoxItem}" BasedOn="{StaticResource ListboxItemRow}">
+            <Setter Property="Padding"  Value="10,0,0,0"/>
+        </Style>
+
+        <!-- Style pour un ListboxItem qui est est une seconde ligne et qui est un item enfant-->
+        <Style x:Key="ListboxItemSecondRowChild" TargetType="{x:Type ListBoxItem}" BasedOn="{StaticResource ListboxItemSecondRow}">
+            <Setter Property="Padding"  Value="10,0,0,0"/>
+        </Style>
+        
+
+
+
 
     </Application.Resources>
 </Application>

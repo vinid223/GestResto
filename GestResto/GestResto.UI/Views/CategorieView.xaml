@@ -23,7 +23,7 @@
         <ListView HorizontalContentAlignment="Stretch" Grid.Column="1" Grid.Row="0" Margin="50,50,50,10" x:Name="listeBoutonCategories">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Button Content="{Binding Nom}" CommandParameter="{Binding}" Click="btnDetail_Click" Height="30"/>
+                    <Button Content="{Binding Nom}" CommandParameter="{Binding}" Click="btnDetail_Click" Style="{StaticResource BoutonList}"/>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>

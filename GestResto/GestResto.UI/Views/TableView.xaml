@@ -18,7 +18,7 @@
         <ListView HorizontalContentAlignment="Stretch" Margin="11,8,11,11" Name="lvwListeTable" Grid.Row="0" Grid.Column="1">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Button Content="{Binding NoTable}" Click="btnTable_Click" CommandParameter="{Binding}" Height="30" />
+                    <Button Content="{Binding NoTable}" Click="btnTable_Click" CommandParameter="{Binding}" Style="{StaticResource BoutonList}" />
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
