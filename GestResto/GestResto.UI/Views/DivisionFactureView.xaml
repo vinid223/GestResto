@@ -23,11 +23,11 @@
                     <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" Width="300">
                         <!-- Lorsque les boutons ne rentrent plus dans la fenêtre, une scoll bar apparait -->
                         <ListBox Margin="10,10,10,10">
-                            <ListBoxItem>1 Pizza Moyenne</ListBoxItem>
-                            <ListBoxItem Padding="10,0,0,0" Background="#cee9ff">Tout garni</ListBoxItem>
-                            <ListBoxItem Padding="10,0,0,0">Extra bacon</ListBoxItem>
-                            <ListBoxItem Background="#cee9ff">1 Root Bear</ListBoxItem>
-                            <ListBoxItem Padding="10,0,0,0" >Pas de glace</ListBoxItem>
+                            <ListBoxItem Style="{StaticResource ListboxItemRow}">1 Pizza Moyenne</ListBoxItem>
+                            <ListBoxItem Style="{StaticResource ListboxItemSecondRowChild}">Tout garni</ListBoxItem>
+                            <ListBoxItem Style="{StaticResource ListboxItemRowChild}">Extra bacon</ListBoxItem>
+                            <ListBoxItem Style="{StaticResource ListboxItemSecondRow}" >1 Root Bear</ListBoxItem>
+                            <ListBoxItem Style="{StaticResource ListboxItemRowChild}">Pas de glace</ListBoxItem>
                         </ListBox>
                     </ScrollViewer>
                 </Grid>
@@ -41,10 +41,10 @@
                     <ScrollViewer VerticalScrollBarVisibility="Auto" Width="300" Grid.Row="1">
                         <!-- Lorsque les boutons ne rentrent plus dans la fenêtre, une scoll bar apparait -->
                         <ListBox Margin="10,10,10,10">
-                            <ListBoxItem>1 Pizza Moyenne</ListBoxItem>
-                            <ListBoxItem Padding="10,0,0,0" Background="#cee9ff">Viande</ListBoxItem>
-                            <ListBoxItem >1 coke</ListBoxItem>
-                            <ListBoxItem Background="#cee9ff" Padding="10,0,0,0" >Pas de glace</ListBoxItem>
+                            <ListBoxItem Style="{StaticResource ListboxItemRow}">1 Pizza Moyenne</ListBoxItem>
+                            <ListBoxItem Style="{StaticResource ListboxItemSecondRowChild}">Viande</ListBoxItem>
+                            <ListBoxItem Style="{StaticResource ListboxItemRowChild}">1 coke</ListBoxItem>
+                            <ListBoxItem Style="{StaticResource ListboxItemSecondRowChild}">Pas de glace</ListBoxItem>
                         </ListBox>
                     </ScrollViewer>
                 </Grid>
@@ -58,10 +58,10 @@
                     <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" Width="300">
                         <!-- Lorsque les boutons ne rentrent plus dans la fenêtre, une scoll bar apparait -->
                         <ListBox Margin="10,10,10,10">
-                            <ListBoxItem>1 Poutine</ListBoxItem>
-                            <ListBoxItem Padding="10,0,0,0" Background="#cee9ff">1 Extra fromage</ListBoxItem>
-                            <ListBoxItem Padding="10,0,0,0">1 Extra sauce</ListBoxItem>
-                            <ListBoxItem Background="#cee9ff" >1 Bouteille d'eau</ListBoxItem>
+                            <ListBoxItem Style="{StaticResource ListboxItemRow}">1 Poutine</ListBoxItem>
+                            <ListBoxItem Style="{StaticResource ListboxItemSecondRowChild}">1 Extra fromage</ListBoxItem>
+                            <ListBoxItem Style="{StaticResource ListboxItemRowChild}">1 Extra sauce</ListBoxItem>
+                            <ListBoxItem Style="{StaticResource ListboxItemSecondRow}" >1 Bouteille d'eau</ListBoxItem>
                         </ListBox>
                     </ScrollViewer>
                 </Grid>
@@ -71,7 +71,7 @@
 
         </ScrollViewer>
         <!-- Boutons de navigation -->
-        <Grid Grid.ColumnSpan="2" Grid.Row="1">
+        <Grid Grid.ColumnSpan="2" Grid.Row="1" >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="80"/>
                 <ColumnDefinition/>

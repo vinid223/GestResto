@@ -45,7 +45,7 @@
         <ListView HorizontalContentAlignment="Stretch" Grid.Column="1" Grid.Row="0" Margin="50,50,50,10" Name="listeBoutonEmploye">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Button Content="{Binding NomComplet, UpdateSourceTrigger=PropertyChanged}" CommandParameter="{Binding}" Click="btnDetail_Click" Height="30"/>
+                    <Button Content="{Binding NomComplet, UpdateSourceTrigger=PropertyChanged}" CommandParameter="{Binding}" Click="btnDetail_Click" Style="{StaticResource BoutonList}"/>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>

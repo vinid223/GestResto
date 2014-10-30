@@ -70,7 +70,7 @@
     <Compile Include="ViewModel\AjoutCommandeViewModel.cs" />
     <Compile Include="ViewModel\AuthentificationViewModel.cs" />
     <Compile Include="ViewModel\CategorieViewModel.cs" />
-    <Compile Include="ViewModel\Commandes.ViewModel.cs" />
+    <Compile Include="ViewModel\CommandesViewModel.cs" />
     <Compile Include="ViewModel\CommandeViewModel.cs" />
     <Compile Include="ViewModel\DivisionFactureViewModel.cs" />
     <Compile Include="ViewModel\EmployeViewModel.cs" />

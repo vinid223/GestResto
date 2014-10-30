@@ -116,6 +116,9 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Services\NHibernate\Mappings\TypeEmploye.hbm.xml" />
+    <EmbeddedResource Include="Services\NHibernate\Mappings\Commande.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <Content Include="Services\NHibernate\Mappings\Client.hbm.xml" />
     <EmbeddedResource Include="Services\NHibernate\Mappings\Employe.hbm.xml" />
     <EmbeddedResource Include="Services\NHibernate\Mappings\Categorie.hbm.xml" />

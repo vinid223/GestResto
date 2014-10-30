@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping assembly="GestResto.Logic"
+                   namespace="GestResto.Logic.Model.Entities"
+                   xmlns="urn:nhibernate-mapping-2.2">
+  <class name="Commande" table="commandes">
+    
+    <id name="IdCommande">
+      <column name="idCommande" not-null="true" sql-type="INTEGER" />
+      <generator class="identity" />
+    </id>
+    
+    <property name="Statut">
+      <column name="status" not-null="true" sql-type="VARCHAR" />
+    </property>
+
+    <property name="Debut" column="arrivee" not-null="true" />
+    <property name="Fin" column="depart" not-null="true" />
+  </class>
+</hibernate-mapping>

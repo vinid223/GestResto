@@ -28,8 +28,8 @@ namespace GestResto.Logic.Model.Entities
         public virtual string Statut { get; set; }
         public virtual DateTime Debut { get; set; }
         public virtual DateTime? Fin { get; set; }
-        public virtual List<Table> ListeTables { get; set; }
-        public virtual List<Facture> ListeFactures { get; set; }
+        public virtual IList<Table> ListeTables { get; set; }
+        public virtual IList<Facture> ListeFactures { get; set; }
 
         #endregion
 
