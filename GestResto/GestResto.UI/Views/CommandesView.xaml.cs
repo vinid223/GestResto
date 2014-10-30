@@ -1,10 +1,13 @@
-﻿using GestResto.MvvmToolkit.Services;
+﻿using GestResto.Logic.Model.Entities;
+using GestResto.MvvmToolkit.Services;
 using GestResto.MvvmToolkit.Services.Definitions;
+using GestResto.UI.ViewModel;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -22,9 +25,35 @@ namespace GestResto.UI.Views
     /// </summary>
     public partial class CommandesView : UserControl
     {
+        public CommandesViewModel ViewModel { get { return (CommandesViewModel)DataContext; } }
+        private bool Erreur;
+
         public CommandesView()
         {
             InitializeComponent();
+
+            try
+            {
+                DataContext = new CommandesViewModel();
+            }
+            catch (Exception e)
+            {
+
+                StringBuilder messageErreur = new StringBuilder();
+                string exceptionMessage = e.InnerException.Message;
+
+                messageErreur.Append("Une erreur s'est produite, il est impossible d'afficher la liste des commandes :\n");
+                messageErreur.Append(exceptionMessage);
+
+                MessageBox.Show(messageErreur.ToString(), "Une erreur s'est produite", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
+                Constante.LogErreur("Impossible d'afficher la liste des commandes: " + exceptionMessage);
+                Erreur = true;
+            }
+
+            if (!Erreur)
+            {
+                listeBoutonCommandes.ItemsSource = ViewModel.Commandes;
+            }
         }
 
         private void btnRapport_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
@@ -55,6 +84,11 @@ namespace GestResto.UI.Views
         private void btn_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             Constante.onPressButton(sender, e); // On ajoute l'effet du bouton pressé
+        }
+
+        private void btnDetail_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("This is a test");
         }
     }
 }
