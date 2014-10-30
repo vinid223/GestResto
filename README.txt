@@ -9,3 +9,4 @@
 	3.2. Nous vous conseillons fortement de changer ce mot de passe dans les options d'administrations et ensuite dans la gestion des employés.
 	3.3. Vous devez aussi modifier les informations de votre restaurant pour que la facture soit bien créée. (La facture n'est pas encore implémenté.)
 4. Pour commencer votre menu, nous vous conseillons de commencer par la création des catégories, ensuite par les formats et à la toute fin créer les items et les employés.
+5. (Optionnel) Si vous voulez héberger votre base de données ailleurs, vous pouvez changer le fichier de configuration nommé : GestResto.UI.exe.config. Vous devez redémarrer l'application.
