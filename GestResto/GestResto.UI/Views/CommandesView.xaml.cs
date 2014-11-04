@@ -101,7 +101,10 @@ namespace GestResto.UI.Views
 
         private void btnDetail_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("This is a test");
+            //MessageBox.Show("This is a test");
+
+            IApplicationService mainVM = ServiceFactory.Instance.GetService<IApplicationService>();
+            mainVM.ChangeView<CommandeView>(new CommandeView());
         }
     }
 }
