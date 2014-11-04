@@ -52,7 +52,20 @@ namespace GestResto.UI.Views
 
             if (!Erreur)
             {
-                listeBoutonCommandes.ItemsSource = ViewModel.Commandes;
+                // On boucle pour chaque commandes et on crée un bouton
+                foreach (var item in ViewModel.Commandes)
+                { 
+                    // On se définie un nouveau bouton
+                    Button bouton = new Button();
+                    bouton.Click += btnDetail_Click;
+                    bouton.Width = 115;
+                    bouton.Height = 85;
+                    bouton.Content = item.IdCommande;
+                    bouton.Margin = new Thickness(5);
+
+                    // On ajoute le bouton à notre wrappannel
+                    listeBoutonCommandes.Children.Add(bouton);
+                }
             }
         }
 

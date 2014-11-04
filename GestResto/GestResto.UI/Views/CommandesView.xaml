@@ -11,18 +11,8 @@
             <RowDefinition Height="75"/>
         </Grid.RowDefinitions>
 
-        <ScrollViewer VerticalScrollBarVisibility="Auto">  <!-- Lorsque les boutons ne rentrent plus dans la fenêtre, une scoll bar apparait -->
-            <ListView Background="Transparent" BorderBrush="Transparent" Name="listeBoutonCommandes" HorizontalContentAlignment="Stretch">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <WrapPanel>
-                            <Button Click="btnDetail_Click" Content="{Binding IdCommande}" Padding="25" CommandParameter="{Binding}" />
-                        </WrapPanel>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-        </ScrollViewer>
-
+        <WrapPanel Name="listeBoutonCommandes" />
+ 
         <!-- Boutons de navigation -->
         <Grid Grid.Row="1">
 
