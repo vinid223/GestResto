@@ -24,11 +24,47 @@ namespace GestResto.UI.Views
     /// </summary>
     public partial class CommandeView : UserControl
     {
+        
+        public CommandeViewModel ViewModel { get { return (CommandeViewModel)DataContext; } }
 
         public CommandeView()
         {
             InitializeComponent();
+
+            DataContext = new CommandeViewModel();
+
+            
+            lbxListeCategorie.ItemsSource = ViewModel.Categories;
         }
+
+
+        private void btnCategorie_Click(object sender, RoutedEventArgs e)
+        {
+
+            Categorie categorie = (Categorie)((sender as Button).CommandParameter);
+            ViewModel.Categorie = categorie;
+
+        }
+
+        private void btnMonterCategorie_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            Categorie categ = (Categorie)lbxListeCategorie.SelectedItems;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         private void btnAjouter_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
