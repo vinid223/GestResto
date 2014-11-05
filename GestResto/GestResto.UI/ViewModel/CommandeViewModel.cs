@@ -26,7 +26,8 @@ namespace GestResto.UI.ViewModel
             Items = new ObservableCollection<Item>(ServiceFactory.Instance.GetService<IItemService>().RetrieveAll());
         }
 
-        #region 
+
+        #region Bindables
         
         private ObservableCollection<Categorie> _categories = new ObservableCollection<Categorie>();
         private ObservableCollection<Item> _items = new ObservableCollection<Item>();

@@ -28,6 +28,7 @@ namespace GestResto.UI.Views
         public CommandeViewModel ViewModel { get { return (CommandeViewModel)DataContext; } }
         int Scroll = 0;
         int HauteurListView;
+        List<Item> ListeItemsTemp = new List<Item>();
 
         public CommandeView()
         {
@@ -35,17 +36,18 @@ namespace GestResto.UI.Views
 
             DataContext = new CommandeViewModel();
 
-
-            lbxListeCategorie.ItemsSource = ViewModel.Categories;
+            lbxListeItems.ItemsSource = ViewModel.Items;
         }
 
 
         private void btnCategorie_Click(object sender, RoutedEventArgs e)
         {
-
             Categorie categorie = (Categorie)((sender as Button).CommandParameter);
             ViewModel.Categorie = categorie;
             lbxListeCategorie.SelectedItem = categorie;
+
+            
+            lbxListeItems.ItemsSource = ViewModel.Items.Where(x => x.Categories.IdCategorie == categorie.IdCategorie).ToList();
 
         }
 
