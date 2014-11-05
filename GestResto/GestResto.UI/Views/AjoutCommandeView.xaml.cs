@@ -1,5 +1,6 @@
 ﻿using GestResto.MvvmToolkit.Services;
 using GestResto.MvvmToolkit.Services.Definitions;
+using GestResto.UI.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,9 +23,51 @@ namespace GestResto.UI.Views
     /// </summary>
     public partial class AjoutCommandeView : UserControl
     {
+        public TableViewModel ViewModel { get { return (TableViewModel)DataContext; } }
+        private bool Erreur;
+        private IList<int> lstTable = new List<int>();
+        private Brush brushesBase;
+
         public AjoutCommandeView()
         {
+            //<Button Click="btn_Click" Content="Table 3" MinWidth="75" Width="Auto" Margin="10" Padding="25"/>
             InitializeComponent();
+            try
+            {
+                DataContext = new TableViewModel();
+            }
+            catch (Exception e)
+            {
+                StringBuilder messageErreur = new StringBuilder();
+                string exceptionMessage = e.InnerException.Message;
+
+                messageErreur.Append("Une erreur s'est produite, il est impossible d'afficher la liste des tables :\n");
+                messageErreur.Append(exceptionMessage);
+
+                MessageBox.Show(messageErreur.ToString(), "Une erreur s'est produite", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
+                Constante.LogErreur("Impossible d'afficher la liste des tables: " + exceptionMessage);
+                Erreur = true;
+            }
+
+            // Si on a pas eu d'erreur lors du chargement
+            if (!Erreur)
+            {
+                // On boucle pour chaque commandes et on crée un bouton
+                foreach (var item in ViewModel.Tables)
+                { 
+                    // On se définie un nouveau bouton
+                    Button bouton = new Button();
+                    bouton.Click += btn_Click;
+                    bouton.Width = 115;
+                    bouton.Height = 85;
+                    bouton.Content = item.IdTable;
+                    bouton.Name = "Bouton" + Convert.ToString(item.IdTable);
+                    bouton.Margin = new Thickness(5);
+
+                    // On ajoute le bouton à notre wrappannel
+                    listeTableDisponible.Children.Add(bouton);
+                }
+            }
         }
 
         // Fonction qui sert à revenir à la view précédente
@@ -38,7 +81,12 @@ namespace GestResto.UI.Views
         private void btnCreer_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             Constante.onReleaseButton(sender, e); // On enlève l'effet du bouton pressé
-            MessageBox.Show("Créer");
+            string ligne = "";
+            foreach (var item in lstTable)
+            {
+                ligne += item.ToString() + " ";
+            }
+            MessageBox.Show("Créer:\n"+ligne);
         }
 
         private void btnDeconnexion_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
@@ -50,7 +98,28 @@ namespace GestResto.UI.Views
 
         private void btn_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Ajouter la table à la commande");
+            // On test si on a copié la couleur du bouton par défaut
+            if (brushesBase == null)
+            {
+                // On sauvegarde la couleur par défaut du background de windows
+                brushesBase = (sender as Button).Background;   
+            }
+
+            // On test si la liste contient la table cliqué
+            if (lstTable.Contains(Convert.ToInt32((sender as Button).Content)))
+            {
+                // Si c'est le cas on peut remettre la couleur par défaut parce que le bouton à déjà été cliqué
+                (sender as Button).Background = brushesBase;
+
+                // On supprime de la liste le numéro de la table
+                lstTable.Remove(Convert.ToInt32((sender as Button).Content));
+            }
+            else
+            {
+                // On change la couleur du bouton et on sauvegarde le numéro de la table
+                (sender as Button).Background = new SolidColorBrush(Color.FromRgb(135,206,255));
+                lstTable.Add(Convert.ToInt32((sender as Button).Content));
+            }
         }
 
         private void btn_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)

@@ -26,6 +26,7 @@ namespace GestResto.Logic.Model.Entities
 
         public virtual int? IdCommande { get; set; }
         public virtual string Statut { get; set; }
+        public virtual int IdEmploye { get; set; }
         public virtual DateTime Debut { get; set; }
         public virtual DateTime? Fin { get; set; }
         public virtual IList<Table> ListeTables { get; set; }

@@ -27,7 +27,7 @@ namespace GestResto.UI.Views
         
         public CommandeViewModel ViewModel { get { return (CommandeViewModel)DataContext; } }
 
-        public CommandeView()
+        public CommandeView(Commande uneCommande = null)
         {
             InitializeComponent();
 

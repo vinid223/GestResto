@@ -8,9 +8,13 @@
       <column name="idCommande" not-null="true" sql-type="INTEGER" />
       <generator class="identity" />
     </id>
-    
+
     <property name="Statut">
       <column name="status" not-null="true" sql-type="VARCHAR" />
+    </property>
+    
+    <property name="IdEmploye">
+      <column name="idEmploye" not-null="true" sql-type="INTEGER" />
     </property>
 
     <property name="Debut" column="arrivee" not-null="true" />

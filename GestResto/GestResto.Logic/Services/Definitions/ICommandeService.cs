@@ -14,7 +14,7 @@ namespace GestResto.Logic.Services.Definitions
     public interface ICommandeService
     {
         void Create(Commande commande);
-        IList<Commande> RetrieveAll();
+        IList<Commande> RetrieveAll(int idEmploye);
         Commande Retrieve(RetrieveCommandeArgs args);
         void Update(Commande commande);
     }

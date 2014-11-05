@@ -16,7 +16,6 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace GestResto.UI.Views
 {
@@ -61,6 +60,7 @@ namespace GestResto.UI.Views
                     bouton.Width = 115;
                     bouton.Height = 85;
                     bouton.Content = item.IdCommande;
+                    bouton.Name = "Bouton" + Convert.ToString(item.IdCommande);
                     bouton.Margin = new Thickness(5);
 
                     // On ajoute le bouton à notre wrappannel
@@ -88,12 +88,6 @@ namespace GestResto.UI.Views
             Constante.Deconnexion();
         }
 
-        private void btn_Click(object sender, RoutedEventArgs e)
-        {
-            IApplicationService mainVM = ServiceFactory.Instance.GetService<IApplicationService>();
-            mainVM.ChangeView<CommandeView>(new CommandeView());
-        }
-
         private void btn_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             Constante.onPressButton(sender, e); // On ajoute l'effet du bouton pressé
@@ -101,10 +95,45 @@ namespace GestResto.UI.Views
 
         private void btnDetail_Click(object sender, RoutedEventArgs e)
         {
-            //MessageBox.Show("This is a test");
+            // On prend le contenu du bouton et on l'ajoute
+            string content = (sender as Button).Name.ToString();
 
-            IApplicationService mainVM = ServiceFactory.Instance.GetService<IApplicationService>();
-            mainVM.ChangeView<CommandeView>(new CommandeView());
+            // On va chercher le id
+            content = content.Substring(6);
+
+            // On enregistre le id de la commande
+            int idCommande = Convert.ToInt32(content);
+
+            // On se définie une commande null temporaire
+            Commande commandeTemp = null;
+
+            // On boucle dans chaque commande pour trouver la commande qu'on cherche
+            foreach (var item in ViewModel.Commandes)
+            {
+                // Si on a trouvé la commande
+                if (item.IdCommande == idCommande)
+                {
+                    // On sauvegarde la commande
+                    commandeTemp = item;
+
+                    // On arrête l'exécution de la boucle
+                    break;
+                }
+            }
+
+            // On teste si la commande n'est pas null.
+            if (commandeTemp != null)
+            {
+                // Si elle n'est pas null on redirige à la page de la commande avec la commande en cour
+                IApplicationService mainVM = ServiceFactory.Instance.GetService<IApplicationService>();
+                mainVM.ChangeView<CommandeView>(new CommandeView(commandeTemp));
+            }
+            else
+            {
+                // On affiche un message si la commande n'existe pas
+                MessageBox.Show("La commande que vous voulez modifier n'existe pas. \n Veuillez réessayer.", "Erreur", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                Constante.LogErreur("La commande n'est pas existante dans la base de données. Il faut réessayer");
+            }
         }
     }
 }

@@ -29,9 +29,17 @@ namespace GestResto.Logic.Services.NHibernate
             }
         }
 
-        public IList<Commande> RetrieveAll()
+        public IList<Commande> RetrieveAll(int id)
         {
-            return session.Query<Commande>().ToList();
+            session = NHibernateConnexion.OpenSession();
+
+            var result = from c in session.Query<Commande>()
+                         where c.IdEmploye == id
+                         select c;
+
+            IList<Commande> listeTemp = result.ToList();
+            session.Close();
+            return listeTemp;
         }
 
         public Commande Retrieve(RetrieveCommandeArgs args)
