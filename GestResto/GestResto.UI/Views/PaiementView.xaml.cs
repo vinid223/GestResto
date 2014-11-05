@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using GestResto.Logic.Model.Entities;
 
 namespace GestResto.UI.Views
 {
@@ -22,7 +23,7 @@ namespace GestResto.UI.Views
     /// </summary>
     public partial class PaiementView : UserControl
     {
-        public PaiementView()
+        public PaiementView(/*Client client*/)
         {
             InitializeComponent();
         }

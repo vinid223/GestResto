@@ -26,6 +26,9 @@ namespace GestResto.UI.Views
     {
         
         public CommandeViewModel ViewModel { get { return (CommandeViewModel)DataContext; } }
+        int Scroll = 0;
+        int HauteurListView;
+        List<Item> ListeItemsTemp = new List<Item>();
 
         public CommandeView(Commande uneCommande = null)
         {
@@ -33,22 +36,54 @@ namespace GestResto.UI.Views
 
             DataContext = new CommandeViewModel();
 
-            
-            lbxListeCategorie.ItemsSource = ViewModel.Categories;
+            lbxListeItems.ItemsSource = ViewModel.Items;
         }
 
 
         private void btnCategorie_Click(object sender, RoutedEventArgs e)
         {
-
             Categorie categorie = (Categorie)((sender as Button).CommandParameter);
             ViewModel.Categorie = categorie;
+            lbxListeCategorie.SelectedItem = categorie;
+
+            
+            lbxListeItems.ItemsSource = ViewModel.Items.Where(x => x.Categories.IdCategorie == categorie.IdCategorie).ToList();
 
         }
 
         private void btnMonterCategorie_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            Categorie categ = (Categorie)lbxListeCategorie.SelectedItems;
+            Categorie categ = (Categorie)lbxListeCategorie.SelectedItem;
+
+            // J'obtiens environ le nombre de boutons actuellement visibles
+            HauteurListView = (int)lbxListeCategorie.ActualHeight / 40;
+
+            if (Scroll >= HauteurListView)
+                Scroll -= HauteurListView;
+            else
+                Scroll = 0;
+
+            lbxListeCategorie.SelectedIndex = Scroll;
+            lbxListeCategorie.ScrollIntoView(lbxListeCategorie.SelectedItem);
+
+        }
+
+        private void btnDescendreCategorie_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            Categorie categ = (Categorie)lbxListeCategorie.SelectedItem;
+
+            // J'obtiens environ le nombre de boutons actuellement visibles
+            HauteurListView = (int)lbxListeCategorie.ActualHeight / 40;
+
+
+            if (Scroll < lbxListeCategorie.Items.Count - HauteurListView)
+                Scroll += HauteurListView;
+            else
+                Scroll = lbxListeCategorie.Items.Count-1;
+
+            lbxListeCategorie.SelectedIndex = Scroll;
+            lbxListeCategorie.ScrollIntoView(lbxListeCategorie.SelectedItem);
+
         }
 
 

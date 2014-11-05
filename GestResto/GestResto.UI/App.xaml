@@ -60,7 +60,13 @@
         <Style x:Key="ListboxItemSecondRowChild" TargetType="{x:Type ListBoxItem}" BasedOn="{StaticResource ListboxItemSecondRow}">
             <Setter Property="Padding"  Value="10,0,0,0"/>
         </Style>
-        
+
+        <!-- Boutons des items dans la listes de boutons dans l'écran de la commande. -->
+        <Style x:Key="BoutonItem" TargetType="Button">
+            <Setter Property="Height"  Value="50"/>
+            <Setter Property="Width" Value="100" />
+            <Setter Property="Margin" Value="0,0,5,5"/>
+        </Style>
 
 
 

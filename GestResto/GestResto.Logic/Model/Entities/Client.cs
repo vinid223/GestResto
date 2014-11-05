@@ -25,6 +25,7 @@ namespace GestResto.Logic.Model.Entities
 
         public virtual uint? IdClient { get; set; }
         public virtual List<Item> ListeItems { get; set; }
+        public virtual Facture facture { get; set; }
 
         #endregion
 

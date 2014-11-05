@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping assembly="GestResto.Logic"
+                   namespace="GestResto.Logic.Model.Entities"
+                   xmlns="urn:nhibernate-mapping-2.2">
+  <class name="FormatItemClientFacture" table="formatsitemsclientsfactures">
+
+    <id name="IdFormatItemClientFacture">
+      <column name="idFormatItemClientFacture" not-null="true" sql-type="INTEGER" />
+      <generator class="identity" />
+    </id>
+    
+    <property name="Prix">
+      <column name="prix" not-null="true" sql-type="FLOAT" />
+    </property>
+
+    <many-to-one name="FormatItemAssocie" class="Format" lazy="proxy"> 
+      <column name="idFormatItem" not-null="true" sql-type="INTEGER" />
+    </many-to-one>
+  
+  </class>
+</hibernate-mapping>
