@@ -37,6 +37,13 @@ namespace GestResto.UI.Views
             DataContext = new CommandeViewModel();
 
             lbxListeItems.ItemsSource = ViewModel.Items;
+
+
+            // CRÉATION D'UN CLIENT TEMPORAIRe, ON EST SENSÉ LE RECEVOIR EN PARAMÈTRE DANS LA COMMANDE
+            Client client = new Client(1, ViewModel.Items);
+
+            lbxItemsClient.ItemsSource = client.ListeItems;
+
         }
 
 
