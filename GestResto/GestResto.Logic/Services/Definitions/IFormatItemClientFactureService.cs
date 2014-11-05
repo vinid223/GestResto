@@ -12,7 +12,7 @@ namespace GestResto.Logic.Services.Definitions
     {
         void Create(FormatItemClientFacture formatItemClientFacture);
         IList<FormatItemClientFacture> RetrieveAll();
-        FormatItemClientFacture Retrieve(RetrieveItemArgs args);
+        FormatItemClientFacture Retrieve(RetrieveFormatItemClientFactureArgs args);
         void Update(FormatItemClientFacture formatItemClientFacture);
         void Delete(FormatItemClientFacture formatItemClientFacture);
     }

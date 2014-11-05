@@ -11,7 +11,7 @@ namespace GestResto.Logic.Model.Entities
         #region Variables de la classe
         public virtual int? IdFormatItemClientFacture { get; set;}
         public virtual float Prix { get; set; }
-        public FormatItem FormatItemAssocie { get; set; }
+        public virtual FormatItem FormatItemAssocie { get; set; }
         #endregion
 
         #region Constructeurs
