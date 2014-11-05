@@ -110,7 +110,7 @@ namespace GestResto.UI.Views
 
                 // Boucle qui permet de vérifier si les formats sont uniques,
                 // pour empêcher le droit d'avoir 2 formats grands avec deux prix différents. 
-                if (ViewModelItem.Item.Formats != null)
+                if (ViewModelItem.Item.Formats != null && ViewModelItem.Item.Formats.Count != 0)
                 {
                     int i = 0;
                     foreach (var formatitem in ViewModelItem.Item.Formats)

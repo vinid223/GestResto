@@ -74,6 +74,7 @@
     <Compile Include="ViewModel\CommandeViewModel.cs" />
     <Compile Include="ViewModel\DivisionFactureViewModel.cs" />
     <Compile Include="ViewModel\EmployeViewModel.cs" />
+    <Compile Include="ViewModel\FormatItemClientFactureViewModel.cs" />
     <Compile Include="ViewModel\FormatItemViewModel.cs" />
     <Compile Include="ViewModel\FormatViewModel.cs" />
     <Compile Include="ViewModel\JonctionFactureViewModel.cs" />
