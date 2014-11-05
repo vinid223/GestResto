@@ -4,10 +4,21 @@
                    xmlns="urn:nhibernate-mapping-2.2">
   <class name="Client" table="clients">
 
-    <id name="idClient">
+    <id name="IdClient">
       <column name="idClient" not-null="true" sql-type="INTEGER" />
       <generator class="identity" />
     </id>
-  </class>
 
+    <bag name="ListeFormatItemClientFacture" inverse="false" generic="true" lazy="true" cascade="all">
+      <key>
+        <column name="idClient" />
+      </key>
+      <one-to-many class="FormatItemClientFacture"/>
+    </bag>
+
+    <many-to-one name="FactureClient" class="Facture">
+      <column name="idFacture" not-null="true" sql-type="INTEGER" />
+    </many-to-one>
+
+  </class>
 </hibernate-mapping>

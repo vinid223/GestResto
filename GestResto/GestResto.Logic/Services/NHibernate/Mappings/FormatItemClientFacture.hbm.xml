@@ -13,8 +13,8 @@
       <column name="prix" not-null="true" sql-type="FLOAT" />
     </property>
 
-    <many-to-one name="FormatItemAssocie" class="Format" lazy="proxy"> 
-      <column name="idFormatItem" not-null="true" sql-type="INTEGER" />
+    <many-to-one name="FormatItemAssocie" class="Format" lazy="proxy">
+        <column name="idFormatItem" not-null="true" sql-type="INTEGER" />
     </many-to-one>
   
   </class>

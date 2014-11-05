@@ -23,6 +23,8 @@ namespace GestResto.UI.Views
     /// </summary>
     public partial class PaiementView : UserControl
     {
+        
+        
         public PaiementView(/*Client client*/)
         {
             InitializeComponent();
