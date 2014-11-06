@@ -51,7 +51,6 @@ namespace GestResto.Logic.Model.Entities
 
         /// <summary>
         /// Constructeur paramétré de commande.
-        /// 
         /// </summary>
         /// <param name="pIdCommande">L'id de la commande</param>
         /// <param name="pStatut">Le statut de la commande</param>
@@ -66,6 +65,16 @@ namespace GestResto.Logic.Model.Entities
             ListeFactures = pListeFactures;
         }
 
+        /// <summary>
+        /// Constructeur paramétré de commande pour la création de commande.
+        /// </summary>
+        /// <param name="pStatut">Le statut de la commande</param>
+        /// <param name="pDebut">Date de création de commande</param>
+        public Commande(string pStatut, DateTime pDebut)
+        {
+            Statut = pStatut;
+            Debut = pDebut;
+        }
         #endregion
     }
 }

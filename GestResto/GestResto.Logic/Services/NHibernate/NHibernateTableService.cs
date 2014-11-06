@@ -29,7 +29,6 @@ namespace GestResto.Logic.Services.NHibernate
                 session.Save(table);
                 transaction.Commit();
             }
-            session.Close();
         }
 
         /// <summary>
@@ -55,7 +54,6 @@ namespace GestResto.Logic.Services.NHibernate
                          select c;
             Table tableTemp = result.FirstOrDefault();
 
-            session.Close();
 
             return tableTemp;
         }
@@ -68,7 +66,6 @@ namespace GestResto.Logic.Services.NHibernate
                 session.Update(table);
                 transaction.Commit();
             }
-            session.Close();
         }
     }
 }

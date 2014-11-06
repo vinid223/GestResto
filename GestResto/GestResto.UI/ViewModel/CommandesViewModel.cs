@@ -15,6 +15,7 @@ namespace GestResto.UI.ViewModel
     {
         private ICommandeService _commandeServices;
         private ObservableCollection<Commande> _commandes = new ObservableCollection<Commande>();
+        private ObservableCollection<Table> _tables = new ObservableCollection<Table>();
 
         public ObservableCollection<Commande> Commandes
         {
@@ -26,10 +27,41 @@ namespace GestResto.UI.ViewModel
             }
         }
 
+        public ObservableCollection<Table> Tables
+        {
+            get { return _tables; }
+            set
+            {
+                _tables = value;
+                RaisePropertyChanged();
+            }
+        }
+
         public CommandesViewModel()
         {
+            Tables = new ObservableCollection<Table>(ServiceFactory.Instance.GetService<ITableService>().RetrieveAll());
             Commandes = new ObservableCollection<Commande>(ServiceFactory.Instance.GetService<ICommandeService>().RetrieveAll(Constante.employe.IdEmploye.GetValueOrDefault()));
             _commandeServices = ServiceFactory.Instance.GetService<ICommandeService>();
+        }
+
+        public Commande CreerCommande(Commande commande)
+        {
+            try
+            {
+                // On insert l'enregistrement dans la base de donnée
+                _commandeServices.Create(commande);
+            }
+            catch (NHibernate.Exceptions.GenericADOException adoE)
+            {
+                MySql.Data.MySqlClient.MySqlException mysqlExeception = (adoE.InnerException as MySql.Data.MySqlClient.MySqlException);
+                throw mysqlExeception;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
+            return commande;
         }
     }
 }

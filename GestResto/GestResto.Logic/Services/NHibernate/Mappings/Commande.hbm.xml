@@ -17,7 +17,18 @@
       <column name="idEmploye" not-null="true" sql-type="INTEGER" />
     </property>
 
-    <property name="Debut" column="arrivee" not-null="true" />
-    <property name="Fin" column="depart" not-null="true" />
+    <property name="Debut" column="arrivee" not-null="false" />
+    <property name="Fin" column="depart" not-null="false" />
+
+
+    <set name="ListeTables" table="TablesCommandes" inverse="false" lazy="true">
+      <key>
+        <column name="idCommande" />
+      </key>
+      <many-to-many class="Table" fetch="join">
+        <column name="idTable" />
+      </many-to-many>
+    </set>
+    
   </class>
 </hibernate-mapping>

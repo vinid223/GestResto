@@ -1,4 +1,5 @@
-﻿using GestResto.MvvmToolkit.Services;
+﻿using GestResto.Logic.Model.Entities;
+using GestResto.MvvmToolkit.Services;
 using GestResto.MvvmToolkit.Services.Definitions;
 using GestResto.UI.ViewModel;
 using System;
@@ -23,7 +24,7 @@ namespace GestResto.UI.Views
     /// </summary>
     public partial class AjoutCommandeView : UserControl
     {
-        public TableViewModel ViewModel { get { return (TableViewModel)DataContext; } }
+        public CommandesViewModel ViewModel { get { return (CommandesViewModel)DataContext; } }
         private bool Erreur;
         private IList<int> lstTable = new List<int>();
         private Brush brushesBase;
@@ -34,7 +35,7 @@ namespace GestResto.UI.Views
             InitializeComponent();
             try
             {
-                DataContext = new TableViewModel();
+                DataContext = new CommandesViewModel();
             }
             catch (Exception e)
             {
@@ -81,12 +82,18 @@ namespace GestResto.UI.Views
         private void btnCreer_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             Constante.onReleaseButton(sender, e); // On enlève l'effet du bouton pressé
-            string ligne = "";
-            foreach (var item in lstTable)
+            // On crée la commande dans la bd
+            Commande commande = new Commande("Active", DateTime.Now);
+            commande.IdEmploye = Constante.employe.IdEmploye ?? default(int);
+            commande = ViewModel.CreerCommande(commande);
+
+            // On test si la commande à bien reçu son id de création
+            if (commande.IdCommande != null)
             {
-                ligne += item.ToString() + " ";
+                // Si elle n'est pas null on redirige à la page de la commande avec la commande en cour
+                IApplicationService mainVM = ServiceFactory.Instance.GetService<IApplicationService>();
+                mainVM.ChangeView<CommandeView>(new CommandeView(commande));
             }
-            MessageBox.Show("Créer:\n"+ligne);
         }
 
         private void btnDeconnexion_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)

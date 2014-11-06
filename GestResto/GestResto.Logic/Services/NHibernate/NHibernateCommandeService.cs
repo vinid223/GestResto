@@ -38,7 +38,6 @@ namespace GestResto.Logic.Services.NHibernate
                          select c;
 
             IList<Commande> listeTemp = result.ToList();
-            session.Close();
             return listeTemp;
         }
 
