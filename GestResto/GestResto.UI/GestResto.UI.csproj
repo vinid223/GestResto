@@ -67,8 +67,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="ViewModel\AjoutCommandeViewModel.cs" />
-    <Compile Include="ViewModel\AuthentificationViewModel.cs" />
     <Compile Include="ViewModel\CategorieViewModel.cs" />
     <Compile Include="ViewModel\CommandesViewModel.cs" />
     <Compile Include="ViewModel\CommandeViewModel.cs" />
@@ -79,7 +77,6 @@
     <Compile Include="ViewModel\PaiementViewModel.cs" />
     <Compile Include="ViewModel\ItemsViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
-    <Compile Include="ViewModel\OptionsAdministrationViewModel.cs" />
     <Compile Include="ViewModel\RapportViewModel.cs" />
     <Compile Include="ViewModel\RestaurantViewModel.cs" />
     <Compile Include="ViewModel\TableViewModel.cs" />
