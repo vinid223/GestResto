@@ -58,8 +58,8 @@ namespace GestResto.UI
         /// </summary>
         private void Configure()
         {
-            ServiceFactory.Instance.Register<ICategorieService, NHibertateCategorieService>(new NHibertateCategorieService());
             ServiceFactory.Instance.Register<IRestaurantService, NHibernateRestaurantService>(new NHibernateRestaurantService());
+            ServiceFactory.Instance.Register<ICategorieService, NHibertateCategorieService>(new NHibertateCategorieService());
             ServiceFactory.Instance.Register<IItemService, NHibernateItemService>(new NHibernateItemService());
             ServiceFactory.Instance.Register<IFormatService, NHibernateFormatService>(new NHibernateFormatService());
             ServiceFactory.Instance.Register<IEmployeService, NHibernateEmployeService>(new NHibernateEmployeService());

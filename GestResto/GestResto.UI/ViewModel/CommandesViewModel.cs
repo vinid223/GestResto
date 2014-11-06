@@ -17,6 +17,14 @@ namespace GestResto.UI.ViewModel
         private ObservableCollection<Commande> _commandes = new ObservableCollection<Commande>();
         private ObservableCollection<Table> _tables = new ObservableCollection<Table>();
 
+
+        public CommandesViewModel()
+        {
+            Tables = new ObservableCollection<Table>(ServiceFactory.Instance.GetService<ITableService>().RetrieveAll());
+            Commandes = new ObservableCollection<Commande>(ServiceFactory.Instance.GetService<ICommandeService>().RetrieveAll(Constante.employe.IdEmploye.GetValueOrDefault()));
+            _commandeServices = ServiceFactory.Instance.GetService<ICommandeService>();
+        }
+
         public ObservableCollection<Commande> Commandes
         {
             get { return _commandes; }
@@ -37,12 +45,6 @@ namespace GestResto.UI.ViewModel
             }
         }
 
-        public CommandesViewModel()
-        {
-            Tables = new ObservableCollection<Table>(ServiceFactory.Instance.GetService<ITableService>().RetrieveAll());
-            Commandes = new ObservableCollection<Commande>(ServiceFactory.Instance.GetService<ICommandeService>().RetrieveAll(Constante.employe.IdEmploye.GetValueOrDefault()));
-            _commandeServices = ServiceFactory.Instance.GetService<ICommandeService>();
-        }
 
         public Commande CreerCommande(Commande commande)
         {

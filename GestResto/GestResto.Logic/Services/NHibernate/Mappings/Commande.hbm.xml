@@ -21,14 +21,18 @@
     <property name="Fin" column="depart" not-null="false" />
 
 
-    <set name="ListeTables" table="TablesCommandes" inverse="false" lazy="true">
+    <idbag name="ListeTables" table="tablescommandes" generic="true">
+      <collection-id column="idTableCommande" type="Int32">
+        <column name="idTableCommande" not-null="false" />
+        <generator class="identity" />
+      </collection-id>
       <key>
-        <column name="idCommande" />
+        <column name="idCommande" not-null="true" sql-type="INTEGER" />
       </key>
       <many-to-many class="Table" fetch="join">
-        <column name="idTable" />
+        <column name="idTable" not-null="true" sql-type="INTEGER" />
       </many-to-many>
-    </set>
+    </idbag>
     
   </class>
 </hibernate-mapping>

@@ -23,7 +23,7 @@ namespace GestResto.Logic.Model.Entities
     {
         #region Variables de la classe
 
-        public virtual uint? IdClient { get; set; }
+        public virtual int? IdClient { get; set; }
         public virtual IList<FormatItemClientFacture> ListeFormatItemClientFacture { get; set; }
         public virtual Facture FactureClient { get; set; }
 
@@ -44,7 +44,7 @@ namespace GestResto.Logic.Model.Entities
         /// </summary>
         /// <param name="pIdClient">Ajoute le id au id du client.</param>
         /// <param name="pListeItems">La liste en paramètre est mise dans la liste du client.</param>
-        public Client(uint pIdClient, List<FormatItemClientFacture> pListeFormatItemClientFacture)
+        public Client(int pIdClient, List<FormatItemClientFacture> pListeFormatItemClientFacture)
         {
             IdClient = pIdClient;
             ListeFormatItemClientFacture = pListeFormatItemClientFacture;

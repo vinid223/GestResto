@@ -25,7 +25,7 @@
       <key>
         <column name="idTable" />
       </key>
-      <one-to-many class="Table"/>
+      <one-to-many class="Client"/>
     </bag>
     
   </class>
