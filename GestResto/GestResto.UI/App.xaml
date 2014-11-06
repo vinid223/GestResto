@@ -72,6 +72,11 @@
         
 
 
-
+        <Style x:Key="BoutonImagePaiement">
+            <Setter Property="Image.Height" Value="65"/>
+            <Setter Property="Image.Width" Value="100"/>
+            <Setter Property="Image.VerticalAlignment" Value="Center"/>
+            <Setter Property="Image.HorizontalAlignment" Value="Center"/>
+        </Style>
     </Application.Resources>
 </Application>

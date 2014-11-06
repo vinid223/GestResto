@@ -31,19 +31,19 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <TextBox Name="txtPrix" Grid.Row="0" TextAlignment="Right" FontSize="36" FontFamily="Adobe Caslon Pro Bold" Grid.Column="0" Grid.ColumnSpan="2" Focusable="False"/>
-            <Button Margin="1" Grid.Row ="3" Grid.Column="0" Content="1" Name="btnUn"  />
-            <Button Margin="1" Grid.Row ="3" Grid.Column="1" Content="2" Name="btnDeux"  />
-            <Button Margin="1" Grid.Row ="3" Grid.Column="2" Content="3" Name="btnTrois"  />
-            <Button Margin="1" Grid.Row ="2" Grid.Column="0" Content="4" Name="btnQuatre"  />
-            <Button Margin="1" Grid.Row ="2" Grid.Column="1" Content="5" Name="btnCinq"  />
-            <Button Margin="1" Grid.Row ="2" Grid.Column="2" Content="6" Name="btnSix"  />
-            <Button Margin="1" Grid.Row ="1" Grid.Column="0" Content="7" Name="btnSept"  />
-            <Button Margin="1" Grid.Row ="1" Grid.Column="1" Content="8" Name="btnHuit" />
-            <Button Margin="1" Grid.Row ="1" Grid.Column="2" Content="9" Name="btnNeuf"   />
-            <Button Margin="1" Grid.Row ="4" Grid.Column="0" Content="00" Name="btnZeroZero" />
-            <Button Margin="1" Grid.Row ="4" Grid.Column="1" Content="0" Name="btnZero" />
-            <Button Margin="1" Grid.Row ="0" Grid.Column="2" Content="Retour" Name="btnRetourClavier" />
+            <TextBox Name="txtPrix"  Grid.Row="0" TextAlignment="Right" FontSize="36" FontFamily="Adobe Caslon Pro Bold" Grid.Column="0" Grid.ColumnSpan="2" Focusable="False"/>
+            <Button Margin="1" Grid.Row ="3" Grid.Column="0" Content="1"  Click="btn_Click" Name="btnUn"  />
+            <Button Margin="1" Grid.Row ="3" Grid.Column="1" Content="2"  Click="btn_Click" Name="btnDeux"  />
+            <Button Margin="1" Grid.Row ="3" Grid.Column="2" Content="3"  Click="btn_Click" Name="btnTrois"  />
+            <Button Margin="1" Grid.Row ="2" Grid.Column="0" Content="4"  Click="btn_Click" Name="btnQuatre"  />
+            <Button Margin="1" Grid.Row ="2" Grid.Column="1" Content="5"  Click="btn_Click" Name="btnCinq"  />
+            <Button Margin="1" Grid.Row ="2" Grid.Column="2" Content="6"  Click="btn_Click" Name="btnSix"  />
+            <Button Margin="1" Grid.Row ="1" Grid.Column="0" Content="7"  Click="btn_Click" Name="btnSept"  />
+            <Button Margin="1" Grid.Row ="1" Grid.Column="1" Content="8"  Click="btn_Click" Name="btnHuit" />
+            <Button Margin="1" Grid.Row ="1" Grid.Column="2" Content="9"  Click="btn_Click" Name="btnNeuf"   />
+            <Button Margin="1" Grid.Row ="4" Grid.Column="1" Content="0"  Click="btn_Click"  Name="btnZero" />
+            <Button Margin="1" Grid.Row ="4" Grid.Column="0" Content="00" Click="btnZeroZero_Click" Name="btnZeroZero" />
+            <Button Margin="1" Grid.Row ="0" Grid.Column="2" Content="Retour" Click="btnRetourClavier_Click" Name="btnRetourClavier" />
             <Button Margin="1" Grid.Row ="4" Grid.Column="2" Content="Valider" Name="btnValider" />
                 
 
@@ -62,11 +62,11 @@
 
         <!-- Modes de paiement -->
         <UniformGrid Grid.Column="2" Rows="5">
-            <Image Source="/Images/money.png" HorizontalAlignment="Center" Margin="0,0,0,0" Height="65" Width="100" VerticalAlignment="Center" />
-            <Image Source="/Images/debit.png" HorizontalAlignment="Center" Margin="0,0,0,0" Height="65" Width="100" VerticalAlignment="Center" />
-            <Image Source="/Images/visa.png" HorizontalAlignment="Center" Margin="0,0,0,0" Height="65" Width="100" VerticalAlignment="Center" />
-            <Image Source="/Images/mastercard.png" HorizontalAlignment="Center" Margin="0,0,0,0" Height="65" Width="100" VerticalAlignment="Center" />
-            <Image Source="/Images/amex.png" HorizontalAlignment="Center" Margin="0,0,0,0" Height="65" Width="100" VerticalAlignment="Center" />
+            <Image Source="/Images/money.png" Style="{StaticResource BoutonImagePaiement}" />
+            <Image Source="/Images/debit.png" Style="{StaticResource BoutonImagePaiement}" />
+            <Image Source="/Images/visa.png" Style="{StaticResource BoutonImagePaiement}" />
+            <Image Source="/Images/mastercard.png" Style="{StaticResource BoutonImagePaiement}" />
+            <Image Source="/Images/amex.png" Style="{StaticResource BoutonImagePaiement}" />
         </UniformGrid>
 
         <!-- Boutons de navigation -->
