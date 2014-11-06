@@ -61,7 +61,7 @@ namespace GestResto.UI.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void btnItem_Click(object sender, MouseButtonEventArgs e)
+        private void btnItem_Click(object sender, RoutedEventArgs e)
         {
             Item item = (Item)((sender as Button).CommandParameter);
             
@@ -233,5 +233,7 @@ namespace GestResto.UI.Views
             Constante.onPressButton(sender, e); // On ajoute l'effet du bouton pressé
         }
         #endregion
+
+        
     }
 }
