@@ -25,13 +25,14 @@ namespace GestResto.UI.Views
     public partial class AjoutCommandeView : UserControl
     {
         public CommandesViewModel ViewModel { get { return (CommandesViewModel)DataContext; } }
+
+        // Définition des variables nécessaire pour l'écran
         private bool Erreur;
         private IList<int> lstTable = new List<int>();
         private Brush brushesBase;
 
         public AjoutCommandeView()
         {
-            //<Button Click="btn_Click" Content="Table 3" MinWidth="75" Width="Auto" Margin="10" Padding="25"/>
             InitializeComponent();
             try
             {
@@ -53,21 +54,18 @@ namespace GestResto.UI.Views
             // Si on a pas eu d'erreur lors du chargement
             if (!Erreur)
             {
-                // On boucle pour chaque commandes et on crée un bouton
+                // On boucle dans toutes les tables
                 foreach (var item in ViewModel.Tables)
-                { 
-                    // On se définie un nouveau bouton
-                    Button bouton = new Button();
-                    bouton.Click += btn_Click;
-                    bouton.Width = 115;
-                    bouton.Height = 85;
-                    bouton.Content = item.IdTable;
-                    bouton.Name = "Bouton" + Convert.ToString(item.IdTable);
-                    bouton.Margin = new Thickness(5);
-
-                    // On ajoute le bouton à notre wrappannel
-                    listeTableDisponible.Children.Add(bouton);
+                {
+                    // Si la table est assigné à une commande on ne l'affiche pas
+                    if (item.EstAssigne == true)
+                    {
+                        // On supprime de la liste la table qui est déjà en cour d'utilisation
+                        ViewModel.Tables.Remove(item);
+                    }
                 }
+                // On donne la source des tables à notre liste de table
+                listeTableDisponible.ItemsSource = ViewModel.Tables;
             }
         }
 
@@ -85,6 +83,27 @@ namespace GestResto.UI.Views
             // On crée la commande dans la bd
             Commande commande = new Commande("Active", DateTime.Now);
             commande.IdEmploye = Constante.employe.IdEmploye ?? default(int);
+
+            // On se crée une liste temporaire pour contenir toutes les tables sélectionné
+            // On a pas la choix ici d'utuliser le namespace au complet pour accéder à l'objet de table puisque
+            // table entre en confusion avec une classe table du système
+            IList<GestResto.Logic.Model.Entities.Table> listTableTemp = new List<GestResto.Logic.Model.Entities.Table>();
+
+            // On boucle dans chacune des tables de notre ViewModel
+            foreach (var item in ViewModel.Tables)
+            {
+                // Si le numéro de la table en cour correspond à une des tables sélectionné on la sauvegarde
+                if (lstTable.Contains(item.NoTable))
+                {
+                    item.EstAssigne = true;
+                    listTableTemp.Add(item);
+                }
+            }
+
+            // On définie la liste de table à notre objet de commande
+            commande.ListeTables = listTableTemp;
+
+            // On enregistre la nouvelle commande et on reçoit le résultat de l'insertion
             commande = ViewModel.CreerCommande(commande);
 
             // On test si la commande à bien reçu son id de création
@@ -93,6 +112,16 @@ namespace GestResto.UI.Views
                 // Si elle n'est pas null on redirige à la page de la commande avec la commande en cour
                 IApplicationService mainVM = ServiceFactory.Instance.GetService<IApplicationService>();
                 mainVM.ChangeView<CommandeView>(new CommandeView(commande));
+            }
+            else
+            {
+                // On affiche un message à l'utilisateur
+                MessageBox.Show("Un problème est survenu lors de la création de la commande", "Erreur de création de commande", MessageBoxButton.OK, MessageBoxImage.Error);
+                Constante.LogErreur("Un problème est survenu lors de la création d'une commande");
+
+                // On redirige l'utilisateur à la liste des commandes puisqu'il y a eu un problème
+                IApplicationService mainVM = ServiceFactory.Instance.GetService<IApplicationService>();
+                mainVM.ChangeView<CommandesView>(new CommandesView());
             }
         }
 
