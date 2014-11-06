@@ -38,6 +38,8 @@ namespace GestResto.UI.Views
 
             lbxListeItems.ItemsSource = ViewModel.Items;
 
+            //lbxItemsClient.ItemsSource = uneCommande.ListeTables.First().ListeClients.First().ListeFormatItemClientFacture.First();
+
 
 
         }

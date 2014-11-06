@@ -33,6 +33,13 @@
         <column name="idTable" not-null="true" sql-type="INTEGER" />
       </many-to-many>
     </idbag>
+
+    <bag name="ListeClients" inverse="false" generic="true" lazy="false" cascade="all">
+      <key>
+        <column name="idCommande" />
+      </key>
+      <one-to-many class="Client"/>
+    </bag>
     
   </class>
 </hibernate-mapping>
