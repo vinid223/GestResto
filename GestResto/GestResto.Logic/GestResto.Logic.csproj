@@ -114,7 +114,11 @@
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Services\NHibernate\Mappings\Facture.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
@@ -124,7 +128,9 @@
     <EmbeddedResource Include="Services\NHibernate\Mappings\Commande.hbm.xml">
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <Content Include="Services\NHibernate\Mappings\Client.hbm.xml" />
+    <EmbeddedResource Include="Services\NHibernate\Mappings\Client.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Services\NHibernate\Mappings\Employe.hbm.xml" />
     <EmbeddedResource Include="Services\NHibernate\Mappings\Categorie.hbm.xml" />
     <EmbeddedResource Include="Services\NHibernate\Mappings\Format.hbm.xml" />

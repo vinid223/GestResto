@@ -2,23 +2,23 @@
 <hibernate-mapping assembly="GestResto.Logic"
                    namespace="GestResto.Logic.Model.Entities"
                    xmlns="urn:nhibernate-mapping-2.2">
-  <class name="Client" table="clients">
+  <class name="Facture" table="factures">
 
-    <id name="IdClient">
-      <column name="idClient" not-null="true" sql-type="INTEGER" />
+    <id name="IdFacture">
+      <column name="idFacture" not-null="true" sql-type="INTEGER" />
       <generator class="identity" />
     </id>
 
     <bag name="ListeFormatItemClientFacture" inverse="false" generic="true" lazy="false" cascade="all">
       <key>
-        <column name="idClient" />
+        <column name="idFacture" />
       </key>
       <one-to-many class="FormatItemClientFacture"/>
     </bag>
 
-    <many-to-one name="FactureClient" class="Facture">
-      <column name="idFacture" not-null="true" sql-type="INTEGER" />
-    </many-to-one>
+    <property name="PourcentageTaxe">
+      <column name="pourcentageTaxe" not-null="true" sql-type="FLOAT" />
+    </property>
 
   </class>
 </hibernate-mapping>

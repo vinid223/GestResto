@@ -26,9 +26,9 @@ namespace GestResto.Logic.Model.Entities
         #region Variables de la classe
 
         public virtual uint? IdFacture { get; set; }
-        public virtual DateTime DateCreation { get; set; }
+        //public virtual DateTime DateCreation { get; set; }
         public virtual float PourcentageTaxe { get; set; }
-        public virtual List<Item> ListeItems { get; set; }
+        public virtual IList<FormatItemClientFacture> ListeFormatItemClientFacture { get; set; }
 
         #endregion
 
@@ -40,9 +40,9 @@ namespace GestResto.Logic.Model.Entities
         public Facture()
         {
             IdFacture = null;
-            DateCreation = new DateTime();
+            //DateCreation = new DateTime();
             PourcentageTaxe = 0;
-            ListeItems = new List<Item>();
+            ListeFormatItemClientFacture = new List<FormatItemClientFacture>();
         }
 
         /// <summary>
@@ -52,12 +52,12 @@ namespace GestResto.Logic.Model.Entities
         /// <param name="pDateCreation">La date de la création de la facture.</param>
         /// <param name="pPourcentageTaxe">Le pourcentage de la facture lors de la date de création.</param>
         /// <param name="pListeItems">Liste d'items de la facture.</param>
-        public Facture(uint pIdFacture, DateTime pDateCreation, float pPourcentageTaxe, List<Item> pListeItems)
+        public Facture(uint pIdFacture, DateTime pDateCreation, float pPourcentageTaxe, List<FormatItemClientFacture> pListeItems)
         {
             IdFacture = pIdFacture;
-            DateCreation = pDateCreation;
+            //DateCreation = pDateCreation;
             PourcentageTaxe = pPourcentageTaxe;
-            ListeItems = pListeItems;
+            ListeFormatItemClientFacture = pListeItems;
         }
 
         #endregion

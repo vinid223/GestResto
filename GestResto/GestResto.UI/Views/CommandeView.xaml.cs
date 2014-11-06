@@ -37,6 +37,9 @@ namespace GestResto.UI.Views
             DataContext = new CommandeViewModel();
 
             lbxListeItems.ItemsSource = ViewModel.Items;
+
+           // List<Client> ListClienttemp = 
+
         }
 
 
