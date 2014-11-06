@@ -38,7 +38,7 @@ namespace GestResto.UI.Views
 
             lbxListeItems.ItemsSource = ViewModel.Items;
 
-           // List<Client> ListClienttemp = 
+
 
         }
 

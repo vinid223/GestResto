@@ -24,7 +24,7 @@ namespace GestResto.UI.ViewModel
 
             Categories = new ObservableCollection<Categorie>(ServiceFactory.Instance.GetService<ICategorieService>().RetrieveAll());
             Items = new ObservableCollection<Item>(ServiceFactory.Instance.GetService<IItemService>().RetrieveAll());
-            Clients = new ObservableCollection<Client>(ServiceFactory.Instance.GetService<IClientService>().RetrieveAll());
+            Commandes = new ObservableCollection<Commande>(ServiceFactory.Instance.GetService<ICommandeService>().RetrieveAll(1));
         }
 
 
@@ -32,16 +32,16 @@ namespace GestResto.UI.ViewModel
         
         private ObservableCollection<Categorie> _categories = new ObservableCollection<Categorie>();
         private ObservableCollection<Item> _items = new ObservableCollection<Item>();
-        private ObservableCollection<Client> _clients = new ObservableCollection<Client>();
+        private ObservableCollection<Commande> _commandes = new ObservableCollection<Commande>();
 
         public Categorie _categorie;
 
-        public ObservableCollection<Client> Clients
+        public ObservableCollection<Commande> Commandes
         {
-            get { return _clients; }
+            get { return _commandes; }
             set
             {
-                _clients = value;
+                _commandes = value;
                 RaisePropertyChanged();
             }
         }

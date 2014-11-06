@@ -21,12 +21,13 @@
       <column name="assigne" not-null="true" sql-type="BOOLEAN" />
     </property>
 
-    <!--<bag name="Clients" inverse="true" generic="true" lazy="true" cascade="all">
+    <bag name="ListeClients" inverse="false" generic="true" lazy="false" cascade="all">
       <key>
         <column name="idTable" />
       </key>
       <one-to-many class="Table"/>
-    </bag>-->
+    </bag>
+    
   </class>
 
 </hibernate-mapping>
