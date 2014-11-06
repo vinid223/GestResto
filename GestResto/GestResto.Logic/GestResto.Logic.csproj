@@ -115,7 +115,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Services\NHibernate\Mappings\Facture.hbm.xml" />
+    <EmbeddedResource Include="Services\NHibernate\Mappings\Facture.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
