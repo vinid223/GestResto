@@ -30,15 +30,40 @@
                 ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
-                        <Label Content="{Binding Formats.Prix}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Height="27"/>
+                        <Label Content="{Binding FormatItemAssocie}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Height="27"/>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
 
-            <Label Foreground="White" Content="Client #1" Grid.Column="0" HorizontalAlignment="Center" Margin="86,5,81,0" VerticalAlignment="Top" Height="26" FontSize="14" FontWeight="SemiBold" Width="64"/>
-            <Image Grid.Column="0" Source="/Images/arrowLeft.png" HorizontalAlignment="Left" Margin="5,5,0,0" VerticalAlignment="Top" Width="30" Height="30"/>
-            <Image Grid.Column="0" Source="/Images/arrowRight.png" HorizontalAlignment="Right" Margin="0,5,5,0" VerticalAlignment="Top" Width="30" Height="30"/>
-            <Button Grid.Column="0" Grid.Row="2" Content="Supprimer l'item sélectionné" Width="160" Height="30" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="38,0,33,5" Padding="3" />
+            <Label Foreground="White" 
+                   Content="Client #1" 
+                   Name="lblNumeroClient"
+                   Grid.Column="0" 
+                   HorizontalAlignment="Center" 
+                   Margin="68,5,40,0" 
+                   VerticalAlignment="Top" 
+                   Height="26" FontSize="14" 
+                   FontWeight="SemiBold" Width="112"/>
+
+
+            <Image Grid.Column="0" 
+                   Source="/Images/arrowLeft.png" 
+                   HorizontalAlignment="Left" 
+                   Margin="5,5,0,0" 
+                   VerticalAlignment="Top" 
+                   Width="30" Height="30"
+                   Name="btnClientPrecedent"
+                   MouseLeftButtonDown="btnPrecedentClient_MouseLeftButtonDown"/>
+
+            <Image Grid.Column="0" 
+                   Source="/Images/arrowRight.png" 
+                   HorizontalAlignment="Right" 
+                   Margin="0,5,5,0" 
+                   VerticalAlignment="Top" Width="30" Height="30"
+                   Name="btnClientSuivant"
+                   MouseLeftButtonDown="btnSuivantClient_MouseLeftButtonDown"/>
+
+            <Button Grid.Column="0" Grid.Row="2" Content="Supprimer l'item sélectionné" Width="210" Height="30" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="5,0,5,5" Padding="3" />
 
             <Image Grid.Column="2" 
                    Source="/Images/arrowUp.png" 
@@ -81,7 +106,7 @@
                 </ItemsControl.ItemsPanel>
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
-                        <Button Style="{StaticResource BoutonItem}" >
+                        <Button Style="{StaticResource BoutonItem}" CommandParameter="{Binding}" Click="btnItem_Click" >
                             <TextBlock Text="{Binding Nom}" TextAlignment="Center" TextWrapping="Wrap"/>
                         </Button>
                     </DataTemplate>

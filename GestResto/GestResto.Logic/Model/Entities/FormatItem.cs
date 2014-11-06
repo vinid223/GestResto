@@ -44,6 +44,11 @@ namespace GestResto.Logic.Model.Entities
 
 
         #region Redéfinition de fonctions de bases
+
+        public override string ToString()
+        {
+            return ItemAssocie.Nom + " " + FormatAssocie.Libelle + " " + Prix;
+        }
         /// <summary>
         /// Permet de comparer deux catégories.
         /// </summary>
