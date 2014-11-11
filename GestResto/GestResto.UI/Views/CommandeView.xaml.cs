@@ -69,10 +69,18 @@ namespace GestResto.UI.Views
             Item item = (Item)((sender as Button).CommandParameter);
             
             // Je dois afficher les formats disponibles de l'item.
+            // Je suppose qu'il choisisse le premier formatitem
 
-            //ViewModel.LaCommande.ListeClients.ElementAt(NumeroClient).ListeFormatItemClientFacture.Add();
-           
 
+            FormatItemClientFacture test = new FormatItemClientFacture();
+            test.FormatItemAssocie = item.Formats.First();
+
+
+
+            ViewModel.LaCommande.ListeClients.ElementAt(NumeroClient).ListeFormatItemClientFacture.Add(test);
+
+            lbxItemsClient.ItemsSource = ViewModel.LaCommande.ListeClients.ElementAt(NumeroClient).ListeFormatItemClientFacture;
+            lbxItemsClient.Items.Refresh();
         }
 
 
@@ -211,7 +219,7 @@ namespace GestResto.UI.Views
         {
             Constante.onReleaseButton(sender, e); // On enlève l'effet du bouton pressé
             IApplicationService mainVM = ServiceFactory.Instance.GetService<IApplicationService>();
-            mainVM.ChangeView<PaiementView>(new PaiementView());
+            mainVM.ChangeView<PaiementView>(new PaiementView(ViewModel.LaCommande.ListeClients.ElementAt(NumeroClient)));
         }
 
         // Fonction qui sert à nous déconnecter
