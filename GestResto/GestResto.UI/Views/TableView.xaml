@@ -15,7 +15,7 @@
             <RowDefinition Height="75"/>
         </Grid.RowDefinitions>
 
-        <ListView HorizontalContentAlignment="Stretch" Margin="11,8,11,11" Name="lvwListeTable" Grid.Row="0" Grid.Column="1">
+        <ListView HorizontalContentAlignment="Stretch" Margin="11,42,11,11" Name="lvwListeTable" Grid.Row="0" Grid.Column="1">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Button Content="{Binding NoTable}" Click="btnTable_Click" CommandParameter="{Binding}" Style="{StaticResource BoutonList}" />
@@ -23,7 +23,7 @@
             </ListView.ItemTemplate>
         </ListView>
 
-        <Label Foreground="White" x:Name="lblListeTable" Content="Liste de toutes les tables" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="296,10,0,0" VerticalAlignment="Top" Width="194" Grid.ColumnSpan="2" Height="26"/>
+        <Label Foreground="White" x:Name="lblListeTable" Content="Liste de toutes les tables" HorizontalContentAlignment="Center" Margin="29,10,11,0" VerticalAlignment="Top" Height="26" Grid.Column="1"/>
         <Label Foreground="White" x:Name="lblTitre" Content="Informations d'une table" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" Height="26" Width="140"/>
         <Label Foreground="White" x:Name="lblNumeroTable" Content="Numéro de la table" HorizontalAlignment="Left" Margin="10,42,0,0" VerticalAlignment="Top" Height="26" Width="112"/>
         <TextBox x:Name="txtNumeroTable" IsEnabled="False" MaxLength="5" Text="{Binding table.NoTable, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Height="23" Margin="127,45,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="153"/>
