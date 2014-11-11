@@ -7,6 +7,7 @@
              d:DesignHeight="600" d:DesignWidth="1000">
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="34"/>
             <RowDefinition/>
             <RowDefinition Height="75"/>
         </Grid.RowDefinitions>
@@ -14,25 +15,25 @@
             <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
-        <Label Foreground="White" Content="Informations d'un format" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="155"/>
-        <Label Foreground="White" Content="Nom du format" HorizontalAlignment="Left" Margin="10,52,0,0" VerticalAlignment="Top" Width="94"/>
-        <TextBox  HorizontalAlignment="Stretch" Height="23" Text="{Binding Format.Nom, UpdateSourceTrigger=PropertyChanged}" Margin="109,52,0,0" VerticalAlignment="Top"  Name="txtNomFormat" IsEnabled="False"/>
-        <Label Foreground="White" Content="Libellé" HorizontalAlignment="Left" Margin="10,83,0,0" VerticalAlignment="Top" Width="94"/>
-        <TextBox HorizontalAlignment="Stretch" Height="23" Text="{Binding Format.Libelle, UpdateSourceTrigger=PropertyChanged}" Margin="109,83,0,0" VerticalAlignment="Top" Name="txtLibelle" IsEnabled="False"/>
-        <CheckBox Foreground="White" Content="Actif" HorizontalAlignment="Left" IsChecked="{Binding Format.EstActif}" Margin="109,111,0,0" VerticalAlignment="Top" Width="56" Name="cbxActif" IsEnabled="False"/>
+        <Label Foreground="White" Content="Informations d'un format" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="256" Grid.Row="1" FontSize="18"/>
+        <Label Foreground="White" Content="Nom du format" HorizontalAlignment="Left" Margin="10,62,0,0" VerticalAlignment="Top" Width="128" Grid.Row="1" FontSize="16"/>
+        <TextBox  HorizontalAlignment="Stretch" Height="23" Text="{Binding Format.Nom, UpdateSourceTrigger=PropertyChanged}" Margin="143,62,0,0" VerticalAlignment="Top"  Name="txtNomFormat" IsEnabled="False" Grid.Row="1" FontSize="16"/>
+        <Label Foreground="White" Content="Libellé" HorizontalAlignment="Left" Margin="10,92.701,0,0" VerticalAlignment="Top" Width="94" Grid.Row="1" FontSize="16"/>
+        <TextBox HorizontalAlignment="Stretch" Height="23" Text="{Binding Format.Libelle, UpdateSourceTrigger=PropertyChanged}" Margin="143,93,0,0" VerticalAlignment="Top" Name="txtLibelle" IsEnabled="False" Grid.Row="1" FontSize="16"/>
+        <CheckBox Foreground="White" Content="Actif" HorizontalAlignment="Left" IsChecked="{Binding Format.EstActif}" Margin="143,121,0,0" VerticalAlignment="Top" Width="56" Name="cbxActif" IsEnabled="False" Grid.Row="1" FontSize="16"/>
 
-        <Label Foreground="White" Content="Liste des formats" HorizontalAlignment="Center" Margin="50,10,50,0" VerticalAlignment="Top" Grid.Column="1"/>
+        <Label Foreground="White" Content="Liste des formats" Margin="50,20,50,0" VerticalAlignment="Top" Grid.Column="1" Grid.Row="1" FontSize="16" HorizontalContentAlignment="Center"/>
 
-        <ListView HorizontalContentAlignment="Stretch" Grid.Column="1" Grid.Row="0" Margin="50,50,50,10" x:Name="listeBoutonFormats">
+        <ListView HorizontalContentAlignment="Stretch" Grid.Column="1" Grid.Row="1" Margin="50,61.701,50,10" x:Name="listeBoutonFormats">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Button Content="{Binding Nom}" CommandParameter="{Binding}" Click="btnDetail_Click" Style="{StaticResource BoutonList}"/>
+                    <Button Content="{Binding Nom}" CommandParameter="{Binding}" Click="btnDetail_Click" Style="{StaticResource BoutonList}" FontSize="16"/>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
 
         <!-- Boutons de navigation -->
-        <Grid Grid.ColumnSpan="2" Grid.Row="1">
+        <Grid Grid.ColumnSpan="2" Grid.Row="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="80"/>
                 <ColumnDefinition/>
@@ -84,6 +85,7 @@
             </StackPanel>
         </Grid>
         <!-- Fin des boutons de navigation -->
+        <Label x:Name="lblNom" Content="" VerticalAlignment="Top" HorizontalAlignment="Left" Width="496" FontSize="18" Foreground="White" Margin="4,0,0,0"/>
 
     </Grid>
 </UserControl>

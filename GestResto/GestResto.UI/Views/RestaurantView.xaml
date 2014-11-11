@@ -7,26 +7,27 @@
              d:DesignHeight="600" d:DesignWidth="1000">
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="34"/>
             <RowDefinition/>
             <RowDefinition Height="75"/>
         </Grid.RowDefinitions>
-        <Label Foreground="White" x:Name="lblRestaurant" Content="Informations du restaurant" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="26" Width="151"/>
-        <Label Foreground="White" x:Name="lblNom" Content="Nom" HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top" Width="55" Height="26"/>
-        <Label Foreground="White" x:Name="lblAdresse" Content="Adresse" HorizontalAlignment="Left" Margin="10,97,0,0" VerticalAlignment="Top" Width="55" Height="26"/>
-        <Label Foreground="White" x:Name="lblVille" Content="Ville" HorizontalAlignment="Left" Margin="10,141,0,0" VerticalAlignment="Top" Width="55" Height="26"/>
-        <Label Foreground="White" x:Name="lblCodePostal" Content="Code Postal" HorizontalAlignment="Left" Margin="10,184,0,0" VerticalAlignment="Top" Width="84" Height="26"/>
-        <Label Foreground="White" x:Name="lblTelephone" Content="Téléphone" HorizontalAlignment="Left" Margin="10,230,0,0" VerticalAlignment="Top" Width="84" Height="26"/>
-        <Label Foreground="White" x:Name="lblFax" Content="Fax" HorizontalAlignment="Left" Margin="10,279,0,0" VerticalAlignment="Top" Width="84" Height="26"/>
+        <Label Foreground="White" x:Name="lblRestaurant" Content="Informations du restaurant" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="48" Width="242" Grid.Row="1" FontSize="18"/>
+        <Label Foreground="White" x:Name="lblNm" Content="Nom" HorizontalAlignment="Left" Margin="10,60,0,0" VerticalAlignment="Top" Width="76" Height="28" Grid.Row="1" FontSize="16"/>
+        <Label Foreground="White" x:Name="lblAdresse" Content="Adresse" HorizontalAlignment="Left" Margin="10,111,0,0" VerticalAlignment="Top" Width="76" Height="29" Grid.Row="1" FontSize="16"/>
+        <Label Foreground="White" x:Name="lblVille" Content="Ville" HorizontalAlignment="Left" Margin="10,160,0,0" VerticalAlignment="Top" Width="76" Height="28" Grid.Row="1" FontSize="16"/>
+        <Label Foreground="White" x:Name="lblCodePostal" Content="Code Postal" HorizontalAlignment="Left" Margin="10,207,0,0" VerticalAlignment="Top" Width="115" Height="28" Grid.Row="1" FontSize="16"/>
+        <Label Foreground="White" x:Name="lblTelephone" Content="Téléphone" HorizontalAlignment="Left" Margin="10,257,0,0" VerticalAlignment="Top" Width="115" Height="28" Grid.Row="1" FontSize="16"/>
+        <Label Foreground="White" x:Name="lblFax" Content="Fax" HorizontalAlignment="Left" Margin="10,310,0,0" VerticalAlignment="Top" Width="115" Height="29" Grid.Row="1" FontSize="16"/>
 
-        <TextBox x:Name="txtNom" HorizontalAlignment="Stretch" Height="26" Margin="111,50,10,0" TextWrapping="Wrap" Text="{Binding Restaurant. Nom, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" />
-        <TextBox x:Name="txtAdresse" HorizontalAlignment="Stretch" Height="26" Margin="111,97,10,0" TextWrapping="Wrap" Text="{Binding Restaurant. Adresse, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtVille" HorizontalAlignment="Stretch" Height="26" Margin="111,141,10,0" TextWrapping="Wrap" Text="{Binding Restaurant. Ville, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtCodePostal" HorizontalAlignment="Stretch" Height="26" Margin="111,186,10,0" TextWrapping="Wrap" Text="{Binding Restaurant. CodePostal, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtTelephone"  HorizontalAlignment="Stretch" Height="26" Margin="111,232,10,0" TextWrapping="Wrap" Text="{Binding Restaurant. Telephone, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtFax" HorizontalAlignment="Stretch" Height="26" Margin="111,281,10,0" TextWrapping="Wrap" Text="{Binding Restaurant. Fax, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtNom" HorizontalAlignment="Stretch" Height="27" Margin="154,64,10,0" TextWrapping="Wrap" Text="{Binding Restaurant. Nom, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Grid.Row="1" FontSize="16" />
+        <TextBox x:Name="txtAdresse" HorizontalAlignment="Stretch" Height="28" Margin="154,114,10,0" TextWrapping="Wrap" Text="{Binding Restaurant. Adresse, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Grid.Row="1" FontSize="16"/>
+        <TextBox x:Name="txtVille" HorizontalAlignment="Stretch" Height="28" Margin="154,161,10,0" TextWrapping="Wrap" Text="{Binding Restaurant. Ville, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Grid.Row="1" FontSize="16"/>
+        <TextBox x:Name="txtCodePostal" HorizontalAlignment="Stretch" Height="28" Margin="154,209,10,0" TextWrapping="Wrap" Text="{Binding Restaurant. CodePostal, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Grid.Row="1" FontSize="16"/>
+        <TextBox x:Name="txtTelephone"  HorizontalAlignment="Stretch" Height="27" Margin="154,259,10,0" TextWrapping="Wrap" Text="{Binding Restaurant. Telephone, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Grid.Row="1" FontSize="16"/>
+        <TextBox x:Name="txtFax" HorizontalAlignment="Stretch" Height="28" Margin="154,311,10,0" TextWrapping="Wrap" Text="{Binding Restaurant. Fax, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Grid.Row="1" FontSize="16"/>
 
         <!-- Boutons de navigation -->
-        <Grid Grid.ColumnSpan="2" Grid.Row="1">
+        <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="80"/>
                 <ColumnDefinition/>
@@ -66,5 +67,6 @@
             </StackPanel>
         </Grid>
         <!-- Fin des boutons de navigation -->
+        <Label x:Name="lblNom" Content="" VerticalAlignment="Top" HorizontalAlignment="Left" Width="496" FontSize="18" Foreground="White"/>
     </Grid>
 </UserControl>

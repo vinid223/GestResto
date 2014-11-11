@@ -25,6 +25,7 @@ namespace GestResto.UI.Views
         public OptionsAdministrationView()
         {
             InitializeComponent();
+            lblNom.Content = Constante.employe.ToString();
         }
 
         private void btnGererCategories(object sender, RoutedEventArgs e)

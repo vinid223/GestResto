@@ -7,6 +7,7 @@
              d:DesignHeight="600" d:DesignWidth="1000">
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="34"/>
             <RowDefinition/>
             <RowDefinition Height="75"/>
         </Grid.RowDefinitions>
@@ -14,32 +15,32 @@
             <ColumnDefinition Width="127*"/>
             <ColumnDefinition Width="60*"/>
         </Grid.ColumnDefinitions>
-        
-        <StackPanel Grid.Column="0" Margin="10,0,0,0">
+
+        <StackPanel Grid.Column="0" Margin="0,42,10,31" Grid.RowSpan="2" Grid.Row="1">
 
             <!-- L'intervalle de temps -->
-            <Label Foreground="White" Name="lblPeriode" Content="Période" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top"/>
+            <Label Foreground="White" Name="lblPeriode" Content="Période" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" FontSize="16"/>
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="1*"/>
                     <ColumnDefinition Width="1*"/>
                 </Grid.ColumnDefinitions>
                 <DockPanel Grid.Column="0" Height="30" Margin="0,0,0,0" VerticalAlignment="Top" HorizontalAlignment="Stretch">
-                    <Label Foreground="White" Name="lblDu" Content="Du" HorizontalAlignment="Left" />
-                    <DatePicker Name="dpkDebut" HorizontalAlignment="Stretch"  />
+                    <Label Foreground="White" Name="lblDu" Content="Du" HorizontalAlignment="Left" FontSize="16" />
+                    <DatePicker Name="dpkDebut" HorizontalAlignment="Stretch" FontSize="16"  />
                 </DockPanel>
                 <DockPanel Grid.Column="1" Height="30" Margin="0,0,0,0" VerticalAlignment="Top" HorizontalAlignment="Stretch">
-                    <Label Foreground="White" Name="lblAu" Content="Au" HorizontalAlignment="Right" />
-                    <DatePicker Name="dpkFin" HorizontalAlignment="Stretch" />
+                    <Label Foreground="White" Name="lblAu" Content="Au" HorizontalAlignment="Right" FontSize="16" />
+                    <DatePicker Name="dpkFin" HorizontalAlignment="Stretch" FontSize="16" />
                 </DockPanel>
             </Grid>
 
             <!-- Pour l'employé -->
             <DockPanel Margin="0,10,0,0" >
-                <Label Foreground="White" Name="lblPour" Content="Pour" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                <ComboBox x:Name="cboListeEmployes" HorizontalAlignment="Stretch" VerticalAlignment="Top" />
+                <Label Foreground="White" Name="lblPour" Content="Pour" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="16"/>
+                <ComboBox x:Name="cboListeEmployes" HorizontalAlignment="Stretch" VerticalAlignment="Top" FontSize="16" />
             </DockPanel>
-            
+
             <!-- Pour le prix -->
             <Grid Margin="0,10,0,0">
                 <Grid.ColumnDefinitions>
@@ -48,45 +49,45 @@
                     <ColumnDefinition Width="1*"/>
                 </Grid.ColumnDefinitions>
                 <DockPanel>
-                    <Label Foreground="White" Grid.Column="0" Name="lblPrix" Content="Prix"/>
+                    <Label Foreground="White" Grid.Column="0" Name="lblPrix" Content="Prix" FontSize="16"/>
                     <Image Source="/Images/infoMini.png" Height="16" Width="16" />
                 </DockPanel>
                 <DockPanel Grid.Column="1" Height="30" Margin="0,0,0,0">
-                    <Label Foreground="White" Name="lblMinimum" Content="Minimum"/>
-                    <TextBox Name="txtPrixMinimum" Height="23" HorizontalAlignment="Stretch"/>
+                    <Label Foreground="White" Name="lblMinimum" Content="Minimum" FontSize="16"/>
+                    <TextBox Name="txtPrixMinimum" Height="23" HorizontalAlignment="Stretch" FontSize="16"/>
                 </DockPanel>
                 <DockPanel Grid.Column="2" Height="30" Margin="0,0,0,0" HorizontalAlignment="Stretch">
-                    <Label Foreground="White" Name="lblMaximum" Content="Maximum"/>
-                    <TextBox Name="txtPrixMaximum" Height="23" HorizontalAlignment="Stretch"/>
+                    <Label Foreground="White" Name="lblMaximum" Content="Maximum" FontSize="16"/>
+                    <TextBox Name="txtPrixMaximum" Height="23" HorizontalAlignment="Stretch" FontSize="16"/>
                 </DockPanel>
             </Grid>
 
             <!-- Pour le tri (Croissant décroissant, par nom, par prix,...) -->
             <Grid Margin="0,10,0,0">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="50"/>
-                <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="1*"/>
-            </Grid.ColumnDefinitions>
-                <Label Foreground="White" Grid.Column="0" Name="lblOrdre" Content="Ordre" HorizontalAlignment="Left"/>
-                <ComboBox Grid.Column="1" Name="cboOrdreChamp" HorizontalAlignment="Stretch" />
-                <ComboBox Margin="5,0,0,0" Grid.Column="2"  Name="cboOrdreCroissant" HorizontalAlignment="Stretch" />
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <Label Foreground="White" Grid.Column="0" Name="lblOrdre" Content="Ordre" HorizontalAlignment="Left" FontSize="16"/>
+                <ComboBox Grid.Column="1" Name="cboOrdreChamp" HorizontalAlignment="Stretch" FontSize="16" />
+                <ComboBox Margin="5,0,0,0" Grid.Column="2"  Name="cboOrdreCroissant" HorizontalAlignment="Stretch" FontSize="16" />
             </Grid>
 
             <!-- Pour le nombre maximal de lignes -->
             <DockPanel Margin="0,10,0,0">
-                <Label Foreground="White" Name="lblNbMaximumLignes" Content="Maximum de lignes" />
-                <TextBox Name="txtNbMaximumLignes" Height="23" />
+                <Label Foreground="White" Name="lblNbMaximumLignes" Content="Maximum de lignes" FontSize="16" />
+                <TextBox Name="txtNbMaximumLignes" Height="23" FontSize="16" />
             </DockPanel>
-            
-            
-            
-            
+
+
+
+
             <!-- Pour le répertoire d'enregistrement -->
             <DockPanel Margin="0,10,0,0" Name="dpnRepertoire" >
-                <Label Foreground="White" Name="lblRepertoire" Content="Répertoire d'enregistrement"/>
-                <Button Name="btnParcourirRepertoire" Padding="2" DockPanel.Dock="Right" Height="23">Parcourir</Button>
-                <TextBox Name="txtRepertoire"  HorizontalAlignment="Stretch" Height="23" />
+                <Label Foreground="White" Name="lblRepertoire" Content="Répertoire d'enregistrement" FontSize="16"/>
+                <Button Name="btnParcourirRepertoire" Padding="2" DockPanel.Dock="Right" Height="23" FontSize="16">Parcourir</Button>
+                <TextBox Name="txtRepertoire"  HorizontalAlignment="Stretch" Height="23" FontSize="16" />
             </DockPanel>
         </StackPanel>
         <!--  Pour plus tard dans le xaml.cs
@@ -99,17 +100,17 @@
           txtXML.Text = dialog.SelectedPath;
         }
         -->
-        
+
 
         <!-- Les boutons radio pour le choix du tri (Par catégorie ou item) -->
-        <StackPanel Grid.Column="1" HorizontalAlignment="Stretch"  Height="250" VerticalAlignment="Top" Margin="10,10,10,0" >
-            <RadioButton Foreground="White" Name="optCategorie" Content="Par Categorie" VerticalAlignment="Top" Margin="0,5,0,0" Checked="optCategorie_Checked"/>
-            <ComboBox Name="cboListeCategorie" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="0,5,0,0" IsEnabled="False"/>
-            <RadioButton Foreground="White" Name="optItem" Content="Par Item" VerticalAlignment="Top" Margin="0,5,0,0" Checked="optItem_Checked"/>
-            <ComboBox Name="cboListeItem" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="0,5,0,0" IsEnabled="False"/>
+        <StackPanel Grid.Column="1" HorizontalAlignment="Stretch"  Height="250" VerticalAlignment="Top" Margin="10,10,10,0" Grid.Row="1" >
+            <RadioButton Foreground="White" Name="optCategorie" Content="Par Categorie" VerticalAlignment="Top" Margin="0,5,0,0" Checked="optCategorie_Checked" FontSize="16"/>
+            <ComboBox Name="cboListeCategorie" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="0,5,0,0" IsEnabled="False" FontSize="16"/>
+            <RadioButton Foreground="White" Name="optItem" Content="Par Item" VerticalAlignment="Top" Margin="0,5,0,0" Checked="optItem_Checked" FontSize="16"/>
+            <ComboBox Name="cboListeItem" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="0,5,0,0" IsEnabled="False" FontSize="16"/>
         </StackPanel>
         <!-- Boutons de navigation -->
-        <Grid Grid.ColumnSpan="3" Grid.Row="1">
+        <Grid Grid.ColumnSpan="2" Grid.Row="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="80"/>
                 <ColumnDefinition/>
@@ -152,5 +153,6 @@
         </Grid>
         <!-- Fin des boutons de navigation -->
 
+        <Label x:Name="lblNom" Content="" VerticalAlignment="Top" HorizontalAlignment="Left" Width="679" FontSize="18" Foreground="White"/>
     </Grid>
 </UserControl>

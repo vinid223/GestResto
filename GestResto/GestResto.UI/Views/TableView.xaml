@@ -11,26 +11,27 @@
             <ColumnDefinition Width="513*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
+            <RowDefinition Height="34"/>
             <RowDefinition/>
             <RowDefinition Height="75"/>
         </Grid.RowDefinitions>
 
-        <ListView HorizontalContentAlignment="Stretch" Margin="11,42,11,11" Name="lvwListeTable" Grid.Row="0" Grid.Column="1">
+        <ListView HorizontalContentAlignment="Stretch" Margin="11,44,11,11" Name="lvwListeTable" Grid.Row="1" Grid.Column="1">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Button Content="{Binding NoTable}" Click="btnTable_Click" CommandParameter="{Binding}" Style="{StaticResource BoutonList}" />
+                    <Button Content="{Binding NoTable}" Click="btnTable_Click" CommandParameter="{Binding}" Style="{StaticResource BoutonList}" FontSize="16" />
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
 
-        <Label Foreground="White" x:Name="lblListeTable" Content="Liste de toutes les tables" HorizontalContentAlignment="Center" Margin="29,10,11,0" VerticalAlignment="Top" Height="26" Grid.Column="1"/>
-        <Label Foreground="White" x:Name="lblTitre" Content="Informations d'une table" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" Height="26" Width="140"/>
-        <Label Foreground="White" x:Name="lblNumeroTable" Content="Numéro de la table" HorizontalAlignment="Left" Margin="10,42,0,0" VerticalAlignment="Top" Height="26" Width="112"/>
-        <TextBox x:Name="txtNumeroTable" IsEnabled="False" MaxLength="5" Text="{Binding table.NoTable, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Height="23" Margin="127,45,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="153"/>
-        <CheckBox Foreground="White" IsEnabled="False" IsChecked="{Binding table.EstActif, UpdateSourceTrigger=PropertyChanged}" x:Name="chkActif" Content="Actif" HorizontalAlignment="Left" Margin="127,86,0,0" VerticalAlignment="Top" Height="15" Width="44"/>
+        <Label Foreground="White" x:Name="lblListeTable" Content="Liste de toutes les tables" HorizontalContentAlignment="Center" Margin="11,10,11,0" VerticalAlignment="Top" Height="34" Grid.Column="1" Grid.Row="1" FontSize="16"/>
+        <Label Foreground="White" x:Name="lblTitre" Content="Informations d'une table" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" Height="37" Width="209" Grid.Row="1" FontSize="18"/>
+        <Label Foreground="White" x:Name="lblNumeroTable" Content="Numéro de la table" HorizontalAlignment="Left" Margin="14,51,0,0" VerticalAlignment="Top" Height="39" Width="157" Grid.Row="1" FontSize="16"/>
+        <TextBox x:Name="txtNumeroTable" IsEnabled="False" MaxLength="5" Text="{Binding table.NoTable, UpdateSourceTrigger=PropertyChanged}" Height="36" Margin="176,54,25,0" TextWrapping="Wrap" VerticalAlignment="Top" Grid.Row="1" FontSize="16"/>
+        <CheckBox Foreground="White" IsEnabled="False" IsChecked="{Binding table.EstActif, UpdateSourceTrigger=PropertyChanged}" x:Name="chkActif" Content="Actif" HorizontalAlignment="Left" Margin="176,102,0,0" VerticalAlignment="Top" Height="22" Width="74" Grid.Row="1" FontSize="16"/>
 
         <!-- Boutons de navigation -->
-        <Grid Grid.ColumnSpan="2" Grid.Row="1">
+        <Grid Grid.ColumnSpan="2" Grid.Row="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="80"/>
                 <ColumnDefinition/>
@@ -82,5 +83,7 @@
             </StackPanel>
         </Grid>
         <!-- Fin des boutons de navigation -->
+
+        <Label x:Name="lblNom" Content="" VerticalAlignment="Top" HorizontalAlignment="Left" Width="496" FontSize="18" Foreground="White" Margin="1,0,0,0" Grid.ColumnSpan="2"/>
     </Grid>
 </UserControl>

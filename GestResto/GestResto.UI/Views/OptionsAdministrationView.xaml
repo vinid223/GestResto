@@ -10,21 +10,22 @@
             <ColumnDefinition Width="379*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
+            <RowDefinition Height="34"/>
             <RowDefinition/>
             <RowDefinition Height="75"/>
         </Grid.RowDefinitions>
-        <Label Foreground="White" Content="Options d'administration&#xD;&#xA;" HorizontalAlignment="Left" VerticalAlignment="Top" Height="29" Width="493"/>
-        <Button x:Name="btnEmployes" Content="Gérer les Employés" Margin="10,34,10,0" VerticalAlignment="Top" Height="60" Click="btnEmployes_Click"/>
-        <Button x:Name="btnTables" Content="Gérer les Tables" Margin="10,34,10,0" VerticalAlignment="Top" Height="60" Grid.Column="1" Click="btnTables_Click"/>
-        <Button x:Name="btnItems" Content="Gérer les Items" Margin="10,116,10,0" VerticalAlignment="Top" Height="60" Click="btnItems_Click"/>
-        <Button x:Name="btnRapports" Content="Générer des Rapports" Margin="10,196,10,0" VerticalAlignment="Top" Height="60" Click="btnRapports_Click" />
-        <Button x:Name="btnFormats" Content="Gérer les Formats" Margin="10,272,10,0" VerticalAlignment="Top" Height="60" Click="btnGererFormat"/>
-        <Button x:Name="btnInfoResto" Content="Gérer les Informations du Restaurant" Margin="10,116,10,0" VerticalAlignment="Top" Height="60" Click="btnGererInformationsRestaurants" Grid.Column="1"/>
-        <Button x:Name="btnCategorie" Content="Gérer les Catégories" Margin="10,196,10,0" VerticalAlignment="Top" Height="60" Click="btnGererCategories" Grid.Column="1"/>
+        <Label Foreground="White" Content="Options d'administration" HorizontalAlignment="Left" VerticalAlignment="Top" Height="34" Width="493" FontSize="18" Margin="0,7,0,0" Grid.Row="1"/>
+        <Button x:Name="btnEmployes" Content="Employés" Margin="10,41,10,0" VerticalAlignment="Top" Height="60" Click="btnEmployes_Click" FontSize="24" Grid.Row="1"/>
+        <Button x:Name="btnTables" Content="Tables" Margin="10,41,10,0" VerticalAlignment="Top" Height="60" Grid.Column="1" Click="btnTables_Click" FontSize="24" Grid.Row="1"/>
+        <Button x:Name="btnItems" Content="Items" Margin="10,123,10,0" VerticalAlignment="Top" Height="60" Click="btnItems_Click" FontSize="24" Grid.Row="1"/>
+        <Button x:Name="btnRapports" Content="Générer des Rapports" Margin="10,203,10,0" VerticalAlignment="Top" Height="60" Click="btnRapports_Click" FontSize="24" Grid.Row="1" />
+        <Button x:Name="btnFormats" Content="Formats" Margin="10,279,10,0" VerticalAlignment="Top" Height="60" Click="btnGererFormat" FontSize="24" Grid.Row="1"/>
+        <Button x:Name="btnInfoResto" Content="Informations du Restaurant" Margin="10,123,10,0" VerticalAlignment="Top" Height="60" Click="btnGererInformationsRestaurants" Grid.Column="1" FontSize="24" Grid.Row="1"/>
+        <Button x:Name="btnCategorie" Content="Catégories" Margin="10,203,10,0" VerticalAlignment="Top" Height="60" Click="btnGererCategories" Grid.Column="1" FontSize="24" Grid.Row="1"/>
 
 
         <!-- Boutons de navigation -->
-        <Grid Grid.ColumnSpan="2" Grid.Row="1">
+        <Grid Grid.ColumnSpan="2" Grid.Row="2">
 
             <StackPanel Grid.Column="1"  Orientation="Horizontal" HorizontalAlignment="Right" Grid.ColumnSpan="2">
 
@@ -40,6 +41,7 @@
                 </Grid>
             </StackPanel>
         </Grid>
+        <Label x:Name="lblNom" Content="" VerticalAlignment="Top" HorizontalAlignment="Left" Width="496" FontSize="18" Foreground="White"/>
         <!-- Fin des boutons de navigation -->
     </Grid>
 </UserControl>

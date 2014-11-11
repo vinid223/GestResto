@@ -33,6 +33,7 @@ namespace GestResto.UI.Views
         public EmployeView()
         {
             InitializeComponent();
+            lblNom.Content = Constante.employe.ToString();
             // On tente d'obtenir tous le employés
             try
             {

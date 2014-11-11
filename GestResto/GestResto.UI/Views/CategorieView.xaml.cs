@@ -31,6 +31,7 @@ namespace GestResto.UI.Views
         public CategorieView()
         {
             InitializeComponent();
+            lblNom.Content = Constante.employe.ToString();
 
             try
             {

@@ -30,6 +30,7 @@ namespace GestResto.UI.Views
         public CommandesView()
         {
             InitializeComponent();
+            lblNom.Content = Constante.employe.ToString();
 
             try
             {

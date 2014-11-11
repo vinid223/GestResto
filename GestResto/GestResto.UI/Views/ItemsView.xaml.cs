@@ -34,6 +34,7 @@ namespace GestResto.UI.Views
         public ItemsView()
         {
             InitializeComponent();
+            lblNom.Content = Constante.employe.ToString();
             try
             {
                 DataContext = new ItemsViewModel();

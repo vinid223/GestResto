@@ -30,6 +30,7 @@ namespace GestResto.UI.Views
         public RestaurantView()
         {
             InitializeComponent();
+            lblNom.Content = Constante.employe.ToString();
             try
             {
                 DataContext = new RestaurantViewModel();

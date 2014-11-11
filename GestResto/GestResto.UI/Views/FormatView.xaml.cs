@@ -31,6 +31,7 @@ namespace GestResto.UI.Views
         public FormatView()
         {
             InitializeComponent();
+            lblNom.Content = Constante.employe.ToString();
             // On tente d'obtenir tous les formats
             try
             {

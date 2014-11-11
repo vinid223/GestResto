@@ -8,6 +8,7 @@
              d:DesignHeight="600" d:DesignWidth="1000">
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="34"/>
             <RowDefinition/>
             <RowDefinition Height="75"/>
         </Grid.RowDefinitions>
@@ -15,23 +16,23 @@
             <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
-        <Label x:Name="lblTitre" Content="Informations d'une catégorie" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="26" Width="163" Foreground="White"/>
-        <Label x:Name="lblCategorie" Content="Nom de la catégorie" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Height="26" Width="118" Foreground="White"/>
-        <TextBox HorizontalAlignment="Stretch" x:Name="txtNom" Height="23" Margin="128,41,0,0" TextWrapping="Wrap" Text="{Binding Categorie.Nom, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" IsEnabled="False" />
-        <CheckBox x:Name="cbxActif" Content="Actif" HorizontalAlignment="Left" Margin="128,80,0,0" VerticalAlignment="Top" IsChecked="{Binding Categorie.EstActif}" Height="15" Width="44" IsEnabled="False" Foreground="White"/>
-        <CheckBox x:Name="cbxComplementaire" Content="Complémentaire" HorizontalAlignment="Left" Margin="128,100,0,0" VerticalAlignment="Top" IsChecked="{Binding Categorie.EstComplementaire}" Height="15" Width="108" IsEnabled="False" Foreground="White"/>
-        <ListView HorizontalContentAlignment="Stretch" Grid.Column="1" Grid.Row="0" Margin="50,50,50,10" x:Name="listeBoutonCategories">
+        <Label x:Name="lblTitre" Content="Informations d'une catégorie" HorizontalAlignment="Left" Margin="5,2,0,0" VerticalAlignment="Top" Height="34" Width="304" Foreground="White" Grid.Row="1" FontSize="18"/>
+        <Label x:Name="lblCategorie" Content="Nom de la catégorie" HorizontalAlignment="Left" Margin="6,36,0,0" VerticalAlignment="Top" Height="34" Width="162" Foreground="White" Grid.Row="1" FontSize="16"/>
+        <TextBox HorizontalAlignment="Stretch" x:Name="txtNom" Height="30" Margin="178,40,4,0" TextWrapping="Wrap" Text="{Binding Categorie.Nom, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" IsEnabled="False" Grid.Row="1" FontSize="16" />
+        <CheckBox x:Name="cbxActif" Content="Actif" HorizontalAlignment="Left" Margin="178,81,0,0" VerticalAlignment="Top" IsChecked="{Binding Categorie.EstActif}" Height="20" Width="169" IsEnabled="False" Foreground="White" Grid.Row="1" FontSize="16"/>
+        <CheckBox x:Name="cbxComplementaire" Content="Complémentaire" HorizontalAlignment="Left" Margin="178,101,0,0" VerticalAlignment="Top" IsChecked="{Binding Categorie.EstComplementaire}" Height="21" Width="169" IsEnabled="False" Foreground="White" Grid.Row="1" FontSize="16"/>
+        <ListView HorizontalContentAlignment="Stretch" Grid.Column="1" Grid.Row="1" Margin="50,45,50,10" x:Name="listeBoutonCategories">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Button Content="{Binding Nom}" CommandParameter="{Binding}" Click="btnDetail_Click" Style="{StaticResource BoutonList}"/>
+                    <Button Content="{Binding Nom}" CommandParameter="{Binding}" Click="btnDetail_Click" Style="{StaticResource BoutonList}" FontSize="16"/>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
 
-        <Label Name="lblListe" Foreground="White" Content="Liste de toutes les catégories" HorizontalContentAlignment="Center" VerticalAlignment="Top" Grid.Column="1" Height="26" Margin="50,10,50,0"/>
-        
+        <Label Name="lblListe" Foreground="White" Content="Liste de toutes les catégories" HorizontalContentAlignment="Center" VerticalAlignment="Top" Grid.Column="1" Height="35" Margin="50,10,50,0" Grid.Row="1" FontSize="16"/>
+
         <!-- Boutons de navigation -->
-        <Grid Grid.ColumnSpan="2" Grid.Row="1">
+        <Grid Grid.ColumnSpan="2" Grid.Row="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="80"/>
                 <ColumnDefinition/>
@@ -82,6 +83,7 @@
                 </Grid>
             </StackPanel>
         </Grid>
+        <Label x:Name="lblNom" Content="" VerticalAlignment="Top" HorizontalAlignment="Left" Width="496" FontSize="18" Foreground="White"/>
         <!-- Fin des boutons de navigation -->
     </Grid>
 </UserControl>

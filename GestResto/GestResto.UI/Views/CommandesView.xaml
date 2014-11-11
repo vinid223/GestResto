@@ -7,14 +7,15 @@
              d:DesignHeight="600" d:DesignWidth="1000">
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="34"/>
             <RowDefinition/>
             <RowDefinition Height="75"/>
         </Grid.RowDefinitions>
 
-        <WrapPanel Name="listeBoutonCommandes" />
- 
+        <WrapPanel Name="listeBoutonCommandes" Grid.RowSpan="2" />
+
         <!-- Boutons de navigation -->
-        <Grid Grid.Row="1">
+        <Grid Grid.Row="2">
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
 
@@ -53,6 +54,7 @@
             </StackPanel>
         </Grid>
         <!-- Fin des boutons de navigation -->
-        
+        <Label x:Name="lblNom" Content="" VerticalAlignment="Top" HorizontalAlignment="Left" Width="1000" FontSize="18" Foreground="White"/>
+
     </Grid>
 </UserControl>

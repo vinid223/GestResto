@@ -25,6 +25,7 @@ namespace GestResto.UI.Views
         public RapportView()
         {
             InitializeComponent();
+            lblNom.Content = Constante.employe.ToString();
         }
 
         private void btnRetour_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)

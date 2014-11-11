@@ -29,6 +29,7 @@ namespace GestResto.UI
         public TableView()
         {
             InitializeComponent();
+            lblNom.Content = Constante.employe.ToString();
             try
             {
                 DataContext = new TableViewModel();
