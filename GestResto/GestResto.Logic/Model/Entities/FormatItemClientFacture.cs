@@ -9,8 +9,10 @@ namespace GestResto.Logic.Model.Entities
     public class FormatItemClientFacture
     {   
         #region Variables de la classe
-        public virtual int? IdFormatItemClientFacture { get; set;}
+        public virtual int? IdFormatItemClientFacture { get; set; }
         public virtual float Prix { get; set; }
+        public virtual Facture facture { get; set; }
+        public virtual Client client { get; set; }
         public virtual FormatItem FormatItemAssocie { get; set; }
         #endregion
 

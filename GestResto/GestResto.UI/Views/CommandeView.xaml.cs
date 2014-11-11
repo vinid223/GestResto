@@ -5,6 +5,7 @@ using GestResto.UI.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -69,20 +70,37 @@ namespace GestResto.UI.Views
             Item item = (Item)((sender as Button).CommandParameter);
             
             // Je dois afficher les formats disponibles de l'item.
-            // Je suppose qu'il choisisse le premier formatitem
+            FormatsView view = new FormatsView(item.Formats);
+            view.ShowDialog();
 
+            // On initialise le nouveau ficf
+            FormatItemClientFacture ficf = new FormatItemClientFacture();
+            // Copie de l'item associé.
+            ficf.FormatItemAssocie = view.formatItemChoisi;
+            // Copie du client
+            ficf.client = g_Client();
+            // Copie de la facture.
+            ficf.facture = ficf.client.FactureClient;
+            // Enregistrement du prix.
+            ficf.Prix = ficf.FormatItemAssocie.Prix;
 
-            FormatItemClientFacture test = new FormatItemClientFacture();
-            test.FormatItemAssocie = item.Formats.First();
+            ViewModel.LaCommande.ListeClients.ElementAt(NumeroClient).ListeFormatItemClientFacture.Add(ficf);
 
-
-
-            ViewModel.LaCommande.ListeClients.ElementAt(NumeroClient).ListeFormatItemClientFacture.Add(test);
-
-            lbxItemsClient.ItemsSource = ViewModel.LaCommande.ListeClients.ElementAt(NumeroClient).ListeFormatItemClientFacture;
+            // Refresh de la liste d'items du client
+            lbxItemsClient.ItemsSource = g_Client().ListeFormatItemClientFacture;
             lbxItemsClient.Items.Refresh();
+
+            // Ajout à la BD.
+            ViewModel.AjouterUnFicf(ficf);
         }
 
+        /// <summary>
+        /// Retourne le client qui est actuellement visionné dans l'écran.
+        /// </summary>
+        private Client g_Client()
+        {
+            return ViewModel.LaCommande.ListeClients.ElementAt(NumeroClient);
+        }
 
         private void btnSuivantClient_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {

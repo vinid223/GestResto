@@ -45,6 +45,15 @@ namespace GestResto.Logic.Model.Entities
 
         #region Redéfinition de fonctions de bases
 
+        public virtual string FormatComplet
+        {
+            get
+            {
+                return FormatAssocie.Nom + " - " + Prix + "$";
+            }
+            
+        }
+
         public override string ToString()
         {
             return ItemAssocie.Nom + " " + FormatAssocie.Libelle + " " + Prix;
