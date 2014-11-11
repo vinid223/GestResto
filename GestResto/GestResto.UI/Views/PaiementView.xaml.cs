@@ -26,7 +26,7 @@ namespace GestResto.UI.Views
         public double montantPaye;      // Le montant que le client paye
         private double montantRestant;   // Le montant qu'il reste à payer au client
         
-        public PaiementView(/*Client client*/)
+        public PaiementView(Client client)
         {
             InitializeComponent();
 
@@ -80,6 +80,12 @@ namespace GestResto.UI.Views
         {
             montantPaye-=(montantPaye % 0.1);    // On enlève la dernier chiffre
             montantPaye/=10;                    // On divise par 10 afin
+        }
+
+
+        private void btnModePaiement_Click()
+        {
+
         }
 
         // Fonction qui sert à nous déconnecter
