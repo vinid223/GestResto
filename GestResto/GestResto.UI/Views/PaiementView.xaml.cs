@@ -24,7 +24,8 @@ namespace GestResto.UI.Views
     public partial class PaiementView : UserControl
     {
         public double montantPaye;      // Le montant que le client paye
-        private double montantRestant;   // Le montant qu'il reste à payer au client
+        private double montantRestant;  // Le montant qu'il reste à payer au client
+        private string modePaiement;    // Le mode de paiement du client
         
         public PaiementView(Client client)
         {
@@ -33,6 +34,9 @@ namespace GestResto.UI.Views
 
             montantPaye = 0;
             montantRestant=10;
+            modePaiement=null;
+
+            txtMontantRestant.Text = montantRestant.ToString("C2");
 
             // On affiche le montant C indique qu'on veut signe de $ et le 2 indique le nombre de décimales
             txtPrix.Text = montantPaye.ToString("C2");  
@@ -67,6 +71,19 @@ namespace GestResto.UI.Views
             txtPrix.Text = montantPaye.ToString("C2");  
         }
 
+        private void btnValider_Click(object sender, RoutedEventArgs e)
+        {
+            if(modePaiement==null)
+            {
+                MessageBox.Show("Veuillez sélectionner un mode de paiement avant de payer", "Aucun mode de paiement sélectionné", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else
+            {
+               montantRestant-= montantPaye;
+               txtMontantRestant.Text = montantRestant.ToString("C2");
+            }
+        }
+
         // Ajoute un chiffre dans le textbox du montant
         private void AjouterChiffre(int chiffre, int multiplicateur)
         {
@@ -75,17 +92,54 @@ namespace GestResto.UI.Views
             montantPaye += decimale;           // On ajoute la décimale au montant. Par exemple, de 01.00 à 01.05
         }
 
-        // Enlève un chiffre dans le textbox du montant
+        // Enlève un chiffre dans le textbox du montant // TODO 
         private void EnleverChiffre()
         {
-            montantPaye-=(montantPaye % 0.1);    // On enlève la dernier chiffre
+            double modulo = (montantPaye % 0.1);
+            string test = montantPaye.ToString().Split('.')[0].Substring(0, montantPaye.ToString().Split('.')[0].Length);
+            montantPaye-=(montantPaye % 0.1);    // On enlève le dernier chiffre
             montantPaye/=10;                    // On divise par 10 afin
         }
 
 
-        private void btnModePaiement_Click()
+        private void btnModePaiement_Click(object sender, MouseButtonEventArgs e)
         {
+            // On change toutes les images
+            SetPath(imgAmex,"selected.png",".png");
+            SetPath(imgDebit, "selected.png", ".png");
+            SetPath(imgMasterCard, "selected.png", ".png");
+            SetPath(imgMoney, "selected.png", ".png");
+            SetPath(imgVisa, "selected.png", ".png");
 
+            // On change l'image sender
+            Image image = (sender as Image);
+            SetPath(image, ".png", "selected.png");
+
+            // On change le nom du mode de paiement
+            modePaiement = image.Name.Substring(2);
+        }
+
+        private void SetPath(Image image, string toReplace, string replaceBy)
+        {
+            
+                // On change le path
+                StringBuilder path = new StringBuilder();
+                path.Append(image.Source.ToString());
+                path.Replace(toReplace, replaceBy);
+
+            // On vérifie si le path est différent du nouveau path avant de changer l'image
+                if (path.ToString() != image.Source.ToString())
+            {
+                // On change l'image
+                SetImage(image, path.ToString());
+            }
+        }
+
+        private void SetImage(Image image,string path)
+        {
+            image.BeginInit();
+            image.Source = new BitmapImage(new Uri(path, UriKind.RelativeOrAbsolute));
+            image.EndInit();
         }
 
         // Fonction qui sert à nous déconnecter
@@ -145,6 +199,8 @@ namespace GestResto.UI.Views
         {
             Constante.onPressButton(sender, e); // On ajoute l'effet du bouton pressé
         }
+
+        
 
     }
 }
