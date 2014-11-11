@@ -10,7 +10,6 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -54,18 +53,39 @@ namespace GestResto.UI.Views
             // Si on a pas eu d'erreur lors du chargement
             if (!Erreur)
             {
-                // On boucle dans toutes les tables
-                foreach (var item in ViewModel.Tables)
+                // Si nous avons pas de table dans la bd on affiche un message et on ne fait pas de boucle
+                if (ViewModel.Tables.Count > 0)
                 {
-                    // Si la table est assigné à une commande on ne l'affiche pas
-                    if (item.EstAssigne == true)
+                    // On se crée une table temporaire pour effectuer la suppression sans problème
+                    List<Table> tableTemp = ViewModel.Tables.ToList();
+
+
+                    // On boucle dans toutes les tables
+                    foreach (var item in tableTemp)
                     {
-                        // On supprime de la liste la table qui est déjà en cour d'utilisation
-                        ViewModel.Tables.Remove(item);
+                        // Si la table est assigné à une commande on ne l'affiche pas
+                        if (item.EstAssigne == true)
+                        {
+                            // On supprime de la liste la table qui est déjà en cour d'utilisation
+                            ViewModel.Tables.Remove(item);
+                        }
                     }
+
+                    // S'il n'y a pas de table de disponible après l'analyse des tables on affiche un message
+                    if (ViewModel.Tables.Count == 0)
+                    {
+                        MessageBox.Show("Aucune table disponible", "Toutes les tables sont présentement prises. Veuillez terminer une commande en cours pour libérer une ou plusieurs tables.", MessageBoxButton.OK, MessageBoxImage.Information);    
+                    }
+
+                    // On donne la source des tables à notre liste de table
+                    listeTableDisponible.ItemsSource = ViewModel.Tables;
                 }
-                // On donne la source des tables à notre liste de table
-                listeTableDisponible.ItemsSource = ViewModel.Tables;
+                else
+                {
+                    // On affiche un message à l'écran de l'usager et on fait une entrée dans le fichier de log
+                    Constante.LogErreur("Aucune table dans la base de données. Le serveur ne peut pas créer de commande");
+                    MessageBox.Show("Aucune table de disponible", "Aucune table dans la base de données. Veuillez contacter un administrateur", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
             }
         }
 

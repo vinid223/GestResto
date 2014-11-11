@@ -74,7 +74,7 @@ namespace GestResto.UI.Views
                     {
                         Constante.LogErreur("Informations de connexion ne sont pas valide");
                         // On affiche un message et on réinitialise les variables
-                        MessageBox.Show("Les informations d'authentifications ne sont pas valide, veuillez ressayer", "Employé inexistant", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
+                        MessageBox.Show("Les informations d'authentifications ne sont pas valides, veuillez ressayer", "Employé inexistant", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
                         NoIdentification = null;
                         MDPIdentification = null;
 
@@ -86,7 +86,7 @@ namespace GestResto.UI.Views
                     else if (Constante.employe.TypeEmployes == null)
                     {
                         Constante.LogErreur("Le TypeEmploye n'est pas valide = null");
-                        MessageBox.Show("L'employe que vous tentez de connecter n'est pas valide. Connectez un administrateur pour corriger le problème", "Employé non valide", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
+                        MessageBox.Show("L'employé que vous tentez de connecter n'est pas valide. Connectez un administrateur pour corriger le problème", "Employé non valide", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
 
                         // On change la valeur des boites de textes et des label
                         lblTitreText.Content = "Numéro d'employé:";
@@ -124,7 +124,7 @@ namespace GestResto.UI.Views
                     else
                     {
                         Constante.LogErreur("Le TypeEmploye n'est pas géré par le système. Type non géré: " + Constante.employe.TypeEmployes.NomType);
-                        MessageBox.Show("L'employé identifié comporte un type inconnu. Veuillez entrer les informations de connexion a nouveau", "Type employé non valide", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
+                        MessageBox.Show("L'employé identifié comporte un type inconnu. Veuillez entrer les informations de connexion à nouveau.", "Type employé non valide", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
                         NoIdentification = null;
                         MDPIdentification = null;
 
@@ -137,7 +137,7 @@ namespace GestResto.UI.Views
                 else
                 {
                     Constante.LogErreur("L'utilisateur entre des champs non valide");
-                    MessageBox.Show("Les informations que vous avez ne sont pas valide, veuillez entrer à nouveau les informations", "Champ non valide", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
+                    MessageBox.Show("Les informations que vous avez ne sont pas valides, veuillez entrer à nouveau les informations", "Champ non valide", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
                     NoIdentification = null;
                     MDPIdentification = null;
                     
