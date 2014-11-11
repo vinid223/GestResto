@@ -71,10 +71,24 @@ namespace GestResto.UI.Views
                         }
                     }
 
+                    // On resauvegarde la liste des tables
+                    tableTemp = ViewModel.Tables.ToList();
+
+                    // On boucle pour chacune des table pour vérifier si elle est active
+                    foreach (var item in tableTemp)
+                    {
+                        // Si la table n'est pas active on ne l'affiche pas
+                        if (item.EstActif == false)
+                        {
+                            // On supprime de la liste la table qui n'est pas active
+                            ViewModel.Tables.Remove(item);
+                        }
+                    }
+
                     // S'il n'y a pas de table de disponible après l'analyse des tables on affiche un message
                     if (ViewModel.Tables.Count == 0)
                     {
-                        MessageBox.Show("Aucune table disponible", "Toutes les tables sont présentement prises. Veuillez terminer une commande en cours pour libérer une ou plusieurs tables.", MessageBoxButton.OK, MessageBoxImage.Information);    
+                        MessageBox.Show("Toutes les tables sont présentement prises. Veuillez terminer une commande en cours pour libérer une ou plusieurs tables.", "Aucune table disponible.", MessageBoxButton.OK, MessageBoxImage.Information);    
                     }
 
                     // On donne la source des tables à notre liste de table
@@ -84,7 +98,7 @@ namespace GestResto.UI.Views
                 {
                     // On affiche un message à l'écran de l'usager et on fait une entrée dans le fichier de log
                     Constante.LogErreur("Aucune table dans la base de données. Le serveur ne peut pas créer de commande");
-                    MessageBox.Show("Aucune table de disponible", "Aucune table dans la base de données. Veuillez contacter un administrateur", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show("Aucune table dans la base de données. Veuillez contacter un administrateur.", "Aucune table de disponible.", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
         }
@@ -100,48 +114,59 @@ namespace GestResto.UI.Views
         private void btnCreer_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             Constante.onReleaseButton(sender, e); // On enlève l'effet du bouton pressé
-            // On crée la commande dans la bd
-            Commande commande = new Commande("Active", DateTime.Now);
-            commande.IdEmploye = Constante.employe.IdEmploye ?? default(int);
 
-            // On se crée une liste temporaire pour contenir toutes les tables sélectionné
-            // On a pas la choix ici d'utuliser le namespace au complet pour accéder à l'objet de table puisque
-            // table entre en confusion avec une classe table du système
-            IList<GestResto.Logic.Model.Entities.Table> listTableTemp = new List<GestResto.Logic.Model.Entities.Table>();
-
-            // On boucle dans chacune des tables de notre ViewModel
-            foreach (var item in ViewModel.Tables)
+            // On test si l'utilisateur à cliqué sur au moins une table
+            if (lstTable.Count > 0)
             {
-                // Si le numéro de la table en cour correspond à une des tables sélectionné on la sauvegarde
-                if (lstTable.Contains(item.NoTable))
+                // On crée la commande dans la bd
+                Commande commande = new Commande("Active", DateTime.Now);
+                commande.IdEmploye = Constante.employe.IdEmploye ?? default(int);
+
+                // On se crée une liste temporaire pour contenir toutes les tables sélectionné
+                // On a pas la choix ici d'utuliser le namespace au complet pour accéder à l'objet de table puisque
+                // table entre en confusion avec une classe table du système
+                IList<GestResto.Logic.Model.Entities.Table> listTableTemp = new List<GestResto.Logic.Model.Entities.Table>();
+
+                // On boucle dans chacune des tables de notre ViewModel
+                foreach (var item in ViewModel.Tables)
                 {
-                    item.EstAssigne = true;
-                    listTableTemp.Add(item);
+                    // Si le numéro de la table en cour correspond à une des tables sélectionné on la sauvegarde
+                    if (lstTable.Contains(item.NoTable))
+                    {
+                        item.EstAssigne = true;
+                        listTableTemp.Add(item);
+                    }
                 }
-            }
 
-            // On définie la liste de table à notre objet de commande
-            commande.ListeTables = listTableTemp;
+                // On définie la liste de table à notre objet de commande
+                commande.ListeTables = listTableTemp;
 
-            // On enregistre la nouvelle commande et on reçoit le résultat de l'insertion
-            commande = ViewModel.CreerCommande(commande);
+                // On enregistre la nouvelle commande et on reçoit le résultat de l'insertion
+                commande = ViewModel.CreerCommande(commande);
 
-            // On test si la commande à bien reçu son id de création
-            if (commande.IdCommande != null)
-            {
-                // Si elle n'est pas null on redirige à la page de la commande avec la commande en cour
-                IApplicationService mainVM = ServiceFactory.Instance.GetService<IApplicationService>();
-                mainVM.ChangeView<CommandeView>(new CommandeView(commande));
+                // On test si la commande à bien reçu son id de création
+                if (commande.IdCommande != null)
+                {
+                    // Si elle n'est pas null on redirige à la page de la commande avec la commande en cour
+                    IApplicationService mainVM = ServiceFactory.Instance.GetService<IApplicationService>();
+                    mainVM.ChangeView<CommandeView>(new CommandeView(commande));
+                }
+                else
+                {
+                    // On affiche un message à l'utilisateur
+                    MessageBox.Show("Un problème est survenu lors de la création de la commande", "Erreur de création de commande", MessageBoxButton.OK, MessageBoxImage.Error);
+                    Constante.LogErreur("Un problème est survenu lors de la création d'une commande");
+
+                    // On redirige l'utilisateur à la liste des commandes puisqu'il y a eu un problème
+                    IApplicationService mainVM = ServiceFactory.Instance.GetService<IApplicationService>();
+                    mainVM.ChangeView<CommandesView>(new CommandesView());
+                }   
             }
             else
             {
-                // On affiche un message à l'utilisateur
-                MessageBox.Show("Un problème est survenu lors de la création de la commande", "Erreur de création de commande", MessageBoxButton.OK, MessageBoxImage.Error);
-                Constante.LogErreur("Un problème est survenu lors de la création d'une commande");
-
-                // On redirige l'utilisateur à la liste des commandes puisqu'il y a eu un problème
-                IApplicationService mainVM = ServiceFactory.Instance.GetService<IApplicationService>();
-                mainVM.ChangeView<CommandesView>(new CommandesView());
+                // On affiche un message si l'utilisateur à cliqué sur le bouton créer sans avoir sélectionné une ou plusieurs tables
+                Constante.LogNavigation("L'utilisateur tente de créer une commande sans avoir sélectionné une table");
+                MessageBox.Show("Veuillez choisir une table avant de créer une commande. S'il n'y a pas de table de disponible, veuillez fermer une commande en cour pour libérer une table.", "Aucune table sélectionné.",MessageBoxButton.OK,MessageBoxImage.Information);
             }
         }
 
