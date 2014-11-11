@@ -46,7 +46,7 @@ namespace GestResto.UI.Views
             lbxListeItems.ItemsSource = ViewModel.Items;
 
             ViewModel.LaCommande = uneCommande;
-            if(uneCommande.ListeClients != null)
+            if(uneCommande.ListeClients != null && uneCommande.ListeClients.Count > 0)
             { 
                 lbxItemsClient.ItemsSource = uneCommande.ListeClients.First().ListeFormatItemClientFacture;
             }
@@ -70,8 +70,7 @@ namespace GestResto.UI.Views
             
             // Je dois afficher les formats disponibles de l'item.
 
-            
-            //ViewModel.LaCommande.ListeClients.ElementAt(NumeroClient).ListeFormatItemClientFacture.
+            //ViewModel.LaCommande.ListeClients.ElementAt(NumeroClient).ListeFormatItemClientFacture.Add();
            
 
         }
