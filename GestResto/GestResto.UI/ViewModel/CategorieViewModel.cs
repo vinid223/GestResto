@@ -37,7 +37,7 @@ namespace GestResto.UI.ViewModel
             
             set
             {
-                _categorie = value; 
+                _categorie = value;
                 RaisePropertyChanged(); 
             } 
         }

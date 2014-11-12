@@ -54,6 +54,7 @@ namespace GestResto.UI.Views
             if (!Erreur)
             {
                 listeBoutonCategories.ItemsSource = ViewModel.Categories;
+
             }
         }
 
