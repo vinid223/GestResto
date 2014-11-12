@@ -41,6 +41,7 @@ namespace GestResto.UI.Views
         public CommandeView(Commande uneCommande = null)
         {
             InitializeComponent();
+            lblNom.Content = Constante.employe.ToString();
 
             DataContext = new CommandeViewModel();
 

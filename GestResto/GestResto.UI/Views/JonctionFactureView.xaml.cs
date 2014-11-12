@@ -25,6 +25,7 @@ namespace GestResto.UI.Views
         public JonctionFactureView()
         {
             InitializeComponent();
+            lblNom.Content = Constante.employe.ToString();
         }
 
         private void btnCreer_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)

@@ -8,10 +8,11 @@
              d:DesignHeight="600" d:DesignWidth="1000">
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="34"/>
             <RowDefinition/>
             <RowDefinition Height="75"/>
         </Grid.RowDefinitions>
-        <Grid>
+        <Grid Grid.RowSpan="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="220"/>
                 <ColumnDefinition Width="630*"/>
@@ -25,7 +26,7 @@
 
             <!-- Lorsque les boutons ne rentrent plus dans la fenêtre, une scoll bar apparait -->
             <ListBox 
-                Grid.Column="0" Grid.Row="1" Margin="5,5,5,5"
+                Grid.Column="0" Grid.Row="1" Margin="5,50,5,5"
                 Name="lbxItemsClient"
                 ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                 <ListBox.ItemTemplate>
@@ -40,28 +41,28 @@
                    Name="lblNumeroClient"
                    Grid.Column="0" 
                    HorizontalAlignment="Center" 
-                   Margin="68,5,40,0" 
+                   Margin="68,4,40,0" 
                    VerticalAlignment="Top" 
                    Height="26" FontSize="14" 
-                   FontWeight="SemiBold" Width="112"/>
+                   FontWeight="SemiBold" Width="112" Grid.Row="1"/>
 
 
             <Image Grid.Column="0" 
                    Source="/Images/arrowLeft.png" 
                    HorizontalAlignment="Left" 
-                   Margin="5,5,0,0" 
+                   Margin="5,4,0,0" 
                    VerticalAlignment="Top" 
                    Width="30" Height="30"
                    Name="btnClientPrecedent"
-                   MouseLeftButtonDown="btnPrecedentClient_MouseLeftButtonDown"/>
+                   MouseLeftButtonDown="btnPrecedentClient_MouseLeftButtonDown" Grid.Row="1"/>
 
             <Image Grid.Column="0" 
                    Source="/Images/arrowRight.png" 
                    HorizontalAlignment="Right" 
-                   Margin="0,5,5,0" 
+                   Margin="0,4,5,0" 
                    VerticalAlignment="Top" Width="30" Height="30"
                    Name="btnClientSuivant"
-                   MouseLeftButtonDown="btnSuivantClient_MouseLeftButtonDown"/>
+                   MouseLeftButtonDown="btnSuivantClient_MouseLeftButtonDown" Grid.Row="1"/>
 
             <Button Grid.Column="0" Grid.Row="2" Content="Supprimer l'item sélectionné" Width="210" Height="30" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="5,0,5,5" Padding="3" />
 
@@ -115,7 +116,7 @@
         </Grid>
 
         <!-- Boutons de navigation -->
-        <Grid Grid.ColumnSpan="2" Grid.Row="1">
+        <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="80"/>
                 <ColumnDefinition/>
@@ -204,5 +205,6 @@
             </StackPanel>
         </Grid>
         <!-- Fin des boutons de navigation -->
+        <Label x:Name="lblNom" Content="" FontSize="18" Foreground="White" Margin="0,0,10,0"/>
     </Grid>
 </UserControl>

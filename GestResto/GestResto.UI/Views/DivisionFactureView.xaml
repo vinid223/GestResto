@@ -7,19 +7,20 @@
              d:DesignHeight="600" d:DesignWidth="1000">
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="34"/>
             <RowDefinition/>
             <RowDefinition Height="75"/>
         </Grid.RowDefinitions>
-        <ScrollViewer Grid.Column="1" Grid.Row="0" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled" HorizontalAlignment="Left">
+        <ScrollViewer Grid.Row="0" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled" HorizontalAlignment="Left" Grid.RowSpan="2">
             <DockPanel>
-            
+
                 <!-- La liste de la commande -->
                 <Grid>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="25"/>
+                        <RowDefinition Height="59"/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
-                    <Label Foreground="White" Content="Client #1" FontSize="14" FontWeight="SemiBold" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Top" Height="25"/>
+                    <Label Foreground="White" Content="Client #1" FontSize="14" FontWeight="SemiBold" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Top" Height="25" Margin="114,29,122,0"/>
                     <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" Width="300">
                         <!-- Lorsque les boutons ne rentrent plus dans la fenêtre, une scoll bar apparait -->
                         <ListBox Margin="10,10,10,10">
@@ -27,17 +28,17 @@
                             <ListBoxItem Style="{StaticResource ListboxItemSecondRowChild}">Tout garni</ListBoxItem>
                             <ListBoxItem Style="{StaticResource ListboxItemRowChild}">Extra bacon</ListBoxItem>
                             <ListBoxItem Style="{StaticResource ListboxItemSecondRow}" >1 Root Bear</ListBoxItem>
-                            <ListBoxItem Style="{StaticResource ListboxItemRowChild}">Pas de glace</ListBoxItem>
+                            <ListBoxItem Style="{StaticResource ListboxItemRowChild}" Content="Pas de glace"/>
                         </ListBox>
                     </ScrollViewer>
                 </Grid>
 
                 <Grid>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="25"/>
+                        <RowDefinition Height="59"/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
-                    <Label Foreground="White" Content="Client #2" FontSize="14" FontWeight="SemiBold" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Top" Height="25"/>
+                    <Label Foreground="White" Content="Client #2" FontSize="14" FontWeight="SemiBold" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Top" Height="25" Margin="114,29,119,0"/>
                     <ScrollViewer VerticalScrollBarVisibility="Auto" Width="300" Grid.Row="1">
                         <!-- Lorsque les boutons ne rentrent plus dans la fenêtre, une scoll bar apparait -->
                         <ListBox Margin="10,10,10,10">
@@ -51,10 +52,10 @@
 
                 <Grid>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="25"/>
+                        <RowDefinition Height="59"/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
-                    <Label Foreground="White" Content="Client #3" FontSize="14" FontWeight="SemiBold" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Top" Height="25"/>
+                    <Label Foreground="White" Content="Client #3" FontSize="14" FontWeight="SemiBold" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Top" Height="25" Margin="111,29,122,0"/>
                     <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" Width="300">
                         <!-- Lorsque les boutons ne rentrent plus dans la fenêtre, une scoll bar apparait -->
                         <ListBox Margin="10,10,10,10">
@@ -67,11 +68,11 @@
                 </Grid>
 
             </DockPanel>
-            
+
 
         </ScrollViewer>
         <!-- Boutons de navigation -->
-        <Grid Grid.ColumnSpan="2" Grid.Row="1" >
+        <Grid Grid.Row="2" >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="80"/>
                 <ColumnDefinition/>
@@ -123,5 +124,6 @@
             </StackPanel>
         </Grid>
         <!-- Fin des boutons de navigation -->
+        <Label x:Name="lblNom" Content="" FontSize="18" Foreground="White" Margin="0,0,504,0"/>
     </Grid>
 </UserControl>

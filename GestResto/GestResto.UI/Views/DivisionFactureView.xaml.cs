@@ -25,6 +25,7 @@ namespace GestResto.UI.Views
         public DivisionFactureView()
         {
             InitializeComponent();
+            lblNom.Content = Constante.employe.ToString();
         }
 
         private void btnSelection_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)

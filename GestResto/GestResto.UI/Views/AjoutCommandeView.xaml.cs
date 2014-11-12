@@ -33,6 +33,7 @@ namespace GestResto.UI.Views
         public AjoutCommandeView()
         {
             InitializeComponent();
+            lblNom.Content = Constante.employe.ToString();
             try
             {
                 DataContext = new CommandesViewModel();

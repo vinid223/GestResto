@@ -30,6 +30,7 @@ namespace GestResto.UI.Views
         public PaiementView(Client client)
         {
             InitializeComponent();
+            lblNom.Content = Constante.employe.ToString();
 
 
             montantPaye = 0;
