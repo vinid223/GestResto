@@ -37,6 +37,7 @@ namespace GestResto.Logic.Model.Entities
         {
             IdClient = null;
             ListeFormatItemClientFacture = new List<FormatItemClientFacture>();
+            FactureClient = new Facture();
         }
 
         /// <summary>

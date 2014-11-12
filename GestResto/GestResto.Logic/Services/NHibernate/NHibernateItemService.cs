@@ -27,14 +27,24 @@ namespace GestResto.Logic.Services.NHibernate
             }
         }
 
-        public IList<Item> RetrieveAll()
+        public IList<Item> RetrieveAll(bool sansActif = false)
         {
-            var result = from i in session.Query<Item>()
-                orderby i.EstActif descending
-                select i;
-
-            IList<Item> listeTemp = result.ToList();
-            return listeTemp;
+            if (sansActif)
+            {
+                var result = from i in session.Query<Item>()
+                             where i.EstActif == true
+                             select i;
+                IList<Item> listeTemp = result.ToList();
+                return listeTemp;
+            }
+            else
+            {
+                var result = from i in session.Query<Item>()
+                             orderby i.EstActif descending
+                             select i;
+                IList<Item> listeTemp = result.ToList();
+                return listeTemp;
+            }
         }
 
         public Item Retrieve(RetrieveItemArgs args)

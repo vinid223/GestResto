@@ -28,10 +28,10 @@
             <ListBox 
                 Grid.Column="0" Grid.Row="1" Margin="5,50,5,5"
                 Name="lbxItemsClient"
-                ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                ScrollViewer.HorizontalScrollBarVisibility="Disabled" SelectionChanged="lbxItemsClient_SelectionChanged">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
-                        <Label Content="{Binding FormatItemAssocie}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Height="27"/>
+                        <Label Content="{Binding FormatItemAssocie}" HorizontalAlignment="Stretch"   VerticalAlignment="Stretch"  Height="27"/>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
@@ -89,7 +89,6 @@
                       ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
                       Margin="4,4,4,4" 
                       Name="lbxListeCategorie" 
-                      ItemsSource="{Binding Categories}"
                       Grid.Column="2" Grid.Row="1" >
                 <ListView.ItemTemplate>
                     <DataTemplate>
