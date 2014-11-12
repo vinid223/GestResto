@@ -96,10 +96,37 @@ namespace GestResto.UI.Views
         // Enlève un chiffre dans le textbox du montant // TODO 
         private void EnleverChiffre()
         {
-            double modulo = (montantPaye % 0.1);
-            string test = montantPaye.ToString().Split('.')[0].Substring(0, montantPaye.ToString().Split('.')[0].Length);
-            montantPaye-=(montantPaye % 0.1);    // On enlève le dernier chiffre
-            montantPaye/=10;                    // On divise par 10 afin
+            // On va chercher les décimales
+            int result1ereDecimale = getDecimal(montantPaye, 1, false);
+            int result2eDecimale = getDecimal(montantPaye, 2, true);
+            
+            
+            // On récrit le montant total. Ceci évite de garder des décimales aberrantes
+            montantPaye = (int)(montantPaye); // On garde juste les unités, sans les décimales
+            montantPaye += (Convert.ToDouble(result1ereDecimale)/10);
+
+            montantPaye/=10;    // On divise par 10 afin de tasser les chiffres
+        }
+
+        private int getDecimal(double number, int position, bool convertAuto)
+        {
+            int result2Decimales;
+            // Si on demande de convertir automatiquement
+            if(convertAuto)
+            {
+                result2Decimales = Convert.ToInt32((number - (int)(number)) * Math.Pow(10, position));       // On prend toutes les décimales jusqu'à la position ex. 0.8999 -> 899.0
+            }
+            // Sinon, on converti manuellement
+            else
+            {
+                result2Decimales = (int)((number - (int)(number)) * Math.Pow(10, position));       // On prend toutes les décimales jusqu'à la position ex. 0.8999 -> 899.0
+            }
+            
+            double result2DecimalesDouble = Convert.ToDouble(result2Decimales) / 10;    // On tasse le chiffre pour avoir notre décimale ex. 899.0 -> 89.9
+
+            int resultDerniereDecimale = Convert.ToInt32((result2DecimalesDouble - (int)(result2DecimalesDouble)) * 10); // On prend la dernière décimales ex. 89.9 -> 9
+            
+            return resultDerniereDecimale;
         }
 
 
