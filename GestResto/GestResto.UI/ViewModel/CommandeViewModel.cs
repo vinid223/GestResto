@@ -26,8 +26,30 @@ namespace GestResto.UI.ViewModel
             Items = new ObservableCollection<Item>(ServiceFactory.Instance.GetService<IItemService>().RetrieveAll());
             Commandes = new ObservableCollection<Commande>(ServiceFactory.Instance.GetService<ICommandeService>().RetrieveAll(1));
             LaCommande = new Commande();
-      }
 
+            _commandeService = ServiceFactory.Instance.GetService<ICommandeService>();
+        }
+
+
+
+        public int AjouterUnFicf(FormatItemClientFacture ficf)
+        {
+            // On insert l'enregistrement dans la base de donnée
+            _commandeService.Create(ficf);
+
+            // On va chercher l'id lors de l'enregistrement
+            int i;
+
+            // Puisque l'id de l'objet est nullable on doit la transformer pour s'en servir
+            i = ficf.IdFormatItemClientFacture ?? default(int);
+
+            return i;
+        }
+
+        public void EnregistrerUneCommande(Commande commande)
+        {
+            _commandeService.Update(commande);
+        }
 
         #region Bindables
         

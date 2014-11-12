@@ -8,10 +8,18 @@
       <column name="idFormatItemClientFacture" not-null="true" sql-type="INTEGER" />
       <generator class="identity" />
     </id>
-    
+
     <property name="Prix">
       <column name="prix" not-null="true" sql-type="FLOAT" />
     </property>
+
+    <many-to-one name="facture" class="Facture" lazy="proxy">
+      <column name="idFacture" not-null="true" sql-type="INTEGER" />
+    </many-to-one>
+
+    <many-to-one name="client" class="Client" lazy="proxy">
+      <column name="idClient" not-null="true" sql-type="INTEGER" />
+    </many-to-one>
 
     <many-to-one name="FormatItemAssocie" class="FormatItem" lazy="proxy">
         <column name="idFormatItem" not-null="true" sql-type="INTEGER" />

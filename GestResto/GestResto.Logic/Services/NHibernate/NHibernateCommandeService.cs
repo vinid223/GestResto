@@ -19,6 +19,14 @@ namespace GestResto.Logic.Services.NHibernate
         #region ICommandeService Membres
 
         #endregion
+        public void Create(FormatItemClientFacture ficf)
+        {
+            using (var transaction = session.BeginTransaction())
+            {
+                session.Save(ficf);
+                transaction.Commit();
+            }
+        }
 
         public void Create(Commande commande)
         {
