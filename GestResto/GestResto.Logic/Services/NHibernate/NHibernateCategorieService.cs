@@ -12,7 +12,7 @@ using NHibernate.Linq;
 
 namespace GestResto.Logic.Services.NHibernate
 {
-    public class NHibertateCategorieService : ICategorieService
+    public class NHibernateCategorieService : ICategorieService
     {
         private ISession session = NHibernateConnexion.OpenSession();
         private ISession sessionLazy = NHibernateConnexion.OpenSession();

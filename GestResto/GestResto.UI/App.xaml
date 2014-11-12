@@ -69,7 +69,17 @@
             <Setter Property="Focusable" Value="False" />
         </Style>
 
-        
+        <!-- Style ListView -->
+        <Style x:Key="styleModif" TargetType="{x:Type Button}" BasedOn="{StaticResource BoutonList}">
+            <Style.Triggers>
+                <MultiDataTrigger>
+                    <MultiDataTrigger.Conditions>
+                        <Condition Binding="{Binding Path=EstModifie}" Value="True"/>
+                    </MultiDataTrigger.Conditions>
+                    <Setter Property="Background" Value="Red" />
+                </MultiDataTrigger>
+            </Style.Triggers>
+        </Style>
 
 
         <Style x:Key="BoutonImagePaiement">

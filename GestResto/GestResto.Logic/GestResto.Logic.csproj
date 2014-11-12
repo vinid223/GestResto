@@ -62,6 +62,7 @@
     <Compile Include="Model\Args\RetrieveRestaurantArgs.cs" />
     <Compile Include="Model\Args\RetrieveTableArgs.cs" />
     <Compile Include="Model\Args\RetrieveTypeEmployeArgs.cs" />
+    <Compile Include="Model\Entities\BaseEntity.cs" />
     <Compile Include="Model\Entities\Categorie.cs" />
     <Compile Include="Model\Entities\Client.cs" />
     <Compile Include="Model\Entities\Commande.cs" />
@@ -98,7 +99,7 @@
     <Compile Include="Services\NHibernate\NHibernateItemService.cs" />
     <Compile Include="Services\NHibernate\NHibernateRestaurantService.cs" />
     <Compile Include="Services\NHibernate\NHibernateTableService.cs" />
-    <Compile Include="Services\NHibernate\NHibertateCategorieService.cs" />
+    <Compile Include="Services\NHibernate\NHibernateCategorieService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Services\Definitions\IEmployeService.cs" />

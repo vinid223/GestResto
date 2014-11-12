@@ -31,20 +31,39 @@ namespace GestResto.UI.ViewModel
         public Categorie Categorie
         { 
             get 
-            { 
+            {
                 return _categorie; 
             } 
             
             set
             {
-                _categorie = value;
-                RaisePropertyChanged(); 
+                if (_categorie == value)
+                {
+                    return;
+                }
+                else if (_categorie != null)
+                {
+                    _categorie = value;
+                    _categorie.EstModifie = true;
+                    RaisePropertyChanged(); 
+                }
+                else
+                {
+                    _categorie = value;
+                    RaisePropertyChanged(); 
+                }
             } 
         }
 
         public CategorieViewModel()
         {
             Categories = new ObservableCollection<Categorie>(ServiceFactory.Instance.GetService<ICategorieService>().RetrieveAll());
+
+            foreach (var item in Categories)
+            {
+                item.EstModifie = false;
+            }
+
             _categService = ServiceFactory.Instance.GetService<ICategorieService>();
         }
 
@@ -74,7 +93,6 @@ namespace GestResto.UI.ViewModel
 
         public int AjouterUneCategorie(Categorie categorie)
         {
-
             try
             {
                 // On insert l'enregistrement dans la base de donnée

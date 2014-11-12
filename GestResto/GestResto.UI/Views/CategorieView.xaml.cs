@@ -61,7 +61,19 @@ namespace GestResto.UI.Views
         private void btnDetail_Click(object sender, RoutedEventArgs e)
         {
             Categorie categorie = (Categorie)((sender as Button).CommandParameter);
-            ViewModel.Categorie = categorie;
+
+            if (ViewModel.Categorie != categorie)
+            {
+                if (categorie.EstModifie == false)
+                {
+                    ViewModel.Categorie = categorie;
+                    ViewModel.Categorie.EstModifie = false;
+                }
+                else
+                {
+                    ViewModel.Categorie = categorie;
+                }
+            }
 
             // On active les champs pour permettre la modification et l'ajout d'informations
             txtNom.IsEnabled = true;

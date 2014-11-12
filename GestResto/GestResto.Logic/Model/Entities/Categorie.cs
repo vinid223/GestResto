@@ -19,14 +19,51 @@ namespace GestResto.Logic.Model.Entities
     /// <summary>
     /// Classe Catégorie
     /// </summary>
-    public class Categorie
+    public class Categorie : BaseEntity
     {
         #region Liste des variables de la classe
 
         public virtual int? IdCategorie { get; set; }
-        public virtual string Nom { get; set; }
         public virtual bool EstActif { get; set; }
         public virtual bool EstComplementaire { get; set; }
+        public virtual bool debut { get; set; }
+
+        private bool _estModifie;
+
+        public virtual bool EstModifie
+        {
+            get
+            {
+                return _estModifie;
+            }
+            set
+            {
+                RaisePropertyChanging();
+                _estModifie = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        private string _nom;
+
+        public virtual string Nom
+        {
+            get
+            {
+                return _nom;
+            }
+            set
+            {
+                RaisePropertyChanging();
+                RaisePropertyChanging("EstModifie");
+
+                EstModifie = true;
+
+                _nom = value;
+                RaisePropertyChanged();
+                RaisePropertyChanged("EstModifie");
+            }
+        }
 
         #endregion
 
@@ -40,6 +77,7 @@ namespace GestResto.Logic.Model.Entities
             Nom = "";
             EstActif = true;
             EstComplementaire = false;
+            EstModifie = false;
         }
 
         /// <summary>
@@ -55,6 +93,7 @@ namespace GestResto.Logic.Model.Entities
             Nom = pNom;
             EstActif = pEstActif;
             EstComplementaire = pEstComplementaire;
+            EstModifie = false;
         }
 
         /// <summary>
@@ -68,6 +107,7 @@ namespace GestResto.Logic.Model.Entities
             Nom = pNom;
             EstActif = pEstActif;
             EstComplementaire = pEstComplementaire;
+            EstModifie = false;
         }
         #endregion
 

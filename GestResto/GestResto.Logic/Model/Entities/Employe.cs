@@ -24,7 +24,7 @@ namespace GestResto.Logic.Model.Entities
     /// <summary>
     /// Classe contenant toutes les informations d'un employé
     /// </summary>
-    public class Employe : INotifyPropertyChanged, INotifyPropertyChanging
+    public class Employe : BaseEntity
     {
         #region Variables appartenant à la classe Employe
 
@@ -93,43 +93,6 @@ namespace GestResto.Logic.Model.Entities
         private static readonly string PasswordHash = "P@@Sw0rd";
         private static readonly string SaltKey = "S@LT&KEY";
         private static readonly string VIKey = "@1B2c3D4e5F6g7H8";
-
-        #endregion
-
-        #region Proprieté changed
-
-        public virtual event PropertyChangedEventHandler PropertyChanged;
-
-        public virtual PropertyChangedEventHandler PropertyChangedHandler
-        {
-            get { return PropertyChanged; }
-        }
-
-        public virtual event PropertyChangingEventHandler PropertyChanging;
-
-        public virtual PropertyChangingEventHandler PropertyChangingHandler
-        {
-            get { return PropertyChanging; }
-        }
-
-
-        public virtual void RaisePropertyChanging([CallerMemberName] string propertyName = null)
-        {
-            var handler = PropertyChanging;
-            if (handler != null)
-            {
-                handler(this, new PropertyChangingEventArgs(propertyName));
-            }
-        }
-
-        public virtual void RaisePropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            var handler = PropertyChanged;
-            if (handler != null)
-            {
-                handler(this, new PropertyChangedEventArgs(propertyName));
-            }
-        }
 
         #endregion
 
