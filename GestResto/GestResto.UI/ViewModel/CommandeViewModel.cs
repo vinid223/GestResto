@@ -18,15 +18,20 @@ namespace GestResto.UI.ViewModel
     public class CommandeViewModel : BaseViewModel
     {
         public ICommandeService _commandeService;
+        public IClientService _clientService;
+        public IFactureService _factureService;
 
         public CommandeViewModel()
         {
 
             Categories = new ObservableCollection<Categorie>(ServiceFactory.Instance.GetService<ICategorieService>().RetrieveAll());
-            Items = new ObservableCollection<Item>(ServiceFactory.Instance.GetService<IItemService>().RetrieveAll());
+            Items = new ObservableCollection<Item>(ServiceFactory.Instance.GetService<IItemService>().RetrieveAll(true));
             Commandes = new ObservableCollection<Commande>(ServiceFactory.Instance.GetService<ICommandeService>().RetrieveAll(1));
             LaCommande = new Commande();
 
+
+            _factureService = ServiceFactory.Instance.GetService<IFactureService>();
+            _clientService = ServiceFactory.Instance.GetService<IClientService>();
             _commandeService = ServiceFactory.Instance.GetService<ICommandeService>();
         }
 
@@ -48,6 +53,13 @@ namespace GestResto.UI.ViewModel
 
         public void EnregistrerUneCommande(Commande commande)
         {
+            _commandeService.Update(commande);
+        }
+
+        public void EnregistrerUnNouveauClient(Commande commande, Client client)
+        {
+            _factureService.Create(new Facture());
+            _clientService.Create(client);
             _commandeService.Update(commande);
         }
 

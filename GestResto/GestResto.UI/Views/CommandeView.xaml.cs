@@ -45,7 +45,10 @@ namespace GestResto.UI.Views
 
             DataContext = new CommandeViewModel();
 
-            lbxListeItems.ItemsSource = ViewModel.Items;
+            lbxListeItems.ItemsSource = ViewModel.Items.Where(x => x.Categories.EstComplementaire == false);
+
+            // J'affiche les catégories qui ne sont pas complémentaires.
+            lbxListeCategorie.ItemsSource = ViewModel.Categories.Where(x => x.EstComplementaire == false);
 
             ViewModel.LaCommande = uneCommande;
             if(uneCommande.ListeClients != null && uneCommande.ListeClients.Count > 0)
@@ -53,11 +56,35 @@ namespace GestResto.UI.Views
                 lbxItemsClient.ItemsSource = uneCommande.ListeClients.First().ListeFormatItemClientFacture;
             }
 
+            // Si on vient de créer la commande, je dois ajouter un client au départ vide.
+            if(ViewModel.LaCommande.ListeClients == null || ViewModel.LaCommande.ListeClients.Count == 0)
+            {
+                if (ViewModel.LaCommande.ListeClients == null)
+                    ViewModel.LaCommande.ListeClients = new List<Client>();
+
+                ViewModel.LaCommande.ListeClients.Add(new Client());
+            }
             // On change le numéro de client sur l'écran
             lblNumeroClient.Content = "Client #" + (NumeroClient + 1) + "/" + ViewModel.LaCommande.ListeClients.Count;
         }
 
+        #region Fonctions pour la gestion des items complémentaires
 
+        private void lbxItemsClient_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            FormatItemClientFacture tempFicf = new FormatItemClientFacture();
+            tempFicf = (FormatItemClientFacture)lbxItemsClient.SelectedItem;
+
+            // Si l'item sélectionné ne fait pas partie d'une catégorie complémentaire, j'affiche les catégories et leurs items complémentaires.
+            if (tempFicf != null && tempFicf.FormatItemAssocie.ItemAssocie.Categories.EstComplementaire == false)
+            {
+                // Sélectionne les catégories complémentaires
+                lbxListeCategorie.ItemsSource = ViewModel.Categories.Where(x => x.EstComplementaire);
+                lbxListeItems.ItemsSource = ViewModel.Items.Where(x => x.Categories.EstComplementaire);
+            }
+        }
+
+        #endregion
 
         #region Fonctions pour la liste d'items du client
 
@@ -74,25 +101,29 @@ namespace GestResto.UI.Views
             FormatsView view = new FormatsView(item.Formats);
             view.ShowDialog();
 
-            // On initialise le nouveau ficf
-            FormatItemClientFacture ficf = new FormatItemClientFacture();
-            // Copie de l'item associé.
-            ficf.FormatItemAssocie = view.formatItemChoisi;
-            // Copie du client
-            ficf.client = g_Client();
-            // Copie de la facture.
-            ficf.facture = ficf.client.FactureClient;
-            // Enregistrement du prix.
-            ficf.Prix = ficf.FormatItemAssocie.Prix;
+            // Si l'utilisateur a annulé le choix de format
+            if(view.formatItemChoisi != null)
+            { 
+                // On initialise le nouveau ficf
+                FormatItemClientFacture ficf = new FormatItemClientFacture();
+                // Copie de l'item associé.
+                ficf.FormatItemAssocie = view.formatItemChoisi;
+                // Copie du client
+                ficf.client = g_Client();
+                // Copie de la facture.
+                ficf.facture = ficf.client.FactureClient;
+                // Enregistrement du prix.
+                ficf.Prix = ficf.FormatItemAssocie.Prix;
 
-            ViewModel.LaCommande.ListeClients.ElementAt(NumeroClient).ListeFormatItemClientFacture.Add(ficf);
+                ViewModel.LaCommande.ListeClients.ElementAt(NumeroClient).ListeFormatItemClientFacture.Add(ficf);
 
-            // Refresh de la liste d'items du client
-            lbxItemsClient.ItemsSource = g_Client().ListeFormatItemClientFacture;
-            lbxItemsClient.Items.Refresh();
+                // Refresh de la liste d'items du client
+                lbxItemsClient.ItemsSource = g_Client().ListeFormatItemClientFacture;
+                lbxItemsClient.Items.Refresh();
 
-            // Ajout à la BD.
-            ViewModel.AjouterUnFicf(ficf);
+                // Ajout à la BD.
+                ViewModel.AjouterUnFicf(ficf);
+            }
         }
 
         /// <summary>
@@ -105,6 +136,14 @@ namespace GestResto.UI.Views
 
         private void btnSuivantClient_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
+            // Si l'utilisateur clique sur suivant et que nous sommes à la fin de la liste de client, 
+            // nous voulons ajouter un client à la commande.
+            if (NumeroClient+1 == ViewModel.LaCommande.ListeClients.Count)
+            {
+                ViewModel.LaCommande.ListeClients.Add(new Client());
+                ViewModel.EnregistrerUnNouveauClient(ViewModel.LaCommande, ViewModel.LaCommande.ListeClients.Last());
+            }
+
             // Si cette condition est respectée je peux afficher le client suivant
             if (NumeroClient <= ViewModel.LaCommande.ListeClients.Count - 1)
             {
@@ -120,7 +159,9 @@ namespace GestResto.UI.Views
                 lbxItemsClient.Items.Refresh();
 
                 // Je vérifie si on a atteint la fin de la liste des clients.
-                if (NumeroClient == ViewModel.LaCommande.ListeClients.Count - 1)
+                if (NumeroClient == ViewModel.LaCommande.ListeClients.Count - 1 &&
+                    ViewModel.LaCommande.ListeClients.Last().ListeFormatItemClientFacture != null && 
+                    ViewModel.LaCommande.ListeClients.Last().ListeFormatItemClientFacture.Count == 0)
                     btnClientSuivant.IsEnabled = false;
                 
             }
@@ -262,6 +303,9 @@ namespace GestResto.UI.Views
             Constante.onPressButton(sender, e); // On ajoute l'effet du bouton pressé
         }
         #endregion
+
+
+
 
         
     }

@@ -14,7 +14,7 @@ namespace GestResto.Logic.Services.Definitions
     public interface IItemService
     {
         void Create(Item item);
-        IList<Item> RetrieveAll();
+        IList<Item> RetrieveAll(bool sansActif = false);
         Item Retrieve(RetrieveItemArgs args);
         void Update(Item item);
         void Delete(FormatItem item);

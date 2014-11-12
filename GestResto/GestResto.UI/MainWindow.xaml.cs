@@ -67,6 +67,7 @@ namespace GestResto.UI
             ServiceFactory.Instance.Register<ITableService, NHibernateTableService>(new NHibernateTableService());
             ServiceFactory.Instance.Register<ICommandeService, NHibernateCommandeService>(new NHibernateCommandeService());
             ServiceFactory.Instance.Register<IClientService, NHibernateClientService>(new NHibernateClientService());
+            ServiceFactory.Instance.Register<IFactureService, NHibernateFactureService>(new NHibernateFactureService());
             ServiceFactory.Instance.Register<IFormatItemClientFactureService, NHibernateFormatItemClientFacture>(new NHibernateFormatItemClientFacture());
             
            

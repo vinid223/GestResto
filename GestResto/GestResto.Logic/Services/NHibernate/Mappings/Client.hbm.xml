@@ -17,7 +17,7 @@
     </bag>
 
     <many-to-one name="FactureClient" class="Facture">
-      <column name="idFacture" not-null="true" sql-type="INTEGER" />
+      <column name="idFacture" not-null="false" sql-type="INTEGER" />
     </many-to-one>
 
   </class>
