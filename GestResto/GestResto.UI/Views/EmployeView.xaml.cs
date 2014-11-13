@@ -220,6 +220,7 @@ namespace GestResto.UI.Views
                     return; // On retourne afin d'évite de faire le code qui suit
                 }
                 Constante.LogNavigation("Enregistrement de l'employé " + ViewModel.employe.Nom.ToString());
+                ViewModel.employe.EstModifie = false;
             }
         }
 
