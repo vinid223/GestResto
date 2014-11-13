@@ -160,10 +160,6 @@ CREATE TABLE IF NOT EXISTS Clients
 	idFacture INT DEFAULT NULL
 );
 
-/*Création du lien avec la foreign key de la table Tables vers la table Clients*/
-ALTER TABLE Clients
-ADD CONSTRAINT Factures_Clients_FK
-FOREIGN KEY (idFacture) REFERENCES Factures (idFacture);
 
 /*Création du lien avec la foreign key de la table Commandes vers la table Clients*/
 ALTER TABLE Clients
@@ -179,12 +175,10 @@ CREATE TABLE IF NOT EXISTS Factures
 	pourcentageTaxe FLOAT NOT NULL
 );
 
-
-/*Création du lien avec la foreign key de la table Clients vers la table Factures*/
-ALTER TABLE Factures
-ADD CONSTRAINT Clients_Factures_FK
-FOREIGN KEY (idClient) REFERENCES Clients(idClient);
-
+/*Création du lien avec la foreign key de la table Tables vers la table Clients*/
+ALTER TABLE Clients
+ADD CONSTRAINT Factures_Clients_FK
+FOREIGN KEY (idFacture) REFERENCES Factures (idFacture);
 
 /*Création de la table Formats*/
 CREATE TABLE IF NOT EXISTS Formats
