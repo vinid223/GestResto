@@ -57,6 +57,25 @@ namespace GestResto.UI.Views
                 Constante.commande.ListeClients != null && 
                 Constante.commande.ListeClients.Count > 0)
             { 
+                // TODO Simon -> Faire une fonction ?
+                bool SimonAFini = false;
+
+                if(SimonAFini)
+                { 
+                    foreach (FormatItemClientFacture ficf in Constante.commande.ListeClients.First().ListeFormatItemClientFacture)
+                    {
+                        // On ajoute le ficf
+                        lbxItemsClient.Items.Add(ficf); // TODO Vérifier si c'est correct
+
+                        // On parcours la liste de ficf du ficf principal
+                        foreach(FormatItemClientFacture ficfChild in ficf.ListFicf)
+                        {
+                            // On ajoute le ficfChild à la list en déterminant le style de l'élément
+                            lbxItemsClient.Items.Add(ficfChild);
+                        }
+                    }
+                }
+
                 lbxItemsClient.ItemsSource = Constante.commande.ListeClients.First().ListeFormatItemClientFacture;
             }
 
