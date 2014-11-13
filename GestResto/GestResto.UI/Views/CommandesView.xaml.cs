@@ -124,7 +124,7 @@ namespace GestResto.UI.Views
             int idCommande = Convert.ToInt32(content);
 
             // On se définie une commande null temporaire
-            Commande commandeTemp = null;
+            // TODO Commande commandeTemp = null;
 
             // On boucle dans chaque commande pour trouver la commande qu'on cherche
             foreach (var item in ViewModel.Commandes)
@@ -133,7 +133,7 @@ namespace GestResto.UI.Views
                 if (item.IdCommande == idCommande)
                 {
                     // On sauvegarde la commande
-                    commandeTemp = item;
+                    Constante.commande = item;
 
                     // On arrête l'exécution de la boucle
                     break;
@@ -141,11 +141,11 @@ namespace GestResto.UI.Views
             }
 
             // On teste si la commande n'est pas null.
-            if (commandeTemp != null)
+            if (Constante.commande != null)
             {
                 // Si elle n'est pas null on redirige à la page de la commande avec la commande en cour
                 IApplicationService mainVM = ServiceFactory.Instance.GetService<IApplicationService>();
-                mainVM.ChangeView<CommandeView>(new CommandeView(commandeTemp));
+                mainVM.ChangeView<CommandeView>(new CommandeView());
             }
             else
             {

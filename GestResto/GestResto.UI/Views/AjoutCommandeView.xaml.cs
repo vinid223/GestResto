@@ -99,7 +99,7 @@ namespace GestResto.UI.Views
                 {
                     // On affiche un message à l'écran de l'usager et on fait une entrée dans le fichier de log
                     Constante.LogErreur("Aucune table dans la base de données. Le serveur ne peut pas créer de commande");
-                    MessageBox.Show("Aucune table dans la base de données. Veuillez contacter un administrateur.", "Aucune table de disponible.", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show("Aucune table dans la base de données. Veuillez contacter un administrateur.", "Aucune table disponible.", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
         }
@@ -120,8 +120,8 @@ namespace GestResto.UI.Views
             if (lstTable.Count > 0)
             {
                 // On crée la commande dans la bd
-                Commande commande = new Commande("Active", DateTime.Now);
-                commande.IdEmploye = Constante.employe.IdEmploye ?? default(int);
+                Constante.commande = new Commande("Active", DateTime.Now);
+                Constante.commande.IdEmploye = Constante.employe.IdEmploye ?? default(int);
 
                 // On se crée une liste temporaire pour contenir toutes les tables sélectionné
                 // On a pas la choix ici d'utuliser le namespace au complet pour accéder à l'objet de table puisque
@@ -140,17 +140,17 @@ namespace GestResto.UI.Views
                 }
 
                 // On définie la liste de table à notre objet de commande
-                commande.ListeTables = listTableTemp;
+                Constante.commande.ListeTables = listTableTemp;
 
                 // On enregistre la nouvelle commande et on reçoit le résultat de l'insertion
-                commande = ViewModel.CreerCommande(commande);
+                Constante.commande = ViewModel.CreerCommande(Constante.commande);
 
                 // On test si la commande à bien reçu son id de création
-                if (commande.IdCommande != null)
+                if (Constante.commande.IdCommande != null)
                 {
                     // Si elle n'est pas null on redirige à la page de la commande avec la commande en cour
                     IApplicationService mainVM = ServiceFactory.Instance.GetService<IApplicationService>();
-                    mainVM.ChangeView<CommandeView>(new CommandeView(commande));
+                    mainVM.ChangeView<CommandeView>(new CommandeView());
                 }
                 else
                 {
@@ -167,7 +167,7 @@ namespace GestResto.UI.Views
             {
                 // On affiche un message si l'utilisateur à cliqué sur le bouton créer sans avoir sélectionné une ou plusieurs tables
                 Constante.LogNavigation("L'utilisateur tente de créer une commande sans avoir sélectionné une table");
-                MessageBox.Show("Veuillez choisir une table avant de créer une commande. S'il n'y a pas de table de disponible, veuillez fermer une commande en cour pour libérer une table.", "Aucune table sélectionné.",MessageBoxButton.OK,MessageBoxImage.Information);
+                MessageBox.Show("Veuillez choisir une table avant de créer une commande. S'il n'y a pas de table de disponible, veuillez fermer une commande en cours pour libérer une table.", "Aucune table sélectionnée",MessageBoxButton.OK,MessageBoxImage.Information);
             }
         }
 

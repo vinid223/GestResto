@@ -81,6 +81,7 @@ namespace GestResto.UI
     public static class Constante
     {
         public static Employe employe = new Employe();
+        public static Commande commande = new Commande();
 
         /// <summary>
         /// Fonction permettant de déconnecter un utilisateur
@@ -90,6 +91,9 @@ namespace GestResto.UI
             employe = null;
             IApplicationService mainVM = ServiceFactory.Instance.GetService<IApplicationService>();
             mainVM.ChangeView<AuthentificationView>(new AuthentificationView());
+
+            employe = null;
+            commande = null;
         }
 
         /// <summary>

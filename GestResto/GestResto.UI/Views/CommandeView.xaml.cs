@@ -38,9 +38,10 @@ namespace GestResto.UI.Views
         /// Permet de sauvegarder la commande passée en paramètre dans le constructeur de la commandeView.
         /// </summary>
 
-        public CommandeView(Commande uneCommande = null)
+        public CommandeView()
         {
             InitializeComponent();
+            Commande uneCommande = Constante.commande;
             lblNom.Content = Constante.employe.ToString();
 
             DataContext = new CommandeViewModel();
@@ -51,21 +52,25 @@ namespace GestResto.UI.Views
             lbxListeCategorie.ItemsSource = ViewModel.Categories.Where(x => x.EstComplementaire == false);
 
             ViewModel.LaCommande = uneCommande;
-            if(uneCommande.ListeClients != null && uneCommande.ListeClients.Count > 0)
+            if(uneCommande != null && uneCommande.ListeClients != null && uneCommande.ListeClients.Count > 0)
             { 
                 lbxItemsClient.ItemsSource = uneCommande.ListeClients.First().ListeFormatItemClientFacture;
             }
 
             // Si on vient de créer la commande, je dois ajouter un client au départ vide.
-            if(ViewModel.LaCommande.ListeClients == null || ViewModel.LaCommande.ListeClients.Count == 0)
+            if (uneCommande != null && (ViewModel.LaCommande.ListeClients == null || ViewModel.LaCommande.ListeClients.Count == 0))
             {
                 if (ViewModel.LaCommande.ListeClients == null)
                     ViewModel.LaCommande.ListeClients = new List<Client>();
 
                 ViewModel.LaCommande.ListeClients.Add(new Client());
             }
-            // On change le numéro de client sur l'écran
-            lblNumeroClient.Content = "Client #" + (NumeroClient + 1) + "/" + ViewModel.LaCommande.ListeClients.Count;
+
+             if (uneCommande != null)
+             {
+                // On change le numéro de client sur l'écran
+                lblNumeroClient.Content = "Client #" + (NumeroClient + 1) + "/" + ViewModel.LaCommande.ListeClients.Count;
+             }
         }
 
         #region Fonctions pour la gestion des items complémentaires

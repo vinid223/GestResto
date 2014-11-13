@@ -19,6 +19,4 @@ boxes.png : http://www.flaticon.com/free-icon/two-overlapped-squares-outlined-sy
 floppy.png : http://www.flaticon.com/free-icon/floppy-disc-vintage-storage-disk-format-save-interface-button_13842
 logo.png : http://www.flaticon.com/free-icon/fork-and-knife-cutlery-circle-interface-symbol-for-restaurant_45605
 Background.jpg : http://www.blirk.net/gradient-wallpaper/3/1920x1080/
-backspace.png : http://www.flaticon.com/free-icon/backspace-outline_2692
-
-Color checkmark : Teinte : 151, Saturation : 68, Luminosité : 30
+backspace.png : Créé par Simon Turcotte
