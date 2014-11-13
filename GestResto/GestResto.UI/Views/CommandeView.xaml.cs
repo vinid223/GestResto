@@ -111,7 +111,7 @@ namespace GestResto.UI.Views
                 // Copie du client
                 ficf.client = g_Client();
                 // Copie de la facture.
-                ficf.facture = ficf.client.FactureClient;
+                //ficf.facture = ficf.client.FactureClient;
                 // Enregistrement du prix.
                 ficf.Prix = ficf.FormatItemAssocie.Prix;
 

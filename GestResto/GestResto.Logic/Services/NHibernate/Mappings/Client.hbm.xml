@@ -20,10 +20,6 @@
       <column name="idCommande" not-null="false" sql-type="INTEGER" />
     </many-to-one>
 
-    <many-to-one name="FactureClient" class="Facture" cascade="none" >
-      <column name="idFacture" not-null="false" sql-type="INTEGER" />
-    </many-to-one>
-
     <many-to-one name="TableClient" class="Table" cascade="none" >
       <column name="idTable" not-null="false" sql-type="INTEGER" />
     </many-to-one>
