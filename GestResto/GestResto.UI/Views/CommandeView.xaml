@@ -25,7 +25,7 @@
             </Grid.RowDefinitions>
 
             <!-- Lorsque les boutons ne rentrent plus dans la fenêtre, une scoll bar apparait -->
-            <ListBox 
+            <ListBox AlternationCount="2"
                 Grid.Column="0" Grid.Row="1" Margin="5,50,5,5"
                 Name="lbxItemsClient"
                 ScrollViewer.HorizontalScrollBarVisibility="Disabled" SelectionChanged="lbxItemsClient_SelectionChanged">

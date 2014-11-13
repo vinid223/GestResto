@@ -136,14 +136,6 @@ namespace GestResto.UI.Views
 
         private void btnSuivantClient_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            // Si l'utilisateur clique sur suivant et que nous sommes à la fin de la liste de client, 
-            // nous voulons ajouter un client à la commande.
-            if (NumeroClient+1 == ViewModel.LaCommande.ListeClients.Count)
-            {
-                ViewModel.LaCommande.ListeClients.Add(new Client());
-                ViewModel.EnregistrerUnNouveauClient(ViewModel.LaCommande, ViewModel.LaCommande.ListeClients.Last());
-            }
-
             // Si cette condition est respectée je peux afficher le client suivant
             if (NumeroClient <= ViewModel.LaCommande.ListeClients.Count - 1)
             {
@@ -159,9 +151,7 @@ namespace GestResto.UI.Views
                 lbxItemsClient.Items.Refresh();
 
                 // Je vérifie si on a atteint la fin de la liste des clients.
-                if (NumeroClient == ViewModel.LaCommande.ListeClients.Count - 1 &&
-                    ViewModel.LaCommande.ListeClients.Last().ListeFormatItemClientFacture != null && 
-                    ViewModel.LaCommande.ListeClients.Last().ListeFormatItemClientFacture.Count == 0)
+                if (NumeroClient < ViewModel.LaCommande.ListeClients.Count)
                     btnClientSuivant.IsEnabled = false;
                 
             }
@@ -253,7 +243,14 @@ namespace GestResto.UI.Views
         private void btnAjouter_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             Constante.onReleaseButton(sender, e); /// On enlève l'effet du bouton pressé
-            MessageBox.Show("Ajouter");
+
+
+            ViewModel.LaCommande.ListeClients.Add(new Client());
+
+            ViewModel.EnregistrerUnNouveauClient(ViewModel.LaCommande, ViewModel.LaCommande.ListeClients.Last());
+
+            lblNumeroClient.Content = "Client #" + (NumeroClient + 1) + "/" + ViewModel.LaCommande.ListeClients.Count;
+
         }
 
         private void btnDiviser_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
@@ -272,7 +269,23 @@ namespace GestResto.UI.Views
         private void btnSupprimer_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             Constante.onReleaseButton(sender, e); // On enlève l'effet du bouton pressé
-            MessageBox.Show("Supprimer");
+
+
+            MessageBoxResult result = MessageBox.Show("Voulez-vous vraiment supprimer le client #"+(NumeroClient+1)+" et tous ses items ?", "Avertissement", MessageBoxButton.YesNo, MessageBoxImage.Information, MessageBoxResult.No);
+
+            // Si l'utilisateur a demandé de ne pas quitter, on renvoie faux
+            if (result == MessageBoxResult.Yes)
+            {
+                ViewModel.LaCommande.ListeClients.Remove(ViewModel.LaCommande.ListeClients.ElementAt(NumeroClient));
+                NumeroClient -= 1;
+
+                // Refresh du label
+                lblNumeroClient.Content = "Client #" + (NumeroClient + 1) + "/" + ViewModel.LaCommande.ListeClients.Count;
+
+                // Refresh du client affiché
+                lbxItemsClient.ItemsSource = ViewModel.LaCommande.ListeClients.ElementAt(NumeroClient).ListeFormatItemClientFacture;
+                lbxItemsClient.Items.Refresh();
+            }    
         }
 
         private void btnPayer_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
