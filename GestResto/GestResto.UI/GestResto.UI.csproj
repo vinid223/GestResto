@@ -238,7 +238,9 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Cstj.MvvmToolkit\GestResto.MvvmToolkit.csproj">
@@ -293,6 +295,10 @@
     <Resource Include="Images\debitSelected.png" />
     <Resource Include="Images\mastercardSelected.png" />
     <Resource Include="Images\moneySelected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\backspace.png" />
+    <Resource Include="Images\checkmarkColor.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -43,8 +43,12 @@
             <Button Margin="1" Grid.Row ="1" Grid.Column="2" Content="8" Name="btnHuit" Click="btn_Click" FontSize="36"  />
             <Button Margin="1" Grid.Row ="1" Grid.Column="3" Content="9" Name="btnNeuf" Click="btn_Click" FontSize="36"   />
             <Button Margin="1" Grid.Row ="4" Grid.Column="2" Content="0" Name="btnZero" Click="btn_Click" FontSize="36"  />
-            <Button Margin="1" Grid.Row ="4" Grid.Column="1" Content="Effacer" Name="btnRetour" Click="btnRetour_Click" FontSize="36"  />
-            <Button Margin="1" Grid.Row ="4" Grid.Column="3" Content="Entrer" Name="btnConfirmer" Click="btnConfirmer_Click" FontSize="36"  />
+            <Button Margin="1" Grid.Row ="4" Content="&#x232B;" Grid.Column="1" Name="btnRetour" Click="btnRetour_Click" FontSize="36">
+                
+            </Button> 
+            <Button Margin="1" Grid.Row ="4" Grid.Column="3" Name="btnConfirmer" Click="btnConfirmer_Click" FontSize="36">
+                <Image Source="/Images/checkmarkColor.png" />
+            </Button>  
 
         </Grid>
     </Grid>
