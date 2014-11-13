@@ -157,8 +157,14 @@ CREATE TABLE IF NOT EXISTS Clients
 (
 	idClient INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	idTable INT NOT NULL,
-	idCommande INT NOT NULL
+	idCommande INT NOT NULL,
+	idFacture INT DEFAULT NULL
 );
+
+/*Création du lien avec la foreign key de la table Tables vers la table Clients*/
+ALTER TABLE Clients
+ADD CONSTRAINT Factures_Clients_FK
+FOREIGN KEY (idFacture) REFERENCES Factures (idFacture);
 
 /*Création du lien avec la foreign key de la table Tables vers la table Clients*/
 ALTER TABLE Clients
@@ -175,7 +181,6 @@ FOREIGN KEY (idCommande) REFERENCES Commandes (idCommande);
 CREATE TABLE IF NOT EXISTS Factures
 (
 	idFacture INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-	idClient INT DEFAULT NULL,
 	dateDeCreation DATETIME NOT NULL,
 	pourcentageTaxe FLOAT NOT NULL
 );
