@@ -52,7 +52,10 @@ namespace GestResto.UI.Views
             lbxListeCategorie.ItemsSource = ViewModel.Categories.Where(x => x.EstComplementaire == false);
 
             ViewModel.LaCommande = Constante.commande;
-            if(Constante.commande != null && Constante.commande.ListeClients != null && Constante.commande.ListeClients.Count > 0)
+
+            if( Constante.commande != null && 
+                Constante.commande.ListeClients != null && 
+                Constante.commande.ListeClients.Count > 0)
             { 
                 lbxItemsClient.ItemsSource = Constante.commande.ListeClients.First().ListeFormatItemClientFacture;
             }
@@ -71,10 +74,14 @@ namespace GestResto.UI.Views
                 // On change le numéro de client sur l'écran
                 lblNumeroClient.Content = "Client #" + (NumeroClient + 1) + "/" + ViewModel.LaCommande.ListeClients.Count;
              }
+
+            // Update de la variable statique
+             Constante.commande = ViewModel.LaCommande;
         }
 
         #region Fonctions pour la gestion des items complémentaires
 
+        // Affichage des catégories complémentaires.
         private void lbxItemsClient_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             FormatItemClientFacture tempFicf = new FormatItemClientFacture();
@@ -116,7 +123,7 @@ namespace GestResto.UI.Views
                 // Copie du client
                 ficf.client = g_Client();
                 // Copie de la facture.
-                //ficf.facture = ficf.client.FactureClient;
+                ficf.facture = ficf.client.FactureClient;
                 // Enregistrement du prix.
                 ficf.Prix = ficf.FormatItemAssocie.Prix;
 
@@ -128,6 +135,10 @@ namespace GestResto.UI.Views
 
                 // Ajout à la BD.
                 ViewModel.AjouterUnFicf(ficf);
+
+
+                // Update de la variable statique
+                Constante.commande = ViewModel.LaCommande;
             }
         }
 
@@ -256,6 +267,10 @@ namespace GestResto.UI.Views
 
             lblNumeroClient.Content = "Client #" + (NumeroClient + 1) + "/" + ViewModel.LaCommande.ListeClients.Count;
 
+
+            // Update de la variable statique
+            Constante.commande = ViewModel.LaCommande;
+
         }
 
         private void btnDiviser_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
@@ -290,6 +305,10 @@ namespace GestResto.UI.Views
                 // Refresh du client affiché
                 lbxItemsClient.ItemsSource = ViewModel.LaCommande.ListeClients.ElementAt(NumeroClient).ListeFormatItemClientFacture;
                 lbxItemsClient.Items.Refresh();
+
+
+                // Update de la variable statique
+                Constante.commande = ViewModel.LaCommande;
             }    
         }
 

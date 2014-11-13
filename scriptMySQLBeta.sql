@@ -156,8 +156,7 @@ FOREIGN KEY (idCategorie) REFERENCES Categories (idCategorie);
 CREATE TABLE IF NOT EXISTS Clients
 (
 	idClient INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-	idTable INT NOT NULL,
-	idCommande INT NOT NULL,
+	idCommande INT DEFAULT NULL,
 	idFacture INT DEFAULT NULL
 );
 
@@ -165,11 +164,6 @@ CREATE TABLE IF NOT EXISTS Clients
 ALTER TABLE Clients
 ADD CONSTRAINT Factures_Clients_FK
 FOREIGN KEY (idFacture) REFERENCES Factures (idFacture);
-
-/*Création du lien avec la foreign key de la table Tables vers la table Clients*/
-ALTER TABLE Clients
-ADD CONSTRAINT Tables_Clients_FK
-FOREIGN KEY (idTable) REFERENCES Tables (idTable);
 
 /*Création du lien avec la foreign key de la table Commandes vers la table Clients*/
 ALTER TABLE Clients
@@ -242,7 +236,7 @@ CREATE TABLE IF NOT EXISTS FormatsItemsClientsFactures
 	idFormatItemClientFacture INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	idFormatItem INT NOT NULL,
 	idClient INT NOT NULL,
-	idFacture INT NOT NULL,
+	idFacture DEFAULT NULL,
 	prix FLOAT NOT NULL
 );
 

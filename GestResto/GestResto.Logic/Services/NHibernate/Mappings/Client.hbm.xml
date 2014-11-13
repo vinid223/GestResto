@@ -16,7 +16,7 @@
       <one-to-many class="FormatItemClientFacture"/>
     </bag>
 
-    <many-to-one name="CommandeClient" class="Commande" cascade="none" >
+    <many-to-one name="CommandeClient" class="Commande" cascade="none"  >
       <column name="idCommande" not-null="false" sql-type="INTEGER" />
     </many-to-one>
 
