@@ -38,9 +38,10 @@ namespace GestResto.UI.Views
         /// Permet de sauvegarder la commande passée en paramètre dans le constructeur de la commandeView.
         /// </summary>
 
-        public CommandeView(Commande uneCommande = null)
+        public CommandeView()
         {
             InitializeComponent();
+            
             lblNom.Content = Constante.employe.ToString();
 
             DataContext = new CommandeViewModel();
@@ -50,22 +51,26 @@ namespace GestResto.UI.Views
             // J'affiche les catégories qui ne sont pas complémentaires.
             lbxListeCategorie.ItemsSource = ViewModel.Categories.Where(x => x.EstComplementaire == false);
 
-            ViewModel.LaCommande = uneCommande;
-            if(uneCommande.ListeClients != null && uneCommande.ListeClients.Count > 0)
+            ViewModel.LaCommande = Constante.commande;
+            if(Constante.commande != null && Constante.commande.ListeClients != null && Constante.commande.ListeClients.Count > 0)
             { 
-                lbxItemsClient.ItemsSource = uneCommande.ListeClients.First().ListeFormatItemClientFacture;
+                lbxItemsClient.ItemsSource = Constante.commande.ListeClients.First().ListeFormatItemClientFacture;
             }
 
             // Si on vient de créer la commande, je dois ajouter un client au départ vide.
-            if(ViewModel.LaCommande.ListeClients == null || ViewModel.LaCommande.ListeClients.Count == 0)
+            if (Constante.commande != null && (ViewModel.LaCommande.ListeClients == null || ViewModel.LaCommande.ListeClients.Count == 0))
             {
                 if (ViewModel.LaCommande.ListeClients == null)
                     ViewModel.LaCommande.ListeClients = new List<Client>();
 
                 ViewModel.LaCommande.ListeClients.Add(new Client());
             }
-            // On change le numéro de client sur l'écran
-            lblNumeroClient.Content = "Client #" + (NumeroClient + 1) + "/" + ViewModel.LaCommande.ListeClients.Count;
+
+             if (Constante.commande != null)
+             {
+                // On change le numéro de client sur l'écran
+                lblNumeroClient.Content = "Client #" + (NumeroClient + 1) + "/" + ViewModel.LaCommande.ListeClients.Count;
+             }
         }
 
         #region Fonctions pour la gestion des items complémentaires
@@ -111,7 +116,7 @@ namespace GestResto.UI.Views
                 // Copie du client
                 ficf.client = g_Client();
                 // Copie de la facture.
-                ficf.facture = ficf.client.FactureClient;
+                //ficf.facture = ficf.client.FactureClient;
                 // Enregistrement du prix.
                 ficf.Prix = ficf.FormatItemAssocie.Prix;
 

@@ -34,19 +34,23 @@
             </Grid.ColumnDefinitions>
 
             <TextBox Name="txtPrix"  Grid.Row="0" TextAlignment="Right" FontSize="36" FontFamily="Adobe Caslon Pro Bold" Grid.Column="0" Grid.ColumnSpan="2" Focusable="False"/>
-            <Button Margin="1" Grid.Row ="3" Grid.Column="0" Content="1"  Click="btn_Click" Name="btnUn"  />
-            <Button Margin="1" Grid.Row ="3" Grid.Column="1" Content="2"  Click="btn_Click" Name="btnDeux"  />
-            <Button Margin="1" Grid.Row ="3" Grid.Column="2" Content="3"  Click="btn_Click" Name="btnTrois"  />
-            <Button Margin="1" Grid.Row ="2" Grid.Column="0" Content="4"  Click="btn_Click" Name="btnQuatre"  />
-            <Button Margin="1" Grid.Row ="2" Grid.Column="1" Content="5"  Click="btn_Click" Name="btnCinq"  />
-            <Button Margin="1" Grid.Row ="2" Grid.Column="2" Content="6"  Click="btn_Click" Name="btnSix"  />
-            <Button Margin="1" Grid.Row ="1" Grid.Column="0" Content="7"  Click="btn_Click" Name="btnSept"  />
-            <Button Margin="1" Grid.Row ="1" Grid.Column="1" Content="8"  Click="btn_Click" Name="btnHuit" />
-            <Button Margin="1" Grid.Row ="1" Grid.Column="2" Content="9"  Click="btn_Click" Name="btnNeuf"   />
-            <Button Margin="1" Grid.Row ="4" Grid.Column="1" Content="0"  Click="btn_Click"  Name="btnZero" />
-            <Button Margin="1" Grid.Row ="4" Grid.Column="0" Content="00" Click="btnZeroZero_Click" Name="btnZeroZero" />
-            <Button Margin="1,0,1,1" Grid.Row ="0" Grid.Column="2" Content="Retour" Click="btnRetourClavier_Click" Name="btnRetourClavier" />
-            <Button Margin="1" Grid.Row ="4" Grid.Column="2" Content="Valider" Name="btnValider" Click="btnValider_Click" />
+            <Button FontSize="36" Margin="1" Grid.Row ="3" Grid.Column="0" Content="1"  Click="btn_Click" Name="btnUn"  />
+            <Button FontSize="36" Margin="1" Grid.Row ="3" Grid.Column="1" Content="2"  Click="btn_Click" Name="btnDeux"  />
+            <Button FontSize="36" Margin="1" Grid.Row ="3" Grid.Column="2" Content="3"  Click="btn_Click" Name="btnTrois"  />
+            <Button FontSize="36" Margin="1" Grid.Row ="2" Grid.Column="0" Content="4"  Click="btn_Click" Name="btnQuatre"  />
+            <Button FontSize="36" Margin="1" Grid.Row ="2" Grid.Column="1" Content="5"  Click="btn_Click" Name="btnCinq"  />
+            <Button FontSize="36" Margin="1" Grid.Row ="2" Grid.Column="2" Content="6"  Click="btn_Click" Name="btnSix"  />
+            <Button FontSize="36" Margin="1" Grid.Row ="1" Grid.Column="0" Content="7"  Click="btn_Click" Name="btnSept"  />
+            <Button FontSize="36" Margin="1" Grid.Row ="1" Grid.Column="1" Content="8"  Click="btn_Click" Name="btnHuit" />
+            <Button FontSize="36" Margin="1" Grid.Row ="1" Grid.Column="2" Content="9"  Click="btn_Click" Name="btnNeuf"   />
+            <Button FontSize="36" Margin="1" Grid.Row ="4" Grid.Column="1" Content="0"  Click="btn_Click"  Name="btnZero" />
+            <Button FontSize="36" Margin="1" Grid.Row ="4" Grid.Column="0" Content="00" Click="btnZeroZero_Click" Name="btnZeroZero" />
+            <Button Margin="1,0,1,1" Grid.Row ="0" Grid.Column="2"  Click="btnRetourClavier_Click" Name="btnRetourClavier" >
+                <Image Source="/Images/backspace.png" Height="60"/>
+            </Button>
+            <Button Margin="1" Grid.Row ="4" Grid.Column="2" Name="btnValider" Click="btnValider_Click">
+                <Image Source="/Images/checkmarkColor.png" Height="60"/>
+            </Button>
 
 
         </Grid>
