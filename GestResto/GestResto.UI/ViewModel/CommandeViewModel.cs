@@ -28,14 +28,12 @@ namespace GestResto.UI.ViewModel
             Items = new ObservableCollection<Item>(ServiceFactory.Instance.GetService<IItemService>().RetrieveAll(true));
             Commandes = new ObservableCollection<Commande>(ServiceFactory.Instance.GetService<ICommandeService>().RetrieveAll(1));
             LaCommande = new Commande();
-            client = new Client();
+            
 
             _factureService = ServiceFactory.Instance.GetService<IFactureService>();
             _clientService = ServiceFactory.Instance.GetService<IClientService>();
             _commandeService = ServiceFactory.Instance.GetService<ICommandeService>();
         }
-
-
 
         public int AjouterUnFicf(FormatItemClientFacture ficf)
         {
@@ -58,8 +56,11 @@ namespace GestResto.UI.ViewModel
 
         public void EnregistrerUnNouveauClient(Commande commande, Client client)
         {
-            _factureService.Create(new Facture());
-            _clientService.Create(client);
+
+            _clientService.Create(commande.ListeClients.Last());
+            _factureService.Create(commande.ListeClients.Last().FactureClient);
+
+
             _commandeService.Update(commande);
         }
 
@@ -69,7 +70,6 @@ namespace GestResto.UI.ViewModel
         private ObservableCollection<Item> _items = new ObservableCollection<Item>();
         private ObservableCollection<Commande> _commandes = new ObservableCollection<Commande>();
 
-        public Client client;
         public Commande LaCommande;
         public Categorie _categorie;
 

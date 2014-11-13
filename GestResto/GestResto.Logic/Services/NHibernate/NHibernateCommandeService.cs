@@ -32,6 +32,7 @@ namespace GestResto.Logic.Services.NHibernate
         {
             using (var transaction = session.BeginTransaction())
             {
+
                 session.Save(commande);
                 transaction.Commit();
             }

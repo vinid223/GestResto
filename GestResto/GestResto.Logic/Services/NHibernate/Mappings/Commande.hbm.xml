@@ -34,7 +34,7 @@
       </many-to-many>
     </idbag>
 
-    <bag name="ListeClients" inverse="false" generic="true" lazy="false" cascade="all">
+    <bag name="ListeClients" inverse="false"  generic="true" lazy="false" cascade="all">
       <key>
         <column name="idCommande" />
       </key>
