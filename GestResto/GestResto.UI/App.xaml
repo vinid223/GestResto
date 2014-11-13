@@ -61,6 +61,18 @@
             <Setter Property="Padding"  Value="10,0,0,0"/>
         </Style>
 
+        <Style TargetType="{x:Type ListBoxItem}"> <!-- x:Key="ListBoxItemRows"-->
+            <Style.Triggers>
+                <Trigger Property="ItemsControl.AlternationIndex"  Value="0">
+                    <Setter Property="Background" Value="White" />
+                </Trigger>
+                <Trigger Property="ItemsControl.AlternationIndex"  Value="1">
+                    <Setter Property="Background" Value="#cee9ff" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+
         <!-- Boutons des items dans la listes de boutons dans l'écran de la commande. -->
         <Style x:Key="BoutonItem" TargetType="Button">
             <Setter Property="Height"  Value="70" />
