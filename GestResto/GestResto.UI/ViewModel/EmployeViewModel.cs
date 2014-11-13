@@ -55,6 +55,7 @@ namespace GestResto.UI.ViewModel
             set
             {
                 _employe = value;
+                _employe.EstModifie = true;
                 RaisePropertyChanged();
             }
         }
@@ -66,6 +67,11 @@ namespace GestResto.UI.ViewModel
             // On va charger nos listes à partir de la base de donnée
             Employes = new ObservableCollection<Employe>(ServiceFactory.Instance.GetService<IEmployeService>().RetriveAll());
             TypesEmployes = new ObservableCollection<TypeEmploye>(ServiceFactory.Instance.GetService<ITypeEmployeService>().RetriveAll());
+
+            foreach (var item in Employes)
+            {
+                item.EstModifie = false;
+            }
 
             // Initialisation de l'instance d'employé
             _employeService = ServiceFactory.Instance.GetService<IEmployeService>();

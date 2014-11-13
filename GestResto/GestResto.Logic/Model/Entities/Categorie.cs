@@ -24,8 +24,15 @@ namespace GestResto.Logic.Model.Entities
         #region Liste des variables de la classe
 
         public virtual int? IdCategorie { get; set; }
-
         private bool _estComplementaire;
+        private bool _estActif;
+        private bool _estModifie;
+        private string _nom;
+
+        #endregion
+
+        #region Propriété
+
 
         public virtual bool EstComplementaire
         {
@@ -44,7 +51,6 @@ namespace GestResto.Logic.Model.Entities
             }
         }
 
-        private bool _estActif;
 
         public virtual bool EstActif
         {
@@ -63,7 +69,6 @@ namespace GestResto.Logic.Model.Entities
             }
         }
 
-        private bool _estModifie;
 
         public virtual bool EstModifie
         {
@@ -79,7 +84,6 @@ namespace GestResto.Logic.Model.Entities
             }
         }
 
-        private string _nom;
 
         public virtual string Nom
         {

@@ -315,8 +315,14 @@ namespace GestResto.UI.Views
         /// </summary>
         private void btnDeconnexion_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            // On appel la fonction de la classe constante qui permet de déconnecter l'utilisateur en cours
-            Constante.Deconnexion();
+            Constante.onReleaseButton(sender, e);
+
+            // On appel la fonction pour tester si on à un employé non sauvegardé
+            if (TesterSiModifie())
+            {
+                // On appel la fonction de la classe constante qui permet de déconnecter l'utilisateur en cours
+                Constante.Deconnexion();
+            }
         }
 
         /// <summary>
@@ -324,9 +330,15 @@ namespace GestResto.UI.Views
         /// </summary>
         private void btnRetour_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            // On redirige à la fenêtre d'option d'administration
-            IApplicationService mainVM = ServiceFactory.Instance.GetService<IApplicationService>();
-            mainVM.ChangeView<OptionsAdministrationView>(new OptionsAdministrationView());
+            Constante.onReleaseButton(sender, e);
+
+            // On appel la fonction pour tester si on à un employé non sauvegardé
+            if (TesterSiModifie())
+            {
+                // On redirige vers la fenêtre d'option d'administration
+                IApplicationService mainVM = ServiceFactory.Instance.GetService<IApplicationService>();
+                mainVM.ChangeView<OptionsAdministrationView>(new OptionsAdministrationView());
+            }
         }
 
         /// <summary>
@@ -345,8 +357,22 @@ namespace GestResto.UI.Views
             // Définition de l'employé par le bouton
             Employe employe= (Employe)((sender as Button).CommandParameter);
 
-            // On définie l'employé en cour d'utilisation dans le view model
-            ViewModel.employe = employe;
+            // On test si l'employé est le même, si on clique sur le même bouton
+            if (ViewModel.employe != employe)
+            {
+                // On test s'il n'est pas modifié
+                if (employe.EstModifie == false)
+                {
+                    // Si c'est le cas on procède à la modification et on redonne sa valeure fausse
+                    ViewModel.employe = employe;
+                    ViewModel.employe.EstModifie = false;
+                }
+                else
+                {
+                    // On définie l'employé en cour d'utilisation dans le view model
+                    ViewModel.employe = employe;
+                }
+            }
 
             // On active les champs pour permettre la modification et l'ajout d'informations
             ActiverDesactiverChamp(true, false);
@@ -377,6 +403,55 @@ namespace GestResto.UI.Views
                 btnEnregistrer.IsEnabled = typeActivation;
                 btnAjouter.IsEnabled = typeActivation;   
             }
+        }
+
+        /// <summary>
+        /// Fonction permettant de tester tous les objets et vérifier s'ils sont modifié
+        /// </summary>
+        /// <returns>Retourne vrai pour continuer, Retourne faux pour ne pas continuer</returns>
+        private bool TesterSiModifie()
+        {
+            // Bool global de la fonction qui permet d'afficher un message ou non s'il y a des enregistrement
+            // non sauvegardé.
+            bool CategorieModifie = false;
+
+            // Variable de message box qui permet de tester le résultat de la demande à l'utilisateur
+            MessageBoxResult messageBoxResult = new MessageBoxResult();
+
+            // Définition de notre string builder pour le message
+            StringBuilder message = new StringBuilder();
+
+            // Boucle parcourant la liste de catégorie
+            foreach (var item in ViewModel.Employes)
+            {
+                // On test si la catégorie a été modifié
+                if (item.EstModifie)
+                {
+                    // Si c'est le cas on indique qu'on a des items de modifié et on écrit un message
+                    CategorieModifie = true;
+                    message.Append("L'employé ").Append(item.Nom).Append(" n'a pas été enregistré.\n");
+                }
+            }
+
+            // S'il y a des objets non sauvegardé
+            if (CategorieModifie)
+            {
+                // On affiche un messagebox à l'utilisateur pour lui demander s'il veut continuer ou non
+                message.Append("\n\nVoulez-vous continuer sans sauvegarder?");
+                messageBoxResult = MessageBox.Show(message.ToString(), "Employé non sauvegardé", MessageBoxButton.YesNo, MessageBoxImage.Exclamation, MessageBoxResult.No);
+            }
+
+            // On test les retour possible de l'utilisateur 
+            if (messageBoxResult == MessageBoxResult.No)
+            {
+                return false;
+            }
+            else if (messageBoxResult == MessageBoxResult.Yes)
+            {
+                return true;
+            }
+
+            return true;
         }
     }
 }

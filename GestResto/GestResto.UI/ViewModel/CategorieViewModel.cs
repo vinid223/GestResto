@@ -13,9 +13,13 @@ namespace GestResto.UI.ViewModel
 {
     public class CategorieViewModel : BaseViewModel
     {
+        // On instensie l'interface de catégorie
         private ICategorieService _categService;
+
+        // On définie nos liste
         private ObservableCollection<Categorie> _categories = new ObservableCollection<Categorie>();
 
+        // Définie la propriété de la liste
         public ObservableCollection<Categorie> Categories
         {
             get { return _categories; }

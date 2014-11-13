@@ -57,20 +57,27 @@ namespace GestResto.UI.Views
 
             }
         }
-
+        /// <summary>
+        /// Bouton permettant d'afficher les détails d'une catégorie
+        /// </summary>
         private void btnDetail_Click(object sender, RoutedEventArgs e)
         {
+            // Définition de la catégorie par le bouton
             Categorie categorie = (Categorie)((sender as Button).CommandParameter);
 
+            // On test si l'employé est le même, si on clique sur le même bouton
             if (ViewModel.Categorie != categorie)
             {
+                // On test s'il n'est pas modifié
                 if (categorie.EstModifie == false)
                 {
+                    // Si c'est le cas on procède à la modification et on redonne sa valeure fausse
                     ViewModel.Categorie = categorie;
                     ViewModel.Categorie.EstModifie = false;
                 }
                 else
                 {
+                    // On définie l'employé en cour d'utilisation dans le view model
                     ViewModel.Categorie = categorie;
                 }
             }
@@ -235,7 +242,7 @@ namespace GestResto.UI.Views
             Constante.onReleaseButton(sender, e);
             if (TesterSiModifie())
             {
-                // On appel la fonction de la classe constante qui permet de déconnecter l'utilisateur en cour
+                // On appel la fonction de la classe constante qui permet de déconnecter l'utilisateur en cours
                 Constante.Deconnexion();
             }
         }
@@ -248,6 +255,7 @@ namespace GestResto.UI.Views
             // On appel la fonction pour tester si on à une catégorie non sauvegardé
             if (TesterSiModifie())
             {
+                // On redirige vers la fenêtre d'option d'administration
                 IApplicationService mainVM = ServiceFactory.Instance.GetService<IApplicationService>();
                 mainVM.ChangeView<OptionsAdministrationView>(new OptionsAdministrationView());
             }

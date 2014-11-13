@@ -28,11 +28,26 @@ namespace GestResto.Logic.Model.Entities
     {
         #region Variables appartenant à la classe Employe
 
+        public virtual int? IdEmploye { get; set; }
         private string _nom;
         private string _prenom;
         private string _noEmploye;
+        private string _motDePasse;
+        private string _adresse;
+        private string _ville;
+        private string _codePostal;
+        private string _nas;
+        private float _salaire;
+        private string _telephone;
+        private bool _estActif;
+        private TypeEmploye _typeEmployes;
+        private List<Commande> _listeCommandes;
+        private bool _estModifie;
 
-        public virtual int? IdEmploye { get; set; }
+        #endregion
+
+        #region Propriété
+
         public virtual string Nom
         {
             get
@@ -43,9 +58,12 @@ namespace GestResto.Logic.Model.Entities
             {
                 RaisePropertyChanging();
                 RaisePropertyChanging("NomComplet");
+                RaisePropertyChanging("EstModifie");
                 _nom = value;
+                _estModifie = true;
                 RaisePropertyChanged();
                 RaisePropertyChanged("NomComplet");
+                RaisePropertyChanged("EstModifie");
             }
         }
         public virtual string Prenom
@@ -58,9 +76,12 @@ namespace GestResto.Logic.Model.Entities
             {
                 RaisePropertyChanging();
                 RaisePropertyChanging("NomComplet");
+                RaisePropertyChanging("EstModifie");
                 _prenom = value;
+                _estModifie = true;
                 RaisePropertyChanged();
                 RaisePropertyChanged("NomComplet");
+                RaisePropertyChanged("EstModifie");
             }
         }
         public virtual string NoEmploye
@@ -73,21 +94,189 @@ namespace GestResto.Logic.Model.Entities
             {
                 RaisePropertyChanging();
                 RaisePropertyChanging("NomComplet");
+                RaisePropertyChanging("EstModifie");
                 _noEmploye = value;
+                _estModifie = true;
                 RaisePropertyChanged();
                 RaisePropertyChanged("NomComplet");
+                RaisePropertyChanged("EstModifie");
             }
         }
-        public virtual string MotDePasse { get; set; }
-        public virtual string Adresse { get; set; }
-        public virtual string Ville { get; set; }
-        public virtual string CodePostal { get; set; }
-        public virtual string NAS { get; set; }
-        public virtual float Salaire { get; set; }
-        public virtual string Telephone { get; set; }
-        public virtual bool EstActif { get; set; }
-        public virtual TypeEmploye TypeEmployes { get; set; }
-        public virtual List<Commande> ListeCommandes { get; set; }
+        public virtual string MotDePasse
+        {
+            get
+            {
+                return _motDePasse;
+            }
+            set
+            {
+                RaisePropertyChanging();
+                RaisePropertyChanging("EstModifie");
+                _motDePasse = value;
+                _estModifie = true;
+                RaisePropertyChanged();
+                RaisePropertyChanged("EstModifie");
+            }
+        }
+
+        public virtual string Adresse
+        {
+            get
+            {
+                return _adresse;
+            }
+            set
+            {
+                RaisePropertyChanging();
+                RaisePropertyChanging("EstModifie");
+                _adresse = value;
+                _estModifie = true;
+                RaisePropertyChanged();
+                RaisePropertyChanged("EstModifie");
+            }
+        }
+        public virtual string Ville
+        {
+            get
+            {
+                return _ville;
+            }
+            set
+            {
+                RaisePropertyChanging();
+                RaisePropertyChanging("EstModifie");
+                _ville = value;
+                _estModifie = true;
+                RaisePropertyChanged();
+                RaisePropertyChanged("EstModifie");
+            }
+        }
+        public virtual string CodePostal
+        {
+            get
+            {
+                return _codePostal;
+            }
+            set
+            {
+                RaisePropertyChanging();
+                RaisePropertyChanging("EstModifie");
+                _codePostal = value;
+                _estModifie = true;
+                RaisePropertyChanged();
+                RaisePropertyChanged("EstModifie");
+            }
+        }
+        public virtual string NAS
+        {
+            get
+            {
+                return _nas;
+            }
+            set
+            {
+                RaisePropertyChanging();
+                RaisePropertyChanging("EstModifie");
+                _nas = value;
+                _estModifie = true;
+                RaisePropertyChanged();
+                RaisePropertyChanged("EstModifie");
+            }
+        }
+        public virtual float Salaire
+        {
+            get
+            {
+                return _salaire;
+            }
+            set
+            {
+                RaisePropertyChanging();
+                RaisePropertyChanging("EstModifie");
+                _salaire = value;
+                _estModifie = true;
+                RaisePropertyChanged();
+                RaisePropertyChanged("EstModifie");
+            }
+        }
+        public virtual string Telephone
+        {
+            get
+            {
+                return _telephone;
+            }
+            set
+            {
+                RaisePropertyChanging();
+                RaisePropertyChanging("EstModifie");
+                _telephone = value;
+                _estModifie = true;
+                RaisePropertyChanged();
+                RaisePropertyChanged("EstModifie");
+            }
+        }
+        public virtual bool EstActif
+        {
+            get
+            {
+                return _estActif;
+            }
+            set
+            {
+                RaisePropertyChanging();
+                RaisePropertyChanging("EstModifie");
+                _estActif = value;
+                _estModifie = true;
+                RaisePropertyChanged();
+                RaisePropertyChanged("EstModifie");
+            }
+        }
+        public virtual TypeEmploye TypeEmployes
+        {
+            get
+            {
+                return _typeEmployes;
+            }
+            set
+            {
+                RaisePropertyChanging();
+                RaisePropertyChanging("EstModifie");
+                _typeEmployes = value;
+                _estModifie = true;
+                RaisePropertyChanged();
+                RaisePropertyChanged("EstModifie");
+            }
+        }
+        public virtual List<Commande> ListeCommandes
+        {
+            get
+            {
+                return _listeCommandes;
+            }
+            set
+            {
+                RaisePropertyChanging();
+                RaisePropertyChanging("EstModifie");
+                _listeCommandes = value;
+                _estModifie = true;
+                RaisePropertyChanged();
+                RaisePropertyChanged("EstModifie");
+            }
+        }
+        public virtual bool EstModifie
+        {
+            get
+            {
+                return _estModifie;
+            }
+            set
+            {
+                RaisePropertyChanging();
+                _estModifie = value;
+                RaisePropertyChanged();
+            }
+        }
+
 
         // Clés permettant de crypter et de décrypter les chaines qu'on veut
         private static readonly string PasswordHash = "P@@Sw0rd";
