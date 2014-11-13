@@ -62,7 +62,7 @@ namespace GestResto.UI.ViewModel
 
             _clientService.Create(commande.ListeClients.Last());
 
-           
+           //
             //_factureService.Create(commande.ListeClients.Last().FactureClient);
 
 
