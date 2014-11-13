@@ -28,7 +28,7 @@ namespace GestResto.UI.ViewModel
             Items = new ObservableCollection<Item>(ServiceFactory.Instance.GetService<IItemService>().RetrieveAll(true));
             Commandes = new ObservableCollection<Commande>(ServiceFactory.Instance.GetService<ICommandeService>().RetrieveAll(1));
             LaCommande = new Commande();
-
+            client = new Client();
 
             _factureService = ServiceFactory.Instance.GetService<IFactureService>();
             _clientService = ServiceFactory.Instance.GetService<IClientService>();
@@ -69,6 +69,7 @@ namespace GestResto.UI.ViewModel
         private ObservableCollection<Item> _items = new ObservableCollection<Item>();
         private ObservableCollection<Commande> _commandes = new ObservableCollection<Commande>();
 
+        public Client client;
         public Commande LaCommande;
         public Categorie _categorie;
 
