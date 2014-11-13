@@ -219,6 +219,10 @@ namespace GestResto.UI.Views
                 MessageBox.Show(messageErreur.ToString(), "Erreur", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
                 return; // On retourne afin d'évite de faire le code qui suis
             }
+
+            // On définie la valeur de la modif
+            categTemp.EstModifie = false;
+
             // On ajoute dans la liste la catégorie créé
             ViewModel.Categories.Add(categTemp);
 
