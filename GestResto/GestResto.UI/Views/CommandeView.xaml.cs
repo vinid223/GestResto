@@ -41,7 +41,7 @@ namespace GestResto.UI.Views
         public CommandeView()
         {
             InitializeComponent();
-            Commande uneCommande = Constante.commande;
+            
             lblNom.Content = Constante.employe.ToString();
 
             DataContext = new CommandeViewModel();
@@ -51,14 +51,14 @@ namespace GestResto.UI.Views
             // J'affiche les catégories qui ne sont pas complémentaires.
             lbxListeCategorie.ItemsSource = ViewModel.Categories.Where(x => x.EstComplementaire == false);
 
-            ViewModel.LaCommande = uneCommande;
-            if(uneCommande != null && uneCommande.ListeClients != null && uneCommande.ListeClients.Count > 0)
+            ViewModel.LaCommande = Constante.commande;
+            if(Constante.commande != null && Constante.commande.ListeClients != null && Constante.commande.ListeClients.Count > 0)
             { 
-                lbxItemsClient.ItemsSource = uneCommande.ListeClients.First().ListeFormatItemClientFacture;
+                lbxItemsClient.ItemsSource = Constante.commande.ListeClients.First().ListeFormatItemClientFacture;
             }
 
             // Si on vient de créer la commande, je dois ajouter un client au départ vide.
-            if (uneCommande != null && (ViewModel.LaCommande.ListeClients == null || ViewModel.LaCommande.ListeClients.Count == 0))
+            if (Constante.commande != null && (ViewModel.LaCommande.ListeClients == null || ViewModel.LaCommande.ListeClients.Count == 0))
             {
                 if (ViewModel.LaCommande.ListeClients == null)
                     ViewModel.LaCommande.ListeClients = new List<Client>();
@@ -66,7 +66,7 @@ namespace GestResto.UI.Views
                 ViewModel.LaCommande.ListeClients.Add(new Client());
             }
 
-             if (uneCommande != null)
+             if (Constante.commande != null)
              {
                 // On change le numéro de client sur l'écran
                 lblNumeroClient.Content = "Client #" + (NumeroClient + 1) + "/" + ViewModel.LaCommande.ListeClients.Count;
