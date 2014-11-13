@@ -20,8 +20,9 @@ namespace GestResto.UI.ViewModel
 
         public CommandesViewModel()
         {
-            Tables = new ObservableCollection<Table>(ServiceFactory.Instance.GetService<ITableService>().RetrieveAll());
             Commandes = new ObservableCollection<Commande>(ServiceFactory.Instance.GetService<ICommandeService>().RetrieveAll(Constante.employe.IdEmploye.GetValueOrDefault()));
+            Tables = new ObservableCollection<Table>(ServiceFactory.Instance.GetService<ITableService>().RetrieveAll());
+            
             _commandeServices = ServiceFactory.Instance.GetService<ICommandeService>();
         }
 
