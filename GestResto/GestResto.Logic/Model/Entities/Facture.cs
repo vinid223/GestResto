@@ -28,7 +28,7 @@ namespace GestResto.Logic.Model.Entities
         public virtual uint? IdFacture { get; set; }
         //public virtual DateTime DateCreation { get; set; }
         public virtual float PourcentageTaxe { get; set; }
-        public virtual Commande CommandeClient { get; set; }
+        //public virtual Commande CommandeClient { get; set; }
         public virtual IList<FormatItemClientFacture> ListeFormatItemClientFacture { get; set; }
 
         #endregion

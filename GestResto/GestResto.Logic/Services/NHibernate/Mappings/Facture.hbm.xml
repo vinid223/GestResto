@@ -9,16 +9,16 @@
       <generator class="identity" />
     </id>
 
-    <bag name="ListeFormatItemClientFacture" inverse="false" generic="true" lazy="false" cascade="all">
+    <bag name="ListeFormatItemClientFacture" inverse="false" generic="true" lazy="true" cascade="all">
       <key>
         <column name="idFacture" />
       </key>
       <one-to-many class="FormatItemClientFacture"/>
     </bag>
 
-    <many-to-one name="CommandeClient" class="Commande" cascade="save-update" >
+    <!--<many-to-one name="CommandeClient" class="Commande" cascade="save-update" >
       <column name="idCommande" not-null="false" sql-type="INTEGER" />
-    </many-to-one>
+    </many-to-one>-->
     
     <property name="PourcentageTaxe">
       <column name="pourcentageTaxe" not-null="true" sql-type="FLOAT" />

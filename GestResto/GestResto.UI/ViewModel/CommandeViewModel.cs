@@ -56,16 +56,6 @@ namespace GestResto.UI.ViewModel
 
         public void EnregistrerUnNouveauClient(Commande commande, Client client)
         {
-            commande.ListeClients.Last().TableClient = commande.ListeTables.First();
-
-            commande.ListeClients.Last().CommandeClient = commande;
-
-            _clientService.Create(commande.ListeClients.Last());
-
-           //
-            //_factureService.Create(commande.ListeClients.Last().FactureClient);
-
-
             _commandeService.Update(commande);
         }
 

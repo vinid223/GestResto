@@ -63,7 +63,7 @@ namespace GestResto.Logic.Services.NHibernate
         {
             using (var transaction = session.BeginTransaction())
             {
-                session.Update(commande);
+                session.Merge(commande);
                 
                 transaction.Commit();
             }
