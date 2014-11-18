@@ -228,11 +228,17 @@ FOREIGN KEY (idFormatItem) REFERENCES FormatsItems (idFormatItem);
 CREATE TABLE IF NOT EXISTS FormatsItemsClientsFactures
 (
 	idFormatItemClientFacture INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	idFicfParent INT DEFAULT NULL,
 	idFormatItem INT NOT NULL,
 	idClient INT NOT NULL,
 	idFacture DEFAULT NULL,
 	prix FLOAT NOT NULL
 );
+
+/*Création du lien avec la foreign key de la table FormatsItemsClientsFactures vers la table FormatsItemsClientsFactures */
+ALTER TABLE FormatsItemsClientsFactures 
+ADD CONSTRAINT FormatsItemsClientsFactures_FormatsItemsClientsFactures_FK
+FOREIGN KEY (idFicfParent) REFERENCES FormatsItemsClientsFactures (idFormatItemClientFacture);
 
 /*Création du lien avec la foreign key de la table FormatsItems vers la table FormatsItemsClientsFactures */
 ALTER TABLE FormatsItemsClientsFactures 
