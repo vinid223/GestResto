@@ -1,0 +1,929 @@
+ Volume in drive D is Data
+ Volume Serial Number is 8CDE-7255
+
+ Directory of D:\My Documents\Dropbox\Google Drive\Cegep\Automne 2014\GestResto\GestResto
+
+2014-11-16  02:35 PM    <DIR>          .
+2014-11-16  02:35 PM    <DIR>          ..
+2014-10-08  11:32 AM    <DIR>          Cstj.MvvmToolkit
+2014-11-16  02:35 PM                 0 dir.txt
+2014-11-06  12:07 PM    <DIR>          GestResto.Logic
+2014-09-25  02:09 PM             2,016 GestResto.sln
+2014-11-13  03:40 PM    <DIR>          GestResto.UI
+2014-10-01  03:47 PM           137,728 GestResto.v11.suo
+2014-11-13  04:09 PM           283,648 GestResto.v12.suo
+2014-10-08  11:32 AM    <DIR>          packages
+               4 File(s)        423,392 bytes
+
+ Directory of D:\My Documents\Dropbox\Google Drive\Cegep\Automne 2014\GestResto\GestResto\Cstj.MvvmToolkit
+
+2014-10-08  11:32 AM    <DIR>          .
+2014-10-08  11:32 AM    <DIR>          ..
+2014-09-25  01:15 PM             1,392 BaseViewModel.cs
+2014-10-29  10:28 AM    <DIR>          bin
+2014-09-25  01:23 PM             2,558 GestResto.MvvmToolkit.csproj
+2014-10-29  10:28 AM    <DIR>          obj
+2014-10-08  11:32 AM    <DIR>          Properties
+2014-10-08  11:32 AM    <DIR>          Services
+               2 File(s)          3,950 bytes
+
+ Directory of D:\My Documents\Dropbox\Google Drive\Cegep\Automne 2014\GestResto\GestResto\Cstj.MvvmToolkit\bin
+
+2014-10-29  10:28 AM    <DIR>          .
+2014-10-29  10:28 AM    <DIR>          ..
+2014-11-06  02:14 PM    <DIR>          Debug
+2014-10-29  10:32 AM    <DIR>          Release
+               0 File(s)              0 bytes
+
+ Directory of D:\My Documents\Dropbox\Google Drive\Cegep\Automne 2014\GestResto\GestResto\Cstj.MvvmToolkit\bin\Debug
+
+2014-11-06  02:14 PM    <DIR>          .
+2014-11-06  02:14 PM    <DIR>          ..
+2014-11-06  02:14 PM             6,656 Cstj.MvvmToolkit.dll
+2014-11-06  02:14 PM            13,824 Cstj.MvvmToolkit.pdb
+               2 File(s)         20,480 bytes
+
+ Directory of D:\My Documents\Dropbox\Google Drive\Cegep\Automne 2014\GestResto\GestResto\Cstj.MvvmToolkit\bin\Release
+
+2014-10-29  10:32 AM    <DIR>          .
+2014-10-29  10:32 AM    <DIR>          ..
+2014-10-29  10:32 AM             6,656 Cstj.MvvmToolkit.dll
+2014-10-29  10:32 AM            13,824 Cstj.MvvmToolkit.pdb
+               2 File(s)         20,480 bytes
+
+ Directory of D:\My Documents\Dropbox\Google Drive\Cegep\Automne 2014\GestResto\GestResto\Cstj.MvvmToolkit\obj
+
+2014-10-29  10:28 AM    <DIR>          .
+2014-10-29  10:28 AM    <DIR>          ..
+2014-11-06  02:14 PM    <DIR>          Debug
+2014-10-29  10:32 AM    <DIR>          Release
+               0 File(s)              0 bytes
+
+ Directory of D:\My Documents\Dropbox\Google Drive\Cegep\Automne 2014\GestResto\GestResto\Cstj.MvvmToolkit\obj\Debug
+
+2014-11-06  02:14 PM    <DIR>          .
+2014-11-06  02:14 PM    <DIR>          ..
+2014-11-06  02:14 PM             6,656 Cstj.MvvmToolkit.dll
+2014-11-06  02:14 PM            13,824 Cstj.MvvmToolkit.pdb
+2014-11-04  10:08 AM             6,610 DesignTimeResolveAssemblyReferencesInput.cache
+2014-11-06  02:14 PM               500 GestResto.MvvmToolkit.csproj.FileListAbsolute.txt
+2014-09-30  11:46 AM                 0 TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs
+2014-09-30  11:46 AM                 0 TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs
+2014-09-30  11:46 AM                 0 TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs
+2014-10-08  11:32 AM    <DIR>          TempPE
+               7 File(s)         27,590 bytes
+
+ Directory of D:\My Documents\Dropbox\Google Drive\Cegep\Automne 2014\GestResto\GestResto\Cstj.MvvmToolkit\obj\Debug\TempPE
+
+2014-10-08  11:32 AM    <DIR>          .
+2014-10-08  11:32 AM    <DIR>          ..
+               0 File(s)              0 bytes
+
+ Directory of D:\My Documents\Dropbox\Google Drive\Cegep\Automne 2014\GestResto\GestResto\Cstj.MvvmToolkit\obj\Release
+
+2014-10-29  10:32 AM    <DIR>          .
+2014-10-29  10:32 AM    <DIR>          ..
+2014-10-29  10:32 AM             6,656 Cstj.MvvmToolkit.dll
+2014-10-29  10:32 AM            13,824 Cstj.MvvmToolkit.pdb
+2014-10-29  10:28 AM             6,614 DesignTimeResolveAssemblyReferencesInput.cache
+2014-10-29  10:32 AM               673 GestResto.MvvmToolkit.csproj.FileListAbsolute.txt
+2014-10-29  10:32 AM             1,755 GestResto.MvvmToolkit.csprojResolveAssemblyReference.cache
+2014-10-29  10:28 AM                 0 TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs
+2014-10-29  10:28 AM                 0 TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs
+2014-10-29  10:28 AM                 0 TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs
+2014-10-29  10:28 AM    <DIR>          TempPE
+               8 File(s)         29,522 bytes
+
+ Directory of D:\My Documents\Dropbox\Google Drive\Cegep\Automne 2014\GestResto\GestResto\Cstj.MvvmToolkit\obj\Release\TempPE
+
+2014-10-29  10:28 AM    <DIR>          .
+2014-10-29  10:28 AM    <DIR>          ..
+               0 File(s)              0 bytes
+
+ Directory of D:\My Documents\Dropbox\Google Drive\Cegep\Automne 2014\GestResto\GestResto\Cstj.MvvmToolkit\Properties
+
+2014-10-08  11:32 AM    <DIR>          .
+2014-10-08  11:32 AM    <DIR>          ..
+2014-10-01  03:47 PM             1,576 AssemblyInfo.cs
+               1 File(s)          1,576 bytes
+
+ Directory of D:\My Documents\Dropbox\Google Drive\Cegep\Automne 2014\GestResto\GestResto\Cstj.MvvmToolkit\Services
+
+2014-10-08  11:32 AM    <DIR>          .
+2014-10-08  11:32 AM    <DIR>          ..
+2014-10-08  11:32 AM    <DIR>          Definitions
+2014-09-25  01:15 PM             1,003 ServiceFactory.cs
+               1 File(s)          1,003 bytes
+
+ Directory of D:\My Documents\Dropbox\Google Drive\Cegep\Automne 2014\GestResto\GestResto\Cstj.MvvmToolkit\Services\Definitions
+
+2014-10-08  11:32 AM    <DIR>          .
+2014-10-08  11:32 AM    <DIR>          ..
+2014-09-25  01:15 PM               289 IApplicationService.cs
+               1 File(s)            289 bytes
+
+ Directory of D:\My Documents\Dropbox\Google Drive\Cegep\Automne 2014\GestResto\GestResto\GestResto.Logic
+
+2014-11-06  12:07 PM    <DIR>          .
+2014-11-06  12:07 PM    <DIR>          ..
+2014-10-02  02:57 PM               671 app.config
+2014-10-08  11:33 AM    <DIR>          bin
+2014-11-12  10:11 AM             8,166 GestResto.Logic.csproj
+2014-10-02  09:24 AM               228 GestResto.Logic.csproj.user
+2014-10-08  11:32 AM    <DIR>          Model
+2014-10-29  10:28 AM    <DIR>          obj
+2014-10-01  03:47 PM               295 packages.config
+2014-10-08  11:32 AM    <DIR>          Properties
+2014-10-08  11:32 AM    <DIR>          Service References
+2014-10-08  11:32 AM    <DIR>          Services
+               4 File(s)          9,360 bytes
+
+ Directory of D:\My Documents\Dropbox\Google Drive\Cegep\Automne 2014\GestResto\GestResto\GestResto.Logic\bin
+
+2014-10-08  11:33 AM    <DIR>          .
+2014-10-08  11:33 AM    <DIR>          ..
+2014-11-06  02:14 PM    <DIR>          Debug
+2014-10-29  10:32 AM    <DIR>          Release
+               0 File(s)              0 bytes
+
+ Directory of D:\My Documents\Dropbox\Google Drive\Cegep\Automne 2014\GestResto\GestResto\GestResto.Logic\bin\Debug
+
+2014-11-06  02:14 PM    <DIR>          .
+2014-11-06  02:14 PM    <DIR>          ..
+2014-11-06  02:14 PM             6,656 Cstj.MvvmToolkit.dll
+2014-11-06  02:14 PM            13,824 Cstj.MvvmToolkit.pdb
+2014-11-13  03:40 PM            61,440 GestResto.Logic.dll
+2014-10-02  02:57 PM               671 GestResto.Logic.dll.config
+2014-11-13  03:40 PM           146,944 GestResto.Logic.pdb
+2014-10-01  03:47 PM            13,824 Iesi.Collections.dll
+2014-10-01  03:47 PM            39,117 Iesi.Collections.xml
+2014-10-01  03:47 PM           454,144 MySql.Data.dll
+2014-10-01  03:47 PM         3,317,760 NHibernate.dll
+2014-10-01  03:47 PM         2,345,668 NHibernate.xml
+              10 File(s)      6,400,048 bytes
+
+ Directory of D:\My Documents\Dropbox\Google Drive\Cegep\Automne 2014\GestResto\GestResto\GestResto.Logic\bin\Release
+
+2014-10-29  10:32 AM    <DIR>          .
+2014-10-29  10:32 AM    <DIR>          ..
+2014-10-29  10:32 AM             6,656 Cstj.MvvmToolkit.dll
+2014-10-29  10:32 AM            13,824 Cstj.MvvmToolkit.pdb
+2014-10-29  10:32 AM            47,616 GestResto.Logic.dll
+2014-10-02  02:57 PM               671 GestResto.Logic.dll.config
+2014-10-29  10:32 AM            97,792 GestResto.Logic.pdb
+2014-10-01  03:47 PM            13,824 Iesi.Collections.dll
+2014-10-01  03:47 PM            39,117 Iesi.Collections.xml
+2014-10-01  03:47 PM           454,144 MySql.Data.dll
+2014-10-01  03:47 PM         3,317,760 NHibernate.dll
+2014-10-01  03:47 PM         2,345,668 NHibernate.xml
+              10 File(s)      6,337,072 bytes
+
+ Directory of D:\My Documents\Dropbox\Google Drive\Cegep\Automne 2014\GestResto\GestResto\GestResto.Logic\Model
+
+2014-10-08  11:32 AM    <DIR>          .
+2014-10-08  11:32 AM    <DIR>          ..
+2014-11-05  11:05 AM    <DIR>          Args
+2014-11-14  09:41 PM    <DIR>          Entities
+               0 File(s)              0 bytes
+
+ Directory of D:\My Documents\Dropbox\Google Drive\Cegep\Automne 2014\GestResto\GestResto\GestResto.Logic\Model\Args
+
+2014-11-05  11:05 AM    <DIR>          .
+2014-11-05  11:05 AM    <DIR>          ..
+2014-10-17  12:03 PM               390 RetrieveCategorieArgs.cs
+2014-10-17  12:03 PM               381 RetrieveClientArgs.cs
+2014-10-17  12:03 PM               438 RetrieveCommandeArgs.cs
+2014-10-17  12:03 PM               472 RetrieveEmployeArgs.cs
+2014-10-17  12:03 PM               438 RetrieveFactureArgs.cs
+2014-10-17  12:03 PM               381 RetrieveFormatArgs.cs
+2014-10-17  12:03 PM               392 RetrieveFormatItemArgs.cs
+2014-11-05  11:05 AM               397 RetrieveFormatItemClientFactureArgs.cs
+2014-10-17  12:03 PM               508 RetrieveItemArgs.cs
+2014-10-17  12:03 PM               393 RetrieveRestaurantArgs.cs
+2014-10-17  12:03 PM               507 RetrieveTableArgs.cs
+2014-10-17  12:03 PM               396 RetrieveTypeEmployeArgs.cs
+              12 File(s)          5,093 bytes
+
+ Directory of D:\My Documents\Dropbox\Google Drive\Cegep\Automne 2014\GestResto\GestResto\GestResto.Logic\Model\Entities
+
+2014-11-14  09:41 PM    <DIR>          .
+2014-11-14  09:41 PM    <DIR>          ..
+2014-11-12  10:12 AM             1,397 BaseEntity.cs
+2014-11-13  01:50 PM             5,178 Categorie.cs
+2014-11-14  09:41 PM             1,735 Client.cs
+2014-11-06  01:37 PM             2,570 Commande.cs
+2014-11-13  01:50 PM            15,479 Employe.cs
+2014-11-14  09:41 PM             2,130 Facture.cs
+2014-10-18  10:00 PM             3,417 Format.cs
+2014-11-12  08:51 AM             2,209 FormatItem.cs
+2014-11-14  09:41 PM             1,491 FormatItemClientFacture.cs
+2014-10-18  10:00 PM             2,523 Item.cs
+2014-10-09  01:35 PM             2,538 Restaurant.cs
+2014-11-06  12:07 PM             1,908 Table.cs
+2014-10-29  08:28 AM             1,912 typeEmploye.cs
+              13 File(s)         44,487 bytes
+
+ Directory of D:\My Documents\Dropbox\Google Drive\Cegep\Automne 2014\GestResto\GestResto\GestResto.Logic\obj
+
+2014-10-29  10:28 AM    <DIR>          .
+2014-10-29  10:28 AM    <DIR>          ..
+2014-11-13  03:40 PM    <DIR>          Debug
+2014-10-29  10:32 AM    <DIR>          Release
+               0 File(s)              0 bytes
+
+ Directory of D:\My Documents\Dropbox\Google Drive\Cegep\Automne 2014\GestResto\GestResto\GestResto.Logic\obj\Debug
+
+2014-11-13  03:40 PM    <DIR>          .
+2014-11-13  03:40 PM    <DIR>          ..
+2014-11-12  12:01 PM             7,144 DesignTimeResolveAssemblyReferencesInput.cache
+2014-11-12  10:11 AM             1,628 GestResto.Logic.csproj.FileListAbsolute.txt
+2014-11-06  02:14 PM            26,679 GestResto.Logic.csprojResolveAssemblyReference.cache
+2014-11-13  03:40 PM            61,440 GestResto.Logic.dll
+2014-11-13  03:40 PM           146,944 GestResto.Logic.pdb
+2014-09-25  09:36 AM                 0 TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs
+2014-09-25  09:36 AM                 0 TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs
+2014-09-25  09:36 AM                 0 TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs
+2014-10-08  11:32 AM    <DIR>          TempPE
+               8 File(s)        243,835 bytes
+
+ Directory of D:\My Documents\Dropbox\Google Drive\Cegep\Automne 2014\GestResto\GestResto\GestResto.Logic\obj\Debug\TempPE
+
+2014-10-08  11:32 AM    <DIR>          .
+2014-10-08  11:32 AM    <DIR>          ..
+               0 File(s)              0 bytes
+
+ Directory of D:\My Documents\Dropbox\Google Drive\Cegep\Automne 2014\GestResto\GestResto\GestResto.Logic\obj\Release
+
+2014-10-29  10:32 AM    <DIR>          .
+2014-10-29  10:32 AM    <DIR>          ..
+2014-10-29  10:28 AM             7,639 DesignTimeResolveAssemblyReferencesInput.cache
+2014-10-29  10:32 AM             1,654 GestResto.Logic.csproj.FileListAbsolute.txt
+2014-10-29  10:32 AM            28,151 GestResto.Logic.csprojResolveAssemblyReference.cache
+2014-10-29  10:32 AM            47,616 GestResto.Logic.dll
+2014-10-29  10:32 AM            97,792 GestResto.Logic.pdb
+2014-10-29  10:28 AM                 0 TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs
+2014-10-29  10:28 AM                 0 TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs
+2014-10-29  10:28 AM                 0 TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs
+2014-10-29  10:28 AM    <DIR>          TempPE
+               8 File(s)        182,852 bytes
+
+ Directory of D:\My Documents\Dropbox\Google Drive\Cegep\Automne 2014\GestResto\GestResto\GestResto.Logic\obj\Release\TempPE
+
+2014-10-29  10:28 AM    <DIR>          .
+2014-10-29  10:28 AM    <DIR>          ..
+               0 File(s)              0 bytes
+
+ Directory of D:\My Documents\Dropbox\Google Drive\Cegep\Automne 2014\GestResto\GestResto\GestResto.Logic\Properties
+
+2014-10-08  11:32 AM    <DIR>          .
+2014-10-08  11:32 AM    <DIR>          ..
+2014-09-25  09:36 AM             1,564 AssemblyInfo.cs
+               1 File(s)          1,564 bytes
+
+ Directory of D:\My Documents\Dropbox\Google Drive\Cegep\Automne 2014\GestResto\GestResto\GestResto.Logic\Service References
+
+2014-10-08  11:32 AM    <DIR>          .
+2014-10-08  11:32 AM    <DIR>          ..
+               0 File(s)              0 bytes
+
+ Directory of D:\My Documents\Dropbox\Google Drive\Cegep\Automne 2014\GestResto\GestResto\GestResto.Logic\Services
+
+2014-10-08  11:32 AM    <DIR>          .
+2014-10-08  11:32 AM    <DIR>          ..
+2014-11-12  12:01 PM    <DIR>          Definitions
+2014-10-08  12:03 PM    <DIR>          Helpers
+2014-11-14  09:41 PM    <DIR>          NHibernate
+               0 File(s)              0 bytes
+
+ Directory of D:\My Documents\Dropbox\Google Drive\Cegep\Automne 2014\GestResto\GestResto\GestResto.Logic\Services\Definitions
+
+2014-11-12  12:01 PM    <DIR>          .
+2014-11-12  12:01 PM    <DIR>          ..
+2014-10-17  12:03 PM               609 ICategorieService.cs
+2014-10-17  12:03 PM               618 IClientService.cs
+2014-11-12  08:51 AM               668 ICommandeService.cs
+2014-10-17  12:03 PM               588 IEmployeService.cs
+2014-10-17  12:03 PM               588 IFactureService.cs
+2014-11-05  11:05 AM               675 IFormatItemClientFactureService.cs
+2014-10-19  08:38 PM               662 IFormatItemService.cs
+2014-10-29  10:09 AM               581 IFormatService.cs
+2014-11-12  12:01 PM               654 IItemService.cs
+2014-10-17  12:03 PM               524 IRestaurantService.cs
+2014-10-17  12:03 PM               572 ITableService.cs
+2014-10-22  09:23 PM               531 ITypeEmployeService.cs
+              12 File(s)          7,270 bytes
+
+ Directory of D:\My Documents\Dropbox\Google Drive\Cegep\Automne 2014\GestResto\GestResto\GestResto.Logic\Services\Helpers
+
+2014-10-08  12:03 PM    <DIR>          .
+2014-10-08  12:03 PM    <DIR>          ..
+2014-10-02  02:40 PM             4,833 MySqlConnexion.cs
+2014-10-08  11:32 AM               851 NHibernateConnexion.cs
+               2 File(s)          5,684 bytes
+
+ Directory of D:\My Documents\Dropbox\Google Drive\Cegep\Automne 2014\GestResto\GestResto\GestResto.Logic\Services\NHibernate
+
+2014-11-14  09:41 PM    <DIR>          .
+2014-11-14  09:41 PM    <DIR>          ..
+2014-11-14  09:41 PM    <DIR>          Mappings
+2014-11-12  09:26 AM             2,135 NHibernateCategorieService.cs
+2014-10-16  10:17 PM             1,724 NHibernateClientService.cs
+2014-11-14  09:41 PM             2,035 NHibernateCommandeService.cs
+2014-10-25  10:50 PM             5,391 NHibernateEmployeService.cs
+2014-10-02  01:35 PM             1,495 NHibernateFactureService.cs
+2014-11-05  11:05 AM             2,196 NHibernateFormatItemClientFacture.cs
+2014-11-05  11:05 AM             1,786 NHibernateFormatItemService.cs
+2014-11-05  11:05 AM             1,666 NHibernateFormatService.cs
+2014-11-12  12:01 PM             2,410 NHibernateItemService.cs
+2014-10-16  10:14 PM             1,311 NHibernateRestaurantService.cs
+2014-11-06  10:30 AM             2,170 NHibernateTableService.cs
+2014-10-22  09:23 PM             1,120 NHibernateTypeEmployeService.cs
+              12 File(s)         25,439 bytes
+
+ Directory of D:\My Documents\Dropbox\Google Drive\Cegep\Automne 2014\GestResto\GestResto\GestResto.Logic\Services\NHibernate\Mappings
+
+2014-11-14  09:41 PM    <DIR>          .
+2014-11-14  09:41 PM    <DIR>          ..
+2014-10-23  07:05 PM               807 Categorie.hbm.xml
+2014-11-14  09:41 PM             1,166 Client.hbm.xml
+2014-11-13  03:21 PM             1,539 Commande.hbm.xml
+2014-10-16  11:43 PM             1,914 Employe.hbm.xml
+2014-11-14  09:41 PM               991 Facture.hbm.xml
+2014-10-23  07:05 PM             1,317 Format.hbm.xml
+2014-10-23  07:15 PM               879 FormatItem.hbm.xml
+2014-11-14  09:41 PM             1,097 FormatItemClientFacture.hbm.xml
+2014-10-29  12:36 PM             1,007 Item.hbm.xml
+2014-10-23  07:10 PM             1,147 Restaurant.hbm.xml
+2014-11-13  03:21 PM               992 Table.hbm.xml
+2014-10-16  11:43 PM               567 TypeEmploye.hbm.xml
+              12 File(s)         13,423 bytes
+
+ Directory of D:\My Documents\Dropbox\Google Drive\Cegep\Automne 2014\GestResto\GestResto\GestResto.UI
+
+2014-11-13  03:40 PM    <DIR>          .
+2014-11-13  03:40 PM    <DIR>          ..
+2014-10-30  09:50 AM             2,103 App.config
+2014-11-13  11:39 AM             6,570 App.xaml
+2014-09-25  12:45 PM               350 App.xaml.cs
+2014-10-29  10:32 AM    <DIR>          bin
+2014-11-13  02:59 PM            13,046 GestResto.UI.csproj
+2014-10-29  06:07 PM               227 GestResto.UI.csproj.user
+2014-11-13  03:37 PM    <DIR>          Images
+2014-11-04  12:09 PM               562 MainWindow.xaml
+2014-11-13  03:37 PM             8,595 MainWindow.xaml.cs
+2014-10-29  10:28 AM    <DIR>          obj
+2014-10-22  09:11 AM               295 packages.config
+2014-10-30  10:27 AM    <DIR>          Properties
+2014-11-14  09:41 PM    <DIR>          ViewModel
+2014-11-14  09:41 PM    <DIR>          Views
+               8 File(s)         31,748 bytes
+
+ Directory of D:\My Documents\Dropbox\Google Drive\Cegep\Automne 2014\GestResto\GestResto\GestResto.UI\bin
+
+2014-10-29  10:32 AM    <DIR>          .
+2014-10-29  10:32 AM    <DIR>          ..
+2014-11-06  02:26 PM    <DIR>          Debug
+2014-10-29  10:32 AM    <DIR>          Release
+               0 File(s)              0 bytes
+
+ Directory of D:\My Documents\Dropbox\Google Drive\Cegep\Automne 2014\GestResto\GestResto\GestResto.UI\bin\Debug
+
+2014-11-06  02:26 PM    <DIR>          .
+2014-11-06  02:26 PM    <DIR>          ..
+2014-11-06  02:14 PM             6,656 Cstj.MvvmToolkit.dll
+2014-11-06  02:14 PM            13,824 Cstj.MvvmToolkit.pdb
+2014-11-13  03:40 PM            61,440 GestResto.Logic.dll
+2014-11-13  03:40 PM           146,944 GestResto.Logic.pdb
+2014-11-13  03:40 PM           298,496 GestResto.UI.exe
+2014-10-30  09:50 AM             2,103 GestResto.UI.exe.config
+2014-11-13  03:40 PM           312,832 GestResto.UI.pdb
+2014-11-16  02:29 PM            24,224 GestResto.UI.vshost.exe
+2014-10-30  09:50 AM             2,103 GestResto.UI.vshost.exe.config
+2013-06-18  07:28 AM               490 GestResto.UI.vshost.exe.manifest
+2014-10-21  12:00 PM           249,344 GestResto.UI[Conflict].pdb
+2014-10-01  03:47 PM            13,824 Iesi.Collections.dll
+2014-10-01  03:47 PM            39,117 Iesi.Collections.xml
+2014-10-30  02:44 PM    <DIR>          Log
+2014-10-01  03:47 PM           454,144 MySql.Data.dll
+2014-10-01  03:47 PM         3,317,760 NHibernate.dll
+2014-10-01  03:47 PM         2,345,668 NHibernate.xml
+              16 File(s)      7,288,969 bytes
+
+ Directory of D:\My Documents\Dropbox\Google Drive\Cegep\Automne 2014\GestResto\GestResto\GestResto.UI\bin\Debug\Log
+
+2014-10-30  02:44 PM    <DIR>          .
+2014-10-30  02:44 PM    <DIR>          ..
+2014-11-13  03:12 PM            82,735 LogErreur.txt
+2014-11-13  03:41 PM            38,581 LogNavigation.txt
+               2 File(s)        121,316 bytes
+
+ Directory of D:\My Documents\Dropbox\Google Drive\Cegep\Automne 2014\GestResto\GestResto\GestResto.UI\bin\Release
+
+2014-10-29  10:32 AM    <DIR>          .
+2014-10-29  10:32 AM    <DIR>          ..
+2014-10-29  10:32 AM             6,656 Cstj.MvvmToolkit.dll
+2014-10-29  10:32 AM            13,824 Cstj.MvvmToolkit.pdb
+2014-10-29  10:32 AM            47,616 GestResto.Logic.dll
+2014-10-29  10:32 AM            97,792 GestResto.Logic.pdb
+2014-10-29  10:32 AM           232,960 GestResto.UI.exe
+2014-10-25  09:40 PM             2,102 GestResto.UI.exe.config
+2014-10-29  10:32 AM           265,728 GestResto.UI.pdb
+2014-10-29  10:32 AM            24,224 GestResto.UI.vshost.exe
+2014-10-25  09:40 PM             2,102 GestResto.UI.vshost.exe.config
+2013-06-18  07:28 AM               490 GestResto.UI.vshost.exe.manifest
+2014-10-01  03:47 PM            13,824 Iesi.Collections.dll
+2014-10-01  03:47 PM            39,117 Iesi.Collections.xml
+2014-10-01  03:47 PM           454,144 MySql.Data.dll
+2014-10-01  03:47 PM         3,317,760 NHibernate.dll
+2014-10-01  03:47 PM         2,345,668 NHibernate.xml
+              15 File(s)      6,864,007 bytes
+
+ Directory of D:\My Documents\Dropbox\Google Drive\Cegep\Automne 2014\GestResto\GestResto\GestResto.UI\Images
+
+2014-11-13  03:37 PM    <DIR>          .
+2014-11-13  03:37 PM    <DIR>          ..
+2014-11-05  11:05 AM             2,995 amex.png
+2014-11-05  11:05 AM            20,869 amex.xcf
+2014-11-12  08:51 AM             3,295 amexselected.png
+2014-11-05  11:05 AM               953 arrowDown.png
+2014-11-05  11:05 AM               623 arrowLeft.png
+2014-11-05  11:05 AM               616 arrowRight.png
+2014-11-05  11:05 AM               925 arrowUp.png
+2014-10-20  07:14 PM            83,830 Background.jpg
+2014-11-13  03:37 PM               905 backspace.png
+2014-11-13  03:37 PM            15,263 backspace.xcf
+2014-10-08  09:50 AM               594 boxes.png
+2014-10-09  10:48 AM               990 checkmark.png
+2014-11-13  02:59 PM             1,751 checkmarkColor.png
+2014-11-05  11:05 AM               759 debit.png
+2014-11-05  11:05 AM            13,491 debit.xcf
+2014-11-12  08:51 AM               730 debitselected.png
+2014-10-08  09:50 AM             1,150 document.png
+2014-10-08  09:50 AM             1,441 documents.png
+2014-10-09  10:48 AM             1,856 dollar.png
+2014-10-08  09:50 AM               209 floppy.png
+2014-10-07  12:21 PM             1,625 forward.png
+2014-10-08  09:50 AM             2,218 info.png
+2014-10-19  12:20 AM               241 infoMini.png
+2014-10-08  09:50 AM               351 lines.png
+2014-10-08  09:50 AM               666 lock.png
+2014-10-17  10:46 PM             1,032 logo.png
+2014-11-05  11:05 AM             2,954 mastercard.png
+2014-11-05  11:05 AM            18,437 mastercard.xcf
+2014-11-12  08:51 AM             3,184 mastercardselected.png
+2014-11-05  11:05 AM             1,468 money.png
+2014-11-05  11:05 AM            14,192 money.xcf
+2014-11-12  08:51 AM             1,526 moneyselected.png
+2014-11-05  11:05 AM    <DIR>          OldPictures
+2014-10-09  10:01 AM               494 plus.png
+2014-10-08  09:50 AM               687 printer.png
+2014-10-09  10:48 AM             2,527 recycle.png
+2014-11-13  03:37 PM             1,710 Sources.txt
+2014-10-18  01:23 PM            49,152 Thumbs.db
+2014-11-05  11:05 AM             1,824 visa.png
+2014-11-05  11:05 AM            15,752 visa.xcf
+2014-11-12  08:51 AM             1,976 visaselected.png
+              40 File(s)        275,261 bytes
+
+ Directory of D:\My Documents\Dropbox\Google Drive\Cegep\Automne 2014\GestResto\GestResto\GestResto.UI\Images\OldPictures
+
+2014-11-05  11:05 AM    <DIR>          .
+2014-11-05  11:05 AM    <DIR>          ..
+2014-11-05  11:05 AM             2,790 amex.png
+2014-11-05  11:05 AM             1,181 arrowDown.png
+2014-11-05  11:05 AM               999 arrowLeft.png
+2014-11-05  11:05 AM               718 arrowRight.png
+2014-11-05  11:05 AM             1,157 arrowUp.png
+2014-11-05  11:05 AM               433 debit.png
+2014-11-05  11:05 AM             2,847 mastercard.png
+2014-11-05  11:05 AM             1,108 money.png
+2014-11-05  11:05 AM             2,221 visa.png
+               9 File(s)         13,454 bytes
+
+ Directory of D:\My Documents\Dropbox\Google Drive\Cegep\Automne 2014\GestResto\GestResto\GestResto.UI\obj
+
+2014-10-29  10:28 AM    <DIR>          .
+2014-10-29  10:28 AM    <DIR>          ..
+2014-11-13  03:40 PM    <DIR>          Debug
+2014-10-29  10:32 AM    <DIR>          Release
+               0 File(s)              0 bytes
+
+ Directory of D:\My Documents\Dropbox\Google Drive\Cegep\Automne 2014\GestResto\GestResto\GestResto.UI\obj\Debug
+
+2014-11-13  03:40 PM    <DIR>          .
+2014-11-13  03:40 PM    <DIR>          ..
+2014-11-13  03:40 PM             4,198 App.baml
+2014-11-13  03:40 PM             2,822 App.g.cs
+2014-11-16  02:29 PM             2,822 App.g.i.cs
+2014-11-16  02:29 PM             8,265 DesignTimeResolveAssemblyReferencesInput.cache
+2014-11-16  02:29 PM             7,216 GestResto.UI.csproj.FileListAbsolute.txt
+2014-11-06  02:26 PM               919 GestResto.UI.csproj.GenerateResource.Cache
+2014-11-13  03:40 PM            33,208 GestResto.UI.csprojResolveAssemblyReference.cache
+2014-11-13  03:40 PM           298,496 GestResto.UI.exe
+2014-11-13  03:40 PM           208,648 GestResto.UI.g.resources
+2014-11-13  03:40 PM           312,832 GestResto.UI.pdb
+2014-11-13  03:40 PM               180 GestResto.UI.Properties.Resources.resources
+2014-10-20  07:11 PM               564 GestResto.UI_Content.g.i.cs
+2014-11-13  03:40 PM               789 GestResto.UI_MarkupCompile.cache
+2014-10-28  09:45 AM               765 GestResto.UI_MarkupCompile.i (LinuxVinid223's conflicted copy 2014-10-29).cache
+2014-11-16  02:29 PM               787 GestResto.UI_MarkupCompile.i.cache
+2014-11-16  02:29 PM               127 GestResto.UI_MarkupCompile.i.lref
+2014-11-13  03:40 PM               127 GestResto.UI_MarkupCompile.lref
+2014-11-13  03:40 PM             1,031 MainWindow.baml
+2014-11-13  03:40 PM             3,520 MainWindow.g.cs
+2014-11-16  02:29 PM             3,520 MainWindow.g.i.cs
+2014-09-30  08:57 AM                 0 TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs
+2014-09-30  08:57 AM                 0 TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs
+2014-09-30  08:57 AM                 0 TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs
+2014-10-29  10:32 AM    <DIR>          TempPE
+2014-11-13  03:40 PM    <DIR>          Views
+              23 File(s)        890,836 bytes
+
+ Directory of D:\My Documents\Dropbox\Google Drive\Cegep\Automne 2014\GestResto\GestResto\GestResto.UI\obj\Debug\TempPE
+
+2014-10-29  10:32 AM    <DIR>          .
+2014-10-29  10:32 AM    <DIR>          ..
+2014-10-29  10:32 AM             4,608 Properties.Resources.Designer.cs.dll
+               1 File(s)          4,608 bytes
+
+ Directory of D:\My Documents\Dropbox\Google Drive\Cegep\Automne 2014\GestResto\GestResto\GestResto.UI\obj\Debug\Views
+
+2014-11-13  03:40 PM    <DIR>          .
+2014-11-13  03:40 PM    <DIR>          ..
+2014-11-13  03:40 PM             2,518 AjoutCommandeView.baml
+2014-11-13  03:40 PM             8,251 AjoutCommandeView.g.cs
+2014-11-16  02:29 PM             8,251 AjoutCommandeView.g.i.cs
+2014-11-13  03:40 PM             3,628 AuthentificationView.baml
+2014-11-13  03:40 PM            12,662 AuthentificationView.g.cs
+2014-11-16  02:29 PM            12,662 AuthentificationView.g.i.cs
+2014-11-13  03:40 PM             3,700 BottomView.baml
+2014-11-13  03:40 PM            11,911 BottomView.g.cs
+2014-11-16  02:29 PM            11,911 BottomView.g.i.cs
+2014-11-13  03:40 PM             4,524 CategorieView.baml
+2014-11-13  03:40 PM            11,832 CategorieView.g.cs
+2014-11-16  02:29 PM            11,832 CategorieView.g.i.cs
+2014-11-13  03:40 PM             2,209 CommandesView.baml
+2014-11-13  03:40 PM             7,007 CommandesView.g.cs
+2014-11-16  02:29 PM             7,007 CommandesView.g.i.cs
+2014-11-13  03:40 PM             5,937 CommandeView.baml
+2014-11-13  03:40 PM            16,644 CommandeView.g.cs
+2014-11-16  02:29 PM            16,644 CommandeView.g.i.cs
+2014-11-13  03:40 PM             4,498 DivisionFactureView.baml
+2014-11-13  03:40 PM             7,642 DivisionFactureView.g.cs
+2014-11-16  02:29 PM             7,642 DivisionFactureView.g.i.cs
+2014-11-13  03:40 PM             7,541 EmployeView.baml
+2014-11-13  03:40 PM            15,174 EmployeView.g.cs
+2014-11-16  02:29 PM            15,174 EmployeView.g.i.cs
+2014-11-13  03:40 PM             1,384 FormatsView.baml
+2014-11-13  03:40 PM             5,087 FormatsView.g.cs
+2014-11-16  02:29 PM             5,087 FormatsView.g.i.cs
+2014-11-13  03:40 PM             4,201 FormatView.baml
+2014-11-13  03:40 PM            10,428 FormatView.g.cs
+2014-11-16  02:29 PM            10,428 FormatView.g.i.cs
+2014-10-07  08:38 AM            11,102 GestionPaiementView.g.i.cs
+2014-11-13  03:40 PM             6,478 ItemsView.baml
+2014-11-13  03:40 PM            12,607 ItemsView.g.cs
+2014-11-16  02:29 PM            12,607 ItemsView.g.i.cs
+2014-11-13  03:40 PM             2,959 JonctionFactureView.baml
+2014-11-13  03:40 PM             8,464 JonctionFactureView.g.cs
+2014-11-16  02:29 PM             8,464 JonctionFactureView.g.i.cs
+2014-11-13  03:40 PM             3,002 OptionsAdministrationView.baml
+2014-11-13  03:40 PM             9,611 OptionsAdministrationView.g.cs
+2014-11-16  02:29 PM             9,611 OptionsAdministrationView.g.i.cs
+2014-11-13  03:40 PM             5,734 PaiementView.baml
+2014-11-13  03:40 PM            18,522 PaiementView.g.cs
+2014-11-16  02:29 PM            18,522 PaiementView.g.i.cs
+2014-11-13  03:40 PM             6,340 RapportView.baml
+2014-11-13  03:40 PM            17,992 RapportView.g.cs
+2014-11-16  02:29 PM            17,992 RapportView.g.i.cs
+2014-11-13  03:40 PM             5,037 RestaurantView.baml
+2014-11-13  03:40 PM            12,234 RestaurantView.g.cs
+2014-11-16  02:29 PM            12,234 RestaurantView.g.i.cs
+2014-11-13  03:40 PM             4,128 TableView.baml
+2014-11-13  03:40 PM            11,258 TableView.g.cs
+2014-11-16  02:29 PM            11,258 TableView.g.i.cs
+              52 File(s)        479,572 bytes
+
+ Directory of D:\My Documents\Dropbox\Google Drive\Cegep\Automne 2014\GestResto\GestResto\GestResto.UI\obj\Release
+
+2014-10-29  10:32 AM    <DIR>          .
+2014-10-29  10:32 AM    <DIR>          ..
+2014-10-29  10:32 AM             1,188 App.baml
+2014-10-29  10:32 AM             2,822 App.g.cs
+2014-10-29  10:32 AM             2,822 App.g.i.cs
+2014-10-29  10:32 AM             8,273 DesignTimeResolveAssemblyReferencesInput.cache
+2014-10-29  10:32 AM             7,082 GestResto.UI.csproj.FileListAbsolute.txt
+2014-10-29  10:32 AM               919 GestResto.UI.csproj.GenerateResource.Cache
+2014-10-29  10:32 AM            35,210 GestResto.UI.csprojResolveAssemblyReference.cache
+2014-10-29  10:32 AM           232,960 GestResto.UI.exe
+2014-10-29  10:32 AM           164,221 GestResto.UI.g.resources
+2014-10-29  10:32 AM           265,728 GestResto.UI.pdb
+2014-10-29  10:32 AM               180 GestResto.UI.Properties.Resources.resources
+2014-10-29  10:32 AM               761 GestResto.UI_MarkupCompile.cache
+2014-10-29  10:32 AM               760 GestResto.UI_MarkupCompile.i.cache
+2014-10-29  10:32 AM               127 GestResto.UI_MarkupCompile.i.lref
+2014-10-29  10:32 AM               127 GestResto.UI_MarkupCompile.lref
+2014-10-29  10:32 AM               883 MainWindow.baml
+2014-10-29  10:32 AM             3,520 MainWindow.g.cs
+2014-10-29  10:32 AM             3,520 MainWindow.g.i.cs
+2014-10-29  10:28 AM                 0 TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs
+2014-10-29  10:28 AM                 0 TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs
+2014-10-29  10:28 AM                 0 TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs
+2014-10-29  10:28 AM    <DIR>          TempPE
+2014-10-29  10:32 AM    <DIR>          Views
+              21 File(s)        731,103 bytes
+
+ Directory of D:\My Documents\Dropbox\Google Drive\Cegep\Automne 2014\GestResto\GestResto\GestResto.UI\obj\Release\TempPE
+
+2014-10-29  10:28 AM    <DIR>          .
+2014-10-29  10:28 AM    <DIR>          ..
+2014-10-29  10:28 AM             4,608 Properties.Resources.Designer.cs.dll
+               1 File(s)          4,608 bytes
+
+ Directory of D:\My Documents\Dropbox\Google Drive\Cegep\Automne 2014\GestResto\GestResto\GestResto.UI\obj\Release\Views
+
+2014-10-29  10:32 AM    <DIR>          .
+2014-10-29  10:32 AM    <DIR>          ..
+2014-10-29  10:32 AM             1,824 AjoutCommandeView.baml
+2014-10-29  10:32 AM             7,980 AjoutCommandeView.g.cs
+2014-10-29  10:32 AM             7,980 AjoutCommandeView.g.i.cs
+2014-10-29  10:32 AM             2,239 AuthentificationView.baml
+2014-10-29  10:32 AM            12,662 AuthentificationView.g.cs
+2014-10-29  10:32 AM            12,662 AuthentificationView.g.i.cs
+2014-10-29  10:32 AM             2,262 BottomView.baml
+2014-10-29  10:32 AM            11,875 BottomView.g.cs
+2014-10-29  10:32 AM            11,875 BottomView.g.i.cs
+2014-10-29  10:32 AM             2,855 CategorieView.baml
+2014-10-29  10:32 AM            11,390 CategorieView.g.cs
+2014-10-29  10:32 AM            11,390 CategorieView.g.i.cs
+2014-10-29  10:32 AM             1,700 CommandesView.baml
+2014-10-29  10:32 AM             7,614 CommandesView.g.cs
+2014-10-29  10:32 AM             7,614 CommandesView.g.i.cs
+2014-10-29  10:32 AM             5,294 CommandeView.baml
+2014-10-29  10:32 AM            10,423 CommandeView.g.cs
+2014-10-29  10:32 AM            10,423 CommandeView.g.i.cs
+2014-10-29  10:32 AM             2,700 DivisionFactureView.baml
+2014-10-29  10:32 AM             7,194 DivisionFactureView.g.cs
+2014-10-29  10:32 AM             7,194 DivisionFactureView.g.i.cs
+2014-10-29  10:32 AM             4,399 EmployeView.baml
+2014-10-29  10:32 AM            14,733 EmployeView.g.cs
+2014-10-29  10:32 AM            14,733 EmployeView.g.i.cs
+2014-10-29  10:32 AM             2,532 FormatView.baml
+2014-10-29  10:32 AM             9,989 FormatView.g.cs
+2014-10-29  10:32 AM             9,989 FormatView.g.i.cs
+2014-10-29  10:32 AM             4,131 ItemsView.baml
+2014-10-29  10:32 AM            12,168 ItemsView.g.cs
+2014-10-29  10:32 AM            12,168 ItemsView.g.i.cs
+2014-10-29  10:32 AM             1,834 JonctionFactureView.baml
+2014-10-29  10:32 AM             8,020 JonctionFactureView.g.cs
+2014-10-29  10:32 AM             8,020 JonctionFactureView.g.i.cs
+2014-10-29  10:32 AM             1,928 OptionsAdministrationView.baml
+2014-10-29  10:32 AM             9,170 OptionsAdministrationView.g.cs
+2014-10-29  10:32 AM             9,170 OptionsAdministrationView.g.i.cs
+2014-10-29  10:32 AM             3,068 PaiementView.baml
+2014-10-29  10:32 AM            11,154 PaiementView.g.cs
+2014-10-29  10:32 AM            11,154 PaiementView.g.i.cs
+2014-10-29  10:32 AM             3,641 RapportView.baml
+2014-10-29  10:32 AM            17,555 RapportView.g.cs
+2014-10-29  10:32 AM            17,555 RapportView.g.i.cs
+2014-10-29  10:32 AM             3,124 RestaurantView.baml
+2014-10-29  10:32 AM            11,797 RestaurantView.g.cs
+2014-10-29  10:32 AM            11,797 RestaurantView.g.i.cs
+2014-10-29  10:32 AM             2,572 TableView.baml
+2014-10-29  10:32 AM            10,820 TableView.g.cs
+2014-10-29  10:32 AM            10,820 TableView.g.i.cs
+              48 File(s)        395,191 bytes
+
+ Directory of D:\My Documents\Dropbox\Google Drive\Cegep\Automne 2014\GestResto\GestResto\GestResto.UI\Properties
+
+2014-10-30  10:27 AM    <DIR>          .
+2014-10-30  10:27 AM    <DIR>          ..
+2014-10-30  10:27 AM             2,609 AssemblyInfo.cs
+2014-09-25  12:45 PM             3,048 Resources.Designer.cs
+2014-09-25  12:45 PM             5,612 Resources.resx
+2014-09-25  12:45 PM             1,099 Settings.Designer.cs
+2014-09-25  12:45 PM               201 Settings.settings
+               5 File(s)         12,569 bytes
+
+ Directory of D:\My Documents\Dropbox\Google Drive\Cegep\Automne 2014\GestResto\GestResto\GestResto.UI\ViewModel
+
+2014-11-14  09:41 PM    <DIR>          .
+2014-11-14  09:41 PM    <DIR>          ..
+2014-11-13  01:53 PM             3,743 CategorieViewModel.cs
+2014-11-13  03:21 PM             2,268 CommandesViewModel.cs
+2014-11-14  09:41 PM             3,637 CommandeViewModel.cs
+2014-10-19  05:40 PM               216 DivisionFactureViewModel.cs
+2014-11-13  01:53 PM             5,168 EmployeViewModel.cs
+2014-10-29  10:09 AM             3,029 FormatViewModel.cs
+2014-10-29  12:56 PM             5,479 ItemsViewModel.cs
+2014-10-19  05:40 PM               216 JonctionFactureViewModel.cs
+2014-09-30  12:32 PM             1,013 MainViewModel.cs
+2014-10-19  05:40 PM               209 PaiementViewModel.cs
+2014-09-30  11:46 AM               208 RapportViewModel.cs
+2014-10-23  03:01 PM             1,467 RestaurantViewModel.cs
+2014-10-23  03:18 PM             1,868 TableViewModel.cs
+              13 File(s)         28,521 bytes
+
+ Directory of D:\My Documents\Dropbox\Google Drive\Cegep\Automne 2014\GestResto\GestResto\GestResto.UI\Views
+
+2014-11-14  09:41 PM    <DIR>          .
+2014-11-14  09:41 PM    <DIR>          ..
+2014-11-12  09:07 AM             3,871 AjoutCommandeView.xaml
+2014-11-13  03:37 PM            10,476 AjoutCommandeView.xaml.cs
+2014-11-13  03:37 PM             3,891 AuthentificationView.xaml
+2014-11-11  10:10 AM            12,240 AuthentificationView.xaml.cs
+2014-10-30  09:50 AM             9,111 BottomView.xaml
+2014-10-30  09:50 AM             3,010 BottomView.xaml.cs
+2014-11-13  02:00 PM             6,096 CategorieView.xaml
+2014-11-13  03:40 PM            14,961 CategorieView.xaml.cs
+2014-11-12  09:08 AM             3,195 CommandesView.xaml
+2014-11-13  03:37 PM             6,329 CommandesView.xaml.cs
+2014-11-13  11:39 AM            10,806 CommandeView.xaml
+2014-11-14  09:41 PM            15,540 CommandeView.xaml.cs
+2014-11-12  09:13 AM             8,020 DivisionFactureView.xaml
+2014-11-12  09:10 AM             2,416 DivisionFactureView.xaml.cs
+2014-11-13  02:00 PM             9,688 EmployeView.xaml
+2014-11-13  03:22 PM            22,168 EmployeView.xaml.cs
+2014-11-12  08:51 AM             1,310 FormatsView.xaml
+2014-11-12  08:51 AM             1,170 FormatsView.xaml.cs
+2014-11-11  12:07 PM             6,025 FormatView.xaml
+2014-11-11  11:05 AM            12,830 FormatView.xaml.cs
+2014-11-11  12:04 PM             9,071 ItemsView.xaml
+2014-11-11  11:05 AM            13,453 ItemsView.xaml.cs
+2014-11-12  09:16 AM             4,192 JonctionFactureView.xaml
+2014-11-12  09:10 AM             2,274 JonctionFactureView.xaml.cs
+2014-11-11  11:09 AM             3,423 OptionsAdministrationView.xaml
+2014-11-11  11:03 AM             3,339 OptionsAdministrationView.xaml.cs
+2014-11-13  03:37 PM             7,803 PaiementView.xaml
+2014-11-12  12:01 PM            10,047 PaiementView.xaml.cs
+2014-11-11  12:28 PM             9,305 RapportView.xaml
+2014-11-11  11:05 AM             2,416 RapportView.xaml.cs
+2014-11-11  12:17 PM             6,147 RestaurantView.xaml
+2014-11-11  11:04 AM             7,267 RestaurantView.xaml.cs
+2014-11-11  12:16 PM             5,805 TableView.xaml
+2014-11-12  09:10 AM             6,810 TableView.xaml.cs
+              34 File(s)        254,505 bytes
+
+ Directory of D:\My Documents\Dropbox\Google Drive\Cegep\Automne 2014\GestResto\GestResto\packages
+
+2014-10-08  11:32 AM    <DIR>          .
+2014-10-08  11:32 AM    <DIR>          ..
+2014-10-08  11:32 AM    <DIR>          Iesi.Collections.4.0.0.4000
+2014-10-08  11:32 AM    <DIR>          Iesi.Collections.4.0.1.4000
+2014-10-08  11:32 AM    <DIR>          MySql.Data.6.9.3
+2014-10-08  11:32 AM    <DIR>          NHibernate.4.0.1.4000
+2014-10-01  03:47 PM               191 repositories.config
+               1 File(s)            191 bytes
+
+ Directory of D:\My Documents\Dropbox\Google Drive\Cegep\Automne 2014\GestResto\GestResto\packages\Iesi.Collections.4.0.0.4000
+
+2014-10-08  11:32 AM    <DIR>          .
+2014-10-08  11:32 AM    <DIR>          ..
+2014-10-01  03:47 PM            15,490 Iesi.Collections.4.0.0.4000.nupkg
+2014-10-08  11:32 AM    <DIR>          lib
+               1 File(s)         15,490 bytes
+
+ Directory of D:\My Documents\Dropbox\Google Drive\Cegep\Automne 2014\GestResto\GestResto\packages\Iesi.Collections.4.0.0.4000\lib
+
+2014-10-08  11:32 AM    <DIR>          .
+2014-10-08  11:32 AM    <DIR>          ..
+2014-10-08  11:32 AM    <DIR>          net40
+               0 File(s)              0 bytes
+
+ Directory of D:\My Documents\Dropbox\Google Drive\Cegep\Automne 2014\GestResto\GestResto\packages\Iesi.Collections.4.0.0.4000\lib\net40
+
+2014-10-08  11:32 AM    <DIR>          .
+2014-10-08  11:32 AM    <DIR>          ..
+2014-10-01  03:47 PM            13,824 Iesi.Collections.dll
+2014-10-01  03:47 PM            39,117 Iesi.Collections.xml
+               2 File(s)         52,941 bytes
+
+ Directory of D:\My Documents\Dropbox\Google Drive\Cegep\Automne 2014\GestResto\GestResto\packages\Iesi.Collections.4.0.1.4000
+
+2014-10-08  11:32 AM    <DIR>          .
+2014-10-08  11:32 AM    <DIR>          ..
+2014-10-01  03:47 PM            15,745 Iesi.Collections.4.0.1.4000.nupkg
+2014-10-01  03:47 PM               997 Iesi.Collections.4.0.1.4000.nuspec
+2014-10-08  11:32 AM    <DIR>          lib
+               2 File(s)         16,742 bytes
+
+ Directory of D:\My Documents\Dropbox\Google Drive\Cegep\Automne 2014\GestResto\GestResto\packages\Iesi.Collections.4.0.1.4000\lib
+
+2014-10-08  11:32 AM    <DIR>          .
+2014-10-08  11:32 AM    <DIR>          ..
+2014-10-08  11:32 AM    <DIR>          net40
+               0 File(s)              0 bytes
+
+ Directory of D:\My Documents\Dropbox\Google Drive\Cegep\Automne 2014\GestResto\GestResto\packages\Iesi.Collections.4.0.1.4000\lib\net40
+
+2014-10-08  11:32 AM    <DIR>          .
+2014-10-08  11:32 AM    <DIR>          ..
+2014-10-01  03:47 PM            13,824 Iesi.Collections.dll
+2014-10-01  03:47 PM            39,117 Iesi.Collections.xml
+               2 File(s)         52,941 bytes
+
+ Directory of D:\My Documents\Dropbox\Google Drive\Cegep\Automne 2014\GestResto\GestResto\packages\MySql.Data.6.9.3
+
+2014-10-08  11:32 AM    <DIR>          .
+2014-10-08  11:32 AM    <DIR>          ..
+2014-10-01  03:47 PM             1,166 CHANGES
+2014-10-08  11:32 AM    <DIR>          content
+2014-10-08  11:32 AM    <DIR>          lib
+2014-10-01  03:47 PM           673,537 MySql.Data.6.9.3.nupkg
+2014-10-01  03:47 PM               758 MySql.Data.6.9.3.nuspec
+2014-10-01  03:47 PM               345 Readme.txt
+               4 File(s)        675,806 bytes
+
+ Directory of D:\My Documents\Dropbox\Google Drive\Cegep\Automne 2014\GestResto\GestResto\packages\MySql.Data.6.9.3\content
+
+2014-10-08  11:32 AM    <DIR>          .
+2014-10-08  11:32 AM    <DIR>          ..
+2014-10-01  03:47 PM               477 app.config.transform
+2014-10-01  03:47 PM               477 web.config.transform
+               2 File(s)            954 bytes
+
+ Directory of D:\My Documents\Dropbox\Google Drive\Cegep\Automne 2014\GestResto\GestResto\packages\MySql.Data.6.9.3\lib
+
+2014-10-08  11:32 AM    <DIR>          .
+2014-10-08  11:32 AM    <DIR>          ..
+2014-10-08  11:32 AM    <DIR>          net20
+2014-10-08  11:32 AM    <DIR>          net20-cf
+2014-10-08  11:32 AM    <DIR>          net40
+2014-10-08  11:32 AM    <DIR>          net45
+               0 File(s)              0 bytes
+
+ Directory of D:\My Documents\Dropbox\Google Drive\Cegep\Automne 2014\GestResto\GestResto\packages\MySql.Data.6.9.3\lib\net20
+
+2014-10-08  11:32 AM    <DIR>          .
+2014-10-08  11:32 AM    <DIR>          ..
+2014-10-01  03:47 PM           440,832 MySql.Data.dll
+               1 File(s)        440,832 bytes
+
+ Directory of D:\My Documents\Dropbox\Google Drive\Cegep\Automne 2014\GestResto\GestResto\packages\MySql.Data.6.9.3\lib\net20-cf
+
+2014-10-08  11:32 AM    <DIR>          .
+2014-10-08  11:32 AM    <DIR>          ..
+2014-10-01  03:47 PM           355,840 MySql.Data.CF.dll
+               1 File(s)        355,840 bytes
+
+ Directory of D:\My Documents\Dropbox\Google Drive\Cegep\Automne 2014\GestResto\GestResto\packages\MySql.Data.6.9.3\lib\net40
+
+2014-10-08  11:32 AM    <DIR>          .
+2014-10-08  11:32 AM    <DIR>          ..
+2014-10-01  03:47 PM           454,144 MySql.Data.dll
+               1 File(s)        454,144 bytes
+
+ Directory of D:\My Documents\Dropbox\Google Drive\Cegep\Automne 2014\GestResto\GestResto\packages\MySql.Data.6.9.3\lib\net45
+
+2014-10-08  11:32 AM    <DIR>          .
+2014-10-08  11:32 AM    <DIR>          ..
+2014-10-01  03:47 PM           454,144 MySql.Data.dll
+               1 File(s)        454,144 bytes
+
+ Directory of D:\My Documents\Dropbox\Google Drive\Cegep\Automne 2014\GestResto\GestResto\packages\NHibernate.4.0.1.4000
+
+2014-10-08  11:32 AM    <DIR>          .
+2014-10-08  11:32 AM    <DIR>          ..
+2014-10-08  11:32 AM    <DIR>          ConfigurationTemplates
+2014-10-08  11:32 AM    <DIR>          lib
+2014-10-01  03:47 PM             9,582 nhibernate-configuration.xsd
+2014-10-01  03:47 PM            66,823 nhibernate-mapping.xsd
+2014-10-01  03:47 PM         1,469,007 NHibernate.4.0.1.4000.nupkg
+2014-10-01  03:47 PM             1,249 NHibernate.4.0.1.4000.nuspec
+2014-10-01  03:47 PM            24,957 NHibernate.license.txt
+2014-10-01  03:47 PM             3,775 NHibernate.readme.html
+2014-10-01  03:47 PM           183,125 NHibernate.releasenotes.txt
+               7 File(s)      1,758,518 bytes
+
+ Directory of D:\My Documents\Dropbox\Google Drive\Cegep\Automne 2014\GestResto\GestResto\packages\NHibernate.4.0.1.4000\ConfigurationTemplates
+
+2014-10-08  11:32 AM    <DIR>          .
+2014-10-08  11:32 AM    <DIR>          ..
+2014-10-01  03:47 PM             1,358 FireBird.cfg.xml
+2014-10-01  03:47 PM               798 MSSQL.cfg.xml
+2014-10-01  03:47 PM               782 MySql.cfg.xml
+2014-10-01  03:47 PM               939 Oracle.cfg.xml
+2014-10-01  03:47 PM               746 PostgreSQL.cfg.xml
+2014-10-01  03:47 PM               691 SQLite.cfg.xml
+2014-10-01  03:47 PM               823 SybaseASE.cfg.xml
+2014-10-01  03:47 PM               823 SybaseSQLAnywhere.cfg.xml
+               8 File(s)          6,960 bytes
+
+ Directory of D:\My Documents\Dropbox\Google Drive\Cegep\Automne 2014\GestResto\GestResto\packages\NHibernate.4.0.1.4000\lib
+
+2014-10-08  11:32 AM    <DIR>          .
+2014-10-08  11:32 AM    <DIR>          ..
+2014-10-08  11:32 AM    <DIR>          net40
+               0 File(s)              0 bytes
+
+ Directory of D:\My Documents\Dropbox\Google Drive\Cegep\Automne 2014\GestResto\GestResto\packages\NHibernate.4.0.1.4000\lib\net40
+
+2014-10-08  11:32 AM    <DIR>          .
+2014-10-08  11:32 AM    <DIR>          ..
+2014-10-01  03:47 PM         3,317,760 NHibernate.dll
+2014-10-01  03:47 PM         2,345,668 NHibernate.xml
+               2 File(s)      5,663,428 bytes
+
+     Total Files Listed:
+             455 File(s)     41,149,608 bytes
+             200 Dir(s)  1,603,244,806,144 bytes free
