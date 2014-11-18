@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GestResto.Logic.Model.Entities
 {
-    public class FormatItemClientFacture
+    public class FormatItemClientFacture : BaseEntity
     {   
         #region Variables de la classe
         public virtual int? IdFormatItemClientFacture { get; set; }
@@ -15,6 +15,27 @@ namespace GestResto.Logic.Model.Entities
         public virtual Client client { get; set; }
         public virtual FormatItem FormatItemAssocie { get; set; }
         public virtual IList<FormatItemClientFacture> ListFicf { get; set; }
+
+        private bool _estComplementaire;
+       
+        #endregion
+
+        #region Propriétés
+
+        public virtual bool EstComplementaire
+        {
+            get
+            {
+                return _estComplementaire;
+            }
+            set
+            {
+                RaisePropertyChanging();
+                _estComplementaire = value;
+                RaisePropertyChanged();
+            }
+        }
+
         #endregion
 
         #region Constructeurs

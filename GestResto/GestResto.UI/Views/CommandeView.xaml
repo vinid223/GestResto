@@ -31,7 +31,7 @@
                 ScrollViewer.HorizontalScrollBarVisibility="Disabled" SelectionChanged="lbxItemsClient_SelectionChanged">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
-                        <Label Content="{Binding FormatItemAssocie}" HorizontalAlignment="Stretch"   VerticalAlignment="Stretch"  Height="27"/>
+                        <Label Style="{StaticResource ListBoxFICF}" Content="{Binding FormatItemAssocie}"/>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>

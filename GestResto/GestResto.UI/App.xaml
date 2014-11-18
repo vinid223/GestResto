@@ -36,7 +36,66 @@
             <Setter Property="Label.Effect" Value="{StaticResource BoutonLabelShadowEffect}" />
         </Style>
 
-        <Style x:Key="BoutonList" TargetType="Button">
+
+        <Style
+        x:Key="ButtonFocusVisual">
+            <Setter
+            Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Rectangle Margin="2" SnapsToDevicePixels="true" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" StrokeThickness="1" StrokeDashArray="1 2" />
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="MetroButton" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource ButtonFocusVisual}"/>
+            <Setter Property="Background" Value="#EEEEEEEE"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="10 5"/>
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid>
+                            <Border
+                                x:Name="Border"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}" />
+
+                            <ContentPresenter
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                Margin="{TemplateBinding Padding}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                RecognizesAccessKey="True" />
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="OpacityMask" Value="#91919188"/> <!-- AA888888 -->
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <!-- <Setter Property="Background" Value="#C4C4C4"/>
+                               <Setter Property="Foreground" Value="White"/>-->
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Foreground" Value="#ADADAD"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style TargetType="Button" BasedOn="{StaticResource MetroButton}">
+        </Style>
+
+
+        <Style x:Key="BoutonList" TargetType="Button" BasedOn="{StaticResource MetroButton}">
             <Setter Property="Height"  Value="50"/>
         </Style>
 
@@ -74,7 +133,7 @@
 
 
         <!-- Boutons des items dans la listes de boutons dans l'écran de la commande. -->
-        <Style x:Key="BoutonItem" TargetType="Button">
+        <Style x:Key="BoutonItem" TargetType="Button" BasedOn="{StaticResource MetroButton}">
             <Setter Property="Height"  Value="70" />
             <Setter Property="Width" Value="120" />
             <Setter Property="Margin" Value="0,0,5,5" />
@@ -88,7 +147,21 @@
                     <MultiDataTrigger.Conditions>
                         <Condition Binding="{Binding Path=EstModifie}" Value="True"/>
                     </MultiDataTrigger.Conditions>
-                    <Setter Property="Background" Value="Red" />
+                    <Setter Property="Background" Value="#D64747" />
+                </MultiDataTrigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="ListBoxFICF" TargetType="{x:Type Label}">
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="VerticalAlignment" Value="Stretch"/>
+            <Setter Property="Height" Value="27"/>
+            <Style.Triggers>
+                <MultiDataTrigger>
+                    <MultiDataTrigger.Conditions>
+                        <Condition Binding="{Binding Path=EstComplementaire}" Value="True"/>
+                    </MultiDataTrigger.Conditions>
+                    <Setter Property="Padding" Value="10,0,0,0" />
                 </MultiDataTrigger>
             </Style.Triggers>
         </Style>
@@ -124,5 +197,6 @@
                 </Setter.Value>
             </Setter>
         </Style>
+
     </Application.Resources>
 </Application>
