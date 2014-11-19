@@ -19,7 +19,7 @@
         <ListView HorizontalContentAlignment="Stretch" Margin="11,44,11,11" Name="lvwListeTable" Grid.Row="1" Grid.Column="1">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Button Content="{Binding NoTable}" Click="btnTable_Click" CommandParameter="{Binding}" Style="{StaticResource BoutonList}" FontSize="16" />
+                    <Button Content="{Binding NoTable}" Click="btnTable_Click" CommandParameter="{Binding}" Style="{StaticResource styleModif}" FontSize="16" />
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>

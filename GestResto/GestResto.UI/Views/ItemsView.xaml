@@ -80,7 +80,7 @@
         <ListView HorizontalContentAlignment="Stretch" Margin="11,33,11,11" Name="lbxListeCategorie" Grid.Column="2" Grid.Row="2" Grid.RowSpan="2">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Button Content="{Binding Nom}" CommandParameter="{Binding}" Click="btnItem_Click"  Style="{StaticResource BoutonList}" FontSize="16" />
+                    <Button Content="{Binding Nom}" CommandParameter="{Binding}" Click="btnItem_Click"  Style="{StaticResource styleModif}" FontSize="16" />
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>

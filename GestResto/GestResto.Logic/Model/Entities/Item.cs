@@ -20,17 +20,98 @@ namespace GestResto.Logic.Model.Entities
     /// <summary>
     /// Classe Item
     /// </summary>
-    public class Item
+    public class Item : BaseEntity
     {
         #region Variables de la classe
         public virtual int? IdItem { get; set; }
-        public virtual string Nom { get; set; }
-        public virtual Categorie Categories { get; set; }
-        public virtual IList<FormatItem> Formats { get; set; }
-        public virtual bool EstActif { get; set; }
+        private string _nom;
+        private Categorie _categories;
+        private IList<FormatItem> _formats;
+        private bool _estActif;
+        private bool _estModifie;
 
+        #endregion
 
-       // public virtual List<Item> ListeComplements { get; set; }
+        #region Propriété
+
+        public virtual string Nom
+        {
+            get
+            {
+                return _nom;
+            }
+            set
+            {
+                RaisePropertyChanging();
+                RaisePropertyChanging("EstModifie");
+                _nom = value;
+                _estModifie = true;
+                RaisePropertyChanged();
+                RaisePropertyChanged("EstModifie");
+            }
+        }
+        public virtual Categorie Categories
+        {
+            get
+            {
+                return _categories;
+            }
+            set
+            {
+                RaisePropertyChanging();
+                RaisePropertyChanging("EstModifie");
+                _categories = value;
+                _estModifie = true;
+                RaisePropertyChanged();
+                RaisePropertyChanged("EstModifie");
+            }
+        }
+        public virtual IList<FormatItem> Formats
+        {
+            get
+            {
+                return _formats;
+            }
+            set
+            {
+                RaisePropertyChanging();
+                RaisePropertyChanging("EstModifie");
+                _formats = value;
+                _estModifie = true;
+                RaisePropertyChanged();
+                RaisePropertyChanged("EstModifie");
+            }
+        }
+        public virtual bool EstActif
+        {
+            get
+            {
+                return _estActif;
+            }
+            set
+            {
+                RaisePropertyChanging();
+                RaisePropertyChanging("EstModifie");
+                _estActif = value;
+                _estModifie = true;
+                RaisePropertyChanged();
+                RaisePropertyChanged("EstModifie");
+            }
+        }
+        public virtual bool EstModifie
+        {
+            get
+            {
+                return _estModifie;
+            }
+            set
+            {
+                RaisePropertyChanging();
+                _estModifie = value;
+                RaisePropertyChanged();
+            }
+        }
+
         #endregion
 
         #region Constructeur de la classe Item

@@ -20,15 +20,98 @@ namespace GestResto.Logic.Model.Entities
     /// <summary>
     /// Classe contenant toutes les informations d'une table
     /// </summary>
-    public class Table 
+    public class Table : BaseEntity
     {
         #region Attributs
 
         public virtual int? IdTable { get; set; }
-        public virtual int NoTable { get; set; }
-        public virtual bool EstActif { get; set; }
-        public virtual bool EstAssigne { get; set; }
-        public virtual IList<Client> ListeClients { get; set; }
+        private int _noTable;
+        private bool _estActif;
+        private bool _estAssigne;
+        private IList<Client> _listeClient;
+        private bool _estModifie;
+
+        #endregion
+
+        #region Propriété
+
+        public virtual int NoTable
+        {
+            get
+            {
+                return _noTable;
+            }
+            set
+            {
+                RaisePropertyChanging();
+                RaisePropertyChanging("EstModifie");
+                _noTable = value;
+                _estModifie = true;
+                RaisePropertyChanged();
+                RaisePropertyChanged("EstModifie");
+            }
+        }
+        public virtual bool EstActif
+        {
+            get
+            {
+                return _estActif;
+            }
+            set
+            {
+                RaisePropertyChanging();
+                RaisePropertyChanging("EstModifie");
+                _estActif = value;
+                _estModifie = true;
+                RaisePropertyChanged();
+                RaisePropertyChanged("EstModifie");
+            }
+        }
+        public virtual bool EstAssigne
+        {
+            get
+            {
+                return _estAssigne;
+            }
+            set
+            {
+                RaisePropertyChanging();
+                RaisePropertyChanging("EstModifie");
+                _estAssigne = value;
+                _estModifie = true;
+                RaisePropertyChanged();
+                RaisePropertyChanged("EstModifie");
+            }
+        }
+        public virtual IList<Client> ListeClients
+        {
+            get
+            {
+                return _listeClient;
+            }
+            set
+            {
+                RaisePropertyChanging();
+                RaisePropertyChanging("EstModifie");
+                _listeClient = value;
+                _estModifie = true;
+                RaisePropertyChanged();
+                RaisePropertyChanged("EstModifie");
+            }
+        }
+        public virtual bool EstModifie
+        {
+            get
+            {
+                return _estModifie;
+            }
+            set
+            {
+                RaisePropertyChanging();
+                _estModifie = value;
+                RaisePropertyChanged();
+            }
+        }
 
         #endregion
 

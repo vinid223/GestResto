@@ -9,13 +9,82 @@ namespace GestResto.Logic.Model.Entities
     /// <summary>
     /// Cette classe est nécessaire pour l'ORM, sinon c'est impossible de configurer le xml.
     /// </summary>
-    public class FormatItem
+    public class FormatItem : BaseEntity
     {
         #region Variables de la classe
         public virtual int? IdFormatItem { get; set; }
-        public virtual float Prix { get; set; }
-        public virtual Format FormatAssocie { get; set; }
-        public virtual Item ItemAssocie { get; set; }
+        private float _prix;
+        private Format _formatAssocie;
+        private Item _itemAssocie;
+        private bool _estModifie;
+        
+        #endregion
+
+        #region Propriété
+
+        public virtual float Prix
+        {
+            get
+            {
+                return _prix;
+            }
+            set
+            {
+                RaisePropertyChanging();
+                RaisePropertyChanging("EstModifie");
+                _prix = value;
+                _estModifie = true;
+                RaisePropertyChanged();
+                RaisePropertyChanged("EstModifie");
+            }
+        }
+        public virtual Format FormatAssocie
+        {
+            get
+            {
+                return _formatAssocie;
+            }
+            set
+            {
+                RaisePropertyChanging();
+                RaisePropertyChanging("EstModifie");
+                _formatAssocie = value;
+                _estModifie = true;
+                RaisePropertyChanged();
+                RaisePropertyChanged("EstModifie");
+            }
+        }
+        public virtual Item ItemAssocie 
+        { 
+            get
+            {
+                return _itemAssocie;
+            }
+            set
+            {
+                RaisePropertyChanging();
+                RaisePropertyChanging("EstModifie");
+                _itemAssocie = value;
+                _estModifie = true;
+                RaisePropertyChanged();
+                RaisePropertyChanged("EstModifie");
+            }
+        }
+
+        public virtual bool EstModifie
+        {
+            get
+            {
+                return _estModifie;
+            }
+            set
+            {
+                RaisePropertyChanging();
+                _estModifie = value;
+                RaisePropertyChanged();
+            }
+        }
+
         #endregion
 
         #region Constructeurs

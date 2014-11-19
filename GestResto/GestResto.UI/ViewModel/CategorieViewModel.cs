@@ -63,6 +63,7 @@ namespace GestResto.UI.ViewModel
         {
             Categories = new ObservableCollection<Categorie>(ServiceFactory.Instance.GetService<ICategorieService>().RetrieveAll());
 
+            // On boucle dans chacune des catégories et on va indiquer qu'elle n'est pas modifié
             foreach (var item in Categories)
             {
                 item.EstModifie = false;

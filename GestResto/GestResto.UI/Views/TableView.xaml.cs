@@ -84,6 +84,7 @@ namespace GestResto.UI
 
             Constante.LogNavigation("Enregistrement de table #" + ViewModel.table.NoTable);
             ViewModel.EnregistrerTable(ViewModel.table);
+            ViewModel.table.EstModifie = false;
         }
         private void btnAjouter_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {

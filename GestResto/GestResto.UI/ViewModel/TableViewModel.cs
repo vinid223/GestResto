@@ -23,6 +23,11 @@ namespace GestResto.UI.ViewModel
         {
             Tables = new ObservableCollection<Table>(ServiceFactory.Instance.GetService<ITableService>().RetrieveAll());
 
+            foreach (var item in Tables)
+            {
+                item.EstModifie = false;
+            }
+
             _tableService = ServiceFactory.Instance.GetService<ITableService>();
         }
 
