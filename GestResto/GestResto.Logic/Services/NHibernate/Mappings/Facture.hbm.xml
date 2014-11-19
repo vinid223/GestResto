@@ -15,14 +15,12 @@
       </key>
       <one-to-many class="FormatItemClientFacture"/>
     </bag>
-
-    <!--<many-to-one name="CommandeClient" class="Commande" cascade="save-update" >
-      <column name="idCommande" not-null="false" sql-type="INTEGER" />
-    </many-to-one>-->
     
     <property name="PourcentageTaxe">
       <column name="pourcentageTaxe" not-null="true" sql-type="FLOAT" />
     </property>
 
+    <property name="DateCreation"  column="dateDeCreation" not-null="false" />
+    
   </class>
 </hibernate-mapping>

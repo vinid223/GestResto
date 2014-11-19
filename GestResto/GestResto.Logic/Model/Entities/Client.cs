@@ -26,7 +26,6 @@ namespace GestResto.Logic.Model.Entities
         public virtual int? IdClient { get; set; }
         public virtual IList<FormatItemClientFacture> ListeFormatItemClientFacture { get; set; }
         public virtual Facture FactureClient { get; set; }
-        public virtual Table TableClient { get; set; }
 
         #endregion
 
@@ -39,7 +38,6 @@ namespace GestResto.Logic.Model.Entities
             IdClient = null;
             ListeFormatItemClientFacture = new List<FormatItemClientFacture>();
             FactureClient = new Facture();
-            TableClient = null;
         }
 
         /// <summary>

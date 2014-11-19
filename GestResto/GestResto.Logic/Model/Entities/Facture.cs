@@ -26,7 +26,7 @@ namespace GestResto.Logic.Model.Entities
         #region Variables de la classe
 
         public virtual uint? IdFacture { get; set; }
-        //public virtual DateTime DateCreation { get; set; }
+        public virtual DateTime DateCreation { get; set; }
         public virtual float PourcentageTaxe { get; set; }
         public virtual IList<FormatItemClientFacture> ListeFormatItemClientFacture { get; set; }
 
@@ -40,7 +40,7 @@ namespace GestResto.Logic.Model.Entities
         public Facture()
         {
             IdFacture = null;
-            //DateCreation = new DateTime();
+            DateCreation = DateTime.Now;
             PourcentageTaxe = 0;
             ListeFormatItemClientFacture = new List<FormatItemClientFacture>();
         }

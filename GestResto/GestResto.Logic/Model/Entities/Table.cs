@@ -28,7 +28,6 @@ namespace GestResto.Logic.Model.Entities
         private int _noTable;
         private bool _estActif;
         private bool _estAssigne;
-        private IList<Client> _listeClient;
         private bool _estModifie;
 
         #endregion
@@ -83,22 +82,6 @@ namespace GestResto.Logic.Model.Entities
                 RaisePropertyChanged("EstModifie");
             }
         }
-        public virtual IList<Client> ListeClients
-        {
-            get
-            {
-                return _listeClient;
-            }
-            set
-            {
-                RaisePropertyChanging();
-                RaisePropertyChanging("EstModifie");
-                _listeClient = value;
-                _estModifie = true;
-                RaisePropertyChanged();
-                RaisePropertyChanged("EstModifie");
-            }
-        }
         public virtual bool EstModifie
         {
             get
@@ -126,7 +109,6 @@ namespace GestResto.Logic.Model.Entities
             NoTable = 0;
             EstActif = true;
             EstAssigne = true;
-            ListeClients = new List<Client>();
         }
 
         /// <summary>
@@ -143,7 +125,6 @@ namespace GestResto.Logic.Model.Entities
             NoTable = pNoTable;
             EstActif = pEstActif;
             EstAssigne = pEstAssigne;
-            ListeClients = pListeClient;
         }
 
         #endregion
