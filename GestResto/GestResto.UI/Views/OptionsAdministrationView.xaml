@@ -18,7 +18,7 @@
         <Button x:Name="btnEmployes" Content="Employés" Margin="10,41,10,0" VerticalAlignment="Top" Height="60" Click="btnEmployes_Click" FontSize="24" Grid.Row="1"/>
         <Button x:Name="btnTables" Content="Tables" Margin="10,41,10,0" VerticalAlignment="Top" Height="60" Grid.Column="1" Click="btnTables_Click" FontSize="24" Grid.Row="1"/>
         <Button x:Name="btnItems" Content="Items" Margin="10,123,10,0" VerticalAlignment="Top" Height="60" Click="btnItems_Click" FontSize="24" Grid.Row="1"/>
-        <Button x:Name="btnRapports" Content="Générer des Rapports" Margin="10,203,10,0" VerticalAlignment="Top" Height="60" Click="btnRapports_Click" FontSize="24" Grid.Row="1" />
+        <Button x:Name="btnRapports" Content="Générer des Rapports" Margin="10,203,10,0" VerticalAlignment="Top" Height="60" Click="btnRapports_Click" FontSize="24" Grid.Row="1" IsEnabled="False" />
         <Button x:Name="btnFormats" Content="Formats" Margin="10,279,10,0" VerticalAlignment="Top" Height="60" Click="btnGererFormat" FontSize="24" Grid.Row="1"/>
         <Button x:Name="btnInfoResto" Content="Informations du Restaurant" Margin="10,123,10,0" VerticalAlignment="Top" Height="60" Click="btnGererInformationsRestaurants" Grid.Column="1" FontSize="24" Grid.Row="1"/>
         <Button x:Name="btnCategorie" Content="Catégories" Margin="10,203,10,0" VerticalAlignment="Top" Height="60" Click="btnGererCategories" Grid.Column="1" FontSize="24" Grid.Row="1"/>

@@ -19,7 +19,7 @@
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
 
-                <Grid Name="btnRapport" Grid.Column="1" Style="{StaticResource BoutonGrid}" MouseLeftButtonDown="btn_MouseLeftButtonDown" MouseLeftButtonUp="btnRapport_MouseLeftButtonUp">
+                <Grid Name="btnRapport" Grid.Column="1" Style="{StaticResource BoutonGrid}" MouseLeftButtonDown="btn_MouseLeftButtonDown" MouseLeftButtonUp="btnRapport_MouseLeftButtonUp" IsEnabled="False">
                     <Grid.RowDefinitions>
                         <RowDefinition/>
                         <RowDefinition Height="30"/>
