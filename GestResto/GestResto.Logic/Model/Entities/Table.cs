@@ -28,7 +28,6 @@ namespace GestResto.Logic.Model.Entities
         public virtual int NoTable { get; set; }
         public virtual bool EstActif { get; set; }
         public virtual bool EstAssigne { get; set; }
-        public virtual IList<Client> ListeClients { get; set; }
 
         #endregion
 
@@ -43,7 +42,6 @@ namespace GestResto.Logic.Model.Entities
             NoTable = 0;
             EstActif = true;
             EstAssigne = true;
-            ListeClients = new List<Client>();
         }
 
         /// <summary>
@@ -60,7 +58,6 @@ namespace GestResto.Logic.Model.Entities
             NoTable = pNoTable;
             EstActif = pEstActif;
             EstAssigne = pEstAssigne;
-            ListeClients = pListeClient;
         }
 
         #endregion

@@ -20,13 +20,6 @@
     <property name="EstAssigne">
       <column name="assigne" not-null="true" sql-type="BOOLEAN" />
     </property>
-
-    <bag name="ListeClients" inverse="false" generic="true" lazy="true" cascade="all">
-      <key>
-        <column name="idTable" />
-      </key>
-      <one-to-many class="Client"/>
-    </bag>
     
   </class>
 
