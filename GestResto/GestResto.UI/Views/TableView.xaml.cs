@@ -119,15 +119,26 @@ namespace GestResto.UI
         }
         private void btnDeconnexion_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            // On appel la fonction de la classe constante qui permet de déconnecter l'utilisateur en cour
-            Constante.Deconnexion();
+            // On s'assure qu'il n'y a pas de table modifié non sauvegardé
+            if (TesterSiModifie())
+            {
+                // On appel la fonction de la classe constante qui permet de déconnecter l'utilisateur en cour
+                Constante.Deconnexion();
+            }
+            
         }
 
         private void btnRetour_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             Constante.onReleaseButton(sender, e); // On enlève l'effet du bouton pressé
-            IApplicationService mainVM = ServiceFactory.Instance.GetService<IApplicationService>();
-            mainVM.ChangeView<OptionsAdministrationView>(new OptionsAdministrationView());
+
+            // On test s'il y a au moins une table modifié non sauvegardé
+            if (TesterSiModifie())
+            {
+                IApplicationService mainVM = ServiceFactory.Instance.GetService<IApplicationService>();
+                mainVM.ChangeView<OptionsAdministrationView>(new OptionsAdministrationView());    
+            }
+
         }
 
         private void btn_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -151,12 +162,52 @@ namespace GestResto.UI
         }
 
         /// <summary>
-        /// Permet de modifier le IsEnable de tous les contrôles consernant l'item binder.
+        /// Fonction permettant de tester tous les objets et vérifier s'ils sont modifié
         /// </summary>
-        /// <param name="EstActif"></param>
-        private void ModifierDispoChampsItem(bool EstActif, bool BoutonsAussi = false)
+        /// <returns>Retourne vrai pour continuer, Retourne faux pour ne pas continuer</returns>
+        private bool TesterSiModifie()
         {
+            // Bool global de la fonction qui permet d'afficher un message ou non s'il y a des enregistrement
+            // non sauvegardé.
+            bool TableModifie = false;
 
+            // Variable de message box qui permet de tester le résultat de la demande à l'utilisateur
+            MessageBoxResult messageBoxResult = new MessageBoxResult();
+
+            // Définition de notre string builder pour le message
+            StringBuilder message = new StringBuilder();
+
+            // Boucle parcourant la liste de catégorie
+            foreach (var item in ViewModel.Tables)
+            {
+                // On test si la catégorie a été modifié
+                if (item.EstModifie)
+                {
+                    // Si c'est le cas on indique qu'on a des items de modifié et on écrit un message
+                    TableModifie = true;
+                    message.Append("La table ").Append(item.NoTable).Append(" n'a pas été enregistré.\n");
+                }
+            }
+
+            // S'il y a des objets non sauvegardé
+            if (TableModifie)
+            {
+                // On affiche un messagebox à l'utilisateur pour lui demander s'il veut continuer ou non
+                message.Append("\n\nVoulez-vous continuer sans sauvegarder?");
+                messageBoxResult = MessageBox.Show(message.ToString(), "Table non sauvegardé", MessageBoxButton.YesNo, MessageBoxImage.Exclamation, MessageBoxResult.No);
+            }
+
+            // On test les retour possible de l'utilisateur 
+            if (messageBoxResult == MessageBoxResult.No)
+            {
+                return false;
+            }
+            else if (messageBoxResult == MessageBoxResult.Yes)
+            {
+                return true;
+            }
+
+            return true;
         }
 
     }
