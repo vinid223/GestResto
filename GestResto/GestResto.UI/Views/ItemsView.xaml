@@ -29,10 +29,10 @@
             MouseDoubleClick="txtSelectionnerTout"
             GotKeyboardFocus="txtSelectionnerTout"
             PreviewMouseLeftButtonDown="SelectivelyIgnoreMouseButton" 
-             Height="28" Margin="103,8,96,0" VerticalAlignment="Top" Name="txtNom" Text="{Binding Item.Nom, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" Grid.Row="2" FontSize="16"/>
+             Height="28" Margin="103,8,179,0" VerticalAlignment="Top" Name="txtNom" Text="{Binding Item.Nom, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" Grid.Row="2" FontSize="16"/>
         <!-- Combobox catégorie liée à l'item -->
         <ComboBox 
-            Margin="103,41,96,0" 
+            Margin="103,41,179,0" 
             VerticalAlignment="Top" 
             Name="cboCategorieLiee" 
             ItemsSource="{Binding Categories}" 
@@ -143,6 +143,7 @@
         <!-- Fin Boutons navigations -->
         <Label x:Name="lblNom" Content="" VerticalAlignment="Top" FontSize="18" Foreground="White" Grid.ColumnSpan="2" Height="34"/>
         <Label Content="Liste des items" Grid.Column="2" Margin="11,0" Grid.Row="2" VerticalAlignment="Top" Height="33" FontSize="16" Background="#00000000" Foreground="White" HorizontalContentAlignment="Center"/>
+        <Button Content="Gestion des catégories" Grid.Column="1" Margin="0,40,10,0" Grid.Row="2" VerticalAlignment="Top" Click="btnAjoutCategorie_Click" HorizontalAlignment="Right" Width="164"/>
     </Grid>
 
 </UserControl>

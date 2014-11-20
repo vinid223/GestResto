@@ -413,5 +413,18 @@ namespace GestResto.UI.Views
                 tb.SelectAll();
             }
         }
+
+        /// <summary>
+        /// Fonction qui permet de rediriger à la fenêtre de gestion des catégories
+        /// </summary>
+        private void btnAjoutCategorie_Click(object sender, RoutedEventArgs e)
+        {
+            // On s'assure qu'on a pas d'enregistrement non sauvegardé
+            if (TesterSiModifie())
+            {
+                IApplicationService mainVM = ServiceFactory.Instance.GetService<IApplicationService>();
+                mainVM.ChangeView<CategorieView>(new CategorieView(true));  
+            }
+        }
     }
 }

@@ -27,11 +27,13 @@ namespace GestResto.UI.Views
     {
         public CategorieViewModel ViewModel { get { return (CategorieViewModel)DataContext; } }
         public bool Erreur = false;
+        public bool revenirItem = false;
 
-        public CategorieView()
+        public CategorieView(bool pRevenirItem = false)
         {
             InitializeComponent();
             lblNom.Content = Constante.employe.ToString();
+            revenirItem = pRevenirItem;
 
             try
             {
@@ -259,9 +261,18 @@ namespace GestResto.UI.Views
             // On appel la fonction pour tester si on à une catégorie non sauvegardé
             if (TesterSiModifie())
             {
-                // On redirige vers la fenêtre d'option d'administration
-                IApplicationService mainVM = ServiceFactory.Instance.GetService<IApplicationService>();
-                mainVM.ChangeView<OptionsAdministrationView>(new OptionsAdministrationView());
+                if (revenirItem)
+                {
+                    // On redirige vers la fenêtre de gestion des items
+                    IApplicationService mainVM = ServiceFactory.Instance.GetService<IApplicationService>();
+                    mainVM.ChangeView<ItemsView>(new ItemsView());
+                }
+                else
+                {
+                    // On redirige vers la fenêtre d'option d'administration
+                    IApplicationService mainVM = ServiceFactory.Instance.GetService<IApplicationService>();
+                    mainVM.ChangeView<OptionsAdministrationView>(new OptionsAdministrationView());
+                }
             }
         }
 
