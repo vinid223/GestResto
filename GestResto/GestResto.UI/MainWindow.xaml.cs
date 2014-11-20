@@ -73,6 +73,15 @@ namespace GestResto.UI
            
             ServiceFactory.Instance.Register<IApplicationService, MainViewModel>((MainViewModel)this.DataContext);
         }
+
+        protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
+        {
+            if (!Constante.peutQuitter)
+            {
+                MessageBox.Show("Vous n'avez pas l'authorisation de quitter l'application.", "Impossible de quitter", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                e.Cancel = true;
+            }
+        }
     }
 
     /// <summary>
@@ -80,8 +89,40 @@ namespace GestResto.UI
     /// </summary>
     public static class Constante
     {
-        public static Employe employe = new Employe();
+        private static Employe _employe;
+
+        // Propriété de l'employé pour pouvoir gérer les droits de fermeture de l'application
+        public static Employe employe
+        {
+            get
+            {
+                return _employe ;
+            }
+
+            set
+            {
+                if (value != null)
+                {
+                    if (value.TypeEmployes.IdTypeEmploye == 1)
+                    {
+                        peutQuitter = true;
+                    }
+                    else
+                    {
+                        peutQuitter = false;
+                    }
+                }
+                else
+                {
+                    peutQuitter = false;
+                }
+                
+
+                _employe = value;
+            }
+        }
         public static Commande commande = new Commande();
+        public static bool peutQuitter = false;
 
         /// <summary>
         /// Fonction permettant de déconnecter un utilisateur
