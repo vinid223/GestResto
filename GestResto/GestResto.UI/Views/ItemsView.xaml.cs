@@ -79,8 +79,6 @@ namespace GestResto.UI.Views
 
             Item item = (Item)((sender as Button).CommandParameter);
             ViewModelItem.Item = item;
-
-
         }
 
         private void btnSupprimer_Click(object sender, RoutedEventArgs e)
@@ -89,6 +87,7 @@ namespace GestResto.UI.Views
 
             ViewModelItem.Item.Formats.Remove(formatitem);
             listeFormatItemASupprimer.Add(formatitem);
+            ViewModelItem.Item.EstModifie = true;
 
             dataGridPrix.CommitEdit();
             dataGridPrix.Items.Refresh();
@@ -261,8 +260,14 @@ namespace GestResto.UI.Views
 
         private void btnDeconnexion_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            // On appel la fonction de la classe constante qui permet de déconnecter l'utilisateur en cours
-            Constante.Deconnexion();
+            Constante.onReleaseButton(sender, e);
+
+            // On test si on a un ou plusieurs items de modifié
+            if (TesterSiModifie())
+            {
+                // On appel la fonction de la classe constante qui permet de déconnecter l'utilisateur en cours
+                Constante.Deconnexion();   
+            }
         }
 
         private void AjoutFormatItem_Click(object sender, RoutedEventArgs e)
@@ -275,14 +280,21 @@ namespace GestResto.UI.Views
             }
 
             ViewModelItem.Item.Formats.Add(new FormatItem());
+            ViewModelItem.Item.EstModifie = true;
             dataGridPrix.Items.Refresh();
         }
 
         // Fonction qui sert à revenir à la view précédente
         private void btnRetour_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            IApplicationService mainVM = ServiceFactory.Instance.GetService<IApplicationService>();
-            mainVM.ChangeView<OptionsAdministrationView>(new OptionsAdministrationView());
+            Constante.onReleaseButton(sender, e);
+
+            // On test s'il y a un ou plusieurs catégories modifié
+            if (TesterSiModifie())
+            {
+                IApplicationService mainVM = ServiceFactory.Instance.GetService<IApplicationService>();
+                mainVM.ChangeView<OptionsAdministrationView>(new OptionsAdministrationView());   
+            }
         }
 
         private void btn_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -307,6 +319,55 @@ namespace GestResto.UI.Views
                 btnEnregistrer.IsEnabled = EstActif;
             }
 
+        }
+
+        /// <summary>
+        /// Fonction permettant de tester tous les objets et vérifier s'ils sont modifié
+        /// </summary>
+        /// <returns>Retourne vrai pour continuer, Retourne faux pour ne pas continuer</returns>
+        private bool TesterSiModifie()
+        {
+            // Bool global de la fonction qui permet d'afficher un message ou non s'il y a des enregistrement
+            // non sauvegardé.
+            bool ItemModifie = false;
+
+            // Variable de message box qui permet de tester le résultat de la demande à l'utilisateur
+            MessageBoxResult messageBoxResult = new MessageBoxResult();
+
+            // Définition de notre string builder pour le message
+            StringBuilder message = new StringBuilder();
+
+            // Boucle parcourant la liste d'item
+            foreach (var item in ViewModelItem.Items)
+            {
+                // On test si l'item a été modifié
+                if (item.EstModifie)
+                {
+                    // Si c'est le cas on indique qu'on a des items de modifié et on écrit un message
+                    ItemModifie = true;
+                    message.Append("L'item ").Append(item.Nom).Append(" n'a pas été enregistré.\n");
+                }
+            }
+
+            // S'il y a des objets non sauvegardé
+            if (ItemModifie)
+            {
+                // On affiche un messagebox à l'utilisateur pour lui demander s'il veut continuer ou non
+                message.Append("\n\nVoulez-vous continuer sans sauvegarder?");
+                messageBoxResult = MessageBox.Show(message.ToString(), "Items non sauvegardé", MessageBoxButton.YesNo, MessageBoxImage.Exclamation, MessageBoxResult.No);
+            }
+
+            // On test les retour possible de l'utilisateur 
+            if (messageBoxResult == MessageBoxResult.No)
+            {
+                return false;
+            }
+            else if (messageBoxResult == MessageBoxResult.Yes)
+            {
+                return true;
+            }
+
+            return true;
         }
 
     }
