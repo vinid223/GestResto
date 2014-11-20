@@ -20,3 +20,4 @@ floppy.png : http://www.flaticon.com/free-icon/floppy-disc-vintage-storage-disk-
 logo.png : http://www.flaticon.com/free-icon/fork-and-knife-cutlery-circle-interface-symbol-for-restaurant_45605
 Background.jpg : http://www.blirk.net/gradient-wallpaper/3/1920x1080/
 backspace.png : Créé par Simon Turcotte
+door.png : http://www.flaticon.com/free-icon/open-exit-door_59801

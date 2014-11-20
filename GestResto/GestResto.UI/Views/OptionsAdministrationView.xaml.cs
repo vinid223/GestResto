@@ -78,6 +78,26 @@ namespace GestResto.UI.Views
             Constante.Deconnexion();
         }
 
+        // Fonction qui sert à quitter l'application
+        private void btnQuitter_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            Constante.onReleaseButton(sender, e); // On enlève l'effet du bouton pressé
+
+            MessageBoxResult messageBoxResult = new MessageBoxResult();
+            messageBoxResult = MessageBox.Show("Voulez-vous vraiment quitter l'application ?", "Voulez-vous vraiment quitter ?", MessageBoxButton.YesNo, MessageBoxImage.Exclamation, MessageBoxResult.No);
+
+            // On test les retour possible de l'utilisateur 
+            if (messageBoxResult == MessageBoxResult.No)
+            {
+                return;
+            }
+            else if (messageBoxResult == MessageBoxResult.Yes)
+            {
+                Application.Current.Shutdown();
+            }
+            
+        }
+
         private void btn_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             Constante.onPressButton(sender, e); // On ajoute l'effet du bouton pressé
