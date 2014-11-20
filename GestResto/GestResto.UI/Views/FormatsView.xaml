@@ -15,11 +15,11 @@
                       Name="lbxListeFormats" >
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Button Content="{Binding FormatComplet}" CommandParameter="{Binding}" Click="btnFormat_Click" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Height="40"/>
+                    <Button Content="{Binding FormatComplet}" CommandParameter="{Binding}" Click="btnFormat_Click" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Height="40" FontSize="20"/>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
         
-        <Button Content="Annuler" Grid.Row="1" Click="Button_Click"/>
+        <Button Content="Annuler" Grid.Row="1" Click="Button_Click" FontSize="22"/>
     </Grid>
 </Window>

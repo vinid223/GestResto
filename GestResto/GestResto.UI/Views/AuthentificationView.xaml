@@ -21,8 +21,8 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Label Background="White" x:Name="lblTitreText" Content="Numéro employé :" Margin="0,0,1,115" Grid.ColumnSpan="3" Grid.Column="1" Grid.RowSpan="2" FontSize="24" />
-            <Label x:Name="lblSouligne" Content="_ _ _ _ _" Panel.ZIndex="1" Margin="40,26,40,22" Grid.Column="1" Grid.ColumnSpan="3" FontSize="36" RenderTransformOrigin="0.5,0.5">
+            <Label Background="White" x:Name="lblTitreText" Content="Numéro employé :" Margin="0,0,1,115" Grid.ColumnSpan="3" Grid.Column="1" Grid.RowSpan="2" FontSize="36" />
+            <Label x:Name="lblSouligne" Content="_ _ _ _ _" Panel.ZIndex="1" Margin="40,13,40,22" Grid.Column="1" Grid.ColumnSpan="3" FontSize="48" RenderTransformOrigin="0.5,0.5">
                 <Label.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform ScaleX="-1"/>
@@ -32,17 +32,17 @@
                     </TransformGroup>
                 </Label.RenderTransform>
             </Label>
-            <TextBox BorderBrush="Transparent" Background="Transparent" x:Name="txtAuthentification" Margin="45,35,51,33" Panel.ZIndex="2" Grid.Row="0" MaxLength="4" TextAlignment="Right" FontSize="36" TextDecorations="{x:Null}" FontFamily="Adobe Caslon Pro Bold" Grid.Column="1" Grid.ColumnSpan="3" Focusable="False"/>
-            <Button Margin="1" Grid.Row ="3" Grid.Column="1" Content="1" Name="btnUn" Click="btn_Click" FontSize="36"  />
-            <Button Margin="1" Grid.Row ="3" Grid.Column="2" Content="2" Name="btnDeux" Click="btn_Click" FontSize="36"  />
-            <Button Margin="1" Grid.Row ="3" Grid.Column="3" Content="3" Name="btnTrois" Click="btn_Click" FontSize="36"  />
-            <Button Margin="1" Grid.Row ="2" Grid.Column="1" Content="4" Name="btnQuatre" Click="btn_Click" FontSize="36"  />
-            <Button Margin="1" Grid.Row ="2" Grid.Column="2" Content="5" Name="btnCinq" Click="btn_Click" FontSize="36"  />
-            <Button Margin="1" Grid.Row ="2" Grid.Column="3" Content="6" Name="btnSix" Click="btn_Click" FontSize="36"  />
-            <Button Margin="1" Grid.Row ="1" Grid.Column="1" Content="7" Name="btnSept" Click="btn_Click" FontSize="36" />
-            <Button Margin="1" Grid.Row ="1" Grid.Column="2" Content="8" Name="btnHuit" Click="btn_Click" FontSize="36"  />
-            <Button Margin="1" Grid.Row ="1" Grid.Column="3" Content="9" Name="btnNeuf" Click="btn_Click" FontSize="36"   />
-            <Button Margin="1" Grid.Row ="4" Grid.Column="2" Content="0" Name="btnZero" Click="btn_Click" FontSize="36"  />
+            <TextBox BorderBrush="Transparent" Background="Transparent" x:Name="txtAuthentification" Margin="42,10,48,33" Panel.ZIndex="2" Grid.Row="0" MaxLength="4" TextAlignment="Right" FontSize="48" TextDecorations="{x:Null}" FontFamily="Adobe Caslon Pro Bold" Grid.Column="1" Grid.ColumnSpan="3" Focusable="False"/>
+            <Button Margin="1" Grid.Row ="3" Grid.Column="1" Content="1" Name="btnUn" Click="btn_Click" FontSize="48"  />
+            <Button Margin="1" Grid.Row ="3" Grid.Column="2" Content="2" Name="btnDeux" Click="btn_Click" FontSize="48"  />
+            <Button Margin="1" Grid.Row ="3" Grid.Column="3" Content="3" Name="btnTrois" Click="btn_Click" FontSize="48"  />
+            <Button Margin="1" Grid.Row ="2" Grid.Column="1" Content="4" Name="btnQuatre" Click="btn_Click" FontSize="48"  />
+            <Button Margin="1" Grid.Row ="2" Grid.Column="2" Content="5" Name="btnCinq" Click="btn_Click" FontSize="48"  />
+            <Button Margin="1" Grid.Row ="2" Grid.Column="3" Content="6" Name="btnSix" Click="btn_Click" FontSize="48"  />
+            <Button Margin="1" Grid.Row ="1" Grid.Column="1" Content="7" Name="btnSept" Click="btn_Click" FontSize="48" />
+            <Button Margin="1" Grid.Row ="1" Grid.Column="2" Content="8" Name="btnHuit" Click="btn_Click" FontSize="48"  />
+            <Button Margin="1" Grid.Row ="1" Grid.Column="3" Content="9" Name="btnNeuf" Click="btn_Click" FontSize="48"   />
+            <Button Margin="1" Grid.Row ="4" Grid.Column="2" Content="0" Name="btnZero" Click="btn_Click" FontSize="48"  />
             <Button Margin="1" Grid.Row ="4" Grid.Column="1" Name="btnRetour" Click="btnRetour_Click" FontSize="36">
                 <Image Source="/Images/backspace.png" Height="60"/>
             </Button> 
