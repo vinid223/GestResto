@@ -56,14 +56,30 @@ namespace GestResto.UI.Views
             if( Constante.commande != null && 
                 Constante.commande.ListeClients != null && 
                 Constante.commande.ListeClients.Count > 0)
-            { 
+            {
 
+                foreach (FormatItemClientFacture ficf in Constante.commande.ListeClients.First().ListeFormatItemClientFacture)
+                {
+                    if(!ficf.EstComplementaire)
+                    {
+                        
+                        // On ajoute le ficf
+                        lbxItemsClient.Items.Add(ficf); 
+                    }
+
+                    // On parcours la liste de ficf du ficf principal
+                    foreach (FormatItemClientFacture ficfChild in ficf.ListFicf)
+                    {
+                        // On ajoute le ficfChild à la list en déterminant le style de l'élément
+                        lbxItemsClient.Items.Add(ficfChild);
+                    }
+                }
 
                // On tag tous les items complémentaires
                Constante.commande.ListeClients.First().ListeFormatItemClientFacture.ToList().ForEach(x => x.ListFicf.ToList().ForEach( y => y.EstComplementaire = true));
 
                // On attibut 
-               lbxItemsClient.ItemsSource = Constante.commande.ListeClients.First().ListeFormatItemClientFacture;
+               // TODO à enlever lbxItemsClient.ItemsSource = Constante.commande.ListeClients.First().ListeFormatItemClientFacture;
             }
 
             // Si on vient de créer la commande, je dois ajouter un client au départ vide.
@@ -156,8 +172,18 @@ namespace GestResto.UI.Views
                 FormatItemClientFacture ficfTemp = new FormatItemClientFacture();
                 // Il faut que j'aille l'item sélectionné dans la liste d'item
                 ficfTemp = (FormatItemClientFacture)lbxItemsClient.SelectedItem;
-                ficfTemp.EstComplementaire = true; // Ajouté par Simon 20/11/2014 pour savoir que c'est un complément
+                ficf.EstComplementaire = true; // Ajouté par Simon 20/11/2014 pour savoir que c'est un complément
+
+                
+
                 g_Client().ListeFormatItemClientFacture.Where(x => x.IdFormatItemClientFacture == ficfTemp.IdFormatItemClientFacture).First().ListFicf.Add(ficf);
+
+                // Refresh de la liste d'items du client
+                lbxItemsClient.ItemsSource = g_Client().ListeFormatItemClientFacture;
+                lbxItemsClient.Items.Refresh();
+
+                // Ajout à la BD.
+                ViewModel.EnregistrerUneCommande(ViewModel.LaCommande);
             }
         }
 

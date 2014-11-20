@@ -163,6 +163,7 @@
                         <Condition Binding="{Binding Path=EstComplementaire}" Value="True"/>
                     </MultiDataTrigger.Conditions>
                     <Setter Property="Padding" Value="20,0,0,0" />
+                    <Setter Property="VerticalAlignment" Value="Center"/>
                 </MultiDataTrigger>
             </Style.Triggers>
         </Style>

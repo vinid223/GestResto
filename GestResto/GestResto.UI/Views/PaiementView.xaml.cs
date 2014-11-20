@@ -25,6 +25,9 @@ namespace GestResto.UI.Views
     {
         public double montantPaye;      // Le montant que le client paye
         private double montantRestant;  // Le montant qu'il reste à payer au client
+        private double sousTotal;
+        private double taxes;
+        private double total;
         private string modePaiement;    // Le mode de paiement du client
         
         public PaiementView(Client client)
@@ -32,11 +35,30 @@ namespace GestResto.UI.Views
             InitializeComponent();
             lblNom.Content = Constante.employe.ToString();
 
+            sousTotal = 0; // On initialise le montant restant à 0$
 
+            // On va chercher tous les prix
+            foreach (FormatItemClientFacture ficf in client.FactureClient.ListeFormatItemClientFacture)
+            {
+                sousTotal += ficf.Prix;
+
+                foreach(FormatItemClientFacture ficfChild in ficf.ListFicf)
+                {
+                    sousTotal += ficf.Prix;
+                }
+            }
+
+            taxes = sousTotal * client.FactureClient.PourcentageTaxe;
+            total = sousTotal+taxes;
+            montantRestant = total;
             montantPaye = 0;
-            montantRestant=10;
-            modePaiement=null;
 
+            modePaiement = null;
+
+            
+            txtSousTotal.Text = sousTotal.ToString("C2");
+            txtTaxes.Text = taxes.ToString("C2");
+            txtTotal.Text = total.ToString("C2");
             txtMontantRestant.Text = montantRestant.ToString("C2");
 
             // On affiche le montant C indique qu'on veut signe de $ et le 2 indique le nombre de décimales

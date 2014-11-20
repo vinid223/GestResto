@@ -118,14 +118,14 @@ namespace GestResto.Logic.Model.Entities
         {
             get
             {
-                return FormatAssocie.Nom + " - " + Prix + "$";
+                return FormatAssocie.Nom + " - " + Prix.ToString("C2");
             }
             
         }
 
         public override string ToString()
         {
-            return ItemAssocie.Nom + " " + FormatAssocie.Libelle + " " + Prix;
+            return ItemAssocie.Nom + " " + FormatAssocie.Libelle + " " + Prix.ToString("C2");
         }
         /// <summary>
         /// Permet de comparer deux catégories.
