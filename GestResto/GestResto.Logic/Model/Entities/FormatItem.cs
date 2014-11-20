@@ -125,7 +125,7 @@ namespace GestResto.Logic.Model.Entities
 
         public override string ToString()
         {
-            return ItemAssocie.Nom + " " + FormatAssocie.Libelle + " " + Prix;
+            return ItemAssocie.Nom + " (" + FormatAssocie.Libelle + ") " + Prix;
         }
         /// <summary>
         /// Permet de comparer deux catégories.
