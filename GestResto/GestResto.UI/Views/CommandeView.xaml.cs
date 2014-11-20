@@ -87,8 +87,7 @@ namespace GestResto.UI.Views
 
                 ViewModel.LaCommande.ListeClients.Add(new Client());
                 ViewModel.EnregistrerUnNouveauClient(ViewModel.LaCommande);
-                // Puisque je ne suis pas capable d'avoir le id du client, je reload toute la liste.
-                ViewModel.TousLesClientsDeLaCommande();
+                
 
             }
 
@@ -160,7 +159,7 @@ namespace GestResto.UI.Views
                 lbxItemsClient.Items.Refresh();
 
                 // Ajout à la BD.
-                ViewModel.AjouterUnFicf(ficf);
+                ViewModel.EnregistrerUneCommande(ViewModel.LaCommande);
 
 
                 // Update de la variable statique
@@ -188,7 +187,7 @@ namespace GestResto.UI.Views
         private void btnSuivantClient_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             // Si cette condition est respectée je peux afficher le client suivant
-            if (NumeroClient <= ViewModel.LaCommande.ListeClients.Count - 1)
+            if (NumeroClient < ViewModel.LaCommande.ListeClients.Count - 1)
             {
                 // Si on avance de client, on s'assure que le bouton précédent est Enabled.
                 btnClientPrecedent.IsEnabled = true;

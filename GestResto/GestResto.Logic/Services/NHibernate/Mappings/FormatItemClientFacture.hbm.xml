@@ -25,7 +25,7 @@
         <column name="idFormatItem" not-null="true" sql-type="INTEGER" />
     </many-to-one>
 
-    <bag name="ListFicf" inverse="false"  generic="true" lazy="false" cascade="all">
+    <bag name="ListFicf" inverse="false"  generic="true" lazy="true" cascade="all">
       <key>
         <column name="idFicfParent" />
       </key>

@@ -21,6 +21,7 @@ namespace GestResto.Logic.Services.NHibernate
         #endregion
         public void Create(FormatItemClientFacture ficf)
         {
+
             using (var transaction = session.BeginTransaction())
             {
                 session.Save(ficf);
