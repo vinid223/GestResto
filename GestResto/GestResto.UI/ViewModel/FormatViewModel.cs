@@ -45,6 +45,13 @@ namespace GestResto.UI.ViewModel
         public FormatViewModel()
         {
             Formats = new ObservableCollection<Format>(ServiceFactory.Instance.GetService<IFormatService>().RetrieveAll());
+
+            // On boucle dans tous les formats qu'on a chargé pour leur donner la propriété de non modifié
+            foreach (var item in Formats)
+            {
+                item.EstModifie = false;
+            }
+
             _formatService = ServiceFactory.Instance.GetService<IFormatService>();
         }
 

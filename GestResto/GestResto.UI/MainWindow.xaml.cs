@@ -74,11 +74,18 @@ namespace GestResto.UI
             ServiceFactory.Instance.Register<IApplicationService, MainViewModel>((MainViewModel)this.DataContext);
         }
 
+        /// <summary>
+        /// Fonction permettant de vérifier les droits de fermeture de l'application
+        /// </summary>
         protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
         {
+            // On test si on a le droit de quitter
             if (!Constante.peutQuitter)
             {
+                // On affiche un message si on a pas le droit
                 MessageBox.Show("Vous n'avez pas l'authorisation de quitter l'application.", "Impossible de quitter", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+
+                // On indique au programme de ne pas quitter
                 e.Cancel = true;
             }
         }
@@ -90,7 +97,6 @@ namespace GestResto.UI
     public static class Constante
     {
         private static Employe _employe;
-
         // Propriété de l'employé pour pouvoir gérer les droits de fermeture de l'application
         public static Employe employe
         {
@@ -148,15 +154,15 @@ namespace GestResto.UI
             // On définie la string avec le header et la string au complet
             if (employe == null)
             {
-                MessageHeader = "-------" + DateTime.Now + "----- Utilisateur: Indéfinie ----- " + MessageDeNavigation + "\n";
+                MessageHeader = "-------" + DateTime.Now + "----- Utilisateur: Indéfinie ----- " + MessageDeNavigation;
             }
             else if (employe.IdEmploye == null)
             {
-                MessageHeader = "-------" + DateTime.Now + "----- Utilisateur: Indéfinie ----- " + MessageDeNavigation + "\n";
+                MessageHeader = "-------" + DateTime.Now + "----- Utilisateur: Indéfinie ----- " + MessageDeNavigation;
             }
             else
             {
-                MessageHeader = "-------" + DateTime.Now + "----- Utilisateur: " + employe.Nom + ", " + employe.Prenom + " ------ " + MessageDeNavigation + "\n";
+                MessageHeader = "-------" + DateTime.Now + "----- Utilisateur: " + employe.Nom + ", " + employe.Prenom + " ------ " + MessageDeNavigation;
             }
             
             // On enregistre dans le fichier de log la ligne
@@ -170,7 +176,6 @@ namespace GestResto.UI
             }
         }
 
-
         /// <summary>
         /// Fonction permettant de logger les messages d'erreurs
         /// </summary>
@@ -182,15 +187,15 @@ namespace GestResto.UI
             // On définie la string avec le header et la string au complet
             if (employe == null)
             {
-                MessageHeader = "-------" + DateTime.Now + "----- Utilisateur: Indéfinie ----- " + MessageDErreur + "\n";
+                MessageHeader = "-------" + DateTime.Now + "----- Utilisateur: Indéfinie ----- " + MessageDErreur;
             }
             else if (employe.IdEmploye == null)
             {
-                MessageHeader = "-------" + DateTime.Now + "----- Utilisateur: Indéfinie ----- " + MessageDErreur + "\n";
+                MessageHeader = "-------" + DateTime.Now + "----- Utilisateur: Indéfinie ----- " + MessageDErreur;
             }
             else
             {
-                MessageHeader = "-------" + DateTime.Now + "----- Utilisateur: " + employe.Nom + ", " + employe.Prenom + " ------ " + MessageDErreur + "\n";
+                MessageHeader = "-------" + DateTime.Now + "----- Utilisateur: " + employe.Nom + ", " + employe.Prenom + " ------ " + MessageDErreur;
             }
 
             // On enregistre dans le fichier de log la ligne

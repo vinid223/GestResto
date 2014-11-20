@@ -22,14 +22,82 @@ namespace GestResto.Logic.Model.Entities
     /// un format permet à l'utilisateur de savoir le prix de l'item,
     /// il peut avoir 1 format minimum et plusieurs qui sera choisi lors de la facture.
     /// </summary>
-    public class Format
+    public class Format : BaseEntity
     {
         #region Variables de la classe
 
         public virtual int? IdFormat { get; set; }
-        public virtual string Nom { get; set; }
-        public virtual string Libelle { get; set; }
-        public virtual bool EstActif { get; set; }
+        private string _nom;
+        private string _libelle;
+        private bool _estActif;
+        private bool _estModifie;
+
+        #endregion
+
+        #region Propriété
+
+        public virtual string Nom
+        {
+            get
+            {
+                return _nom;
+            }
+            set
+            {
+                RaisePropertyChanging();
+                RaisePropertyChanging("EstModifie");
+                _nom = value;
+                _estModifie = true;
+                RaisePropertyChanged();
+                RaisePropertyChanged("EstModifie");
+            }
+        }
+        public virtual string Libelle
+        {
+            get
+            {
+                return _libelle;
+            }
+            set
+            {
+                RaisePropertyChanging();
+                RaisePropertyChanging("EstModifie");
+                _libelle = value;
+                _estModifie = true;
+                RaisePropertyChanged();
+                RaisePropertyChanged("EstModifie");
+            }
+        }
+        public virtual bool EstActif
+        {
+            get
+            {
+                return _estActif;
+            }
+            set
+            {
+                RaisePropertyChanging();
+                RaisePropertyChanging("EstModifie");
+                _estActif = value;
+                _estModifie = true;
+                RaisePropertyChanged();
+                RaisePropertyChanged("EstModifie");
+            }
+        }
+        public virtual bool EstModifie
+        {
+            get
+            {
+                return _estModifie;
+            }
+
+            set
+            {
+                RaisePropertyChanging();
+                _estModifie = value;
+                RaisePropertyChanged();
+            }
+        }
 
         #endregion
 
@@ -74,7 +142,6 @@ namespace GestResto.Logic.Model.Entities
         }
 
         #endregion
-
 
         #region Redéfinition de fonctions de bases
         /// <summary>
