@@ -26,6 +26,21 @@
 
         <!-- Boutons de navigation -->
         <Grid Grid.ColumnSpan="2" Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="80"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0" Style="{StaticResource BoutonGrid}" Name="btnQuitter" MouseLeftButtonDown="btn_MouseLeftButtonDown" MouseLeftButtonUp="btnQuitter_MouseLeftButtonUp">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="30"/>
+                </Grid.RowDefinitions>
+                <Border Style="{StaticResource BoutonBorder}">
+                    <Image Source="/Images/door.png" Style="{StaticResource BoutonImage}"/>
+                </Border>
+                <Label Style="{StaticResource BoutonLabel}">Quitter</Label>
+            </Grid>
 
             <StackPanel Grid.Column="1"  Orientation="Horizontal" HorizontalAlignment="Right" Grid.ColumnSpan="2">
                 <Grid Grid.Column="1" Style="{StaticResource BoutonGrid}" Name="btnDeconnexion" MouseLeftButtonDown="btn_MouseLeftButtonDown" MouseLeftButtonUp="btnDeconnexion_MouseLeftButtonUp">
