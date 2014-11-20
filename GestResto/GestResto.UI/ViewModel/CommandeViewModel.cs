@@ -35,6 +35,15 @@ namespace GestResto.UI.ViewModel
             _commandeService = ServiceFactory.Instance.GetService<ICommandeService>();
         }
 
+        /// <summary>
+        /// Update tous les clients de la commande.
+        /// </summary>
+        /// <param name="commande"></param>
+        public void TousLesClientsDeLaCommande()
+        {
+            LaCommande = _commandeService.Retrieve((int)LaCommande.IdCommande);
+        }
+
         public int AjouterUnFicf(FormatItemClientFacture ficf)
         {
             // On insert l'enregistrement dans la base de donnée

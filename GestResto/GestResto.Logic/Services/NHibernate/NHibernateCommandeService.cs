@@ -50,10 +50,10 @@ namespace GestResto.Logic.Services.NHibernate
             return listeTemp;
         }
 
-        public Commande Retrieve(RetrieveCommandeArgs args)
+        public Commande Retrieve(int idCommande)
         {
             var result = from c in session.Query<Commande>()
-                         where c.IdCommande == args.IIdCommande
+                         where c.IdCommande == idCommande
                          select c;
 
             return result.FirstOrDefault();
