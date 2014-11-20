@@ -27,7 +27,11 @@
         <Label Foreground="White" x:Name="lblListeTable" Content="Liste de toutes les tables" HorizontalContentAlignment="Center" Margin="11,10,11,0" VerticalAlignment="Top" Height="34" Grid.Column="1" Grid.Row="1" FontSize="16"/>
         <Label Foreground="White" x:Name="lblTitre" Content="Informations d'une table" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" Height="37" Width="209" Grid.Row="1" FontSize="18"/>
         <Label Foreground="White" x:Name="lblNumeroTable" Content="Numéro de la table" HorizontalAlignment="Left" Margin="14,51,0,0" VerticalAlignment="Top" Height="39" Width="157" Grid.Row="1" FontSize="16"/>
-        <TextBox x:Name="txtNumeroTable" IsEnabled="False" MaxLength="5" Text="{Binding table.NoTable, UpdateSourceTrigger=PropertyChanged}" Height="36" Margin="176,54,25,0" TextWrapping="Wrap" VerticalAlignment="Top" Grid.Row="1" FontSize="16"/>
+        <TextBox
+            MouseDoubleClick="txtSelectionnerTout"
+            GotKeyboardFocus="txtSelectionnerTout"
+            PreviewMouseLeftButtonDown="SelectivelyIgnoreMouseButton" 
+             x:Name="txtNumeroTable" IsEnabled="False" MaxLength="5" Text="{Binding table.NoTable, UpdateSourceTrigger=PropertyChanged}" Height="36" Margin="176,54,25,0" TextWrapping="Wrap" VerticalAlignment="Top" Grid.Row="1" FontSize="16"/>
         <CheckBox Foreground="White" IsEnabled="False" IsChecked="{Binding table.EstActif, UpdateSourceTrigger=PropertyChanged}" x:Name="chkActif" Content="Actif" HorizontalAlignment="Left" Margin="176,102,0,0" VerticalAlignment="Top" Height="22" Width="74" Grid.Row="1" FontSize="16"/>
 
         <!-- Boutons de navigation -->

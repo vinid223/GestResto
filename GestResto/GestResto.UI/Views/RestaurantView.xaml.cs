@@ -203,5 +203,47 @@ namespace GestResto.UI.Views
 
             return true;
         }
+        
+        // Fonction qui permet de tester le focus
+        private void SelectivelyIgnoreMouseButton(object sender, MouseButtonEventArgs e)
+        {
+            TextBox tb = (sender as TextBox);
+
+            if (tb != null)
+            {
+                if (!tb.IsKeyboardFocusWithin)
+                {
+                    e.Handled = true;
+
+                    tb.Focus();
+                }
+            }
+        }
+
+        /// <summary>
+        /// Fonction permettant de tout sélectionner dans le bouton lorsqu'on vient par le clavier
+        /// </summary>
+        private void txtSelectionnerTout(object sender, KeyboardFocusChangedEventArgs e)
+        {
+            TextBox tb = (sender as TextBox);
+
+            if (tb != null)
+            {
+                tb.SelectAll();
+            }
+        }
+
+        /// <summary>
+        /// Fonction permettant de tout sélectionner dans le bouton lorsqu'on vient de la souris
+        /// </summary>
+        private void txtSelectionnerTout(object sender, MouseButtonEventArgs e)
+        {
+            TextBox tb = (sender as TextBox);
+
+            if (tb != null)
+            {
+                tb.SelectAll();
+            }
+        }
     }
 }

@@ -20,26 +20,66 @@
         <Label Foreground="White" Content="Liste de tous les employés" HorizontalContentAlignment="Center" Margin="10,10,10,0" VerticalAlignment="Top" Grid.Column="1" Grid.Row="1" FontSize="14"/>
         <ComboBox Name="cbxType" Margin="119,41,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="188" IsEnabled="False" ItemsSource="{Binding TypesEmployes}" SelectedItem="{Binding employe.TypeEmployes}" Grid.Row="1" FontSize="14"/>
         <Label Foreground="White" Content="Numéro" HorizontalAlignment="Left" Margin="312,38,0,0" VerticalAlignment="Top" Width="63" Grid.Row="1" FontSize="14"/>
-        <TextBox Name="txtNum" Height="23" Margin="375,41,4,0" TextWrapping="Wrap" Text="{Binding employe.NoEmploye, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" IsEnabled="False" Grid.Row="1" FontSize="14"/>
+        <TextBox
+            MouseDoubleClick="txtSelectionnerTout"
+            GotKeyboardFocus="txtSelectionnerTout"
+            PreviewMouseLeftButtonDown="SelectivelyIgnoreMouseButton" 
+             Name="txtNum" Height="23" Margin="375,41,4,0" TextWrapping="Wrap" Text="{Binding employe.NoEmploye, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" IsEnabled="False" Grid.Row="1" FontSize="14"/>
         <Label Foreground="White" Content="Nom" Margin="10,70,0,0" VerticalAlignment="Top" Grid.Row="1" FontSize="14" HorizontalAlignment="Left" Width="109"/>
-        <TextBox Name="txtNom" Height="23" Margin="120,74,4,0" TextWrapping="Wrap" VerticalAlignment="Top" IsEnabled="False" Text="{Binding employe.Nom, UpdateSourceTrigger=PropertyChanged}" Grid.Row="1" FontSize="14"/>
+        <TextBox
+            MouseDoubleClick="txtSelectionnerTout"
+            GotKeyboardFocus="txtSelectionnerTout"
+            PreviewMouseLeftButtonDown="SelectivelyIgnoreMouseButton" 
+             Name="txtNom" Height="23" Margin="120,74,4,0" TextWrapping="Wrap" VerticalAlignment="Top" IsEnabled="False" Text="{Binding employe.Nom, UpdateSourceTrigger=PropertyChanged}" Grid.Row="1" FontSize="14"/>
         <Label Foreground="White" Content="Prénom" Margin="10,107,0,0" VerticalAlignment="Top" Grid.Row="1" FontSize="14" HorizontalAlignment="Left" Width="109"/>
-        <TextBox Name="txtPrenom" Height="23" Margin="120,109,4,0" TextWrapping="Wrap" VerticalAlignment="Top" IsEnabled="False" Text="{Binding employe.Prenom, UpdateSourceTrigger=PropertyChanged}" Grid.Row="1" FontSize="14"/>
+        <TextBox
+            MouseDoubleClick="txtSelectionnerTout"
+            GotKeyboardFocus="txtSelectionnerTout"
+            PreviewMouseLeftButtonDown="SelectivelyIgnoreMouseButton" 
+             Name="txtPrenom" Height="23" Margin="120,109,4,0" TextWrapping="Wrap" VerticalAlignment="Top" IsEnabled="False" Text="{Binding employe.Prenom, UpdateSourceTrigger=PropertyChanged}" Grid.Row="1" FontSize="14"/>
         <Label Foreground="White" Content="Téléphone" Margin="10,142,0,0" VerticalAlignment="Top" Grid.Row="1" FontSize="14" HorizontalAlignment="Left" Width="109"/>
-        <TextBox Name="txtTel" Height="23" Margin="120,144,4,0" TextWrapping="Wrap" VerticalAlignment="Top" IsEnabled="False" Text="{Binding employe.Telephone, UpdateSourceTrigger=PropertyChanged}" Grid.Row="1" FontSize="14"/>
+        <TextBox
+            MouseDoubleClick="txtSelectionnerTout"
+            GotKeyboardFocus="txtSelectionnerTout"
+            PreviewMouseLeftButtonDown="SelectivelyIgnoreMouseButton" 
+             Name="txtTel" Height="23" Margin="120,144,4,0" TextWrapping="Wrap" VerticalAlignment="Top" IsEnabled="False" Text="{Binding employe.Telephone, UpdateSourceTrigger=PropertyChanged}" Grid.Row="1" FontSize="14"/>
         <Label Foreground="White" Content="Mot De Passe" Margin="10,175,0,0" VerticalAlignment="Top" Grid.Row="1" FontSize="14" HorizontalAlignment="Left" Width="109"/>
-        <TextBox Name="txtMDP" Height="23" Margin="120,179,4,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.525,-0.043" IsEnabled="False" Text="{Binding employe.MotDePasse, UpdateSourceTrigger=PropertyChanged}" Grid.Row="1" FontSize="14"/>
+        <TextBox
+            MouseDoubleClick="txtSelectionnerTout"
+            GotKeyboardFocus="txtSelectionnerTout"
+            PreviewMouseLeftButtonDown="SelectivelyIgnoreMouseButton" 
+             Name="txtMDP" Height="23" Margin="120,179,4,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.525,-0.043" IsEnabled="False" Text="{Binding employe.MotDePasse, UpdateSourceTrigger=PropertyChanged}" Grid.Row="1" FontSize="14"/>
         <Label Foreground="White" Content="Adresse" Margin="10,212,0,0" VerticalAlignment="Top" Grid.Row="1" FontSize="14" HorizontalAlignment="Left" Width="109"/>
-        <TextBox Name="txtAdresse" Height="23" Margin="120,215,4,0" TextWrapping="Wrap" VerticalAlignment="Top" IsEnabled="False" Text="{Binding employe.Adresse, UpdateSourceTrigger=PropertyChanged}" Grid.Row="1" FontSize="14"/>
+        <TextBox
+            MouseDoubleClick="txtSelectionnerTout"
+            GotKeyboardFocus="txtSelectionnerTout"
+            PreviewMouseLeftButtonDown="SelectivelyIgnoreMouseButton" 
+             Name="txtAdresse" Height="23" Margin="120,215,4,0" TextWrapping="Wrap" VerticalAlignment="Top" IsEnabled="False" Text="{Binding employe.Adresse, UpdateSourceTrigger=PropertyChanged}" Grid.Row="1" FontSize="14"/>
         <Label Foreground="White" Content="Ville" Margin="10,246,0,0" VerticalAlignment="Top" Grid.Row="1" FontSize="14" HorizontalAlignment="Left" Width="109"/>
-        <TextBox Name="txtVille" Height="23" Margin="120,250,4,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.525,-0.043" IsEnabled="False" Text="{Binding employe.Ville, UpdateSourceTrigger=PropertyChanged}" Grid.Row="1" FontSize="14"/>
+        <TextBox
+            MouseDoubleClick="txtSelectionnerTout"
+            GotKeyboardFocus="txtSelectionnerTout"
+            PreviewMouseLeftButtonDown="SelectivelyIgnoreMouseButton" 
+             Name="txtVille" Height="23" Margin="120,250,4,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.525,-0.043" IsEnabled="False" Text="{Binding employe.Ville, UpdateSourceTrigger=PropertyChanged}" Grid.Row="1" FontSize="14"/>
 
         <Label Foreground="White" Content="Code Postal" Margin="10,280,0,0" VerticalAlignment="Top" Grid.Row="1" FontSize="14" HorizontalAlignment="Left" Width="109"/>
-        <TextBox Name="txtCP" Height="23" Margin="120,284,4,0" TextWrapping="Wrap" VerticalAlignment="Top" IsEnabled="False" Text="{Binding employe.CodePostal, UpdateSourceTrigger=PropertyChanged}" Grid.Row="1" FontSize="14"/>
+        <TextBox
+            MouseDoubleClick="txtSelectionnerTout"
+            GotKeyboardFocus="txtSelectionnerTout"
+            PreviewMouseLeftButtonDown="SelectivelyIgnoreMouseButton" 
+             Name="txtCP" Height="23" Margin="120,284,4,0" TextWrapping="Wrap" VerticalAlignment="Top" IsEnabled="False" Text="{Binding employe.CodePostal, UpdateSourceTrigger=PropertyChanged}" Grid.Row="1" FontSize="14"/>
         <Label Foreground="White" Content="NAS" Margin="10,315,0,0" VerticalAlignment="Top" Grid.Row="1" FontSize="14" HorizontalAlignment="Left" Width="109"/>
-        <TextBox Name="txtNAS" Height="23" Margin="120,319,4,0" TextWrapping="Wrap" VerticalAlignment="Top" IsEnabled="False" Text="{Binding employe.NAS, UpdateSourceTrigger=PropertyChanged}" Grid.Row="1" FontSize="14"/>
+        <TextBox
+            MouseDoubleClick="txtSelectionnerTout"
+            GotKeyboardFocus="txtSelectionnerTout"
+            PreviewMouseLeftButtonDown="SelectivelyIgnoreMouseButton" 
+             Name="txtNAS" Height="23" Margin="120,319,4,0" TextWrapping="Wrap" VerticalAlignment="Top" IsEnabled="False" Text="{Binding employe.NAS, UpdateSourceTrigger=PropertyChanged}" Grid.Row="1" FontSize="14"/>
         <Label Foreground="White" Content="Taux Horaire" Margin="10,351,0,0" VerticalAlignment="Top" Grid.Row="1" FontSize="14" HorizontalAlignment="Left" Width="109"/>
-        <TextBox Name="txtTauxHoraire" Height="23" Margin="120,355,0,0" TextWrapping="Wrap" VerticalAlignment="Top" IsEnabled="False" Text="{Binding employe.Salaire, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Width="309" Grid.Row="1" FontSize="14"/>
+        <TextBox
+            MouseDoubleClick="txtSelectionnerTout"
+            GotKeyboardFocus="txtSelectionnerTout"
+            PreviewMouseLeftButtonDown="SelectivelyIgnoreMouseButton" 
+             Name="txtTauxHoraire" Height="23" Margin="120,355,0,0" TextWrapping="Wrap" VerticalAlignment="Top" IsEnabled="False" Text="{Binding employe.Salaire, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Width="309" Grid.Row="1" FontSize="14"/>
         <CheckBox Foreground="White" Name="chkActif" Content="Actif" Margin="434,357,4,0" VerticalAlignment="Top" IsEnabled="False" IsChecked="{Binding employe.EstActif}" Grid.Row="1" FontSize="14"/>
 
         <!-- Définition de la liste view-->

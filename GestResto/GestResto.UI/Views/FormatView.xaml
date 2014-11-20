@@ -17,9 +17,17 @@
         </Grid.ColumnDefinitions>
         <Label Foreground="White" Content="Informations d'un format" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="256" Grid.Row="1" FontSize="18"/>
         <Label Foreground="White" Content="Nom du format" HorizontalAlignment="Left" Margin="10,62,0,0" VerticalAlignment="Top" Width="128" Grid.Row="1" FontSize="16"/>
-        <TextBox  HorizontalAlignment="Stretch" Height="23" Text="{Binding Format.Nom, UpdateSourceTrigger=PropertyChanged}" Margin="143,62,0,0" VerticalAlignment="Top"  Name="txtNomFormat" IsEnabled="False" Grid.Row="1" FontSize="16"/>
+        <TextBox
+            MouseDoubleClick="txtSelectionnerTout"
+            GotKeyboardFocus="txtSelectionnerTout"
+            PreviewMouseLeftButtonDown="SelectivelyIgnoreMouseButton" 
+               HorizontalAlignment="Stretch" Height="23" Text="{Binding Format.Nom, UpdateSourceTrigger=PropertyChanged}" Margin="143,62,0,0" VerticalAlignment="Top"  Name="txtNomFormat" IsEnabled="False" Grid.Row="1" FontSize="16"/>
         <Label Foreground="White" Content="Libellé" HorizontalAlignment="Left" Margin="10,92.701,0,0" VerticalAlignment="Top" Width="94" Grid.Row="1" FontSize="16"/>
-        <TextBox HorizontalAlignment="Stretch" Height="23" Text="{Binding Format.Libelle, UpdateSourceTrigger=PropertyChanged}" Margin="143,93,0,0" VerticalAlignment="Top" Name="txtLibelle" IsEnabled="False" Grid.Row="1" FontSize="16"/>
+        <TextBox
+            MouseDoubleClick="txtSelectionnerTout"
+            GotKeyboardFocus="txtSelectionnerTout"
+            PreviewMouseLeftButtonDown="SelectivelyIgnoreMouseButton" 
+              HorizontalAlignment="Stretch" Height="23" Text="{Binding Format.Libelle, UpdateSourceTrigger=PropertyChanged}" Margin="143,93,0,0" VerticalAlignment="Top" Name="txtLibelle" IsEnabled="False" Grid.Row="1" FontSize="16"/>
         <CheckBox Foreground="White" Content="Actif" HorizontalAlignment="Left" IsChecked="{Binding Format.EstActif}" Margin="143,121,0,0" VerticalAlignment="Top" Width="56" Name="cbxActif" IsEnabled="False" Grid.Row="1" FontSize="16"/>
 
         <Label Foreground="White" Content="Liste des formats" Margin="50,20,50,0" VerticalAlignment="Top" Grid.Column="1" Grid.Row="1" FontSize="16" HorizontalContentAlignment="Center"/>
