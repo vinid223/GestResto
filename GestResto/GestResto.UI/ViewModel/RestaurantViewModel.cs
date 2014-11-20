@@ -37,6 +37,7 @@ namespace GestResto.UI.ViewModel
         {
             _restoService = ServiceFactory.Instance.GetService<IRestaurantService>();
             Restaurant = ObtenirRestaurant(1);
+            Restaurant.EstModifie = false;
         }
 
         public Restaurant ObtenirRestaurant(int i)

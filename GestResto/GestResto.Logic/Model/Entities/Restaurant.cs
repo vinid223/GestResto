@@ -20,18 +20,149 @@ namespace GestResto.Logic.Model.Entities
     /// <summary>
     /// Classe contenant toutes les informations d'un restaurant
     /// </summary>
-    public class Restaurant 
+    public class Restaurant : BaseEntity
     {
         #region Liste des variables de la classe
 
         public virtual int? IdRestaurant { get; set; }
-        public virtual string Nom { get; set; }
-        public virtual string Adresse { get; set; }
-        public virtual string Telephone { get; set; }
-        public virtual string Fax { get; set; }
-        public virtual string Ville { get; set; }
-        public virtual string CodePostal { get; set; }
-        public virtual DateTime DateCreation { get; set; }
+        private string _nom;
+        private string _adresse;
+        private string _telephone;
+        private string _fax;
+        private string _ville;
+        private string _codePostal;
+        private DateTime _dateCreation;
+        private bool _estModifie;
+
+        #endregion
+
+        #region Propriété
+
+        public virtual string Nom
+        {
+            get
+            {
+                return _nom;
+            }
+            set
+            {
+                RaisePropertyChanging();
+                RaisePropertyChanging("EstModifie");
+                _nom = value;
+                _estModifie = true;
+                RaisePropertyChanged();
+                RaisePropertyChanged("EstModifie");
+            }
+        }
+        public virtual string Adresse
+        {
+            get
+            {
+                return _adresse;
+            }
+            set
+            {
+                RaisePropertyChanging();
+                RaisePropertyChanging("EstModifie");
+                _adresse = value;
+                _estModifie = true;
+                RaisePropertyChanged();
+                RaisePropertyChanged("EstModifie");
+            }
+        }
+        public virtual string Telephone
+        {
+            get
+            {
+                return _telephone;
+            }
+            set
+            {
+                RaisePropertyChanging();
+                RaisePropertyChanging("EstModifie");
+                _telephone = value;
+                _estModifie = true;
+                RaisePropertyChanged();
+                RaisePropertyChanged("EstModifie");
+            }
+        }
+        public virtual string Fax
+        {
+            get
+            {
+                return _fax;
+            }
+            set
+            {
+                RaisePropertyChanging();
+                RaisePropertyChanging("EstModifie");
+                _fax = value;
+                _estModifie = true;
+                RaisePropertyChanged();
+                RaisePropertyChanged("EstModifie");
+            }
+        }
+        public virtual string Ville
+        {
+            get
+            {
+                return _ville;
+            }
+            set
+            {
+                RaisePropertyChanging();
+                RaisePropertyChanging("EstModifie");
+                _ville = value;
+                _estModifie = true;
+                RaisePropertyChanged();
+                RaisePropertyChanged("EstModifie");
+            }
+        }
+        public virtual string CodePostal
+        {
+            get
+            {
+                return _codePostal;
+            }
+            set
+            {
+                RaisePropertyChanging();
+                RaisePropertyChanging("EstModifie");
+                _codePostal = value;
+                _estModifie = true;
+                RaisePropertyChanged();
+                RaisePropertyChanged("EstModifie");
+            }
+        }
+        public virtual DateTime DateCreation
+        {
+            get
+            {
+                return _dateCreation;
+            }
+            set
+            {
+                RaisePropertyChanging();
+                RaisePropertyChanging("EstModifie");
+                _dateCreation = value;
+                _estModifie = true;
+                RaisePropertyChanged();
+                RaisePropertyChanged("EstModifie");
+            }
+        }
+        public virtual bool EstModifie
+        {
+            get
+            {
+                return _estModifie;
+            }
+            set
+            {
+                RaisePropertyChanging();
+                _estModifie = value;
+                RaisePropertyChanged();
+            }
+        }
 
         #endregion
 

@@ -53,8 +53,13 @@ namespace GestResto.UI.Views
         private void btnRetour_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             Constante.onReleaseButton(sender, e); // On enlève l'effet du bouton pressé
-            IApplicationService mainVM = ServiceFactory.Instance.GetService<IApplicationService>();
-            mainVM.ChangeView<OptionsAdministrationView>(new OptionsAdministrationView());
+
+            // On test si les informations du restaurant ont été modifié
+            if (TesterSiModifie())
+            {
+                IApplicationService mainVM = ServiceFactory.Instance.GetService<IApplicationService>();
+                mainVM.ChangeView<OptionsAdministrationView>(new OptionsAdministrationView());   
+            }
         }
 
         private void btnEnregistrer_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
@@ -141,19 +146,62 @@ namespace GestResto.UI.Views
                 }
                 Constante.LogNavigation("Enregistrement du restaurant " + ViewModel.Restaurant.Nom.ToString());
             }
+            ViewModel.Restaurant.EstModifie = false;
             
         }
 
         private void btnDeconnexion_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             Constante.onReleaseButton(sender, e); // On enlève l'effet du bouton pressé
-            // On appel la fonction de la classe constante qui permet de déconnecter l'utilisateur en cour
-            Constante.Deconnexion();
+
+            // On s'assure si notre restaurant à été modifié ou non
+            if (TesterSiModifie())
+            {
+                // On appel la fonction de la classe constante qui permet de déconnecter l'utilisateur en cour
+                Constante.Deconnexion();
+            }
         }
 
         private void btn_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             Constante.onPressButton(sender, e); // On ajoute l'effet du bouton pressé
+        }
+
+        /// <summary>
+        /// Fonction permettant de tester tous les objets et vérifier s'ils sont modifié
+        /// </summary>
+        /// <returns>Retourne vrai pour continuer, Retourne faux pour ne pas continuer</returns>
+        private bool TesterSiModifie()
+        {
+            // Bool global de la fonction qui permet d'afficher un message ou non s'il y a des enregistrement
+            // non sauvegardé.
+            bool RestaurantModifie = ViewModel.Restaurant.EstModifie;
+
+            // Variable de message box qui permet de tester le résultat de la demande à l'utilisateur
+            MessageBoxResult messageBoxResult = new MessageBoxResult();
+
+            // Définition de notre string builder pour le message
+            StringBuilder message = new StringBuilder();
+
+            // S'il y a des objets non sauvegardé
+            if (RestaurantModifie)
+            {
+                // On affiche un messagebox à l'utilisateur pour lui demander s'il veut continuer ou non
+                message.Append("Voulez-vous continuer sans sauvegarder?");
+                messageBoxResult = MessageBox.Show(message.ToString(), "Restaurant non sauvegardé", MessageBoxButton.YesNo, MessageBoxImage.Exclamation, MessageBoxResult.No);
+            }
+
+            // On test les retour possible de l'utilisateur 
+            if (messageBoxResult == MessageBoxResult.No)
+            {
+                return false;
+            }
+            else if (messageBoxResult == MessageBoxResult.Yes)
+            {
+                return true;
+            }
+
+            return true;
         }
     }
 }

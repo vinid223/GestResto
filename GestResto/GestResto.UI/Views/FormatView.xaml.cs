@@ -252,6 +252,7 @@ namespace GestResto.UI.Views
         // Fonction qui sert à nous déconnecter
         private void btnDeconnexion_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
+            Constante.onReleaseButton(sender, e);
             // On s'assure qu'on a pas fait de modifications avant de quitter
             if (TesterSiModifie())
             { 
@@ -285,7 +286,7 @@ namespace GestResto.UI.Views
         {
             // Bool global de la fonction qui permet d'afficher un message ou non s'il y a des enregistrement
             // non sauvegardé.
-            bool CategorieModifie = false;
+            bool FormatModifie = false;
 
             // Variable de message box qui permet de tester le résultat de la demande à l'utilisateur
             MessageBoxResult messageBoxResult = new MessageBoxResult();
@@ -293,20 +294,20 @@ namespace GestResto.UI.Views
             // Définition de notre string builder pour le message
             StringBuilder message = new StringBuilder();
 
-            // Boucle parcourant la liste de catégorie
+            // Boucle parcourant la liste de formats
             foreach (var item in ViewModel.Formats)
             {
                 // On test si la catégorie a été modifié
                 if (item.EstModifie)
                 {
                     // Si c'est le cas on indique qu'on a des items de modifié et on écrit un message
-                    CategorieModifie = true;
+                    FormatModifie = true;
                     message.Append("Le format ").Append(item.Nom).Append(" n'a pas été enregistré.\n");
                 }
             }
 
             // S'il y a des objets non sauvegardé
-            if (CategorieModifie)
+            if (FormatModifie)
             {
                 // On affiche un messagebox à l'utilisateur pour lui demander s'il veut continuer ou non
                 message.Append("\n\nVoulez-vous continuer sans sauvegarder?");
