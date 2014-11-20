@@ -169,6 +169,7 @@ namespace GestResto.UI.Views
                 FormatItemClientFacture ficfTemp = new FormatItemClientFacture();
                 // Il faut que j'aille l'item sélectionné dans la liste d'item
                 ficfTemp = (FormatItemClientFacture)lbxItemsClient.SelectedItem;
+                ficfTemp.EstComplementaire = true; // Ajouté par Simon 20/11/2014 pour savoir que c'est un complément
                 g_Client().ListeFormatItemClientFacture.Where(x => x.IdFormatItemClientFacture == ficfTemp.IdFormatItemClientFacture).First().ListFicf.Add(ficf);
             }
         }

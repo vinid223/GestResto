@@ -40,7 +40,9 @@ namespace GestResto.UI.Views
             txtMontantRestant.Text = montantRestant.ToString("C2");
 
             // On affiche le montant C indique qu'on veut signe de $ et le 2 indique le nombre de décimales
-            txtPrix.Text = montantPaye.ToString("C2");  
+            txtPrix.Text = montantPaye.ToString("C2");
+
+            lbxItemsFacture.ItemsSource = client.FactureClient.ListeFormatItemClientFacture;  
         }
 
         /// <summary>
