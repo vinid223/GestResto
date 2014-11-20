@@ -13,7 +13,7 @@
         </Grid.RowDefinitions>
 
         <ItemsControl 
-                Name="listeTableDisponible" Grid.Column="0" Grid.Row="1" Margin="10,10,22,0">
+                Name="listeTableDisponible" Grid.Column="0" Grid.Row="1" Margin="10,50,22,0">
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel />
@@ -71,6 +71,7 @@
         </Grid>
         <!-- Fin des boutons de navigation -->
         <Label x:Name="lblNom" Content="" VerticalAlignment="Top" HorizontalAlignment="Left" Width="496" FontSize="18" Foreground="White"/>
+        <Label Content="Liste des tables disponibles" HorizontalAlignment="Left" Margin="10,5,0,0" FontSize="18" Foreground="White" VerticalAlignment="Top" Grid.Row="1" Height="40" Width="329"/>
 
     </Grid>
 </UserControl>
