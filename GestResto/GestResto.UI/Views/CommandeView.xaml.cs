@@ -57,26 +57,13 @@ namespace GestResto.UI.Views
                 Constante.commande.ListeClients != null && 
                 Constante.commande.ListeClients.Count > 0)
             { 
-                // TODO Simon -> Faire une fonction ?
-                bool SimonAFini = false;
 
-                if(SimonAFini)
-                { 
-                    foreach (FormatItemClientFacture ficf in Constante.commande.ListeClients.First().ListeFormatItemClientFacture)
-                    {
-                        // On ajoute le ficf
-                        lbxItemsClient.Items.Add(ficf); // TODO Vérifier si c'est correct
 
-                        // On parcours la liste de ficf du ficf principal
-                        foreach(FormatItemClientFacture ficfChild in ficf.ListFicf)
-                        {
-                            // On ajoute le ficfChild à la list en déterminant le style de l'élément
-                            lbxItemsClient.Items.Add(ficfChild);
-                        }
-                    }
-                }
+               // On tag tous les items complémentaires
+               Constante.commande.ListeClients.First().ListeFormatItemClientFacture.ToList().ForEach(x => x.ListFicf.ToList().ForEach( y => y.EstComplementaire = true));
 
-                lbxItemsClient.ItemsSource = Constante.commande.ListeClients.First().ListeFormatItemClientFacture;
+               // On attibut 
+               lbxItemsClient.ItemsSource = Constante.commande.ListeClients.First().ListeFormatItemClientFacture;
             }
 
             // Si on vient de créer la commande, je dois ajouter un client au départ vide.
@@ -87,8 +74,6 @@ namespace GestResto.UI.Views
 
                 ViewModel.LaCommande.ListeClients.Add(new Client());
                 ViewModel.EnregistrerUnNouveauClient(ViewModel.LaCommande);
-                
-
             }
 
              if (Constante.commande != null)

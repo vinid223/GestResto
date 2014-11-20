@@ -14,9 +14,9 @@
         </Grid.RowDefinitions>
         <Grid Grid.RowSpan="2">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="220"/>
-                <ColumnDefinition Width="630*"/>
-                <ColumnDefinition Width="139*"/>
+                <ColumnDefinition Width="251"/>
+                <ColumnDefinition Width="568*"/>
+                <ColumnDefinition Width="181*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="40" />
@@ -41,9 +41,9 @@
                    Name="lblNumeroClient"
                    Grid.Column="0" 
                    HorizontalAlignment="Center" 
-                   Margin="68,4,40,0" 
+                   Margin="0,5,0,0"
                    VerticalAlignment="Top" 
-                   Height="26" FontSize="14" 
+                   Height="35" FontSize="20" 
                    FontWeight="SemiBold" Width="112" Grid.Row="1"/>
 
 
@@ -64,13 +64,13 @@
                    Name="btnClientSuivant"
                    MouseLeftButtonDown="btnSuivantClient_MouseLeftButtonDown" Grid.Row="1"/>
 
-            <Button Grid.Column="0" Grid.Row="2" Content="Supprimer l'item sélectionné" Width="210" Height="30" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="5,0,5,5" Padding="3" />
+            <Button Grid.Column="0" Grid.Row="2" Content="Supprimer l'item" Width="210" Height="35" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="3" />
 
             <Image Grid.Column="2" 
                    Source="/Images/arrowUp.png" 
                    HorizontalAlignment="Center" 
                    VerticalAlignment="Top"
-                   Margin="55,10,54,0" Width="30" Height="20"
+                   Margin="75,10,76,0" Width="30" Height="20"
                    MouseLeftButtonDown="btnMonterCategorie_MouseLeftButtonDown" />
 
             <Image 
@@ -78,7 +78,7 @@
                 Source="/Images/arrowDown.png" 
                 HorizontalAlignment="Center" 
                 VerticalAlignment="Bottom"
-                Margin="55,0,54,10"  
+                Margin="75,0,76,10"  
                 Width="30" Height="20"
                 MouseLeftButtonDown="btnDescendreCategorie_MouseLeftButtonDown"/>
 
@@ -92,7 +92,7 @@
                       Grid.Column="2" Grid.Row="1" >
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <Button Content="{Binding Nom}" CommandParameter="{Binding}" Click="btnCategorie_Click" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Height="40"/>
+                        <Button Content="{Binding Nom}" CommandParameter="{Binding}" Click="btnCategorie_Click" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Height="50" FontSize="18"/>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
@@ -107,7 +107,7 @@
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
                         <Button Style="{StaticResource BoutonItem}" CommandParameter="{Binding}" Click="btnItem_Click" >
-                            <TextBlock Text="{Binding Nom}" TextAlignment="Center" TextWrapping="Wrap"/>
+                            <TextBlock Text="{Binding Nom}" TextAlignment="Center" TextWrapping="Wrap" FontSize="18"/>
                         </Button>
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>

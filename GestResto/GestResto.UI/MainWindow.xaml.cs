@@ -233,5 +233,6 @@ namespace GestResto.UI
             border.Margin = new Thickness(0);
             border.Height += 1.25;
         }
+
     }
 }
