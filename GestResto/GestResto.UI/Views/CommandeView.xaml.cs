@@ -86,6 +86,7 @@ namespace GestResto.UI.Views
                     ViewModel.LaCommande.ListeClients = new List<Client>();
 
                 ViewModel.LaCommande.ListeClients.Add(new Client());
+                ViewModel.EnregistrerUnNouveauClient(ViewModel.LaCommande);
             }
 
              if (Constante.commande != null)
@@ -197,7 +198,7 @@ namespace GestResto.UI.Views
                 lbxItemsClient.Items.Refresh();
 
                 // Je vérifie si on a atteint la fin de la liste des clients.
-                if (NumeroClient < ViewModel.LaCommande.ListeClients.Count)
+                if (NumeroClient >= ViewModel.LaCommande.ListeClients.Count-1)
                     btnClientSuivant.IsEnabled = false;
                 
             }
@@ -293,7 +294,7 @@ namespace GestResto.UI.Views
 
             ViewModel.LaCommande.ListeClients.Add(new Client());
 
-            ViewModel.EnregistrerUnNouveauClient(ViewModel.LaCommande, ViewModel.LaCommande.ListeClients.Last());
+            ViewModel.EnregistrerUnNouveauClient(ViewModel.LaCommande);
 
             lblNumeroClient.Content = "Client #" + (NumeroClient + 1) + "/" + ViewModel.LaCommande.ListeClients.Count;
 

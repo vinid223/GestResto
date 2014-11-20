@@ -54,7 +54,7 @@ namespace GestResto.UI.ViewModel
             _commandeService.Update(commande);
         }
 
-        public void EnregistrerUnNouveauClient(Commande commande, Client client)
+        public void EnregistrerUnNouveauClient(Commande commande)
         {
             _commandeService.Update(commande);
         }
