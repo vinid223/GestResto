@@ -87,6 +87,9 @@ namespace GestResto.UI.Views
 
                 ViewModel.LaCommande.ListeClients.Add(new Client());
                 ViewModel.EnregistrerUnNouveauClient(ViewModel.LaCommande);
+                // Puisque je ne suis pas capable d'avoir le id du client, je reload toute la liste.
+                ViewModel.TousLesClientsDeLaCommande();
+
             }
 
              if (Constante.commande != null)
@@ -296,6 +299,8 @@ namespace GestResto.UI.Views
             ViewModel.LaCommande.ListeClients.Add(new Client());
 
             ViewModel.EnregistrerUnNouveauClient(ViewModel.LaCommande);
+            // Refresh des clients pour obtenir leurs ID
+            ViewModel.TousLesClientsDeLaCommande();
 
             lblNumeroClient.Content = "Client #" + (NumeroClient + 1) + "/" + ViewModel.LaCommande.ListeClients.Count;
 

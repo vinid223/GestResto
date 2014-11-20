@@ -29,7 +29,7 @@ namespace GestResto.UI
     {
         public MainViewModel ViewModel { get { return (MainViewModel)DataContext; } }
 
-        public MainWindow()
+       public MainWindow()
         {
             InitializeComponent();
             DataContext = new MainViewModel();

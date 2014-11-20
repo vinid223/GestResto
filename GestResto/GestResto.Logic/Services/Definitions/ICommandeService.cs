@@ -16,7 +16,7 @@ namespace GestResto.Logic.Services.Definitions
         void Create(Commande commande);
         void Create(FormatItemClientFacture commande);
         IList<Commande> RetrieveAll(int idEmploye);
-        Commande Retrieve(RetrieveCommandeArgs args);
+        Commande Retrieve(int idCommande);
         void Update(Commande commande);
     }
 }

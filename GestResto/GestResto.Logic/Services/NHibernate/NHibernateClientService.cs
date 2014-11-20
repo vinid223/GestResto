@@ -34,6 +34,8 @@ namespace GestResto.Logic.Services.NHibernate
             return session.Query<Client>().ToList();
         }
 
+
+
         public Client Retrieve(RetrieveClientArgs args)
         {
             var result = from c in session.Query<Client>()
