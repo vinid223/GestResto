@@ -134,10 +134,14 @@ namespace GestResto.UI.Views
                     // Si le numéro de la table en cour correspond à une des tables sélectionné on la sauvegarde
                     if (lstTable.Contains(item.NoTable))
                     {
+                        // On change les paramètres d'assignation pour indiquer que la table est en cour d'utilisation
                         item.EstAssigne = true;
                         listTableTemp.Add(item);
                     }
                 }
+
+                // On update la liste de table dans la BD
+                ViewModel.UpdaterTable();
 
                 // On définie la liste de table à notre objet de commande
                 Constante.commande.ListeTables = listTableTemp;
