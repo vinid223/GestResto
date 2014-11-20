@@ -25,7 +25,7 @@ namespace GestResto.Logic.Model.Entities
         #region Attributs
 
         public virtual int? IdTable { get; set; }
-        private int _noTable;
+        private string _noTable;
         private bool _estActif;
         private bool _estAssigne;
         private bool _estModifie;
@@ -34,7 +34,7 @@ namespace GestResto.Logic.Model.Entities
 
         #region Propriété
 
-        public virtual int NoTable
+        public virtual string NoTable
         {
             get
             {
@@ -106,7 +106,7 @@ namespace GestResto.Logic.Model.Entities
         public Table()
         {
             IdTable = null;
-            NoTable = 0;
+            NoTable = "";
             EstActif = true;
             EstAssigne = true;
         }
@@ -119,7 +119,7 @@ namespace GestResto.Logic.Model.Entities
         /// <param name="pEstActif">Indique si la table est active</param>
         /// <param name="pEstAssigne">Indique si la table est assigne</param>
         /// <param name="pListeClient">Liste des clients à la table</param>
-        public Table(int pIdTable, int pNoTable, bool pEstActif, bool pEstAssigne, List<Client> pListeClient)
+        public Table(int pIdTable, string pNoTable, bool pEstActif, bool pEstAssigne, List<Client> pListeClient)
         {
             IdTable = pIdTable;
             NoTable = pNoTable;

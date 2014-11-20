@@ -10,7 +10,7 @@
     </id>
 
     <property name="NoTable">
-      <column name="noTable" not-null="true" sql-type="INTEGER" />
+      <column name="noTable" not-null="true" sql-type="VARCHAR" />
     </property>
 
     <property name="EstActif">

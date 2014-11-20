@@ -27,7 +27,7 @@ namespace GestResto.UI.Views
 
         // Définition des variables nécessaire pour l'écran
         private bool Erreur;
-        private IList<int> lstTable = new List<int>();
+        private IList<string> lstTable = new List<string>();
         private Brush brushesBase;
 
         public AjoutCommandeView()
@@ -188,19 +188,19 @@ namespace GestResto.UI.Views
             }
 
             // On test si la liste contient la table cliqué
-            if (lstTable.Contains(Convert.ToInt32((sender as Button).Content)))
+            if (lstTable.Contains((sender as Button).Content.ToString()))
             {
                 // Si c'est le cas on peut remettre la couleur par défaut parce que le bouton à déjà été cliqué
                 (sender as Button).Background = brushesBase;
 
                 // On supprime de la liste le numéro de la table
-                lstTable.Remove(Convert.ToInt32((sender as Button).Content));
+                lstTable.Remove((sender as Button).Content.ToString());
             }
             else
             {
                 // On change la couleur du bouton et on sauvegarde le numéro de la table
                 (sender as Button).Background = new SolidColorBrush(Color.FromRgb(135,206,255));
-                lstTable.Add(Convert.ToInt32((sender as Button).Content));
+                lstTable.Add((sender as Button).Content.ToString());
             }
         }
 

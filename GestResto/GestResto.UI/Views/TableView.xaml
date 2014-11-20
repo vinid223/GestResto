@@ -31,7 +31,7 @@
             MouseDoubleClick="txtSelectionnerTout"
             GotKeyboardFocus="txtSelectionnerTout"
             PreviewMouseLeftButtonDown="SelectivelyIgnoreMouseButton" 
-             x:Name="txtNumeroTable" IsEnabled="False" MaxLength="5" Text="{Binding table.NoTable, UpdateSourceTrigger=PropertyChanged}" Height="36" Margin="176,54,25,0" TextWrapping="Wrap" VerticalAlignment="Top" Grid.Row="1" FontSize="16"/>
+             x:Name="txtNumeroTable" IsEnabled="False" MaxLength="20" Text="{Binding table.NoTable, UpdateSourceTrigger=PropertyChanged}" Height="36" Margin="176,54,25,0" TextWrapping="Wrap" VerticalAlignment="Top" Grid.Row="1" FontSize="16"/>
         <CheckBox Foreground="White" IsEnabled="False" IsChecked="{Binding table.EstActif, UpdateSourceTrigger=PropertyChanged}" x:Name="chkActif" Content="Actif" HorizontalAlignment="Left" Margin="176,102,0,0" VerticalAlignment="Top" Height="22" Width="74" Grid.Row="1" FontSize="16"/>
 
         <!-- Boutons de navigation -->
