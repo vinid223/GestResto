@@ -41,7 +41,7 @@ namespace GestResto.Logic.Model.Entities
         {
             IdFacture = null;
             DateCreation = DateTime.Now;
-            PourcentageTaxe = 0;
+            PourcentageTaxe = 0.14975F;
             ListeFormatItemClientFacture = new List<FormatItemClientFacture>();
         }
 
