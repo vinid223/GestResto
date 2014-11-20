@@ -230,7 +230,7 @@ CREATE TABLE IF NOT EXISTS FormatsItemsClientsFactures
 	idFormatItemClientFacture INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	idFicfParent INT DEFAULT NULL,
 	idFormatItem INT NOT NULL,
-	idClient INT NOT NULL,
+	idClient INT DEFAULT NULL,
 	idFacture DEFAULT NULL,
 	prix FLOAT NOT NULL
 );

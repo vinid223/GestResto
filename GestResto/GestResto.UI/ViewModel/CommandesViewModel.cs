@@ -14,6 +14,7 @@ namespace GestResto.UI.ViewModel
     public class CommandesViewModel : BaseViewModel
     {
         private ICommandeService _commandeServices;
+        private ITableService _tableServices;
         private ObservableCollection<Commande> _commandes = new ObservableCollection<Commande>();
         private ObservableCollection<Table> _tables = new ObservableCollection<Table>();
 
@@ -24,6 +25,7 @@ namespace GestResto.UI.ViewModel
             Tables = new ObservableCollection<Table>(ServiceFactory.Instance.GetService<ITableService>().RetrieveAll());
             
             _commandeServices = ServiceFactory.Instance.GetService<ICommandeService>();
+            _tableServices = ServiceFactory.Instance.GetService<ITableService>();
         }
 
         public ObservableCollection<Commande> Commandes
@@ -65,6 +67,19 @@ namespace GestResto.UI.ViewModel
             }
 
             return commande;
+        }
+
+        /// <summary>
+        ///  Fonction permettant d'updater toutes les tables dans la base de données
+        /// </summary>
+        public void UpdaterTable()
+        {
+            // On boucle dans chaque table
+            foreach (var item in Tables)
+            {
+                // On appel la méthode d'enregistrement de table pour chaque table
+                _tableServices.Update(item);   
+            }
         }
     }
 }

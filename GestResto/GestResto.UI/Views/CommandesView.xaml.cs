@@ -58,11 +58,15 @@ namespace GestResto.UI.Views
                     // On se définie un nouveau bouton
                     Button bouton = new Button();
                     bouton.Click += btnDetail_Click;
-                    bouton.Width = 115;
-                    bouton.Height = 85;
+                    bouton.Width = 145;
+                    bouton.Height = 80;
 
                     // On boucle dans toutes les tables de la commande pour afficher le bon nom
                     StringBuilder chaine = new StringBuilder();
+
+                    // On affiche l'entête du bouton
+                    chaine.Append("#Table: ");
+                    
                     int i = 0;
 
                     // Boucle parcourant la liste de table

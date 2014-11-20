@@ -159,9 +159,11 @@ namespace GestResto.UI.Views
                 lbxItemsClient.ItemsSource = g_Client().ListeFormatItemClientFacture;
                 lbxItemsClient.Items.Refresh();
 
+                // Ajout du ficf à la facture du client
+                g_Client().FactureClient.ListeFormatItemClientFacture.Add(ficf);
+
                 // Ajout à la BD.
                 ViewModel.EnregistrerUneCommande(ViewModel.LaCommande);
-
 
                 // Update de la variable statique
                 Constante.commande = ViewModel.LaCommande;
@@ -210,14 +212,7 @@ namespace GestResto.UI.Views
 
                 lbxItemsClient.ItemsSource = ViewModel.LaCommande.ListeClients.ElementAt(NumeroClient).ListeFormatItemClientFacture;
                 lbxItemsClient.Items.Refresh();
-
-                // Je vérifie si on a atteint la fin de la liste des clients.
-                if (NumeroClient >= ViewModel.LaCommande.ListeClients.Count-1)
-                    btnClientSuivant.IsEnabled = false;
-                
             }
-            else
-                btnClientSuivant.IsEnabled = false;
 
         }
         private void btnPrecedentClient_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -337,14 +332,22 @@ namespace GestResto.UI.Views
         {
             Constante.onReleaseButton(sender, e); // On enlève l'effet du bouton pressé
 
+            MessageBoxResult result = MessageBoxResult.None;
 
-            MessageBoxResult result = MessageBox.Show("Voulez-vous vraiment supprimer le client #"+(NumeroClient+1)+" et tous ses items ?", "Avertissement", MessageBoxButton.YesNo, MessageBoxImage.Information, MessageBoxResult.No);
+            // Si la liste d'items du client est vide je n'affiche pas le message de confirmation.
+            if (ViewModel.LaCommande.ListeClients.ElementAt(NumeroClient).ListeFormatItemClientFacture.Count != 0)
+            {
+                result = MessageBox.Show("Voulez-vous vraiment supprimer le client #" + (NumeroClient + 1) + " et tous ses items ?", "Avertissement", MessageBoxButton.YesNo, MessageBoxImage.Information, MessageBoxResult.No);
+            }
 
             // Si l'utilisateur a demandé de ne pas quitter, on renvoie faux
-            if (result == MessageBoxResult.Yes)
+            if (result == MessageBoxResult.Yes || g_Client().ListeFormatItemClientFacture.Count == 0)
             {
                 ViewModel.LaCommande.ListeClients.Remove(ViewModel.LaCommande.ListeClients.ElementAt(NumeroClient));
                 NumeroClient -= 1;
+
+                // Enregistrement en BD
+                ViewModel.EnregistrerUneCommande(ViewModel.LaCommande);
 
                 // Refresh du label
                 lblNumeroClient.Content = "Client #" + (NumeroClient + 1) + "/" + ViewModel.LaCommande.ListeClients.Count;
@@ -388,9 +391,5 @@ namespace GestResto.UI.Views
         }
         #endregion
 
-
-
-
-        
     }
 }
