@@ -61,11 +61,15 @@ namespace GestResto.UI.ViewModel
         public void EnregistrerUneCommande(Commande commande)
         {
             _commandeService.Update(commande);
+            // Puisque je ne suis pas capable d'avoir le id du client, je reload toute la liste.
+            TousLesClientsDeLaCommande();
         }
 
         public void EnregistrerUnNouveauClient(Commande commande)
         {
             _commandeService.Update(commande);
+            // Puisque je ne suis pas capable d'avoir le id du client, je reload toute la liste.
+            TousLesClientsDeLaCommande();
         }
 
         #region Bindables

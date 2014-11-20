@@ -9,7 +9,7 @@
       <generator class="identity" />
     </id>
 
-    <bag name="ListeFormatItemClientFacture" inverse="false" generic="true" lazy="true" cascade="all">
+    <bag name="ListeFormatItemClientFacture" inverse="false" generic="true" lazy="false" cascade="all">
       <key>
         <column name="idClient" />
       </key>
