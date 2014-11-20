@@ -28,7 +28,6 @@
         <Grid Grid.ColumnSpan="2" Grid.Row="2">
 
             <StackPanel Grid.Column="1"  Orientation="Horizontal" HorizontalAlignment="Right" Grid.ColumnSpan="2">
-
                 <Grid Grid.Column="1" Style="{StaticResource BoutonGrid}" Name="btnDeconnexion" MouseLeftButtonDown="btn_MouseLeftButtonDown" MouseLeftButtonUp="btnDeconnexion_MouseLeftButtonUp">
                     <Grid.RowDefinitions>
                         <RowDefinition/>
