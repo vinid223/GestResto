@@ -58,22 +58,7 @@ namespace GestResto.UI.Views
                 Constante.commande.ListeClients.Count > 0)
             {
 
-                foreach (FormatItemClientFacture ficf in Constante.commande.ListeClients.First().ListeFormatItemClientFacture)
-                {
-                    if(!ficf.EstComplementaire)
-                    {
-                        
-                        // On ajoute le ficf
-                        lbxItemsClient.Items.Add(ficf); 
-                    }
-
-                    // On parcours la liste de ficf du ficf principal
-                    foreach (FormatItemClientFacture ficfChild in ficf.ListFicf)
-                    {
-                        // On ajoute le ficfChild à la list en déterminant le style de l'élément
-                        lbxItemsClient.Items.Add(ficfChild);
-                    }
-                }
+                refreshListeItem();
 
                // On tag tous les items complémentaires
                Constante.commande.ListeClients.First().ListeFormatItemClientFacture.ToList().ForEach(x => x.ListFicf.ToList().ForEach( y => y.EstComplementaire = true));
@@ -123,6 +108,33 @@ namespace GestResto.UI.Views
 
         #region Fonctions pour la liste d'items du client
 
+        public void refreshListeItem()
+        {
+            List<FormatItemClientFacture> ficfTemp = new List<FormatItemClientFacture>();
+
+            foreach (FormatItemClientFacture ficf in Constante.commande.ListeClients.ElementAt(NumeroClient).ListeFormatItemClientFacture)
+            {
+                if (!ficf.EstComplementaire)
+                {
+
+                    // On ajoute le ficf
+                    ficfTemp.Add(ficf);
+                }
+
+                // On parcours la liste de ficf du ficf principal
+                foreach (FormatItemClientFacture ficfChild in ficf.ListFicf)
+                {
+                    // On ajoute le ficfChild à la list en déterminant le style de l'élément
+                    ficfTemp.Add(ficfChild);
+                }
+            }
+
+            lbxItemsClient.ItemsSource = ficfTemp;
+            lbxItemsClient.Items.Refresh();
+        }
+
+
+
         /// <summary>
         /// Suppression de l'item sélectionné
         /// </summary>
@@ -138,8 +150,7 @@ namespace GestResto.UI.Views
                 g_Client().FactureClient.ListeFormatItemClientFacture.Remove(ficf);
                 ViewModel.EnregistrerUneCommande(ViewModel.LaCommande);
 
-                lbxItemsClient.ItemsSource = g_Client().ListeFormatItemClientFacture;
-                lbxItemsClient.Items.Refresh();
+                refreshListeItem();
             }
             else if(ficf != null && ficf.EstComplementaire)
             {
@@ -217,8 +228,7 @@ namespace GestResto.UI.Views
                     g_Client().ListeFormatItemClientFacture.Add(ficf);
 
                     // Refresh de la liste d'items du client
-                    lbxItemsClient.ItemsSource = g_Client().ListeFormatItemClientFacture;
-                    lbxItemsClient.Items.Refresh();
+                    refreshListeItem();
 
                     // Ajout du ficf à la facture du client
                     g_Client().FactureClient.ListeFormatItemClientFacture.Add(ficf);
@@ -242,8 +252,7 @@ namespace GestResto.UI.Views
                     g_Client().ListeFormatItemClientFacture.Where(x => x.IdFormatItemClientFacture == ficfTemp.IdFormatItemClientFacture).First().ListFicf.Add(ficf);
 
                     // Refresh de la liste d'items du client
-                    lbxItemsClient.ItemsSource = g_Client().ListeFormatItemClientFacture;
-                    lbxItemsClient.Items.Refresh();
+                    refreshListeItem();
 
                     // Ajout à la BD.
                     ViewModel.EnregistrerUneCommande(ViewModel.LaCommande);
@@ -272,8 +281,7 @@ namespace GestResto.UI.Views
                 // On change le numéro de client sur l'écran
                 lblNumeroClient.Content = "Client #" + (NumeroClient + 1) + "/" + ViewModel.LaCommande.ListeClients.Count;
 
-                lbxItemsClient.ItemsSource = ViewModel.LaCommande.ListeClients.ElementAt(NumeroClient).ListeFormatItemClientFacture;
-                lbxItemsClient.Items.Refresh();
+                refreshListeItem();
             }
 
         }
@@ -290,8 +298,7 @@ namespace GestResto.UI.Views
                 // On change le numéro de client sur l'écran
                 lblNumeroClient.Content = "Client #" + (NumeroClient + 1) + "/" + ViewModel.LaCommande.ListeClients.Count;
 
-                lbxItemsClient.ItemsSource = ViewModel.LaCommande.ListeClients.ElementAt(NumeroClient).ListeFormatItemClientFacture;
-                lbxItemsClient.Items.Refresh();
+                refreshListeItem();
 
                 // Je vérifie si on a atteint le début de la liste des clients.
                 if (NumeroClient <= 0)
@@ -415,8 +422,7 @@ namespace GestResto.UI.Views
                 lblNumeroClient.Content = "Client #" + (NumeroClient + 1) + "/" + ViewModel.LaCommande.ListeClients.Count;
 
                 // Refresh du client affiché
-                lbxItemsClient.ItemsSource = ViewModel.LaCommande.ListeClients.ElementAt(NumeroClient).ListeFormatItemClientFacture;
-                lbxItemsClient.Items.Refresh();
+                refreshListeItem();
 
 
                 // Update de la variable statique
