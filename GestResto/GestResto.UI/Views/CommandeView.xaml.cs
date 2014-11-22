@@ -124,6 +124,48 @@ namespace GestResto.UI.Views
         #region Fonctions pour la liste d'items du client
 
         /// <summary>
+        /// Suppression de l'item sélectionné
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnSupprimerItem_Click(object sender, RoutedEventArgs e)
+        {
+            FormatItemClientFacture ficf = (FormatItemClientFacture)lbxItemsClient.SelectedItem;
+
+            if (ficf != null && ficf.EstComplementaire == false)
+            {
+                g_Client().ListeFormatItemClientFacture.Remove(ficf);
+                g_Client().FactureClient.ListeFormatItemClientFacture.Remove(ficf);
+                ViewModel.EnregistrerUneCommande(ViewModel.LaCommande);
+
+                lbxItemsClient.ItemsSource = g_Client().ListeFormatItemClientFacture;
+                lbxItemsClient.Items.Refresh();
+            }
+            else if(ficf != null && ficf.EstComplementaire)
+            {
+                // Si le ficf est complémentaire
+                int ficfParentIndex = lbxItemsClient.SelectedIndex;
+
+                List<FormatItemClientFacture> list = new List<FormatItemClientFacture>();
+                //list = lbxItemsClient.Items;
+                // Je dois remonter la liste pour trouver le ficf qui n'est pas complémentaire.
+                for (int i = ficfParentIndex+1; i > 0; i--)
+                {
+                    //lbxItemsClient.
+                    //if (!lbx.ElementAt(i).EstComplementaire)
+                    {
+                        ficfParentIndex = i;
+                        break;
+                    }
+                }
+
+                FormatItemClientFacture ficfParent = (FormatItemClientFacture)lbxItemsClient.Items.GetItemAt(ficfParentIndex);
+
+                g_Client().ListeFormatItemClientFacture.Where(x => x.IdFormatItemClientFacture == ficfParent.IdFormatItemClientFacture).First().ListFicf.Remove(ficf);
+            }
+        }
+
+        /// <summary>
         /// Lorsque l'utilisateur clique sur un item, je l'ajoute à sa liste d'items
         /// </summary>
         /// <param name="sender"></param>
@@ -132,60 +174,80 @@ namespace GestResto.UI.Views
         {
             Item item = (Item)((sender as Button).CommandParameter);
 
-
-            // Je dois afficher les formats disponibles de l'item.
             FormatsView view = new FormatsView(item.Formats);
-            view.ShowDialog();
 
-            // On initialise le nouveau ficf
-            FormatItemClientFacture ficf = new FormatItemClientFacture();
-
-            // Copie de l'item associé.
-            ficf.FormatItemAssocie = view.formatItemChoisi;
-            // Copie du client
-            ficf.client = g_Client();
-            // Copie de la facture.
-            ficf.facture = ficf.client.FactureClient;
-            // Enregistrement du prix.
-            ficf.Prix = ficf.FormatItemAssocie.Prix;
-
-
-            // Si l'utilisateur a annulé le choix de format
-            if (!item.Categories.EstComplementaire && view.formatItemChoisi != null)
+            // S'il a seulement un formatItem je n'affiche pas la liste de format disponible.
+            if (item.Formats.Count > 1)
             {
-                g_Client().ListeFormatItemClientFacture.Add(ficf);
-
-                // Refresh de la liste d'items du client
-                lbxItemsClient.ItemsSource = g_Client().ListeFormatItemClientFacture;
-                lbxItemsClient.Items.Refresh();
-
-                // Ajout du ficf à la facture du client
-                g_Client().FactureClient.ListeFormatItemClientFacture.Add(ficf);
-
-                // Ajout à la BD.
-                ViewModel.EnregistrerUneCommande(ViewModel.LaCommande);
-
-                // Update de la variable statique
-                Constante.commande = ViewModel.LaCommande;
-                
+                // Je dois afficher les formats disponibles de l'item
+                view.ShowDialog();
             }
-            else if (view.formatItemChoisi != null) // Si l'item est complémentaire.
+
+            if (view.formatItemChoisi != null || item.Formats.Count == 1)
             {
-                FormatItemClientFacture ficfTemp = new FormatItemClientFacture();
-                // Il faut que j'aille l'item sélectionné dans la liste d'item
-                ficfTemp = (FormatItemClientFacture)lbxItemsClient.SelectedItem;
-                ficf.EstComplementaire = true; // Ajouté par Simon 20/11/2014 pour savoir que c'est un complément
+                // On initialise le nouveau ficf
+                FormatItemClientFacture ficf = new FormatItemClientFacture();
 
-                
+                if (item.Formats.Count == 1)
+                {
+                    // Copie de l'item associé.
+                    ficf.FormatItemAssocie = item.Formats.First();
+                    // Copie du client
+                    ficf.client = g_Client();
+                    // Copie de la facture.
+                    ficf.facture = ficf.client.FactureClient;
+                    // Enregistrement du prix.
+                    ficf.Prix = ficf.FormatItemAssocie.Prix;
+                }
+                else
+                {
+                    // Copie de l'item associé.
+                    ficf.FormatItemAssocie = view.formatItemChoisi;
+                    // Copie du client
+                    ficf.client = g_Client();
+                    // Copie de la facture.
+                    ficf.facture = ficf.client.FactureClient;
+                    // Enregistrement du prix.
+                    ficf.Prix = ficf.FormatItemAssocie.Prix;
+                }
 
-                g_Client().ListeFormatItemClientFacture.Where(x => x.IdFormatItemClientFacture == ficfTemp.IdFormatItemClientFacture).First().ListFicf.Add(ficf);
+                // Si l'utilisateur a choisi un format ou il y avait seulement un format dans l'item.
+                if (!item.Categories.EstComplementaire && (view.formatItemChoisi != null || item.Formats.Count == 1))
+                {
+                    g_Client().ListeFormatItemClientFacture.Add(ficf);
 
-                // Refresh de la liste d'items du client
-                lbxItemsClient.ItemsSource = g_Client().ListeFormatItemClientFacture;
-                lbxItemsClient.Items.Refresh();
+                    // Refresh de la liste d'items du client
+                    lbxItemsClient.ItemsSource = g_Client().ListeFormatItemClientFacture;
+                    lbxItemsClient.Items.Refresh();
 
-                // Ajout à la BD.
-                ViewModel.EnregistrerUneCommande(ViewModel.LaCommande);
+                    // Ajout du ficf à la facture du client
+                    g_Client().FactureClient.ListeFormatItemClientFacture.Add(ficf);
+
+                    // Ajout à la BD.
+                    ViewModel.EnregistrerUneCommande(ViewModel.LaCommande);
+
+                    // Update de la variable statique
+                    Constante.commande = ViewModel.LaCommande;
+
+                }
+                else if (view.formatItemChoisi != null) // Si l'item est complémentaire.
+                {
+                    FormatItemClientFacture ficfTemp = new FormatItemClientFacture();
+                    // Il faut que j'aille l'item sélectionné dans la liste d'item
+                    ficfTemp = (FormatItemClientFacture)lbxItemsClient.SelectedItem;
+                    ficf.EstComplementaire = true; // Ajouté par Simon 20/11/2014 pour savoir que c'est un complément
+
+
+
+                    g_Client().ListeFormatItemClientFacture.Where(x => x.IdFormatItemClientFacture == ficfTemp.IdFormatItemClientFacture).First().ListFicf.Add(ficf);
+
+                    // Refresh de la liste d'items du client
+                    lbxItemsClient.ItemsSource = g_Client().ListeFormatItemClientFacture;
+                    lbxItemsClient.Items.Refresh();
+
+                    // Ajout à la BD.
+                    ViewModel.EnregistrerUneCommande(ViewModel.LaCommande);
+                }
             }
         }
 
@@ -390,6 +452,9 @@ namespace GestResto.UI.Views
             Constante.onPressButton(sender, e); // On ajoute l'effet du bouton pressé
         }
         #endregion
+
+
+
 
     }
 }

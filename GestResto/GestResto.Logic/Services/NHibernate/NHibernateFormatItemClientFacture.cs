@@ -59,7 +59,7 @@ namespace GestResto.Logic.Services.NHibernate
         {
             using (var transaction = session.BeginTransaction())
             {
-                session.Update(formatItemClientFacture);
+                session.Delete(formatItemClientFacture);
                 transaction.Commit();
             }
         }
