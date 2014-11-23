@@ -210,25 +210,13 @@ ALTER TABLE FormatsItems
 ADD CONSTRAINT Formats_FormatsItems_FK
 FOREIGN KEY (idFormat) REFERENCES Formats (idFormat);
 
-/* Création de la table Complements */
-CREATE TABLE IF NOT EXISTS Complements
-(
-	idComplement INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-	idFormatItem INT NOT NULL,
-	idFormatItemClientFacture INT NOT NULL,
-	prix FLOAT NOT NULL
-);
-
-/*Création du lien avec la foreign key de la table FormatsItems vers la table Complements*/
-ALTER TABLE Complements
-ADD CONSTRAINT FormatsItems_Complements_FK
-FOREIGN KEY (idFormatItem) REFERENCES FormatsItems (idFormatItem);
 
 /*Création de la table FormatsItemsClientsFactures*/
 CREATE TABLE IF NOT EXISTS FormatsItemsClientsFactures
 (
 	idFormatItemClientFacture INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	idFicfParent INT DEFAULT NULL,
+	complementaire BIT(1) DEFAULT b'0',
 	idFormatItem INT NOT NULL,
 	idClient INT DEFAULT NULL,
 	idFacture DEFAULT NULL,

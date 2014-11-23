@@ -107,7 +107,36 @@ namespace GestResto.UI.Views
         #endregion
 
         #region Fonctions pour la liste d'items du client
+        /// <summary>
+        /// Rafraîchit la liste de ficf de la facture du client et la remet en ordre pour les compléments.
+        /// </summary>
+        public void refreshListeItemFacture()
+        {
+            List<FormatItemClientFacture> ficfTemp = new List<FormatItemClientFacture>();
 
+            foreach (FormatItemClientFacture ficf in Constante.commande.ListeClients.ElementAt(NumeroClient).FactureClient.ListeFormatItemClientFacture)
+            {
+                if (!ficf.EstComplementaire)
+                {
+
+                    // On ajoute le ficf
+                    ficfTemp.Add(ficf);
+                }
+
+                // On parcours la liste de ficf du ficf principal
+                foreach (FormatItemClientFacture ficfChild in ficf.ListFicf)
+                {
+                    // On ajoute le ficfChild à la list en déterminant le style de l'élément
+                    ficfTemp.Add(ficfChild);
+                }
+            }
+
+            ViewModel.LaCommande.ListeClients.ElementAt(NumeroClient).FactureClient.ListeFormatItemClientFacture = ficfTemp;
+
+        }
+        /// <summary>
+        /// Rafraîchit la liste de ficf du client et la remet en ordre pour les compléments.
+        /// </summary>
         public void refreshListeItem()
         {
             List<FormatItemClientFacture> ficfTemp = new List<FormatItemClientFacture>();
@@ -129,6 +158,7 @@ namespace GestResto.UI.Views
                 }
             }
 
+            ViewModel.LaCommande.ListeClients.ElementAt(NumeroClient).ListeFormatItemClientFacture = ficfTemp;
             lbxItemsClient.ItemsSource = ficfTemp;
             lbxItemsClient.Items.Refresh();
         }
@@ -146,34 +176,47 @@ namespace GestResto.UI.Views
 
             if (ficf != null && ficf.EstComplementaire == false)
             {
+                // S'il possède une liste de ficf, il possède des complémentaire qui doivent aussi être suprimé, et avant la suppression de celui-ci.
+                if (ficf.ListFicf.Count > 0)
+                {
+                    // Je dois mettre la liste en ordre avec cette fonction
+                    refreshListeItem();
+                    refreshListeItemFacture();
+
+                    // Si le ficf est complémentaire
+                    int ficfParentIndex = lbxItemsClient.SelectedIndex;
+                    FormatItemClientFacture ficfTmp = new FormatItemClientFacture();
+
+                    // Je dois remonter la liste pour trouver le ficf parent qui n'est pas complémentaire.
+                    for (int i = ficfParentIndex+1; i < g_Client().ListeFormatItemClientFacture.Count; i++)
+                    {
+                        //lbxItemsClient.
+                        if (ViewModel.LaCommande.ListeClients.ElementAt(NumeroClient).ListeFormatItemClientFacture.ElementAt(i).EstComplementaire)
+                        {
+                            ficfTmp = g_Client().ListeFormatItemClientFacture.ElementAt(i);
+                            g_Client().ListeFormatItemClientFacture.Remove(ficfTmp);
+                            g_Client().FactureClient.ListeFormatItemClientFacture.Remove(ficfTmp);
+                        }
+                        else if (!g_Client().ListeFormatItemClientFacture.ElementAt(i).EstComplementaire)
+                            break;// Si je rencontre un non complémentaire j'arrète la boucle car je vais supprimer tous les complémentaire sinon.
+
+                    }
+                }
+
                 g_Client().ListeFormatItemClientFacture.Remove(ficf);
                 g_Client().FactureClient.ListeFormatItemClientFacture.Remove(ficf);
                 ViewModel.EnregistrerUneCommande(ViewModel.LaCommande);
 
-                refreshListeItem();
             }
-            else if(ficf != null && ficf.EstComplementaire)
+            else if (ficf != null && ficf.EstComplementaire)
             {
-                // Si le ficf est complémentaire
-                int ficfParentIndex = lbxItemsClient.SelectedIndex;
+                // S'il est complémentaire je suprimme de la même façon.
+                g_Client().ListeFormatItemClientFacture.Remove(ficf);
+                g_Client().FactureClient.ListeFormatItemClientFacture.Remove(ficf);
+                ViewModel.EnregistrerUneCommande(ViewModel.LaCommande);
 
-                List<FormatItemClientFacture> list = new List<FormatItemClientFacture>();
-                //list = lbxItemsClient.Items;
-                // Je dois remonter la liste pour trouver le ficf qui n'est pas complémentaire.
-                for (int i = ficfParentIndex+1; i > 0; i--)
-                {
-                    //lbxItemsClient.
-                    //if (!lbx.ElementAt(i).EstComplementaire)
-                    {
-                        ficfParentIndex = i;
-                        break;
-                    }
-                }
-
-                FormatItemClientFacture ficfParent = (FormatItemClientFacture)lbxItemsClient.Items.GetItemAt(ficfParentIndex);
-
-                g_Client().ListeFormatItemClientFacture.Where(x => x.IdFormatItemClientFacture == ficfParent.IdFormatItemClientFacture).First().ListFicf.Remove(ficf);
             }
+            refreshListeItem();
         }
 
         /// <summary>
@@ -240,13 +283,12 @@ namespace GestResto.UI.Views
                     Constante.commande = ViewModel.LaCommande;
 
                 }
-                else if (view.formatItemChoisi != null) // Si l'item est complémentaire.
+                else if (item.Categories.EstComplementaire) // Si l'item est complémentaire.
                 {
                     FormatItemClientFacture ficfTemp = new FormatItemClientFacture();
                     // Il faut que j'aille l'item sélectionné dans la liste d'item
                     ficfTemp = (FormatItemClientFacture)lbxItemsClient.SelectedItem;
                     ficf.EstComplementaire = true; // Ajouté par Simon 20/11/2014 pour savoir que c'est un complément
-
 
 
                     g_Client().ListeFormatItemClientFacture.Where(x => x.IdFormatItemClientFacture == ficfTemp.IdFormatItemClientFacture).First().ListFicf.Add(ficf);
@@ -258,6 +300,8 @@ namespace GestResto.UI.Views
                     ViewModel.EnregistrerUneCommande(ViewModel.LaCommande);
                 }
             }
+            // Refresh de la liste d'items du client
+            refreshListeItem();
         }
 
         /// <summary>
@@ -458,6 +502,7 @@ namespace GestResto.UI.Views
             Constante.onPressButton(sender, e); // On ajoute l'effet du bouton pressé
         }
         #endregion
+
 
 
 
