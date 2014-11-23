@@ -64,7 +64,7 @@
                    Name="btnClientSuivant"
                    MouseLeftButtonDown="btnSuivantClient_MouseLeftButtonDown" Grid.Row="1"/>
 
-            <Button Grid.Column="0" Grid.Row="2" Content="Supprimer l'item" Width="210" Height="35" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="3" />
+            <Button Grid.Column="0" Grid.Row="2" Content="Supprimer l'item" Width="241" Height="34" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="3" Click="btnSupprimerItem_Click" Margin="5,3" />
 
             <Image Grid.Column="2" 
                    Source="/Images/arrowUp.png" 
