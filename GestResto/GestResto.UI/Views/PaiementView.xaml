@@ -57,7 +57,7 @@
 
         <!-- La liste de la commande -->
         <ListBox AlternationCount="2" 
-        Grid.Column="1" Grid.Row="1" Margin="10,10,10,10"
+        Grid.Column="1" Grid.Row="1" Margin="10,10,10,46"
             Name="lbxItemsFacture"
                 ScrollViewer.HorizontalScrollBarVisibility="Disabled">
             <ListBox.ItemTemplate>
@@ -113,13 +113,14 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <Label Grid.Column="0" Content="Sous-total :" FontSize="20" Foreground="White" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="0,3,0,97"/>
-            <TextBox Name="txtSousTotal" BorderBrush="Transparent" FontSize="20" Foreground="White" Background="Transparent" HorizontalContentAlignment="Center" Grid.Column="1" HorizontalAlignment="Stretch" Focusable="False" VerticalAlignment="Center" Margin="0,5,0,99"/>   
+            <TextBox Name="txtSousTotal" BorderBrush="Transparent" FontSize="20" Foreground="White" Background="Transparent" HorizontalContentAlignment="Center" Grid.Column="1" HorizontalAlignment="Stretch" Focusable="False" VerticalAlignment="Center" Margin="0,5,0,99"/>
             <Label Grid.Column="0" Content="Taxes :" FontSize="20" Foreground="White" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="0,36,0,64"/>
             <TextBox x:Name="txtTaxes" BorderBrush="Transparent" FontSize="20" Foreground="White" Background="Transparent" HorizontalContentAlignment="Center" Grid.Column="1" HorizontalAlignment="Stretch" Focusable="False" VerticalAlignment="Center" Margin="0,38,0,66"/>
             <Label Grid.Column="0" Content="Total :" FontSize="20" Foreground="White" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="0,67,0,33"/>
             <TextBox x:Name="txtTotal" BorderBrush="Transparent" FontSize="20" Foreground="White" Background="Transparent" HorizontalContentAlignment="Center" Grid.Column="1" HorizontalAlignment="Stretch" Focusable="False" VerticalAlignment="Center" Margin="0,69,0,35"/>
             <Label Grid.Column="0" Content="Montant restant:" FontSize="20" Foreground="White" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="0,97,0,3"/>
             <TextBox x:Name="txtMontantRestant" BorderBrush="Transparent" FontSize="20" Foreground="White" Background="Transparent" HorizontalContentAlignment="Center" Grid.Column="1" HorizontalAlignment="Stretch" Focusable="False" VerticalAlignment="Center" Margin="0,99.2,0,5.2"/>
+            <Button Content="Facture Terminé" Margin="84,-42,84,0" VerticalAlignment="Top" Height="40" Click="btnFactureFerme_Click" FontSize="20" Grid.ColumnSpan="2" />
 
 
 
