@@ -514,9 +514,37 @@ namespace GestResto.UI.Views
         }
         #endregion
 
+        /// <summary>
+        /// Fonction permettant de fermer la commande
+        /// </summary>
+        private void btnFermer_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            Constante.onReleaseButton(sender, e);
 
+            // On demande une confirmations à l'utilisateur s'il veut fermer la commande 
+            if (MessageBoxResult.Yes == MessageBox.Show("Êtes-vous sure de vouloir fermer la commande en cour?","Confirmation de fermeture de commande",MessageBoxButton.YesNo,MessageBoxImage.Question,MessageBoxResult.No))
+            {
+                // On indique la date de fermeture de la commande
+                Constante.commande.Fin = DateTime.Now;
 
+                // On indique le statut de payé de la commande
+                Constante.commande.Statut = "Payé";
 
+                // On change le statut d'assignation de chacune des tables de la commande pour 
+                // pouvoir réassigner les tables à une autre commande
+                foreach (var item in Constante.commande.ListeTables)
+                {
+                    item.EstAssigne = false;
+                }
 
+                // On appel le viewmodel pour enregistrer les modifications
+                ViewModel.EnregistrerUneCommande(Constante.commande);
+
+                // On retourne à la vue précédente pour afficher les commandes en cours ou permettre au serveur
+                // de créer une nouvelle commande
+                IApplicationService mainVM = ServiceFactory.Instance.GetService<IApplicationService>();
+                mainVM.ChangeView<CommandesView>(new CommandesView());
+            }
+        }
     }
 }

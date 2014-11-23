@@ -21,3 +21,4 @@ logo.png : http://www.flaticon.com/free-icon/fork-and-knife-cutlery-circle-inter
 Background.jpg : http://www.blirk.net/gradient-wallpaper/3/1920x1080/
 backspace.png : Créé par Simon Turcotte
 door.png : http://www.flaticon.com/free-icon/open-exit-door_59801
+close.png : http://www.flaticon.com/free-icon/close-cross-circular-interface-button_53639

@@ -54,39 +54,43 @@ namespace GestResto.UI.Views
             {
                 // On boucle pour chaque commandes et on crée un bouton
                 foreach (var item in ViewModel.Commandes)
-                { 
-                    // On se définie un nouveau bouton
-                    Button bouton = new Button();
-                    bouton.Click += btnDetail_Click;
-                    bouton.Width = 145;
-                    bouton.Height = 80;
-
-                    // On boucle dans toutes les tables de la commande pour afficher le bon nom
-                    StringBuilder chaine = new StringBuilder();
-
-                    // On affiche l'entête du bouton
-                    chaine.Append("#Table: ");
-                    
-                    int i = 0;
-
-                    // Boucle parcourant la liste de table
-                    foreach (var table in item.ListeTables)
+                {
+                    // On affiche seulement les commandes qui n'ont pas un statut de payé
+                    if (item.Statut != "Payé")
                     {
-                        // Si ce n'est pas le premier élément on ajoute une virgule
-                        if (i > 0)
+                        // On se définie un nouveau bouton
+                        Button bouton = new Button();
+                        bouton.Click += btnDetail_Click;
+                        bouton.Width = 145;
+                        bouton.Height = 80;
+
+                        // On boucle dans toutes les tables de la commande pour afficher le bon nom
+                        StringBuilder chaine = new StringBuilder();
+
+                        // On affiche l'entête du bouton
+                        chaine.Append("#Table: ");
+
+                        int i = 0;
+
+                        // Boucle parcourant la liste de table
+                        foreach (var table in item.ListeTables)
                         {
-		                    chaine.Append(",");
+                            // Si ce n'est pas le premier élément on ajoute une virgule
+                            if (i > 0)
+                            {
+                                chaine.Append(",");
+                            }
+                            chaine.Append(table.NoTable);
+                            i++;
                         }
-                        chaine.Append(table.NoTable);
-                        i++;
+
+                        bouton.Content = chaine;
+                        bouton.Name = "Bouton" + Convert.ToString(item.IdCommande);
+                        bouton.Margin = new Thickness(5);
+
+                        // On ajoute le bouton à notre wrappannel
+                        listeBoutonCommandes.Children.Add(bouton);
                     }
-
-                    bouton.Content = chaine;
-                    bouton.Name = "Bouton" + Convert.ToString(item.IdCommande);
-                    bouton.Margin = new Thickness(5);
-
-                    // On ajoute le bouton à notre wrappannel
-                    listeBoutonCommandes.Children.Add(bouton);
                 }
             }
         }

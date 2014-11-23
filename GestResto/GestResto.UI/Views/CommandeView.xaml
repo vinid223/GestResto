@@ -162,12 +162,23 @@
                         <RowDefinition Height="30"/>
                     </Grid.RowDefinitions>
                     <Border Style="{StaticResource BoutonBorder}">
-                        <Image Style="{StaticResource BoutonImage}" Source="/Images/dollar.png"/>
+                        <Image Style="{StaticResource BoutonImage}" Source="/Images/dollar.png" Margin="4,0,4,3" VerticalAlignment="Bottom"/>
                     </Border>
                     <Label Style="{StaticResource BoutonLabel}" >Payer</Label>
                 </Grid>
 
-                <Grid Style="{StaticResource BoutonGrid}" Name="btnImprimer" Grid.Column="1" MouseLeftButtonDown="btn_MouseLeftButtonDown" MouseLeftButtonUp="btnImprimer_MouseLeftButtonUp">
+                <Grid Style="{StaticResource BoutonGrid}" Name="btnFermer" Grid.Column="1" MouseLeftButtonDown="btn_MouseLeftButtonDown" MouseLeftButtonUp="btnFermer_MouseLeftButtonUp">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition Height="30"/>
+                    </Grid.RowDefinitions>
+                    <Border Style="{StaticResource BoutonBorder}">
+                        <Image Source="/Images/close.png" Style="{StaticResource BoutonImage}"/>
+                    </Border>
+                    <Label Style="{StaticResource BoutonLabel}" >Fermer</Label>
+                </Grid>
+                
+                <Grid Style="{StaticResource BoutonGrid}" IsEnabled="False" Name="btnImprimer" Grid.Column="1" MouseLeftButtonDown="btn_MouseLeftButtonDown" MouseLeftButtonUp="btnImprimer_MouseLeftButtonUp">
                     <Grid.RowDefinitions>
                         <RowDefinition/>
                         <RowDefinition Height="30"/>
@@ -178,7 +189,7 @@
                     <Label Style="{StaticResource BoutonLabel}" >Imprimer</Label>
                 </Grid>
 
-                <Grid Style="{StaticResource BoutonGrid}" Name="btnDiviser" Grid.Column="1" MouseLeftButtonDown="btn_MouseLeftButtonDown" MouseLeftButtonUp="btnDiviser_MouseLeftButtonUp">
+                <Grid Style="{StaticResource BoutonGrid}" IsEnabled="False" Name="btnDiviser" Grid.Column="1" MouseLeftButtonDown="btn_MouseLeftButtonDown" MouseLeftButtonUp="btnDiviser_MouseLeftButtonUp">
                     <Grid.RowDefinitions>
                         <RowDefinition/>
                         <RowDefinition Height="30"/>

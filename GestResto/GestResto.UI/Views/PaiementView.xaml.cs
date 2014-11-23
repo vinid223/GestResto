@@ -250,36 +250,5 @@ namespace GestResto.UI.Views
         {
             Constante.onPressButton(sender, e); // On ajoute l'effet du bouton pressé
         }
-
-        /// <summary>
-        /// Fonction permettant de dire que la facture du client est fermé pour mettre le montant
-        /// total à 0 puisque le client peut demander un motant en plus lors du paiement donc on peut permettre de
-        /// le remettre à 0 quand il est négatif.
-        /// </summary>
-        private void btnFactureFerme_Click(object sender, RoutedEventArgs e)
-        {
-            // On test si le montant restant à payer est positif
-            if (montantRestant > 0)
-            {
-                // Si c'est le cas, on demande une confirmation à l'utilisateur s'il veut vraiment fermer la facture
-                if (MessageBoxResult.Yes == MessageBox.Show("Le montant n'a pas été totalement payé. Êtes vous sur de fermer cette facture?","Confirmation de fermeture de facture.",MessageBoxButton.YesNo,MessageBoxImage.Question,MessageBoxResult.No))
-                {
-                    // On réinitialise les champs de la facture
-                    modePaiement = null;
-                    montantRestant = 0;
-                    txtMontantRestant.Text = montantRestant.ToString("C2");
-                }
-            }
-            else
-            {
-                // On réinitialise les champs de la facture
-                modePaiement = null;
-                montantRestant = 0;
-                txtMontantRestant.Text = montantRestant.ToString("C2");
-            }
-        }
-
-        
-
     }
 }
