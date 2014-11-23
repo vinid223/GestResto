@@ -106,7 +106,7 @@ namespace GestResto.UI.Views
 
         #endregion
 
-        #region Fonctions pour la liste d'items du client
+        #region Refresh de la liste d'item
         /// <summary>
         /// Rafraîchit la liste de ficf de la facture du client et la remet en ordre pour les compléments.
         /// </summary>
@@ -162,6 +162,10 @@ namespace GestResto.UI.Views
             lbxItemsClient.ItemsSource = ficfTemp;
             lbxItemsClient.Items.Refresh();
         }
+        #endregion
+
+        #region Fonctions pour la liste d'items du client
+
 
 
 
@@ -312,6 +316,10 @@ namespace GestResto.UI.Views
             return ViewModel.LaCommande.ListeClients.ElementAt(NumeroClient);
         }
 
+
+        #endregion
+
+        #region Navigation entre clients
         private void btnSuivantClient_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             // Si cette condition est respectée je peux afficher le client suivant
@@ -458,6 +466,9 @@ namespace GestResto.UI.Views
             {
                 ViewModel.LaCommande.ListeClients.Remove(ViewModel.LaCommande.ListeClients.ElementAt(NumeroClient));
                 NumeroClient -= 1;
+
+                if (NumeroClient == -1)
+                    NumeroClient = 0;
 
                 // Enregistrement en BD
                 ViewModel.EnregistrerUneCommande(ViewModel.LaCommande);
