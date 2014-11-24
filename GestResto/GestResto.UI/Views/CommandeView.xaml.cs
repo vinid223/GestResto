@@ -297,11 +297,12 @@ namespace GestResto.UI.Views
 
                     g_Client().ListeFormatItemClientFacture.Where(x => x.IdFormatItemClientFacture == ficfTemp.IdFormatItemClientFacture).First().ListFicf.Add(ficf);
 
+                    // Ajout à la BD.
+                    ViewModel.EnregistrerUneCommande(ViewModel.LaCommande);
+
                     // Refresh de la liste d'items du client
                     refreshListeItem();
 
-                    // Ajout à la BD.
-                    ViewModel.EnregistrerUneCommande(ViewModel.LaCommande);
                 }
             }
             // Refresh de la liste d'items du client
