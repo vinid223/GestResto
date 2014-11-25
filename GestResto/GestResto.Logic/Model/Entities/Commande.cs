@@ -78,5 +78,28 @@ namespace GestResto.Logic.Model.Entities
             Debut = pDebut;
         }
         #endregion
+
+        public override bool Equals(object obj)
+        {
+            if (obj == null)
+            {
+                return false;
+            }
+
+            Commande p = obj as Commande;
+
+            if (p == null)
+            {
+                return false;
+            }
+
+            return this.IdCommande == p.IdCommande;
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
+
     }
 }

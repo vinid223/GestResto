@@ -191,6 +191,7 @@ namespace GestResto.UI.Views
                     int ficfParentIndex = lbxItemsClient.SelectedIndex;
                     FormatItemClientFacture ficfTmp = new FormatItemClientFacture();
 
+
                     // Je dois remonter la liste pour trouver le ficf parent qui n'est pas complémentaire.
                     for (int i = ficfParentIndex+1; i < g_Client().ListeFormatItemClientFacture.Count; i++)
                     {
@@ -200,6 +201,11 @@ namespace GestResto.UI.Views
                             ficfTmp = g_Client().ListeFormatItemClientFacture.ElementAt(i);
                             g_Client().ListeFormatItemClientFacture.Remove(ficfTmp);
                             g_Client().FactureClient.ListeFormatItemClientFacture.Remove(ficfTmp);
+                            // Je dois aussi l'enlevé de la liste du parent
+                            g_Client().ListeFormatItemClientFacture.ElementAt(ficfParentIndex).ListFicf.Remove(ficfTmp);
+                            g_Client().FactureClient.ListeFormatItemClientFacture.ElementAt(ficfParentIndex).ListFicf.Remove(ficfTmp);
+
+                            ViewModel.EnregistrerUneCommande(ViewModel.LaCommande);
                         }
                         else if (!g_Client().ListeFormatItemClientFacture.ElementAt(i).EstComplementaire)
                             break;// Si je rencontre un non complémentaire j'arrète la boucle car je vais supprimer tous les complémentaire sinon.
@@ -214,9 +220,24 @@ namespace GestResto.UI.Views
             }
             else if (ficf != null && ficf.EstComplementaire)
             {
+                int ficfParentIndex = lbxItemsClient.SelectedIndex;
+
+                for (int i = ficfParentIndex; i > 0; i--)
+                {
+                    // S'il n'est pas complémentaire.
+                    if(!g_Client().ListeFormatItemClientFacture.ElementAt(i).EstComplementaire)
+                    {
+                        g_Client().ListeFormatItemClientFacture.ElementAt(i).ListFicf.Remove(ficf);
+                        g_Client().FactureClient.ListeFormatItemClientFacture.ElementAt(i).ListFicf.Remove(ficf);
+                        break;
+                    }
+                }
+
+
                 // S'il est complémentaire je suprimme de la même façon.
                 g_Client().ListeFormatItemClientFacture.Remove(ficf);
                 g_Client().FactureClient.ListeFormatItemClientFacture.Remove(ficf);
+
                 ViewModel.EnregistrerUneCommande(ViewModel.LaCommande);
 
             }
@@ -313,6 +334,10 @@ namespace GestResto.UI.Views
             }
             // Refresh de la liste d'items du client
             refreshListeItem();
+
+            IApplicationService mainVM = ServiceFactory.Instance.GetService<IApplicationService>();
+            mainVM.ChangeView<CommandeView>(new CommandeView());
+            
         }
 
         /// <summary>

@@ -52,6 +52,28 @@ namespace GestResto.Logic.Model.Entities
         }
 
         #endregion
+
+        public override bool Equals(object obj)
+        {
+            if (obj == null)
+            {
+                return false;
+            }
+
+            Client p = obj as Client;
+
+            if (p == null)
+            {
+                return false;
+            }
+
+            return this.IdClient == p.IdClient;
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
     }
 
 }

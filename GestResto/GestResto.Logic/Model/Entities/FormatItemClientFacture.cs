@@ -62,5 +62,38 @@ namespace GestResto.Logic.Model.Entities
         }
         #endregion
 
+        #region Redefinition des fonctions de bases
+
+
+
+        /// <summary>
+        /// Permet de comparer deux catégories.
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
+        public override bool Equals(object obj)
+        {
+            if (obj == null)
+            {
+                return false;
+            }
+
+            FormatItemClientFacture p = obj as FormatItemClientFacture;
+
+            if (p == null)
+            {
+                return false;
+            }
+
+            return this.IdFormatItemClientFacture == p.IdFormatItemClientFacture;
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
+
+        #endregion
+
     }
 }

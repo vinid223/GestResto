@@ -62,5 +62,27 @@ namespace GestResto.Logic.Model.Entities
 
         #endregion
 
+        public override bool Equals(object obj)
+        {
+            if (obj == null)
+            {
+                return false;
+            }
+
+            Facture p = obj as Facture;
+
+            if (p == null)
+            {
+                return false;
+            }
+
+            return this.IdFacture == p.IdFacture;
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
+
     }
 }
