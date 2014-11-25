@@ -6,8 +6,8 @@ CREATE DATABASE IF NOT EXISTS 5a5_a14_gestresto;
 USE 5a5_a14_gestresto;
 
 /*Suppression de toutes les tables*/
-DROP TABLE IF EXISTS TablesCommandes;
-DROP TABLE IF EXISTS Complements;
+/*On a pas besoin de définir les drop tables puisqu'on a déjà créé une nouvelle base de données*/
+/*DROP TABLE IF EXISTS TablesCommandes;
 DROP TABLE IF EXISTS FormatsItemsClientsFactures;
 DROP TABLE IF EXISTS FormatsItems;
 DROP TABLE IF EXISTS Formats;
@@ -19,7 +19,7 @@ DROP TABLE IF EXISTS Commandes;
 DROP TABLE IF EXISTS Tables;
 DROP TABLE IF EXISTS Employes;
 DROP TABLE IF EXISTS TypesEmploye;
-DROP TABLE IF EXISTS Restaurants;
+DROP TABLE IF EXISTS Restaurants;*/
 
 /******************************************Création des tables et liens des foreign key******************************************/
 
@@ -80,7 +80,7 @@ CREATE TABLE IF NOT EXISTS Restaurants
 
 
 INSERT INTO `restaurants` (`idRestaurant`, `nom`, `adresse`, `telephone`, `fax`, `ville`, `codePostal`, `dateCreation`) VALUES
-(1, 'Chez Alain', '99 rue de la perfection', '8193236308', '8193236307', 'Paradis', 'H0H0H0', '2014-10-16 17:10:19');
+(1, 'GestResto', 'GestResto street', '1231231234', '1231231233', 'Montréal', 'A1A1A1', NOW());
 
 
 /*Création de la table Commandes*/
@@ -219,7 +219,7 @@ CREATE TABLE IF NOT EXISTS FormatsItemsClientsFactures
 	complementaire BIT(1) DEFAULT b'0',
 	idFormatItem INT NOT NULL,
 	idClient INT DEFAULT NULL,
-	idFacture DEFAULT NULL,
+	idFacture INT DEFAULT NULL,
 	prix FLOAT NOT NULL
 );
 
@@ -242,18 +242,3 @@ FOREIGN KEY (idClient) REFERENCES Clients(idClient);
 ALTER TABLE FormatsItemsClientsFactures 
 ADD CONSTRAINT Factures_FormatsItemsClientsFactures_FK
 FOREIGN KEY (idFacture) REFERENCES Factures (idFacture);
-
-/*Création du lien avec la foreign key de la table FormatsItemsClientsFactures vers la table Complements*/
-ALTER TABLE Complements
-ADD CONSTRAINT FormatsItemsClientsFactures_Complements_FK
-FOREIGN KEY (idFormatItemClientFacture) REFERENCES FormatsItemsClientsFactures (idFormatItemClientFacture);
-
-
-/*Données*/
-INSERT INTO `tables` VALUES (1,5,0,0),(2,7,1,0),(3,1,0,0),(4,101,1,0),(5,20,1,0),(6,301,1,0),(7,40567,1,0),(8,2,1,0),(10,30,1,0),(13,0,1,1);
-INSERT INTO `categories` VALUES (2,'Enfants','','\0'),(3,'Grillades','','\0'),(4,'Pâtes','\0','\0'),(5,'Burgers','','\0'),(7,'Dessert','','\0'),(25,'Extras','',''),(26,'Cuisson','',''),(27,'Accompagnements','',''),(28,'Bacons','','\0'),(94,'Fast Food','','\0'),(95,'Poulet','','\0'),(96,'Demandes Spéciales','','');
-INSERT INTO `formats` VALUES (1,'Petit','P',1),(4,'Moyen','M',1),(11,'Grand','G',1),(18,'Très Grand','TG',1),(26,'Extrême','EXT',0),(29,'Minuscule','MIN',1),(43,'Gigantesque','GG',1),(44,'Gros comme ','Uni',1),(45,'11 onzes','11O',1);
-INSERT INTO `items` VALUES (1,3,'Hot dog',''),(2,94,'Pizza',''),(3,2,'Poutine',''),(14,3,'Steak',''),(22,4,'Linguini',''),(30,28,'Coke',''),(58,28,'Orange Crush',''),(59,28,'Sprite',''),(69,26,'Medium',''),(71,5,'Club Sandwich',''),(72,2,'Popcorn',''),(73,26,'Saignant',''),(74,26,'Bien cuit',''),(75,27,'Entrez le nom deitem pour f','\0'),(76,4,'Lasagne','\0'),(77,95,'Quart de poulet poitrine',''),(78,95,'Quart de poulet cuisse',''),(79,28,'Eau',''),(80,25,'Bacon',''),(81,96,'Pas de glace','');
-INSERT INTO `formatsitems` VALUES (51,29,1,6),(56,11,72,4.5),(59,1,58,5.95),(60,4,58,6),(61,11,58,7),(62,1,72,3.1),(63,1,2,6.12),(64,4,2,10.8),(65,11,2,20.24),(66,1,30,5.95),(67,4,30,6.45),(68,11,30,7.12),(69,4,59,5),(70,11,59,6),(71,44,1,16),(72,1,74,0),(73,4,75,19),(74,4,76,12.25),(75,4,71,20),(76,4,77,10),(77,4,78,10),(78,4,79,1.55),(79,1,80,2.5),(80,11,80,5),(81,4,81,0);
-INSERT INTO `commandes` VALUES (11,1,'Payé','2014-10-11 15:55:20','2014-10-25 15:55:22'),(12,1,'Active','2014-11-12 10:24:56',NULL),(13,1,'Active','2014-11-12 10:28:05',NULL),(14,1,'Active','2014-11-12 10:32:20',NULL);
-INSERT INTO `tablescommandes` VALUES (1,13,11),(2,4,12),(3,2,13),(4,6,14);

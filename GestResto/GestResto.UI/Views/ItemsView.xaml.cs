@@ -79,6 +79,13 @@ namespace GestResto.UI.Views
 
             Item item = (Item)((sender as Button).CommandParameter);
             ViewModelItem.Item = item;
+
+            if (ViewModelItem.Item.Formats != null)
+            {
+                dataGridPrix.ItemsSource = ViewModelItem.Item.Formats;
+            }
+
+            dataGridPrix.Items.Refresh();
         }
 
         private void btnSupprimer_Click(object sender, RoutedEventArgs e)
@@ -203,6 +210,7 @@ namespace GestResto.UI.Views
             {
                 MessageBox.Show("Vous devez sélectionner un item.");
             }
+            ViewModelItem.Item.EstModifie = false;
         }
 
 
@@ -242,6 +250,7 @@ namespace GestResto.UI.Views
                 lbxListeCategorie.ItemsSource = ViewModelItem.Items;
                 ViewModelItem.Item = itemTemp;
             }
+            dataGridPrix.Items.Refresh();
 
         }
 
