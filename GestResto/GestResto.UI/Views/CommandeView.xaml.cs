@@ -232,6 +232,12 @@ namespace GestResto.UI.Views
         {
             Item item = (Item)((sender as Button).CommandParameter);
 
+
+            if (lbxItemsClient.SelectedItem != null && ((FormatItemClientFacture)lbxItemsClient.SelectedItem).EstComplementaire)
+            {    
+                return;
+            }
+
             FormatsView view = new FormatsView(item.Formats);
 
             // S'il a seulement un formatItem je n'affiche pas la liste de format disponible.
@@ -431,6 +437,9 @@ namespace GestResto.UI.Views
 
             lblNumeroClient.Content = "Client #" + (NumeroClient + 1) + "/" + ViewModel.LaCommande.ListeClients.Count;
 
+            // Déplacement au dernier client
+            NumeroClient = ViewModel.LaCommande.ListeClients.Count-1;
+            refreshListeItem();
 
             // Update de la variable statique
             Constante.commande = ViewModel.LaCommande;
