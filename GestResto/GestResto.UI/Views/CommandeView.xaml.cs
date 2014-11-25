@@ -38,8 +38,10 @@ namespace GestResto.UI.Views
         /// Permet de sauvegarder la commande passée en paramètre dans le constructeur de la commandeView.
         /// </summary>
 
-        public CommandeView()
+        public CommandeView(int numeroClientEnCours = 0)
         {
+            NumeroClient = numeroClientEnCours;
+            
             InitializeComponent();
             
             lblNom.Content = Constante.employe.ToString();
@@ -61,7 +63,7 @@ namespace GestResto.UI.Views
                 refreshListeItem();
 
                // On tag tous les items complémentaires
-               Constante.commande.ListeClients.First().ListeFormatItemClientFacture.ToList().ForEach(x => x.ListFicf.ToList().ForEach( y => y.EstComplementaire = true));
+                Constante.commande.ListeClients.ElementAt(numeroClientEnCours).ListeFormatItemClientFacture.ToList().ForEach(x => x.ListFicf.ToList().ForEach(y => y.EstComplementaire = true));
 
             }
 
@@ -220,7 +222,7 @@ namespace GestResto.UI.Views
             {
                 int ficfParentIndex = lbxItemsClient.SelectedIndex;
 
-                for (int i = ficfParentIndex; i > 0; i--)
+                for (int i = ficfParentIndex; i >= 0; i--)
                 {
                     // S'il n'est pas complémentaire.
                     if(!g_Client().ListeFormatItemClientFacture.ElementAt(i).EstComplementaire)
@@ -240,6 +242,10 @@ namespace GestResto.UI.Views
 
             }
             refreshListeItem();
+
+            // Règle un bug, ces lignes devraient etre supprimées
+            IApplicationService mainVM = ServiceFactory.Instance.GetService<IApplicationService>();
+            mainVM.ChangeView<CommandeView>(new CommandeView(NumeroClient));
         }
 
 
@@ -343,8 +349,9 @@ namespace GestResto.UI.Views
             // Refresh de la liste d'items du client
             refreshListeItem();
 
+            // Règle un bug, ces lignes devraient etre supprimées
             IApplicationService mainVM = ServiceFactory.Instance.GetService<IApplicationService>();
-            mainVM.ChangeView<CommandeView>(new CommandeView());
+            mainVM.ChangeView<CommandeView>(new CommandeView(NumeroClient));
             
         }
 
