@@ -63,8 +63,6 @@ namespace GestResto.UI.Views
                // On tag tous les items complémentaires
                Constante.commande.ListeClients.First().ListeFormatItemClientFacture.ToList().ForEach(x => x.ListFicf.ToList().ForEach( y => y.EstComplementaire = true));
 
-               // On attibut 
-               // TODO à enlever lbxItemsClient.ItemsSource = Constante.commande.ListeClients.First().ListeFormatItemClientFacture;
             }
 
             // Si on vient de créer la commande, je dois ajouter un client au départ vide.
