@@ -22,13 +22,14 @@
                 <RowDefinition Height="40" />
                 <RowDefinition/>
                 <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
             </Grid.RowDefinitions>
 
             <!-- Lorsque les boutons ne rentrent plus dans la fenêtre, une scoll bar apparait -->
             <ListBox AlternationCount="2"
-                Grid.Column="0" Grid.Row="1" Margin="5,50,5,5"
+                Grid.Column="0" Grid.Row="1" Margin="5,50,5,3"
                 Name="lbxItemsClient"
-                ScrollViewer.HorizontalScrollBarVisibility="Disabled" SelectionChanged="lbxItemsClient_SelectionChanged">
+                ScrollViewer.HorizontalScrollBarVisibility="Disabled" SelectionChanged="lbxItemsClient_SelectionChanged" Grid.RowSpan="2">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <Label Style="{StaticResource ListBoxFICF}" Content="{Binding FormatItemAssocie}"/>
@@ -41,7 +42,7 @@
                    Name="lblNumeroClient"
                    Grid.Column="0" 
                    HorizontalAlignment="Center" 
-                   Margin="0,5,0,0"
+                   Margin="50,5,51,0"
                    VerticalAlignment="Top" 
                    Height="35" FontSize="20" 
                    FontWeight="SemiBold" Width="150" Grid.Row="1"
@@ -65,7 +66,10 @@
                    Name="btnClientSuivant"
                    MouseLeftButtonDown="btnSuivantClient_MouseLeftButtonDown" Grid.Row="1"/>
 
-            <Button Grid.Column="0" Grid.Row="2" Content="Supprimer l'item" Width="241" Height="34" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="3" Click="btnSupprimerItem_Click" Margin="5,3" />
+            <Button Grid.Column="2" Grid.Row="2" Content="Items principaux" Height="34" FontSize="18" HorizontalAlignment="Stretch" VerticalAlignment="Center" Padding="3" Click="btnItemsPrincipaux_Click" Margin="5,3" />
+
+
+            <Button Grid.Column="0" Grid.Row="3" Content="Supprimer l'item" Width="241" Height="34" FontSize="18" HorizontalAlignment="Stretch" VerticalAlignment="Center" Padding="3" Click="btnSupprimerItem_Click" Margin="5,3" />
 
             <Image Grid.Column="2" 
                    Source="/Images/arrowUp.png" 
@@ -75,7 +79,7 @@
                    MouseLeftButtonDown="btnMonterCategorie_MouseLeftButtonDown" />
 
             <Image 
-                Grid.Column="2" Grid.Row="2" 
+                Grid.Column="2" Grid.Row="3" 
                 Source="/Images/arrowDown.png" 
                 HorizontalAlignment="Center" 
                 VerticalAlignment="Bottom"
@@ -88,7 +92,7 @@
             <ListView HorizontalContentAlignment="Stretch" 
                       ScrollViewer.VerticalScrollBarVisibility="Hidden" 
                       ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
-                      Margin="4,4,4,4" 
+                      Margin="4,4,4,2" 
                       Name="lbxListeCategorie" 
                       Grid.Column="2" Grid.Row="1" >
                 <ListView.ItemTemplate>
@@ -99,7 +103,7 @@
             </ListView>
 
             <ItemsControl 
-                Name="lbxListeItems" Grid.Column="1" Grid.Row="1">
+                Name="lbxListeItems" Grid.Column="1" Grid.Row="1" Grid.RowSpan="2">
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
                         <WrapPanel />

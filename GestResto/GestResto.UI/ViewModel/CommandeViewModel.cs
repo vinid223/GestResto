@@ -27,6 +27,13 @@ namespace GestResto.UI.ViewModel
             Categories = new ObservableCollection<Categorie>(ServiceFactory.Instance.GetService<ICategorieService>().RetrieveAll());
             Items = new ObservableCollection<Item>(ServiceFactory.Instance.GetService<IItemService>().RetrieveAll(true));
             Commandes = new ObservableCollection<Commande>(ServiceFactory.Instance.GetService<ICommandeService>().RetrieveAll(1));
+            categsTest = new ObservableCollection<Categorie>(ServiceFactory.Instance.GetService<ICategorieService>().RetrieveAll());
+
+            // Insère une catégorie seulement dans la liste en mémoire.
+            categTest = new Categorie(-1, "Tous les items", true, false);
+
+            Categories.Insert(0, categTest);
+            //categsTest.Insert(0, categTest);
 
             LaCommande = new Commande();
             
@@ -78,9 +85,21 @@ namespace GestResto.UI.ViewModel
         private ObservableCollection<Categorie> _categories = new ObservableCollection<Categorie>();
         private ObservableCollection<Item> _items = new ObservableCollection<Item>();
         private ObservableCollection<Commande> _commandes = new ObservableCollection<Commande>();
+        private ObservableCollection<Categorie> _categoriesTest = new ObservableCollection<Categorie>();
 
         public Commande LaCommande;
         public Categorie _categorie;
+        public Categorie categTest;
+           
+        public ObservableCollection<Categorie> categsTest
+        {
+            get { return _categoriesTest; }
+            set
+            {
+                _categoriesTest = value;
+                RaisePropertyChanged();
+            }
+        }
 
         public ObservableCollection<Commande> Commandes
         {

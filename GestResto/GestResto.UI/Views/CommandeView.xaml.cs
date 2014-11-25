@@ -244,6 +244,16 @@ namespace GestResto.UI.Views
             refreshListeItem();
         }
 
+
+        private void btnItemsPrincipaux_Click(object sender, RoutedEventArgs e)
+        {
+            // J'affiche les items qui ne sont pas complémentaires.
+            lbxListeItems.ItemsSource = ViewModel.Items.Where(x => x.Categories.EstComplementaire == false);
+
+            // J'affiche les catégories qui ne sont pas complémentaires.
+            lbxListeCategorie.ItemsSource = ViewModel.Categories.Where(x => x.EstComplementaire == false);
+        }
+        
         /// <summary>
         /// Lorsque l'utilisateur clique sur un item, je l'ajoute à sa liste d'items
         /// </summary>
@@ -406,8 +416,17 @@ namespace GestResto.UI.Views
             ViewModel.Categorie = categorie;
             lbxListeCategorie.SelectedItem = categorie;
 
-
-            lbxListeItems.ItemsSource = ViewModel.Items.Where(x => x.Categories.IdCategorie == categorie.IdCategorie).ToList();
+            // Si l'utilisateur veut afficher toutes les items
+            if (categorie.Nom == "Tous les items")
+            {
+                // J'affiche les items qui ne sont pas complémentaires.
+                lbxListeItems.ItemsSource = ViewModel.Items.Where(x => x.Categories.EstComplementaire == false);
+            }
+            else 
+            {
+                lbxListeItems.ItemsSource = ViewModel.Items.Where(x => x.Categories.IdCategorie == categorie.IdCategorie).ToList();
+            }
+            
 
         }
 
