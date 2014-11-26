@@ -351,14 +351,12 @@ namespace GestResto.UI.Views
 
                     // Ajout à la BD.
                     ViewModel.EnregistrerUneCommande(ViewModel.LaCommande);
-
-                    // Refresh de la liste d'items du client
-                    refreshListeItem();
-
                 }
             }
             // Refresh de la liste d'items du client
             refreshListeItem();
+            refreshListeItemFacture();
+
             // Update de la variable statique
             Constante.commande = ViewModel.LaCommande;
             // Règle un bug, ces lignes devraient etre supprimées
@@ -393,6 +391,7 @@ namespace GestResto.UI.Views
                 lblNumeroClient.Content = "Client #" + (NumeroClient + 1) + "/" + ViewModel.LaCommande.ListeClients.Count;
 
                 refreshListeItem();
+
             }
 
         }
@@ -539,22 +538,30 @@ namespace GestResto.UI.Views
             // Si l'utilisateur a demandé de ne pas quitter, on renvoie faux
             if (result == MessageBoxResult.Yes || g_Client().ListeFormatItemClientFacture.Count == 0)
             {
-                ViewModel.LaCommande.ListeClients.Remove(ViewModel.LaCommande.ListeClients.ElementAt(NumeroClient));
-                NumeroClient -= 1;
+                // S'il a seulement un client, je fais seulement le vider.
+                if (ViewModel.LaCommande.ListeClients.Count == 1)
+                {
+                    ViewModel.LaCommande.ListeClients.First().ListeFormatItemClientFacture.Clear();
+                    ViewModel.EnregistrerUneCommande(ViewModel.LaCommande);
+                }
+                else
+                {
+                    ViewModel.LaCommande.ListeClients.Remove(ViewModel.LaCommande.ListeClients.ElementAt(NumeroClient));
+                    NumeroClient -= 1;
 
-                if (NumeroClient == -1)
-                    NumeroClient = 0;
+                    if (NumeroClient == -1)
+                        NumeroClient = 0;
 
-                // Enregistrement en BD
-                ViewModel.EnregistrerUneCommande(ViewModel.LaCommande);
+                    // Enregistrement en BD
+                    ViewModel.EnregistrerUneCommande(ViewModel.LaCommande);
 
-                // Refresh du label
-                lblNumeroClient.Content = "Client #" + (NumeroClient + 1) + "/" + ViewModel.LaCommande.ListeClients.Count;
+                    // Refresh du label
+                    lblNumeroClient.Content = "Client #" + (NumeroClient + 1) + "/" + ViewModel.LaCommande.ListeClients.Count;
 
-                // Refresh du client affiché
-                refreshListeItem();
+                    // Refresh du client affiché
+                    refreshListeItem();
 
-
+                }
                 // Update de la variable statique
                 Constante.commande = ViewModel.LaCommande;
             }
