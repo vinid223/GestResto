@@ -1,0 +1,7 @@
+Je tente de supprimer le dernier ficf parent (il a 1 enfant) : 
+Une exception non gérée du type 'NHibernate.ObjectDeletedException' s'est produite dans NHibernate.dll
+Informations supplémentaires : deleted object would be re-saved by cascade (remove deleted object from associations)
+
+Je tente de supprimer le dernier ficf parent (il a 1-2 enfant) : 
+Ça supprime les enfants
+
