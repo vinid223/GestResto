@@ -591,9 +591,9 @@ namespace GestResto.UI.Views
 
                 // On change le statut d'assignation de chacune des tables de la commande pour 
                 // pouvoir réassigner les tables à une autre commande
-                foreach (var item in Constante.commande.ListeTables)
+                foreach (var table in Constante.commande.ListeTables)
                 {
-                    item.EstAssigne = false;
+                    table.EstAssigne = false;
                 }
 
                 // On appel le viewmodel pour enregistrer les modifications

@@ -7,11 +7,11 @@ using System.Windows;
 // Les informations générales relatives à un assembly dépendent de 
 // l'ensemble d'attributs suivant. Changez les valeurs de ces attributs pour modifier les informations
 // associées à un assembly.
-[assembly: AssemblyTitle("GestResto.UI")]
+[assembly: AssemblyTitle("GestResto")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("GestResto.UI")]
+[assembly: AssemblyCompany("GestResto Inc.")]
+[assembly: AssemblyProduct("GestResto")]
 [assembly: AssemblyCopyright("Copyright © VDTDST  2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

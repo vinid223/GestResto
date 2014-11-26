@@ -21,7 +21,7 @@
     <property name="Fin" column="depart" not-null="false" />
 
 
-    <idbag name="ListeTables" table="tablescommandes" generic="true">
+    <idbag name="ListeTables" table="tablescommandes" generic="true" cascade="all">
       <collection-id column="idTableCommande" type="Int32">
         <column name="idTableCommande" not-null="false" />
         <generator class="identity" />
