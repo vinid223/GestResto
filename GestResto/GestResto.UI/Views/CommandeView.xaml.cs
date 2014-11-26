@@ -147,12 +147,13 @@ namespace GestResto.UI.Views
 
             foreach (FormatItemClientFacture ficf in Constante.commande.ListeClients.ElementAt(NumeroClient).ListeFormatItemClientFacture)
             {
+
                 if (!ficf.EstComplementaire)
                 {
-
                     // On ajoute le ficf
                     ficfTemp.Add(ficf);
                 }
+
 
                 // On parcours la liste de ficf du ficf principal
                 foreach (FormatItemClientFacture ficfChild in ficf.ListFicf)
@@ -329,14 +330,17 @@ namespace GestResto.UI.Views
                 {
                     g_Client().ListeFormatItemClientFacture.Add(ficf);
 
-                    // Refresh de la liste d'items du client
-                    refreshListeItem();
-
                     // Ajout du ficf à la facture du client
                     g_Client().FactureClient.ListeFormatItemClientFacture.Add(ficf);
 
+                    // Refresh de la liste d'items du client
+                    refreshListeItem();
+                    refreshListeItemFacture();
+
                     // Ajout à la BD.
                     ViewModel.EnregistrerUneCommande(ViewModel.LaCommande);
+
+
 
                 }
                 else if (item.Categories.EstComplementaire) // Si l'item est complémentaire.
@@ -348,17 +352,20 @@ namespace GestResto.UI.Views
 
 
                     g_Client().ListeFormatItemClientFacture.Where(x => x.IdFormatItemClientFacture == ficfTemp.IdFormatItemClientFacture).First().ListFicf.Add(ficf);
+                    g_Client().ListeFormatItemClientFacture.Add(ficf);
 
                     // Ajout à la BD.
                     ViewModel.EnregistrerUneCommande(ViewModel.LaCommande);
                 }
             }
+
+            // Update de la variable statique
+            Constante.commande = ViewModel.LaCommande;
+
             // Refresh de la liste d'items du client
             refreshListeItem();
             refreshListeItemFacture();
 
-            // Update de la variable statique
-            Constante.commande = ViewModel.LaCommande;
             // Règle un bug, ces lignes devraient etre supprimées
             IApplicationService mainVM = ServiceFactory.Instance.GetService<IApplicationService>();
             mainVM.ChangeView<CommandeView>(new CommandeView(NumeroClient));
