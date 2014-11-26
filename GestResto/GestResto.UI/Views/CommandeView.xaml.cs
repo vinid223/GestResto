@@ -75,6 +75,10 @@ namespace GestResto.UI.Views
 
                 ViewModel.LaCommande.ListeClients.Add(new Client());
                 ViewModel.EnregistrerUnNouveauClient(ViewModel.LaCommande);
+
+                // Règle un bug, ces lignes devraient etre supprimées
+                IApplicationService mainVM = ServiceFactory.Instance.GetService<IApplicationService>();
+                mainVM.ChangeView<CommandeView>(new CommandeView(NumeroClient));
             }
 
              if (Constante.commande != null)
@@ -204,7 +208,7 @@ namespace GestResto.UI.Views
                             // Je dois aussi l'enlevé de la liste du parent
                             g_Client().ListeFormatItemClientFacture.ElementAt(ficfParentIndex).ListFicf.Remove(ficfTmp);
                             g_Client().FactureClient.ListeFormatItemClientFacture.ElementAt(ficfParentIndex).ListFicf.Remove(ficfTmp);
-
+                            i -= 1;
                             ViewModel.EnregistrerUneCommande(ViewModel.LaCommande);
                         }
                         else if (!g_Client().ListeFormatItemClientFacture.ElementAt(i).EstComplementaire)
@@ -222,11 +226,15 @@ namespace GestResto.UI.Views
             {
                 int ficfParentIndex = lbxItemsClient.SelectedIndex;
 
+                List<FormatItemClientFacture> test = new List<FormatItemClientFacture>();
+
+                // Pour trouver son parent, pour ensuite le supprimer dans sa liste
                 for (int i = ficfParentIndex; i >= 0; i--)
                 {
                     // S'il n'est pas complémentaire.
                     if(!g_Client().ListeFormatItemClientFacture.ElementAt(i).EstComplementaire)
                     {
+                        test = g_Client().ListeFormatItemClientFacture.ElementAt(i).ListFicf.ToList();
                         g_Client().ListeFormatItemClientFacture.ElementAt(i).ListFicf.Remove(ficf);
                         g_Client().FactureClient.ListeFormatItemClientFacture.ElementAt(i).ListFicf.Remove(ficf);
                         break;
@@ -241,11 +249,17 @@ namespace GestResto.UI.Views
                 ViewModel.EnregistrerUneCommande(ViewModel.LaCommande);
 
             }
-            refreshListeItem();
+
+
+            // Update de la variable statique
+            Constante.commande = ViewModel.LaCommande;
 
             // Règle un bug, ces lignes devraient etre supprimées
             IApplicationService mainVM = ServiceFactory.Instance.GetService<IApplicationService>();
             mainVM.ChangeView<CommandeView>(new CommandeView(NumeroClient));
+
+            refreshListeItem();
+            refreshListeItemFacture();
         }
 
 
@@ -324,9 +338,6 @@ namespace GestResto.UI.Views
                     // Ajout à la BD.
                     ViewModel.EnregistrerUneCommande(ViewModel.LaCommande);
 
-                    // Update de la variable statique
-                    Constante.commande = ViewModel.LaCommande;
-
                 }
                 else if (item.Categories.EstComplementaire) // Si l'item est complémentaire.
                 {
@@ -340,15 +351,14 @@ namespace GestResto.UI.Views
 
                     // Ajout à la BD.
                     ViewModel.EnregistrerUneCommande(ViewModel.LaCommande);
-
-                    // Refresh de la liste d'items du client
-                    refreshListeItem();
-
                 }
             }
             // Refresh de la liste d'items du client
             refreshListeItem();
+            refreshListeItemFacture();
 
+            // Update de la variable statique
+            Constante.commande = ViewModel.LaCommande;
             // Règle un bug, ces lignes devraient etre supprimées
             IApplicationService mainVM = ServiceFactory.Instance.GetService<IApplicationService>();
             mainVM.ChangeView<CommandeView>(new CommandeView(NumeroClient));
@@ -381,6 +391,7 @@ namespace GestResto.UI.Views
                 lblNumeroClient.Content = "Client #" + (NumeroClient + 1) + "/" + ViewModel.LaCommande.ListeClients.Count;
 
                 refreshListeItem();
+
             }
 
         }
@@ -493,6 +504,10 @@ namespace GestResto.UI.Views
             // Update de la variable statique
             Constante.commande = ViewModel.LaCommande;
 
+            // Règle un bug, ces lignes devraient etre supprimées
+            IApplicationService mainVM = ServiceFactory.Instance.GetService<IApplicationService>();
+            mainVM.ChangeView<CommandeView>(new CommandeView(NumeroClient));
+
         }
 
         private void btnDiviser_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
@@ -523,25 +538,37 @@ namespace GestResto.UI.Views
             // Si l'utilisateur a demandé de ne pas quitter, on renvoie faux
             if (result == MessageBoxResult.Yes || g_Client().ListeFormatItemClientFacture.Count == 0)
             {
-                ViewModel.LaCommande.ListeClients.Remove(ViewModel.LaCommande.ListeClients.ElementAt(NumeroClient));
-                NumeroClient -= 1;
+                // S'il a seulement un client, je fais seulement le vider.
+                if (ViewModel.LaCommande.ListeClients.Count == 1)
+                {
+                    ViewModel.LaCommande.ListeClients.First().ListeFormatItemClientFacture.Clear();
+                    ViewModel.EnregistrerUneCommande(ViewModel.LaCommande);
+                }
+                else
+                {
+                    ViewModel.LaCommande.ListeClients.Remove(ViewModel.LaCommande.ListeClients.ElementAt(NumeroClient));
+                    NumeroClient -= 1;
 
-                if (NumeroClient == -1)
-                    NumeroClient = 0;
+                    if (NumeroClient == -1)
+                        NumeroClient = 0;
 
-                // Enregistrement en BD
-                ViewModel.EnregistrerUneCommande(ViewModel.LaCommande);
+                    // Enregistrement en BD
+                    ViewModel.EnregistrerUneCommande(ViewModel.LaCommande);
 
-                // Refresh du label
-                lblNumeroClient.Content = "Client #" + (NumeroClient + 1) + "/" + ViewModel.LaCommande.ListeClients.Count;
+                    // Refresh du label
+                    lblNumeroClient.Content = "Client #" + (NumeroClient + 1) + "/" + ViewModel.LaCommande.ListeClients.Count;
 
-                // Refresh du client affiché
-                refreshListeItem();
+                    // Refresh du client affiché
+                    refreshListeItem();
 
-
+                }
                 // Update de la variable statique
                 Constante.commande = ViewModel.LaCommande;
-            }    
+            }
+
+            // Règle un bug, ces lignes devraient etre supprimées
+            IApplicationService mainVM = ServiceFactory.Instance.GetService<IApplicationService>();
+            mainVM.ChangeView<CommandeView>(new CommandeView(NumeroClient));
         }
 
         private void btnPayer_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
