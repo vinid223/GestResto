@@ -80,7 +80,7 @@ CREATE TABLE IF NOT EXISTS Restaurants
 
 
 INSERT INTO `restaurants` (`idRestaurant`, `nom`, `adresse`, `telephone`, `fax`, `ville`, `codePostal`, `dateCreation`) VALUES
-(1, 'GestResto', 'GestResto street', '1231231234', '1231231233', 'Montréal', 'A1A1A1', NOW());
+(1, 'GestResto', 'GestResto street', '', '', 'GestResto', 'A1A1A1', NOW());
 
 
 /*Création de la table Commandes*/

@@ -191,7 +191,7 @@ CREATE TABLE `formats` (
 
 LOCK TABLES `formats` WRITE;
 /*!40000 ALTER TABLE `formats` DISABLE KEYS */;
-INSERT INTO `formats` VALUES (1,'Portion normale','M',1),(2,'Petit','P',1),(3,'Grand','G',1),(4,'Extra grand','XT',1);
+INSERT INTO `formats` VALUES (1,'Portion normale','M',1),(2,'Petit','P',1),(3,'Grand','G',1),(4,'Extra Grand','XG',1);
 /*!40000 ALTER TABLE `formats` ENABLE KEYS */;
 UNLOCK TABLES;
 
