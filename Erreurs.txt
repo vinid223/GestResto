@@ -5,3 +5,6 @@ Informations supplémentaires : deleted object would be re-saved by cascade (remo
 Je tente de supprimer le dernier ficf parent (il a 1-2 enfant) : 
 Ça supprime les enfants
 
+J'ajoute un nouveau client et je lui ajout un item :
+Une exception non gérée du type 'NHibernate.HibernateException' s'est produite dans NHibernate.dll
+Informations supplémentaires : A collection with cascade="all-delete-orphan" was no longer referenced by the owning entity instance: GestResto.Logic.Model.Entities.Client.ListeFormatItemClientFacture
