@@ -251,6 +251,7 @@ namespace GestResto.UI.Views
                 ViewModelItem.Item = itemTemp;
             }
             dataGridPrix.Items.Refresh();
+            AjouterFormatItemDansListe();
 
         }
 
@@ -281,16 +282,7 @@ namespace GestResto.UI.Views
 
         private void AjoutFormatItem_Click(object sender, RoutedEventArgs e)
         {
-            // Enlève un bug, lors de l'ajout d'un item venant d'être créé.
-            if (ViewModelItem.Item.Formats == null)
-            {
-                ViewModelItem.Item.Formats = new List<FormatItem>();
-                dataGridPrix.ItemsSource = ViewModelItem.Item.Formats;
-            }
-
-            ViewModelItem.Item.Formats.Add(new FormatItem());
-            ViewModelItem.Item.EstModifie = true;
-            dataGridPrix.Items.Refresh();
+            AjouterFormatItemDansListe();
         }
 
         // Fonction qui sert à revenir à la view précédente
@@ -434,6 +426,23 @@ namespace GestResto.UI.Views
                 IApplicationService mainVM = ServiceFactory.Instance.GetService<IApplicationService>();
                 mainVM.ChangeView<CategorieView>(new CategorieView(true));  
             }
+        }
+
+        /// <summary>
+        /// Fonction permettant d'ajouter dans la liste des formats items un nouveau format item
+        /// </summary>
+        private void AjouterFormatItemDansListe()
+        {
+            // Enlève un bug, lors de l'ajout d'un item venant d'être créé.
+            if (ViewModelItem.Item.Formats == null)
+            {
+                ViewModelItem.Item.Formats = new List<FormatItem>();
+                dataGridPrix.ItemsSource = ViewModelItem.Item.Formats;
+            }
+
+            ViewModelItem.Item.Formats.Add(new FormatItem());
+            ViewModelItem.Item.EstModifie = true;
+            dataGridPrix.Items.Refresh();
         }
     }
 }
