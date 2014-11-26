@@ -581,7 +581,7 @@ namespace GestResto.UI.Views
             Constante.onReleaseButton(sender, e);
 
             // On demande une confirmations à l'utilisateur s'il veut fermer la commande 
-            if (MessageBoxResult.Yes == MessageBox.Show("Êtes-vous sure de vouloir fermer la commande en cour?","Confirmation de fermeture de commande",MessageBoxButton.YesNo,MessageBoxImage.Question,MessageBoxResult.No))
+            if (MessageBoxResult.Yes == MessageBox.Show("Êtes-vous sure de vouloir fermer la commande en cours?","Confirmation de fermeture de commande",MessageBoxButton.YesNo,MessageBoxImage.Question,MessageBoxResult.No))
             {
                 // On indique la date de fermeture de la commande
                 Constante.commande.Fin = DateTime.Now;
