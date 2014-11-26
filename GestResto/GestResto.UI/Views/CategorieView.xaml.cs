@@ -305,7 +305,7 @@ namespace GestResto.UI.Views
                 {
                     // Si c'est le cas on indique qu'on a des items de modifié et on écrit un message
                     CategorieModifie = true;
-                    message.Append("La catégorie ").Append(item.Nom).Append(" n'a pas été enregistré.\n");
+                    message.Append("La catégorie ").Append(item.Nom).Append(" n'a pas été enregistrée.\n");
                 }
             }
 
@@ -314,7 +314,7 @@ namespace GestResto.UI.Views
             {
                 // On affiche un messagebox à l'utilisateur pour lui demander s'il veut continuer ou non
                 message.Append("\n\nVoulez-vous continuer sans sauvegarder?");
-                messageBoxResult = MessageBox.Show(message.ToString(), "Catégories non sauvegardé", MessageBoxButton.YesNo, MessageBoxImage.Exclamation, MessageBoxResult.No);
+                messageBoxResult = MessageBox.Show(message.ToString(), "Catégories non sauvegardées", MessageBoxButton.YesNo, MessageBoxImage.Exclamation, MessageBoxResult.No);
             }
 
             // On test les retour possible de l'utilisateur 

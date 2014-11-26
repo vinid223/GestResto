@@ -158,7 +158,7 @@ namespace GestResto.UI.Views
             else
             {
                 // On affiche un message si la commande n'existe pas
-                MessageBox.Show("La commande que vous voulez modifier n'existe pas. \n Veuillez réessayer.", "Erreur", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                MessageBox.Show("La commande que vous voulez modifier n'existe pas.\nVeuillez réessayer.", "Erreur", MessageBoxButton.OK, MessageBoxImage.Exclamation);
                 Constante.LogErreur("La commande n'est pas existante dans la base de données. Il faut réessayer");
             }
         }

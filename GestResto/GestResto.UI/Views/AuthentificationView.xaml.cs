@@ -72,9 +72,9 @@ namespace GestResto.UI.Views
                     // Si la réponse à la requête est null c'est que l'employé est inexistant
                     if (Constante.employe == null)
                     {
-                        Constante.LogErreur("Informations de connexion ne sont pas valide");
+                        Constante.LogErreur("Informations de connexion ne sont pas valides");
                         // On affiche un message et on réinitialise les variables
-                        MessageBox.Show("Les informations d'authentifications ne sont pas valides, veuillez ressayer", "Employé inexistant", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
+                        MessageBox.Show("Les informations d'authentifications ne sont pas valides, veuillez réessayer", "Employé inexistant", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
                         NoIdentification = null;
                         MDPIdentification = null;
 
@@ -86,7 +86,7 @@ namespace GestResto.UI.Views
                     else if (Constante.employe.TypeEmployes == null)
                     {
                         Constante.LogErreur("Le TypeEmploye n'est pas valide = null");
-                        MessageBox.Show("L'employé que vous tentez de connecter n'est pas valide. Connectez un administrateur pour corriger le problème", "Employé non valide", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
+                        MessageBox.Show("L'employé que vous tentez de connecter n'est pas valide. Contactez un administrateur afin de corriger le problème", "Employé non valide", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
 
                         // On change la valeur des boites de textes et des label
                         lblTitreText.Content = "Numéro d'employé:";
@@ -136,8 +136,8 @@ namespace GestResto.UI.Views
                 }
                 else
                 {
-                    Constante.LogErreur("L'utilisateur entre des champs non valide");
-                    MessageBox.Show("Les informations que vous avez ne sont pas valides, veuillez entrer à nouveau les informations", "Champ non valide", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
+                    Constante.LogErreur("L'utilisateur entre des champs non valides");
+                    MessageBox.Show("Les informations que vous avez ne sont pas valides, veuillez entrer à nouveau les informations", "Champs non valides", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
                     NoIdentification = null;
                     MDPIdentification = null;
                     

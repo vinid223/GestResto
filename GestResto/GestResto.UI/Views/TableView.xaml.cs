@@ -58,7 +58,7 @@ namespace GestResto.UI
             if (!txtNumeroTable.IsEnabled)
             {
                 MessageBox.Show("Vous devez sélectionner une table avant d'enregistrer\n", "Information", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
-                Constante.LogErreur("Les champs d'enregistrement d'une table ne sont pas valides/nAucun numéro de table choisi");
+                Constante.LogErreur("Les champs d'enregistrement d'une table ne sont pas valides/nAucune table choisie");
                 return;
             }
             
@@ -102,7 +102,7 @@ namespace GestResto.UI
                 {
                     ViewModel.table = table;
                     Existe = true;
-                    MessageBox.Show("Une nouvelle table a déjà été ajouté. Vous devez le renommer avant d'en ajouter une nouvelle", "Erreur", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
+                    MessageBox.Show("Une nouvelle table a déjà été ajoutée. Vous devez la renommer avant d'en ajouter une nouvelle", "Erreur", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
                     Constante.LogErreur("Tentative d'ajout d'une table sans avoir modifié la précédente");
                 }
             }
@@ -185,7 +185,7 @@ namespace GestResto.UI
                 {
                     // Si c'est le cas on indique qu'on a des items de modifié et on écrit un message
                     TableModifie = true;
-                    message.Append("La table ").Append(item.NoTable).Append(" n'a pas été enregistré.\n");
+                    message.Append("La table ").Append(item.NoTable).Append(" n'a pas été enregistrée.\n");
                 }
             }
 
@@ -194,7 +194,7 @@ namespace GestResto.UI
             {
                 // On affiche un messagebox à l'utilisateur pour lui demander s'il veut continuer ou non
                 message.Append("\n\nVoulez-vous continuer sans sauvegarder?");
-                messageBoxResult = MessageBox.Show(message.ToString(), "Table non sauvegardé", MessageBoxButton.YesNo, MessageBoxImage.Exclamation, MessageBoxResult.No);
+                messageBoxResult = MessageBox.Show(message.ToString(), "Table non sauvegardée", MessageBoxButton.YesNo, MessageBoxImage.Exclamation, MessageBoxResult.No);
             }
 
             // On test les retour possible de l'utilisateur 
