@@ -29,7 +29,7 @@ namespace GestResto.UI.Views
         public CommandeViewModel ViewModel { get { return (CommandeViewModel)DataContext; } }
         int Scroll = 0;
         int HauteurListView;
-        List<Item> ListeItemsTemp = new List<Item>();
+
         /// <summary>
         /// NuméroClient permet de sauvegarder la liste du client actuellement affichée. Au départ, on affiche la liste du premier client.
         /// </summary>
