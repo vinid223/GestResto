@@ -38,20 +38,16 @@ namespace GestResto.UI.Views
         /// Permet de sauvegarder la commande passée en paramètre dans le constructeur de la commandeView.
         /// </summary>
 
-        public CommandeView(int numeroClientEnCours = 0)
+        public CommandeView(/*int numeroClientEnCours = 0*/)
         {
-            NumeroClient = numeroClientEnCours;
+            
+            //NumeroClient = numeroClientEnCours;
             
             InitializeComponent();
-            
             lblNom.Content = Constante.employe.ToString();
-
             DataContext = new CommandeViewModel();
 
-            lbxListeItems.ItemsSource = ViewModel.Items.Where(x => x.Categories.EstComplementaire == false);
-
-            // J'affiche les catégories qui ne sont pas complémentaires.
-            lbxListeCategorie.ItemsSource = ViewModel.Categories.Where(x => x.EstComplementaire == false);
+            afficherItemsPrincipaux();
 
             ViewModel.LaCommande = Constante.commande;
 
@@ -63,7 +59,7 @@ namespace GestResto.UI.Views
                 refreshListeItem();
 
                // On tag tous les items complémentaires
-                Constante.commande.ListeClients.ElementAt(numeroClientEnCours).ListeFormatItemClientFacture.ToList().ForEach(x => x.ListFicf.ToList().ForEach(y => y.EstComplementaire = true));
+                Constante.commande.ListeClients.ElementAt(NumeroClient).ListeFormatItemClientFacture.ToList().ForEach(x => x.ListFicf.ToList().ForEach(y => y.EstComplementaire = true));
 
             }
 
@@ -76,9 +72,6 @@ namespace GestResto.UI.Views
                 ViewModel.LaCommande.ListeClients.Add(new Client());
                 ViewModel.EnregistrerUnNouveauClient(ViewModel.LaCommande);
 
-                // Règle un bug, ces lignes devraient etre supprimées
-                IApplicationService mainVM = ServiceFactory.Instance.GetService<IApplicationService>();
-                mainVM.ChangeView<CommandeView>(new CommandeView(NumeroClient));
             }
 
              if (Constante.commande != null)
@@ -118,25 +111,25 @@ namespace GestResto.UI.Views
         {
             List<FormatItemClientFacture> ficfTemp = new List<FormatItemClientFacture>();
 
-            foreach (FormatItemClientFacture ficf in Constante.commande.ListeClients.ElementAt(NumeroClient).FactureClient.ListeFormatItemClientFacture)
+            ficfTemp = ViewModel.LaCommande.ListeClients.ElementAt(NumeroClient).FactureClient.ListeFormatItemClientFacture.ToList();
+
+            ViewModel.LaCommande.ListeClients.ElementAt(NumeroClient).FactureClient.ListeFormatItemClientFacture.Clear();
+
+            foreach (FormatItemClientFacture ficf in ficfTemp)
             {
                 if (!ficf.EstComplementaire)
                 {
-
                     // On ajoute le ficf
-                    ficfTemp.Add(ficf);
+                    ViewModel.LaCommande.ListeClients.ElementAt(NumeroClient).FactureClient.ListeFormatItemClientFacture.Add(ficf);
                 }
 
                 // On parcours la liste de ficf du ficf principal
                 foreach (FormatItemClientFacture ficfChild in ficf.ListFicf)
                 {
                     // On ajoute le ficfChild à la list en déterminant le style de l'élément
-                    ficfTemp.Add(ficfChild);
+                    ViewModel.LaCommande.ListeClients.ElementAt(NumeroClient).FactureClient.ListeFormatItemClientFacture.Add(ficfChild);
                 }
             }
-
-            ViewModel.LaCommande.ListeClients.ElementAt(NumeroClient).FactureClient.ListeFormatItemClientFacture = ficfTemp;
-
         }
         /// <summary>
         /// Rafraîchit la liste de ficf du client et la remet en ordre pour les compléments.
@@ -145,13 +138,17 @@ namespace GestResto.UI.Views
         {
             List<FormatItemClientFacture> ficfTemp = new List<FormatItemClientFacture>();
 
-            foreach (FormatItemClientFacture ficf in Constante.commande.ListeClients.ElementAt(NumeroClient).ListeFormatItemClientFacture)
-            {
+            ficfTemp = ViewModel.LaCommande.ListeClients.ElementAt(NumeroClient).ListeFormatItemClientFacture.ToList();
 
+            ViewModel.LaCommande.ListeClients.ElementAt(NumeroClient).ListeFormatItemClientFacture.Clear();
+
+            foreach (FormatItemClientFacture ficf in ficfTemp)
+            {
+                 
                 if (!ficf.EstComplementaire)
                 {
                     // On ajoute le ficf
-                    ficfTemp.Add(ficf);
+                    ViewModel.LaCommande.ListeClients.ElementAt(NumeroClient).ListeFormatItemClientFacture.Add(ficf);
                 }
 
 
@@ -159,20 +156,16 @@ namespace GestResto.UI.Views
                 foreach (FormatItemClientFacture ficfChild in ficf.ListFicf)
                 {
                     // On ajoute le ficfChild à la list en déterminant le style de l'élément
-                    ficfTemp.Add(ficfChild);
+                    ViewModel.LaCommande.ListeClients.ElementAt(NumeroClient).ListeFormatItemClientFacture.Add(ficfChild);
                 }
             }
 
-            ViewModel.LaCommande.ListeClients.ElementAt(NumeroClient).ListeFormatItemClientFacture = ficfTemp;
-            lbxItemsClient.ItemsSource = ficfTemp;
+            lbxItemsClient.ItemsSource = ViewModel.LaCommande.ListeClients.ElementAt(NumeroClient).ListeFormatItemClientFacture;
             lbxItemsClient.Items.Refresh();
         }
         #endregion
 
         #region Fonctions pour la liste d'items du client
-
-
-
 
         /// <summary>
         /// Suppression de l'item sélectionné
@@ -182,15 +175,16 @@ namespace GestResto.UI.Views
         private void btnSupprimerItem_Click(object sender, RoutedEventArgs e)
         {
             FormatItemClientFacture ficf = (FormatItemClientFacture)lbxItemsClient.SelectedItem;
+            // Je dois mettre la liste en ordre avec cette fonction
+            refreshListeItem();
+            refreshListeItemFacture();
 
             if (ficf != null && ficf.EstComplementaire == false)
             {
                 // S'il possède une liste de ficf, il possède des complémentaire qui doivent aussi être suprimé, et avant la suppression de celui-ci.
                 if (ficf.ListFicf.Count > 0)
                 {
-                    // Je dois mettre la liste en ordre avec cette fonction
-                    refreshListeItem();
-                    refreshListeItemFacture();
+
 
                     // Si le ficf est complémentaire
                     int ficfParentIndex = lbxItemsClient.SelectedIndex;
@@ -227,21 +221,17 @@ namespace GestResto.UI.Views
             {
                 int ficfParentIndex = lbxItemsClient.SelectedIndex;
 
-                List<FormatItemClientFacture> test = new List<FormatItemClientFacture>();
-
                 // Pour trouver son parent, pour ensuite le supprimer dans sa liste
-                for (int i = ficfParentIndex; i >= 0; i--)
+                for (int i = ficfParentIndex-1; i >= 0; i--)
                 {
                     // S'il n'est pas complémentaire.
                     if(!g_Client().ListeFormatItemClientFacture.ElementAt(i).EstComplementaire)
                     {
-                        test = g_Client().ListeFormatItemClientFacture.ElementAt(i).ListFicf.ToList();
                         g_Client().ListeFormatItemClientFacture.ElementAt(i).ListFicf.Remove(ficf);
                         g_Client().FactureClient.ListeFormatItemClientFacture.ElementAt(i).ListFicf.Remove(ficf);
                         break;
                     }
                 }
-
 
                 // S'il est complémentaire je suprimme de la même façon.
                 g_Client().ListeFormatItemClientFacture.Remove(ficf);
@@ -251,26 +241,33 @@ namespace GestResto.UI.Views
 
             }
 
-
             // Update de la variable statique
             Constante.commande = ViewModel.LaCommande;
-
-            // Règle un bug, ces lignes devraient etre supprimées
-            IApplicationService mainVM = ServiceFactory.Instance.GetService<IApplicationService>();
-            mainVM.ChangeView<CommandeView>(new CommandeView(NumeroClient));
 
             refreshListeItem();
             refreshListeItemFacture();
         }
 
-
-        private void btnItemsPrincipaux_Click(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// Enlève les items complémentaires et affiche les items normaux.
+        /// </summary>
+        private void afficherItemsPrincipaux()
         {
             // J'affiche les items qui ne sont pas complémentaires.
             lbxListeItems.ItemsSource = ViewModel.Items.Where(x => x.Categories.EstComplementaire == false);
 
             // J'affiche les catégories qui ne sont pas complémentaires.
             lbxListeCategorie.ItemsSource = ViewModel.Categories.Where(x => x.EstComplementaire == false);
+        }
+
+        /// <summary>
+        /// Lorsqu'il clique sur le bouton pour afficher les items complémentaires.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnItemsPrincipaux_Click(object sender, RoutedEventArgs e)
+        {
+            afficherItemsPrincipaux();
         }
         
         /// <summary>
@@ -281,7 +278,6 @@ namespace GestResto.UI.Views
         private void btnItem_Click(object sender, RoutedEventArgs e)
         {
             Item item = (Item)((sender as Button).CommandParameter);
-
 
             if (lbxItemsClient.SelectedItem != null && ((FormatItemClientFacture)lbxItemsClient.SelectedItem).EstComplementaire)
             {    
@@ -340,8 +336,6 @@ namespace GestResto.UI.Views
                     // Ajout à la BD.
                     ViewModel.EnregistrerUneCommande(ViewModel.LaCommande);
 
-
-
                 }
                 else if (item.Categories.EstComplementaire) // Si l'item est complémentaire.
                 {
@@ -364,12 +358,7 @@ namespace GestResto.UI.Views
 
             // Refresh de la liste d'items du client
             refreshListeItem();
-            refreshListeItemFacture();
-
-            // Règle un bug, ces lignes devraient etre supprimées
-            //IApplicationService mainVM = ServiceFactory.Instance.GetService<IApplicationService>();
-            //mainVM.ChangeView<CommandeView>(new CommandeView(NumeroClient));
-            
+            refreshListeItemFacture(); 
         }
 
         /// <summary>
@@ -379,7 +368,6 @@ namespace GestResto.UI.Views
         {
             return ViewModel.LaCommande.ListeClients.ElementAt(NumeroClient);
         }
-
 
         #endregion
 
@@ -450,7 +438,6 @@ namespace GestResto.UI.Views
                 lbxListeItems.ItemsSource = ViewModel.Items.Where(x => x.Categories.IdCategorie == categorie.IdCategorie).ToList();
             }
             
-
         }
 
         private void btnMonterCategorie_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -477,7 +464,6 @@ namespace GestResto.UI.Views
             // J'obtiens environ le nombre de boutons actuellement visibles
             HauteurListView = (int)lbxListeCategorie.ActualHeight / 40;
 
-
             if (Scroll < lbxListeCategorie.Items.Count - HauteurListView)
                 Scroll += HauteurListView;
             else
@@ -495,7 +481,6 @@ namespace GestResto.UI.Views
         {
             Constante.onReleaseButton(sender, e); /// On enlève l'effet du bouton pressé
 
-
             ViewModel.LaCommande.ListeClients.Add(new Client());
 
             ViewModel.EnregistrerUnNouveauClient(ViewModel.LaCommande);
@@ -510,10 +495,6 @@ namespace GestResto.UI.Views
 
             // Update de la variable statique
             Constante.commande = ViewModel.LaCommande;
-
-            // Règle un bug, ces lignes devraient etre supprimées
-            IApplicationService mainVM = ServiceFactory.Instance.GetService<IApplicationService>();
-            mainVM.ChangeView<CommandeView>(new CommandeView(NumeroClient));
 
         }
 
@@ -572,10 +553,6 @@ namespace GestResto.UI.Views
                 // Update de la variable statique
                 Constante.commande = ViewModel.LaCommande;
             }
-
-            // Règle un bug, ces lignes devraient etre supprimées
-            IApplicationService mainVM = ServiceFactory.Instance.GetService<IApplicationService>();
-            mainVM.ChangeView<CommandeView>(new CommandeView(NumeroClient));
         }
 
         private void btnPayer_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
