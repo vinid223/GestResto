@@ -49,7 +49,19 @@ namespace GestResto.UI.ViewModel
         /// <param name="commande"></param>
         public void TousLesClientsDeLaCommande()
         {
-            LaCommande = _commandeService.Retrieve((int)LaCommande.IdCommande);
+            try
+            {
+                LaCommande = _commandeService.Retrieve((int)LaCommande.IdCommande);
+            }
+            catch (Exception e)
+            {
+                string exceptionMessage = e.Message;
+                StringBuilder messageErreur = new StringBuilder();
+
+                messageErreur.Append("Erreur inconnue déconnectez et reconnectez vous, si le problème persiste contactez le soutient technique en notant cette erreur : ");
+                messageErreur.Append(exceptionMessage);
+                Constante.LogErreur("Erreur inconnue : " + exceptionMessage + " lors de l'enregistrement d'un F.I.C.F.");
+            }
         }
 
         public int AjouterUnFicf(FormatItemClientFacture ficf)
@@ -68,7 +80,19 @@ namespace GestResto.UI.ViewModel
 
         public void EnregistrerUneCommande(Commande commande)
         {
-            _commandeService.Update(commande);
+            try
+            {
+                _commandeService.Update(commande);
+            }
+            catch(Exception e)
+            {
+                string exceptionMessage = e.Message;
+                StringBuilder messageErreur = new StringBuilder();
+
+                messageErreur.Append("Erreur inconnue déconnectez et reconnectez vous, si le problème persiste contactez le soutient technique en notant cette erreur : ");
+                messageErreur.Append(exceptionMessage);
+                Constante.LogErreur("Erreur inconnue : " + exceptionMessage + " lors de l'enregistrement d'un F.I.C.F.");
+            }
             // Puisque je ne suis pas capable d'avoir le id du client, je reload toute la liste.
             TousLesClientsDeLaCommande();
         }

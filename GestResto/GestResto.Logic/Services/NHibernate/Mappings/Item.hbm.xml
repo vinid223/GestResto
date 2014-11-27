@@ -18,7 +18,7 @@
     </many-to-one>
 
 
-    <bag name="Formats" inverse="false" generic="true" lazy="true" cascade="all">
+    <bag name="Formats" inverse="true" generic="true" lazy="true" cascade="all">
       <key>
         <column name="idItem" />
       </key>
