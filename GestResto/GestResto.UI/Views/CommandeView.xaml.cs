@@ -367,8 +367,8 @@ namespace GestResto.UI.Views
             refreshListeItemFacture();
 
             // Règle un bug, ces lignes devraient etre supprimées
-            IApplicationService mainVM = ServiceFactory.Instance.GetService<IApplicationService>();
-            mainVM.ChangeView<CommandeView>(new CommandeView(NumeroClient));
+            //IApplicationService mainVM = ServiceFactory.Instance.GetService<IApplicationService>();
+            //mainVM.ChangeView<CommandeView>(new CommandeView(NumeroClient));
             
         }
 
@@ -605,7 +605,6 @@ namespace GestResto.UI.Views
         {
             Constante.onPressButton(sender, e); // On ajoute l'effet du bouton pressé
         }
-        #endregion
 
         /// <summary>
         /// Fonction permettant de fermer la commande
@@ -615,7 +614,7 @@ namespace GestResto.UI.Views
             Constante.onReleaseButton(sender, e);
 
             // On demande une confirmations à l'utilisateur s'il veut fermer la commande 
-            if (MessageBoxResult.Yes == MessageBox.Show("Êtes-vous sure de vouloir fermer la commande en cours?","Confirmation de fermeture de commande",MessageBoxButton.YesNo,MessageBoxImage.Question,MessageBoxResult.No))
+            if (MessageBoxResult.Yes == MessageBox.Show("Êtes-vous sure de vouloir fermer la commande en cours?", "Confirmation de fermeture de commande", MessageBoxButton.YesNo, MessageBoxImage.Question, MessageBoxResult.No))
             {
                 // On indique la date de fermeture de la commande
                 Constante.commande.Fin = DateTime.Now;
@@ -639,5 +638,6 @@ namespace GestResto.UI.Views
                 mainVM.ChangeView<CommandesView>(new CommandesView());
             }
         }
+        #endregion
     }
 }

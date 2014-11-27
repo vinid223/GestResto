@@ -30,7 +30,6 @@ namespace GestResto.Logic.Model.Entities
         public virtual DateTime Debut { get; set; }
         public virtual DateTime? Fin { get; set; }
         public virtual IList<Table> ListeTables { get; set; }
-        public virtual IList<Facture> ListeFactures { get; set; }
         public virtual IList<Client> ListeClients { get; set; }
 
         #endregion
@@ -47,7 +46,6 @@ namespace GestResto.Logic.Model.Entities
             Debut = DateTime.Now;
             Fin = null;
             ListeTables = new List<Table>();
-            ListeFactures = new List<Facture>();
             ListeClients = new List<Client>();   
         }
 
@@ -64,7 +62,6 @@ namespace GestResto.Logic.Model.Entities
             Debut = pDebut;
             Fin = pFin;
             ListeTables = pListeTable;
-            ListeFactures = pListeFactures;
         }
 
         /// <summary>
