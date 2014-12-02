@@ -66,10 +66,10 @@
                    Name="btnClientSuivant"
                    MouseLeftButtonDown="btnSuivantClient_MouseLeftButtonDown" Grid.Row="1"/>
 
-            <Button Grid.Column="2" Grid.Row="2" Content="Items principaux" Height="34" FontSize="18" HorizontalAlignment="Stretch" VerticalAlignment="Center" Padding="3" Click="btnItemsPrincipaux_Click" Margin="5,3" />
+            <Button ToolTip="Affiche les items principaux, enlève les items complémentaires des boutons." Grid.Column="2" Grid.Row="2" Content="Items principaux" Height="34" FontSize="18" HorizontalAlignment="Stretch" VerticalAlignment="Center" Padding="3" Click="btnItemsPrincipaux_Click" Margin="5,3" />
 
 
-            <Button Grid.Column="0" Grid.Row="3" Content="Supprimer l'item" Width="241" Height="34" FontSize="18" HorizontalAlignment="Stretch" VerticalAlignment="Center" Padding="3" Click="btnSupprimerItem_Click" Margin="5,3" />
+            <Button ToolTip="Supprime l'item sélectionné dans la liste d'items du client. Il faut d'abord le cliquer." Grid.Column="0" Grid.Row="3" Content="Supprimer l'item" Width="241" Height="34" FontSize="18" HorizontalAlignment="Stretch" VerticalAlignment="Center" Padding="3" Click="btnSupprimerItem_Click" Margin="5,3" />
 
             <Image Grid.Column="2" 
                    Source="/Images/arrowUp.png" 
@@ -94,10 +94,10 @@
                       ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
                       Margin="4,4,4,2" 
                       Name="lbxListeCategorie" 
-                      Grid.Column="2" Grid.Row="1" >
+                      Grid.Column="2" Grid.Row="1">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <Button Content="{Binding Nom}" CommandParameter="{Binding}" Click="btnCategorie_Click" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Height="50" FontSize="18"/>
+                        <Button Content="{Binding Nom}" ToolTip="Affiche les items de la catégorie" CommandParameter="{Binding}" Click="btnCategorie_Click" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Height="50" FontSize="18"/>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
@@ -111,7 +111,7 @@
                 </ItemsControl.ItemsPanel>
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
-                        <Button Style="{StaticResource BoutonItem}" CommandParameter="{Binding}" Click="btnItem_Click" >
+                        <Button ToolTip="Ajoute l'item à la facture du client" Style="{StaticResource BoutonItem}" CommandParameter="{Binding}" Click="btnItem_Click" >
                             <TextBlock Text="{Binding Nom}" TextAlignment="Center" TextWrapping="Wrap" FontSize="18"/>
                         </Button>
                     </DataTemplate>

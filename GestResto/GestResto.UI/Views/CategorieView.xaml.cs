@@ -195,7 +195,7 @@ namespace GestResto.UI.Views
                     // On vérifie s'il y a un doublon
                     if (Regex.IsMatch(exceptionMessage, @"'nom'$"))
                     {
-                        messageErreur.Append("Vous devez renommer le nom de votre catégorie avant d'en ajouter une nouvelle");
+                        messageErreur.Append("Vous devez renommer et ENREGISTRER le nom de votre catégorie avant d'en ajouter une nouvelle");
                         Constante.LogErreur("Tentative d'ajout d'une catégorie sans avoir modifié la précédente");
                     }
                 }

@@ -93,7 +93,11 @@ namespace GestResto.UI
 
             Table tableTemp = new Table();
 
-
+            if(TesterSiModifie(false))
+            {
+                ViewModel.EnregistrerTable(ViewModel.table);
+                ViewModel.table.EstModifie = false;
+            }
 
             // Si la table par défaut existe déjà, je ne l'ajoute pas à la BD, je fais seulement l'afficher.
             foreach (var table in ViewModel.Tables)
@@ -111,6 +115,8 @@ namespace GestResto.UI
             {
                 tableTemp.IdTable = ViewModel.AjouterUneTable(tableTemp);
                 ViewModel.table = tableTemp;
+                txtNumeroTable.IsEnabled = true;
+                chkActif.IsEnabled = true;
                 ViewModel.Tables.Add(ViewModel.table);
                 Constante.LogNavigation("Ajout d'une nouvelle table");
             }
@@ -165,11 +171,12 @@ namespace GestResto.UI
         /// Fonction permettant de tester tous les objets et vérifier s'ils sont modifié
         /// </summary>
         /// <returns>Retourne vrai pour continuer, Retourne faux pour ne pas continuer</returns>
-        private bool TesterSiModifie()
+        private bool TesterSiModifie(bool messageBox = true)
         {
             // Bool global de la fonction qui permet d'afficher un message ou non s'il y a des enregistrement
             // non sauvegardé.
             bool TableModifie = false;
+
 
             // Variable de message box qui permet de tester le résultat de la demande à l'utilisateur
             MessageBoxResult messageBoxResult = new MessageBoxResult();
@@ -189,22 +196,29 @@ namespace GestResto.UI
                 }
             }
 
-            // S'il y a des objets non sauvegardé
-            if (TableModifie)
+            if (messageBox)
             {
-                // On affiche un messagebox à l'utilisateur pour lui demander s'il veut continuer ou non
-                message.Append("\n\nVoulez-vous continuer sans sauvegarder?");
-                messageBoxResult = MessageBox.Show(message.ToString(), "Table non sauvegardée", MessageBoxButton.YesNo, MessageBoxImage.Exclamation, MessageBoxResult.No);
-            }
+                // S'il y a des objets non sauvegardé
+                if (TableModifie)
+                {
+                    // On affiche un messagebox à l'utilisateur pour lui demander s'il veut continuer ou non
+                    message.Append("\n\nVoulez-vous continuer sans sauvegarder?");
+                    messageBoxResult = MessageBox.Show(message.ToString(), "Table non sauvegardée", MessageBoxButton.YesNo, MessageBoxImage.Exclamation, MessageBoxResult.No);
+                }
 
-            // On test les retour possible de l'utilisateur 
-            if (messageBoxResult == MessageBoxResult.No)
-            {
-                return false;
+                // On test les retour possible de l'utilisateur 
+                if (messageBoxResult == MessageBoxResult.No)
+                {
+                    return false;
+                }
+                else if (messageBoxResult == MessageBoxResult.Yes)
+                {
+                    return true;
+                }
             }
-            else if (messageBoxResult == MessageBoxResult.Yes)
+            else
             {
-                return true;
+                return TableModifie;
             }
 
             return true;
