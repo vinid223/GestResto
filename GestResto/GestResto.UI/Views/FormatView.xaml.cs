@@ -200,7 +200,7 @@ namespace GestResto.UI.Views
                     // On vérifie s'il y a un doublon
                     if (Regex.IsMatch(exceptionMessage, @"'nom'$") || Regex.IsMatch(exceptionMessage, @"'libelle'$"))
                     {
-                        messageErreur.Append("Un nouveau format a déjà été ajouté. Vous devez le renommer avant d'en ajouter un nouveau");
+                        messageErreur.Append("Un nouveau format a déjà été ajouté. Vous devez le renommer et l'ENREGISTRER avant d'en ajouter un nouveau");
                         Constante.LogErreur("Tentative d'ajout d'un format sans avoir modifié le précédent");
                     }
                 }

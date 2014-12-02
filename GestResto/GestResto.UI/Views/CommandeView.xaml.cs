@@ -44,7 +44,7 @@ namespace GestResto.UI.Views
             //NumeroClient = numeroClientEnCours;
             
             InitializeComponent();
-            lblNom.Content = Constante.employe.ToString();
+            lblNom.Content = Constante.employe.ToString()+" "+Constante.commande.ListeTables.First().NoTable;
             DataContext = new CommandeViewModel();
 
             afficherItemsPrincipaux();
@@ -487,10 +487,11 @@ namespace GestResto.UI.Views
             // Refresh des clients pour obtenir leurs ID
             ViewModel.TousLesClientsDeLaCommande();
 
+            // Déplacement au dernier client
+            NumeroClient = ViewModel.LaCommande.ListeClients.Count - 1;
+
             lblNumeroClient.Content = "Client #" + (NumeroClient + 1) + "/" + ViewModel.LaCommande.ListeClients.Count;
 
-            // Déplacement au dernier client
-            NumeroClient = ViewModel.LaCommande.ListeClients.Count-1;
             refreshListeItem();
 
             // Update de la variable statique

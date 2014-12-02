@@ -35,6 +35,9 @@ namespace GestResto.UI.Views
         {
             InitializeComponent();
             lblNom.Content = Constante.employe.ToString();
+
+
+
             try
             {
                 DataContext = new ItemsViewModel();
@@ -127,12 +130,20 @@ namespace GestResto.UI.Views
                     {
                         foreach (var formatitem in item.Formats)
                         {
-                            i = item.Formats.ToList().Where(x => x.FormatAssocie.IdFormat == formatitem.FormatAssocie.IdFormat).Count();
-                            // Vérification s'il a plus de format identique que 2
-                            if (i > 1)
+                            if (formatitem.IdFormatItem != null && formatitem.FormatAssocie != null)
                             {
-                                MessageBox.Show("Il existe plusieurs formats identiques dans l'item : "+ item.Nom+", veuillez avoir seulement des formats uniques associés au prix.", "Erreur", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
-                                Constante.LogErreur("Il existe plusieurs formats identiques de l'item, veuillez avoir seulement des formats uniques associés au prix.");
+                                i = item.Formats.ToList().Where(x => x.FormatAssocie.IdFormat == formatitem.FormatAssocie.IdFormat).Count();
+                                // Vérification s'il a plus de format identique que 2
+                                if (i > 1)
+                                {
+                                    MessageBox.Show("Il existe plusieurs formats identiques dans l'item : " + item.Nom + ", veuillez avoir seulement des formats uniques associés au prix.", "Erreur", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
+                                    Constante.LogErreur("Il existe plusieurs formats identiques de l'item, veuillez avoir seulement des formats uniques associés au prix.");
+                                    return;
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("Vous devez créer un format d'abord dans l'écran des formats.", "Erreur", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
                                 return;
                             }
                         }
