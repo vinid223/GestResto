@@ -10,8 +10,8 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="34"/>
             <RowDefinition Height="51*"/>
-            <RowDefinition Height="73*"/>
-            <RowDefinition Height="367*"/>
+            <RowDefinition Height="81"/>
+            <RowDefinition Height="359*"/>
             <RowDefinition Height="75"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
@@ -80,7 +80,7 @@
             </DataGrid.Columns>
         </DataGrid>
 
-        <ListView HorizontalContentAlignment="Stretch" Margin="11,10,11,11" Name="lbxListeCategorie" Grid.Column="2" Grid.Row="3">
+        <ListView HorizontalContentAlignment="Stretch" Margin="11,0,11,11" Name="lbxListeCategorie" Grid.Column="2" Grid.Row="3">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Button Content="{Binding Nom}" CommandParameter="{Binding}" Click="btnItem_Click"  Style="{StaticResource styleModif}" FontSize="16" />
