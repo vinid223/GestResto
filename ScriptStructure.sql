@@ -1,9 +1,9 @@
 /*Suppression de la base de données*/
-DROP DATABASE IF EXISTS 5a5_a14_gestresto;
+--DROP DATABASE IF EXISTS 5a5_a14_gestresto;
 
 /*Création et utilisation de la base de données*/
-CREATE DATABASE IF NOT EXISTS 5a5_a14_gestresto;
-USE 5a5_a14_gestresto;
+--CREATE DATABASE IF NOT EXISTS 5a5_a14_gestresto;
+USE gestresto;
 
 /*Suppression de toutes les tables*/
 /*On a pas besoin de définir les drop tables puisqu'on a déjà créé une nouvelle base de données*/

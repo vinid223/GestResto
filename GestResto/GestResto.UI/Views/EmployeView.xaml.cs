@@ -80,11 +80,19 @@ namespace GestResto.UI.Views
                     messageErreur.Append("Vous devez choisir un numéro d'employé\n");
                     Constante.LogErreur("Aucun numéro d'employé n'est indiquée pour l'employé");
                 }
+
+                // Si le numéro de l'employé ne contient pas 2 caractère
+                if (ViewModel.employe.NoEmploye.Length < 2)
+                {
+                    erreur = true;
+                    messageErreur.Append("Le numéro d'employé doit être entre 2 et 4 chiffre inclusivement\n");
+                    Constante.LogErreur("Le numéro d'employé n'est pas entre 2 et 4 chiffre inclusivement");
+                }
                 if (!Regex.IsMatch(ViewModel.employe.NoEmploye, @"^([0-9]{1,4})$"))
                 {
                     erreur = true;
-                    messageErreur.Append("Le numéro d'employé doit être entre 1 et 4 chiffre inclusivement\n");
-                    Constante.LogErreur("Le numéro d'employé n'est pas entre 1 et 4 chiffre inclusivement");
+                    messageErreur.Append("Le numéro d'employé doit être entre 2 et 4 chiffre inclusivement\n");
+                    Constante.LogErreur("Le numéro d'employé n'est pas entre 2 et 4 chiffre inclusivement");
                 }
                 // Si le prénom est vide
                 if (ViewModel.employe.Prenom == "")

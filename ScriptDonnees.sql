@@ -1,3 +1,5 @@
+USE gestresto;
+
 INSERT INTO `categories` VALUES (1,'Soupes','','\0'),(2,'Entrées','','\0'),(3,'Plat principaux','','\0'),(4,'Extra','',''),(5,'Boisson','','\0'),(6,'Pizza','','\0'),(7,'Cuisson','',''),(8,'Demandes spéciales','','');
 INSERT INTO `formats` VALUES (1,'Portion normale','M',1),(2,'Petit','P',1),(3,'Grand','G',1),(4,'Extra Grand','XG',1);
 INSERT INTO `tables` VALUES (1,'VIP1',1,1),(2,'VIP2',1,0),(3,'10',1,0),(4,'11',1,1),(5,'12',1,1),(6,'20',1,1),(7,'21',1,0),(8,'22',1,0),(9,'30',1,0),(10,'31',1,0),(11,'32',1,0),(12,'40',1,0),(13,'Terrasse1',1,0),(14,'Terrasse2',1,0);
