@@ -83,7 +83,7 @@ namespace GestResto.UI
             if (!Constante.peutQuitter)
             {
                 // On affiche un message si on a pas le droit
-                MessageBox.Show("Vous n'avez pas l'authorisation de quitter l'application.", "Impossible de quitter", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                MessageBox.Show("Vous n'avez pas l'autorisation de quitter l'application.", "Impossible de quitter", MessageBoxButton.OK, MessageBoxImage.Exclamation);
 
                 // On indique au programme de ne pas quitter
                 e.Cancel = true;
