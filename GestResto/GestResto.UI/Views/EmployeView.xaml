@@ -18,7 +18,7 @@
         <Label Foreground="White" Name="lblTitre" Content="Informations d'un Employé" VerticalAlignment="Top" Height="37" Margin="0,30,164,0" FontSize="18" Grid.RowSpan="2"/>
         <Label Foreground="White" Name="lblType" Content="Type Employé" Margin="10,45,0,0" VerticalAlignment="Top" Grid.Row="1" FontSize="16" HorizontalAlignment="Left" Width="109" Height="31"/>
         <Label Foreground="White" Content="Liste de tous les employés" HorizontalContentAlignment="Center" Margin="10,34,10,0" VerticalAlignment="Top" Grid.Column="1" Grid.Row="1" FontSize="16" Height="31"/>
-        <ComboBox Name="cbxType" Margin="119,48,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="188" IsEnabled="False" ItemsSource="{Binding TypesEmployes}" SelectedItem="{Binding employe.TypeEmployes}" Grid.Row="1" FontSize="16" Height="27"/>
+        <ComboBox ToolTip="Donne différents droits d'accès au logiciel." Name="cbxType" Margin="119,48,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="188" IsEnabled="False" ItemsSource="{Binding TypesEmployes}" SelectedItem="{Binding employe.TypeEmployes}" Grid.Row="1" FontSize="16" Height="27"/>
         <Label Foreground="White" Content="Numéro" HorizontalAlignment="Left" Margin="312,45,0,0" VerticalAlignment="Top" Width="78" Grid.Row="1" FontSize="16" Height="31"/>
         <TextBox
             MouseDoubleClick="txtSelectionnerTout"
@@ -83,10 +83,10 @@
         <CheckBox Foreground="White" Name="chkActif" Content="Actif" Margin="0,365,10,0" VerticalAlignment="Top" IsEnabled="False" IsChecked="{Binding employe.EstActif}" Grid.Row="1" FontSize="16" Height="20" HorizontalAlignment="Right"/>
 
         <!-- Définition de la liste view-->
-        <ListView HorizontalContentAlignment="Stretch" Grid.Column="1" Grid.Row="1" Margin="29,70,29,10" Name="listeBoutonEmploye">
+        <ListView ToolTip="Liste de tous les employés." HorizontalContentAlignment="Stretch" Grid.Column="1" Grid.Row="1" Margin="29,70,29,10" Name="listeBoutonEmploye">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Button Content="{Binding NomComplet, UpdateSourceTrigger=PropertyChanged}" CommandParameter="{Binding}" Click="btnDetail_Click" Style="{StaticResource styleModif}"/>
+                    <Button ToolTip="Un employé, cliquez pour le modifier." Content="{Binding NomComplet, UpdateSourceTrigger=PropertyChanged}" CommandParameter="{Binding}" Click="btnDetail_Click" Style="{StaticResource styleModif}"/>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
@@ -104,7 +104,7 @@
                     <RowDefinition Height="30"/>
                 </Grid.RowDefinitions>
                 <Border Style="{StaticResource BoutonBorder}">
-                    <Image Source="/Images/forward.png" Style="{StaticResource BoutonImage}"/>
+                    <Image ToolTip="Affiche la fenêtre précédente." Source="/Images/forward.png" Style="{StaticResource BoutonImage}"/>
                 </Border>
                 <Label Style="{StaticResource BoutonLabel}">Retour</Label>
             </Grid>
@@ -115,7 +115,7 @@
                         <RowDefinition Height="30"/>
                     </Grid.RowDefinitions>
                     <Border Style="{StaticResource BoutonBorder}">
-                        <Image Source="/Images/floppy.png" Style="{StaticResource BoutonImage}"/>
+                        <Image ToolTip="Enregistre les modifications de l'employé." Source="/Images/floppy.png" Style="{StaticResource BoutonImage}"/>
                     </Border>
                     <Label Style="{StaticResource BoutonLabel}">Enregistrer</Label>
                 </Grid>
@@ -126,7 +126,7 @@
                         <RowDefinition Height="30"/>
                     </Grid.RowDefinitions>
                     <Border Style="{StaticResource BoutonBorder}">
-                        <Image Source="/Images/plus.png" Style="{StaticResource BoutonImage}"/>
+                        <Image ToolTip="Ajoute un nouvel employé à la liste." Source="/Images/plus.png" Style="{StaticResource BoutonImage}"/>
                     </Border>
                     <Label Style="{StaticResource BoutonLabel}">Ajouter</Label>
                 </Grid>
@@ -137,7 +137,7 @@
                         <RowDefinition Height="30"/>
                     </Grid.RowDefinitions>
                     <Border Style="{StaticResource BoutonBorder}">
-                        <Image Source="/Images/lock.png" Style="{StaticResource BoutonImage}"/>
+                        <Image ToolTip="Affiche l'écran d'authentification" Source="/Images/lock.png" Style="{StaticResource BoutonImage}"/>
                     </Border>
                     <Label Style="{StaticResource BoutonLabel}">Déconnexion</Label>
                 </Grid>

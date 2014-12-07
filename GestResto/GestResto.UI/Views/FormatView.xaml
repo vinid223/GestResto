@@ -28,14 +28,14 @@
             GotKeyboardFocus="txtSelectionnerTout"
             PreviewMouseLeftButtonDown="SelectivelyIgnoreMouseButton" 
               HorizontalAlignment="Stretch" Height="23" Text="{Binding Format.Libelle, UpdateSourceTrigger=PropertyChanged}" Margin="143,93,0,0" VerticalAlignment="Top" Name="txtLibelle" IsEnabled="False" Grid.Row="1" FontSize="16"/>
-        <CheckBox Foreground="White" Content="Actif" HorizontalAlignment="Left" IsChecked="{Binding Format.EstActif}" Margin="143,121,0,0" VerticalAlignment="Top" Width="56" Name="cbxActif" IsEnabled="False" Grid.Row="1" FontSize="16"/>
+        <CheckBox ToolTip="Active le format, sinon on ne peut l'utiliser dans l'écran des commandes." Foreground="White" Content="Actif" HorizontalAlignment="Left" IsChecked="{Binding Format.EstActif}" Margin="143,121,0,0" VerticalAlignment="Top" Width="56" Name="cbxActif" IsEnabled="False" Grid.Row="1" FontSize="16"/>
 
         <Label Foreground="White" Content="Liste des formats" Margin="50,20,50,0" VerticalAlignment="Top" Grid.Column="1" Grid.Row="1" FontSize="16" HorizontalContentAlignment="Center"/>
 
-        <ListView HorizontalContentAlignment="Stretch" Grid.Column="1" Grid.Row="1" Margin="50,61.701,50,10" x:Name="listeBoutonFormats">
+        <ListView ToolTip="Liste des formats." HorizontalContentAlignment="Stretch" Grid.Column="1" Grid.Row="1" Margin="50,61.701,50,10" x:Name="listeBoutonFormats">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Button Content="{Binding Nom}" CommandParameter="{Binding}" Click="btnDetail_Click" Style="{StaticResource styleModif}" FontSize="16"/>
+                    <Button ToolTip="Un format, cliquez pour le modifier." Content="{Binding Nom}" CommandParameter="{Binding}" Click="btnDetail_Click" Style="{StaticResource styleModif}" FontSize="16"/>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
@@ -53,7 +53,7 @@
                     <RowDefinition Height="30"/>
                 </Grid.RowDefinitions>
                 <Border Style="{StaticResource BoutonBorder}">
-                    <Image Source="/Images/forward.png" Style="{StaticResource BoutonImage}"/>
+                    <Image ToolTip="Affiche la fenêtre précédente." Source="/Images/forward.png" Style="{StaticResource BoutonImage}"/>
                 </Border>
                 <Label Style="{StaticResource BoutonLabel}">Retour</Label>
             </Grid>
@@ -64,7 +64,7 @@
                         <RowDefinition Height="30"/>
                     </Grid.RowDefinitions>
                     <Border Style="{StaticResource BoutonBorder}">
-                        <Image Source="/Images/floppy.png" Style="{StaticResource BoutonImage}"/>
+                        <Image ToolTip="Enregistre les modifications du format." Source="/Images/floppy.png" Style="{StaticResource BoutonImage}"/>
                     </Border>
                     <Label Style="{StaticResource BoutonLabel}">Enregistrer</Label>
                 </Grid>
@@ -75,7 +75,7 @@
                         <RowDefinition Height="30"/>
                     </Grid.RowDefinitions>
                     <Border Style="{StaticResource BoutonBorder}">
-                        <Image Source="/Images/plus.png" Style="{StaticResource BoutonImage}"/>
+                        <Image ToolTip="Ajoute un nouveau format à la liste." Source="/Images/plus.png" Style="{StaticResource BoutonImage}"/>
                     </Border>
                     <Label Style="{StaticResource BoutonLabel}">Ajouter</Label>
                 </Grid>
@@ -86,7 +86,7 @@
                         <RowDefinition Height="30"/>
                     </Grid.RowDefinitions>
                     <Border Style="{StaticResource BoutonBorder}">
-                        <Image Source="/Images/lock.png" Style="{StaticResource BoutonImage}"/>
+                        <Image ToolTip="Affiche l'écran d'authentification" Source="/Images/lock.png" Style="{StaticResource BoutonImage}"/>
                     </Border>
                     <Label Style="{StaticResource BoutonLabel}">Déconnexion</Label>
                 </Grid>
