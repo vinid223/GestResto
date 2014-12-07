@@ -45,10 +45,10 @@
             <Button FontSize="36" Margin="1" Grid.Row ="1" Grid.Column="2" Content="9"  Click="btn_Click" Name="btnNeuf"   />
             <Button FontSize="36" Margin="1" Grid.Row ="4" Grid.Column="1" Content="0"  Click="btn_Click"  Name="btnZero" />
             <Button FontSize="36" Margin="1" Grid.Row ="4" Grid.Column="0" Content="00" Click="btnZeroZero_Click" Name="btnZeroZero" />
-            <Button Margin="1,0,1,1" Grid.Row ="0" Grid.Column="2"  Click="btnRetourClavier_Click" Name="btnRetourClavier" >
+            <Button ToolTip="Efface un chiffre." Margin="1,0,1,1" Grid.Row ="0" Grid.Column="2"  Click="btnRetourClavier_Click" Name="btnRetourClavier" >
                 <Image Source="/Images/backspace.png" Height="60"/>
             </Button>
-            <Button Margin="1" Grid.Row ="4" Grid.Column="2" Name="btnValider" Click="btnValider_Click">
+            <Button ToolTip="Effectue le paiement." Margin="1" Grid.Row ="4" Grid.Column="2" Name="btnValider" Click="btnValider_Click">
                 <Image Source="/Images/checkmarkColor.png" Height="60"/>
             </Button>
 
@@ -56,7 +56,7 @@
         </Grid>
 
         <!-- La liste de la commande -->
-        <ListBox AlternationCount="2" 
+        <ListBox ToolTip="Liste des items du clients." AlternationCount="2" 
         Grid.Column="1" Grid.Row="1" Margin="10"
             Name="lbxItemsFacture"
                 ScrollViewer.HorizontalScrollBarVisibility="Disabled">
@@ -69,11 +69,11 @@
 
         <!-- Modes de paiement -->
         <UniformGrid Grid.Column="2" Rows="5" Grid.RowSpan="2" Margin="0,10,0,0" Grid.Row="1">
-            <Image Name="imgMoney" Source="/Images/money.png" Style="{StaticResource BoutonImagePaiement}" MouseLeftButtonUp="btnModePaiement_Click"/>
-            <Image Name="imgDebit" Source="/Images/debit.png" Style="{StaticResource BoutonImagePaiement}"  MouseLeftButtonUp="btnModePaiement_Click"/>
-            <Image Name="imgVisa" Source="/Images/visa.png" Style="{StaticResource BoutonImagePaiement}" MouseLeftButtonUp="btnModePaiement_Click"/>
-            <Image Name="imgMasterCard" Source="/Images/mastercard.png" Style="{StaticResource BoutonImagePaiement}" MouseLeftButtonUp="btnModePaiement_Click"/>
-            <Image Name="imgAmex"  Source="/Images/amex.png" Style="{StaticResource BoutonImagePaiement}" MouseLeftButtonUp="btnModePaiement_Click"/>
+            <Image ToolTip="Paiement avec comptant." Name="imgMoney" Source="/Images/money.png" Style="{StaticResource BoutonImagePaiement}" MouseLeftButtonUp="btnModePaiement_Click"/>
+            <Image ToolTip="Paiement avec débit." Name="imgDebit" Source="/Images/debit.png" Style="{StaticResource BoutonImagePaiement}"  MouseLeftButtonUp="btnModePaiement_Click"/>
+            <Image ToolTip="Paiement avec visa." Name="imgVisa" Source="/Images/visa.png" Style="{StaticResource BoutonImagePaiement}" MouseLeftButtonUp="btnModePaiement_Click"/>
+            <Image ToolTip="Paiement avec mastercard." Name="imgMasterCard" Source="/Images/mastercard.png" Style="{StaticResource BoutonImagePaiement}" MouseLeftButtonUp="btnModePaiement_Click"/>
+            <Image ToolTip="Paiement avec amerian express." Name="imgAmex"  Source="/Images/amex.png" Style="{StaticResource BoutonImagePaiement}" MouseLeftButtonUp="btnModePaiement_Click"/>
         </UniformGrid>
 
         <!-- Boutons de navigation -->
@@ -89,7 +89,7 @@
                     <RowDefinition Height="30"/>
                 </Grid.RowDefinitions>
                 <Border Style="{StaticResource BoutonBorder}">
-                    <Image Source="/Images/forward.png" Style="{StaticResource BoutonImage}"/>
+                    <Image ToolTip="Affiche la fenêtre précédente." Source="/Images/forward.png" Style="{StaticResource BoutonImage}"/>
                 </Border>
                 <Label Style="{StaticResource BoutonLabel}">Retour</Label>
             </Grid>
@@ -101,7 +101,7 @@
                         <RowDefinition Height="30"/>
                     </Grid.RowDefinitions>
                     <Border Style="{StaticResource BoutonBorder}">
-                        <Image Source="/Images/lock.png" Style="{StaticResource BoutonImage}"/>
+                        <Image ToolTip="Affiche l'écran d'authentification." Source="/Images/lock.png" Style="{StaticResource BoutonImage}"/>
                     </Border>
                     <Label Style="{StaticResource BoutonLabel}">Déconnexion</Label>
                 </Grid>

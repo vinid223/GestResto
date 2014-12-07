@@ -135,7 +135,7 @@
                         <RowDefinition Height="30"/>
                     </Grid.RowDefinitions>
                     <Border Style="{StaticResource BoutonBorder}">
-                        <Image ToolTip="Affiche l'écran d'authentification" Source="/Images/lock.png" Style="{StaticResource BoutonImage}"/>
+                        <Image ToolTip="Affiche l'écran d'authentification." Source="/Images/lock.png" Style="{StaticResource BoutonImage}"/>
                     </Border>
                     <Label Style="{StaticResource BoutonLabel}">Déconnexion</Label>
                 </Grid>

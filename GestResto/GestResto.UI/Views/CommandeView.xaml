@@ -26,13 +26,13 @@
             </Grid.RowDefinitions>
 
             <!-- Lorsque les boutons ne rentrent plus dans la fenêtre, une scoll bar apparait -->
-            <ListBox AlternationCount="2"
+            <ListBox ToolTip="Liste des items du client." AlternationCount="2"
                 Grid.Column="0" Grid.Row="1" Margin="5,50,5,3"
                 Name="lbxItemsClient"
                 ScrollViewer.HorizontalScrollBarVisibility="Disabled" SelectionChanged="lbxItemsClient_SelectionChanged" Grid.RowSpan="2">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
-                        <Label Style="{StaticResource ListBoxFICF}" Content="{Binding FormatItemAssocie}"/>
+                        <Label ToolTip="Un item de la liste du client." Style="{StaticResource ListBoxFICF}" Content="{Binding FormatItemAssocie}"/>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
@@ -49,7 +49,8 @@
                    HorizontalContentAlignment="Center"/>
 
 
-            <Image Grid.Column="0" 
+            <Image ToolTip="Affiche le client précédent."
+                   Grid.Column="0" 
                    Source="/Images/arrowLeft.png" 
                    HorizontalAlignment="Left" 
                    Margin="5,4,0,0" 
@@ -58,7 +59,8 @@
                    Name="btnClientPrecedent"
                    MouseLeftButtonDown="btnPrecedentClient_MouseLeftButtonDown" Grid.Row="1"/>
 
-            <Image Grid.Column="0" 
+            <Image ToolTip="Affiche le client suivant."
+                    Grid.Column="0" 
                    Source="/Images/arrowRight.png" 
                    HorizontalAlignment="Right" 
                    Margin="0,4,5,0" 
@@ -71,7 +73,8 @@
 
             <Button ToolTip="Supprime l'item sélectionné dans la liste d'items du client. Il faut d'abord le cliquer." Grid.Column="0" Grid.Row="3" Content="Supprimer l'item" Width="241" Height="34" FontSize="18" HorizontalAlignment="Stretch" VerticalAlignment="Center" Padding="3" Click="btnSupprimerItem_Click" Margin="5,3" />
 
-            <Image Grid.Column="2" 
+            <Image ToolTip="Monte la liste de catégories." 
+                Grid.Column="2" 
                    Source="/Images/arrowUp.png" 
                    HorizontalAlignment="Center" 
                    VerticalAlignment="Top"
@@ -79,6 +82,7 @@
                    MouseLeftButtonDown="btnMonterCategorie_MouseLeftButtonDown" />
 
             <Image 
+                ToolTip="Descend la liste de catégories."
                 Grid.Column="2" Grid.Row="3" 
                 Source="/Images/arrowDown.png" 
                 HorizontalAlignment="Center" 
@@ -89,7 +93,8 @@
 
             <!-- Les boutons de catégories -->
 
-            <ListView HorizontalContentAlignment="Stretch" 
+            <ListView ToolTip="Liste des catégories."
+                        HorizontalContentAlignment="Stretch" 
                       ScrollViewer.VerticalScrollBarVisibility="Hidden" 
                       ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
                       Margin="4,4,4,2" 
@@ -97,7 +102,7 @@
                       Grid.Column="2" Grid.Row="1">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <Button Content="{Binding Nom}" ToolTip="Affiche les items de la catégorie" CommandParameter="{Binding}" Click="btnCategorie_Click" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Height="50" FontSize="18"/>
+                        <Button Content="{Binding Nom}" ToolTip="Affiche les items de la catégorie." CommandParameter="{Binding}" Click="btnCategorie_Click" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Height="50" FontSize="18"/>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
@@ -132,7 +137,7 @@
                     <RowDefinition Height="30"/>
                 </Grid.RowDefinitions>
                 <Border Style="{StaticResource BoutonBorder}" >
-                    <Image Style="{StaticResource BoutonImage}" Source="/Images/forward.png" />
+                    <Image ToolTip="Affiche la fenêtre précédente." Style="{StaticResource BoutonImage}" Source="/Images/forward.png" />
                 </Border>
                 <Label Style="{StaticResource BoutonLabel}">Retour</Label>
             </Grid>
@@ -145,7 +150,7 @@
                         <RowDefinition Height="30"/>
                     </Grid.RowDefinitions>
                     <Border Style="{StaticResource BoutonBorder}">
-                        <Image Style="{StaticResource BoutonImage}"  Source="/Images/recycle.png"/>
+                        <Image ToolTip="Supprimer le client présentement affiché." Style="{StaticResource BoutonImage}"  Source="/Images/recycle.png"/>
                     </Border>
                     <Label Style="{StaticResource BoutonLabel}" >Supprimer</Label>
                 </Grid>
@@ -156,7 +161,7 @@
                         <RowDefinition Height="30"/>
                     </Grid.RowDefinitions>
                     <Border Style="{StaticResource BoutonBorder}" >
-                        <Image Style="{StaticResource BoutonImage}" Source="/Images/plus.png"/>
+                        <Image ToolTip="Ajoute un nouveau client à la liste." Style="{StaticResource BoutonImage}" Source="/Images/plus.png"/>
                     </Border>
                     <Label Style="{StaticResource BoutonLabel}" >Ajouter</Label>
                 </Grid>
@@ -167,7 +172,7 @@
                         <RowDefinition Height="30"/>
                     </Grid.RowDefinitions>
                     <Border Style="{StaticResource BoutonBorder}">
-                        <Image Style="{StaticResource BoutonImage}" Source="/Images/dollar.png" Margin="4,0,4,3" VerticalAlignment="Bottom"/>
+                        <Image ToolTip="Affiche l'éran de paiement pour le client présentement affiché." Style="{StaticResource BoutonImage}" Source="/Images/dollar.png" Margin="4,0,4,3" VerticalAlignment="Bottom"/>
                     </Border>
                     <Label Style="{StaticResource BoutonLabel}" >Payer</Label>
                 </Grid>
@@ -178,7 +183,7 @@
                         <RowDefinition Height="30"/>
                     </Grid.RowDefinitions>
                     <Border Style="{StaticResource BoutonBorder}">
-                        <Image Source="/Images/close.png" Style="{StaticResource BoutonImage}"/>
+                        <Image ToolTip="Ferme la commande." Source="/Images/close.png" Style="{StaticResource BoutonImage}"/>
                     </Border>
                     <Label Style="{StaticResource BoutonLabel}" >Fermer</Label>
                 </Grid>
@@ -213,7 +218,7 @@
                         <RowDefinition Height="30"/>
                     </Grid.RowDefinitions>
                     <Border Style="{StaticResource BoutonBorder}">
-                        <Image Source="/Images/lock.png" Style="{StaticResource BoutonImage}"/>
+                        <Image ToolTip="Affiche l'écran d'authentification." Source="/Images/lock.png" Style="{StaticResource BoutonImage}"/>
                     </Border>
                     <Label Style="{StaticResource BoutonLabel}" >Déconnexion</Label>
                 </Grid>

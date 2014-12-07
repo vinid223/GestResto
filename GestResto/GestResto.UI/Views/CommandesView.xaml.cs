@@ -60,6 +60,9 @@ namespace GestResto.UI.Views
                     {
                         // On se définie un nouveau bouton
                         Button bouton = new Button();
+
+                        bouton.ToolTip = "Une commande, cliquez pour modifier la commande.";
+
                         bouton.Click += btnDetail_Click;
                         bouton.Width = 145;
                         bouton.Height = 80;
@@ -93,6 +96,7 @@ namespace GestResto.UI.Views
                     }
                 }
             }
+            
         }
 
         private void btnRapport_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)

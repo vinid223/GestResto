@@ -39,7 +39,7 @@
                     <RowDefinition Height="30"/>
                 </Grid.RowDefinitions>
                 <Border Style="{StaticResource BoutonBorder}" >
-                    <Image Source="/Images/forward.png" Style="{StaticResource BoutonImage}"/>
+                    <Image ToolTip="Affiche la fenêtre précédente." Source="/Images/forward.png" Style="{StaticResource BoutonImage}"/>
                 </Border>
                 <Label Style="{StaticResource BoutonLabel}" >Retour</Label>
             </Grid>
@@ -52,7 +52,7 @@
                         <RowDefinition Height="30"/>
                     </Grid.RowDefinitions>
                     <Border Style="{StaticResource BoutonBorder}" >
-                        <Image Source="/Images/checkmark.png" Style="{StaticResource BoutonImage}"/>
+                        <Image ToolTip="Crée une commande avec les tables sélectionnées."  Source="/Images/checkmark.png" Style="{StaticResource BoutonImage}"/>
                     </Border>
                     <Label Style="{StaticResource BoutonLabel}">Créer</Label>
                 </Grid>
@@ -63,7 +63,7 @@
                         <RowDefinition Height="30"/>
                     </Grid.RowDefinitions>
                     <Border Style="{StaticResource BoutonBorder}" >
-                        <Image ToolTip="Ramène l'utilisateur à la page d'authentification" Source="/Images/lock.png" Style="{StaticResource BoutonImage}"/>
+                        <Image ToolTip="Affiche l'écran d'authentification." Source="/Images/lock.png" Style="{StaticResource BoutonImage}"/>
                     </Border>
                     <Label Style="{StaticResource BoutonLabel}">Déconnexion</Label>
                 </Grid>

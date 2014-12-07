@@ -37,7 +37,7 @@
                         <RowDefinition Height="30"/>
                     </Grid.RowDefinitions>
                     <Border Style="{StaticResource BoutonBorder}">
-                        <Image Source="/Images/plus.png" Style="{StaticResource BoutonImage}"/>
+                        <Image ToolTip="Affiche l'écran pour créer une commande en sélectionnant ses tables." Source="/Images/plus.png" Style="{StaticResource BoutonImage}"/>
                     </Border>
                     <Label Style="{StaticResource BoutonLabel}">Ajouter</Label>
                 </Grid>
@@ -48,7 +48,7 @@
                         <RowDefinition Height="30"/>
                     </Grid.RowDefinitions>
                     <Border Style="{StaticResource BoutonBorder}">
-                        <Image Source="/Images/lock.png" Style="{StaticResource BoutonImage}"/>
+                        <Image ToolTip="Affiche l'écran d'authentification." Source="/Images/lock.png" Style="{StaticResource BoutonImage}"/>
                     </Border>
                     <Label Style="{StaticResource BoutonLabel}">Déconnexion</Label>
                 </Grid>
