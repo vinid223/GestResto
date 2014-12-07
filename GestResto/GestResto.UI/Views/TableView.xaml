@@ -16,10 +16,10 @@
             <RowDefinition Height="75"/>
         </Grid.RowDefinitions>
 
-        <ListView HorizontalContentAlignment="Stretch" Margin="11,44,11,11" Name="lvwListeTable" Grid.Row="1" Grid.Column="1">
+        <ListView ToolTip="Liste des tables du restaurant." HorizontalContentAlignment="Stretch" Margin="11,44,11,11" Name="lvwListeTable" Grid.Row="1" Grid.Column="1">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Button Content="{Binding NoTable}" Click="btnTable_Click" CommandParameter="{Binding}" Style="{StaticResource styleModif}" FontSize="16" />
+                    <Button ToolTip="Une table, cliquez pour la modifier." Content="{Binding NoTable}" Click="btnTable_Click" CommandParameter="{Binding}" Style="{StaticResource styleModif}" FontSize="16" />
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
@@ -32,7 +32,7 @@
             GotKeyboardFocus="txtSelectionnerTout"
             PreviewMouseLeftButtonDown="SelectivelyIgnoreMouseButton" 
              x:Name="txtNumeroTable" IsEnabled="False" MaxLength="20" Text="{Binding table.NoTable, UpdateSourceTrigger=PropertyChanged}" Height="36" Margin="176,54,25,0" TextWrapping="Wrap" VerticalAlignment="Top" Grid.Row="1" FontSize="16"/>
-        <CheckBox Foreground="White" IsEnabled="False" IsChecked="{Binding table.EstActif, UpdateSourceTrigger=PropertyChanged}" x:Name="chkActif" Content="Actif" HorizontalAlignment="Left" Margin="176,102,0,0" VerticalAlignment="Top" Height="22" Width="74" Grid.Row="1" FontSize="16"/>
+        <CheckBox ToolTip="Active la table, sinon elle ne sera pas affichée pour la création de commande." Foreground="White" IsEnabled="False" IsChecked="{Binding table.EstActif, UpdateSourceTrigger=PropertyChanged}" x:Name="chkActif" Content="Actif" HorizontalAlignment="Left" Margin="176,102,0,0" VerticalAlignment="Top" Height="22" Width="74" Grid.Row="1" FontSize="16"/>
 
         <!-- Boutons de navigation -->
         <Grid Grid.ColumnSpan="2" Grid.Row="2">
@@ -47,7 +47,7 @@
                     <RowDefinition Height="30"/>
                 </Grid.RowDefinitions>
                 <Border Style="{StaticResource BoutonBorder}">
-                    <Image Source="/Images/forward.png" Style="{StaticResource BoutonImage}"/>
+                    <Image ToolTip="Affiche la fenêtre précédente." Source="/Images/forward.png" Style="{StaticResource BoutonImage}"/>
                 </Border>
                 <Label Style="{StaticResource BoutonLabel}">Retour</Label>
             </Grid>
@@ -58,7 +58,7 @@
                         <RowDefinition Height="30"/>
                     </Grid.RowDefinitions>
                     <Border Style="{StaticResource BoutonBorder}">
-                        <Image Source="/Images/floppy.png" Style="{StaticResource BoutonImage}"/>
+                        <Image ToolTip="Enregistre les modifications de la table." Source="/Images/floppy.png" Style="{StaticResource BoutonImage}"/>
                     </Border>
                     <Label Style="{StaticResource BoutonLabel}">Enregistrer</Label>
                 </Grid>
@@ -69,7 +69,7 @@
                         <RowDefinition Height="30"/>
                     </Grid.RowDefinitions>
                     <Border Style="{StaticResource BoutonBorder}">
-                        <Image Source="/Images/plus.png" Style="{StaticResource BoutonImage}"/>
+                        <Image ToolTip="Ajoute une nouvelle table à la liste." Source="/Images/plus.png" Style="{StaticResource BoutonImage}"/>
                     </Border>
                     <Label Style="{StaticResource BoutonLabel}">Ajouter</Label>
                 </Grid>
@@ -80,7 +80,7 @@
                         <RowDefinition Height="30"/>
                     </Grid.RowDefinitions>
                     <Border Style="{StaticResource BoutonBorder}">
-                        <Image Source="/Images/lock.png" Style="{StaticResource BoutonImage}"/>
+                        <Image ToolTip="Affiche l'écran d'authentification" Source="/Images/lock.png" Style="{StaticResource BoutonImage}"/>
                     </Border>
                     <Label Style="{StaticResource BoutonLabel}">Déconnexion</Label>
                 </Grid>

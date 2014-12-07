@@ -23,7 +23,7 @@
         <Label Foreground="White" Content="Nom" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top" Width="61" Grid.Column="1" Grid.Row="2" Height="31" FontSize="16"/>
         <Label Foreground="White" Content="Catégorie" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Grid.Column="1" Grid.Row="2" Height="31" Width="97" FontSize="16"/>
         <Label Foreground="White" Content="Filtre par catégorie" Margin="10,35,-10,0" VerticalAlignment="Top" Grid.Column="2" Grid.Row="2" Height="34" FontSize="16"/>
-        <Button Content="Ajouter un prix et un format associé" Grid.Column="1" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="3" VerticalAlignment="Top" Width="287" Name="btnAjoutFormatItem" Click="AjoutFormatItem_Click" Height="33" FontSize="16"/>
+        <Button Content="Ajouter un prix et un format associé à l'item." Grid.Column="1" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="3" VerticalAlignment="Top" Width="287" Name="btnAjoutFormatItem" Click="AjoutFormatItem_Click" Height="33" FontSize="16"/>
         <TextBox
             MouseDoubleClick="txtSelectionnerTout"
             GotKeyboardFocus="txtSelectionnerTout"
@@ -41,6 +41,7 @@
 
         <!-- Catégories possibles dans la Base de données pour afficher les items correspondants. -->
         <ComboBox 
+            ToolTip="Affiche les items dans la liste correspondant à la catégorie."
             Margin="179,39,10,0" 
             VerticalAlignment="Top" 
             Name="cboCategorieAffichee" 
@@ -48,7 +49,7 @@
             DisplayMemberPath="Nom" 
             Grid.Column="2" Grid.Row="2" Height="29" SelectionChanged="cboCategorieAffichee_SelectionChanged" SelectedIndex="0" FontSize="16"/>
 
-        <CheckBox Foreground="White" IsChecked="{Binding Item.EstActif}" Content="Actif" Margin="0,10,22,0" VerticalAlignment="Top" Name="chkActif" Grid.Column="1" Grid.Row="2" Height="26" FontSize="16" HorizontalAlignment="Right" Width="52"/>
+        <CheckBox ToolTip="Active un item, sinon il n'est pas affiché dans l'écran de commande." Foreground="White" IsChecked="{Binding Item.EstActif}" Content="Actif" Margin="0,10,22,0" VerticalAlignment="Top" Name="chkActif" Grid.Column="1" Grid.Row="2" Height="26" FontSize="16" HorizontalAlignment="Right" Width="52"/>
 
 
 
@@ -58,12 +59,13 @@
                   CanUserDeleteRows="True" 
                   CanUserAddRows="false" 
                   AutoGenerateColumns="False" 
-                  Name="dataGridPrix" >
+                  Name="dataGridPrix" 
+                  ToolTip="Liste de prix et de format associés à l'item.">
             <DataGrid.Columns>
                 <DataGridTemplateColumn IsReadOnly="True" Width="0.2*" >
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button Content="X" Click="btnSupprimer_Click" CommandParameter="{Binding}" FontSize="16"/>
+                            <Button ToolTip="Supprime ce prix et format associé." Content="X" Click="btnSupprimer_Click" CommandParameter="{Binding}" FontSize="16"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
@@ -72,7 +74,8 @@
                 <DataGridTemplateColumn Header="Format" Width="2*">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <ComboBox  ItemsSource="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}, Path=DataContext.Formats}"
+                            <ComboBox  ToolTip="Liste des formats disponibles."
+                                        ItemsSource="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}, Path=DataContext.Formats}"
                                         SelectedItem="{Binding .FormatAssocie, UpdateSourceTrigger=PropertyChanged}" />
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
@@ -80,10 +83,10 @@
             </DataGrid.Columns>
         </DataGrid>
 
-        <ListView HorizontalContentAlignment="Stretch" Margin="11,0,11,11" Name="lbxListeCategorie" Grid.Column="2" Grid.Row="3">
+        <ListView ToolTip="Liste d'items." HorizontalContentAlignment="Stretch" Margin="11,0,11,11" Name="lbxListeCategorie" Grid.Column="2" Grid.Row="3">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Button Content="{Binding Nom}" CommandParameter="{Binding}" Click="btnItem_Click"  Style="{StaticResource styleModif}" FontSize="16" />
+                    <Button ToolTip="Un item, cliquez pour le modifier." Content="{Binding Nom}" CommandParameter="{Binding}" Click="btnItem_Click"  Style="{StaticResource styleModif}" FontSize="16" />
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
@@ -99,7 +102,7 @@
                     <RowDefinition Height="30"/>
                 </Grid.RowDefinitions>
                 <Border Style="{StaticResource BoutonBorder}">
-                    <Image Source="/Images/forward.png" Style="{StaticResource BoutonImage}"/>
+                    <Image ToolTip="Affiche la fenêtre précédente." Source="/Images/forward.png" Style="{StaticResource BoutonImage}"/>
                 </Border>
                 <Label Style="{StaticResource BoutonLabel}">Retour</Label>
             </Grid>
@@ -110,7 +113,7 @@
                         <RowDefinition Height="30"/>
                     </Grid.RowDefinitions>
                     <Border Style="{StaticResource BoutonBorder}">
-                        <Image Source="/Images/floppy.png" Style="{StaticResource BoutonImage}"/>
+                        <Image ToolTip="Enregistre les modifications de l'item." Source="/Images/floppy.png" Style="{StaticResource BoutonImage}"/>
                     </Border>
                     <Label Style="{StaticResource BoutonLabel}">Enregistrer</Label>
                 </Grid>
@@ -121,7 +124,7 @@
                         <RowDefinition Height="30"/>
                     </Grid.RowDefinitions>
                     <Border Style="{StaticResource BoutonBorder}">
-                        <Image Source="/Images/plus.png" Style="{StaticResource BoutonImage}"/>
+                        <Image ToolTip="Ajoute un nouvel item à la liste." Source="/Images/plus.png" Style="{StaticResource BoutonImage}"/>
                     </Border>
                     <Label Style="{StaticResource BoutonLabel}">Ajouter</Label>
                 </Grid>
@@ -132,7 +135,7 @@
                         <RowDefinition Height="30"/>
                     </Grid.RowDefinitions>
                     <Border Style="{StaticResource BoutonBorder}">
-                        <Image Source="/Images/lock.png" Style="{StaticResource BoutonImage}"/>
+                        <Image ToolTip="Affiche l'écran d'authentification" Source="/Images/lock.png" Style="{StaticResource BoutonImage}"/>
                     </Border>
                     <Label Style="{StaticResource BoutonLabel}">Déconnexion</Label>
                 </Grid>
@@ -142,7 +145,7 @@
         <!-- Fin Boutons navigations -->
         <Label x:Name="lblNom" Content="" VerticalAlignment="Top" FontSize="18" Foreground="White" Grid.ColumnSpan="2" Height="34"/>
         <Label Content="Liste des items" Grid.Column="2" Margin="22,0,0,0" Grid.Row="2" VerticalAlignment="Top" Height="33" FontSize="16" Background="#00000000" Foreground="White" HorizontalContentAlignment="Center"/>
-        <Button Content="Gestion des catégories" ToolTip="Vous amène à l'écran de création, modification et suppression de catégories" Grid.Column="1" Margin="0,40,10,0" Grid.Row="2" VerticalAlignment="Top" Click="btnAjoutCategorie_Click" HorizontalAlignment="Right" Width="164" Height="29"/>
+        <Button ToolTip="Affiche l'écran de création et modification de catégories." Content="Gestion des catégories" Grid.Column="1" Margin="0,40,10,0" Grid.Row="2" VerticalAlignment="Top" Click="btnAjoutCategorie_Click" HorizontalAlignment="Right" Width="164" Height="29"/>
     </Grid>
 
 </UserControl>

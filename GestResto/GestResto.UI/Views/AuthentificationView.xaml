@@ -46,10 +46,10 @@
             <Button Margin="1" Grid.Row ="1" Grid.Column="2" Content="8" Name="btnHuit" Click="btn_Click" FontSize="48"  />
             <Button Margin="1" Grid.Row ="1" Grid.Column="3" Content="9" Name="btnNeuf" Click="btn_Click" FontSize="48"   />
             <Button Margin="1" Grid.Row ="4" Grid.Column="2" Content="0" Name="btnZero" Click="btn_Click" FontSize="48"  />
-            <Button Margin="1" Grid.Row ="4" Grid.Column="1" Name="btnRetour" Click="btnRetour_Click" FontSize="36">
+            <Button ToolTip="Efface un chiffre." Margin="1" Grid.Row ="4" Grid.Column="1" Name="btnRetour" Click="btnRetour_Click" FontSize="36">
                 <Image Source="/Images/backspace.png" Height="60"/>
             </Button> 
-            <Button Margin="1" Grid.Row ="4" Grid.Column="3" Name="btnConfirmer" Click="btnConfirmer_Click" FontSize="36">
+            <Button ToolTip="Confirme votre entré de chiffres." Margin="1" Grid.Row ="4" Grid.Column="3" Name="btnConfirmer" Click="btnConfirmer_Click" FontSize="36">
                 <Image Source="/Images/checkmarkColor.png" Height="60" />
             </Button>  
 

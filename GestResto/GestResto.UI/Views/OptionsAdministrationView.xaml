@@ -15,13 +15,13 @@
             <RowDefinition Height="75"/>
         </Grid.RowDefinitions>
         <Label Foreground="White" Content="Options d'administration" HorizontalAlignment="Left" VerticalAlignment="Top" Height="34" Width="493" FontSize="18" Margin="0,7,0,0" Grid.Row="1"/>
-        <Button x:Name="btnEmployes" Content="Employés" Margin="10,41,10,0" VerticalAlignment="Top" Height="60" Click="btnEmployes_Click" FontSize="24" Grid.Row="1"/>
-        <Button x:Name="btnTables" Content="Tables" Margin="10,41,10,0" VerticalAlignment="Top" Height="60" Grid.Column="1" Click="btnTables_Click" FontSize="24" Grid.Row="1"/>
-        <Button x:Name="btnItems" Content="Items" Margin="10,123,10,0" VerticalAlignment="Top" Height="60" Click="btnItems_Click" FontSize="24" Grid.Row="1"/>
-        <Button x:Name="btnRapports" Content="Générer des Rapports" Margin="10,203,10,0" VerticalAlignment="Top" Height="60" Click="btnRapports_Click" FontSize="24" Grid.Row="1" IsEnabled="False" />
-        <Button x:Name="btnFormats" Content="Formats" Margin="10,279,10,0" VerticalAlignment="Top" Height="60" Click="btnGererFormat" FontSize="24" Grid.Row="1"/>
-        <Button x:Name="btnInfoResto" Content="Informations du Restaurant" Margin="10,123,10,0" VerticalAlignment="Top" Height="60" Click="btnGererInformationsRestaurants" Grid.Column="1" FontSize="24" Grid.Row="1"/>
-        <Button x:Name="btnCategorie" Content="Catégories" Margin="10,203,10,0" VerticalAlignment="Top" Height="60" Click="btnGererCategories" Grid.Column="1" FontSize="24" Grid.Row="1"/>
+        <Button ToolTip="Création et modification d'employés." x:Name="btnEmployes" Content="Employés" Margin="10,41,10,0" VerticalAlignment="Top" Height="60" Click="btnEmployes_Click" FontSize="24" Grid.Row="1"/>
+        <Button ToolTip="Création et modification de tables." x:Name="btnTables" Content="Tables" Margin="10,41,10,0" VerticalAlignment="Top" Height="60" Grid.Column="1" Click="btnTables_Click" FontSize="24" Grid.Row="1"/>
+        <Button ToolTip="Création et modification d'items." x:Name="btnItems" Content="Items" Margin="10,123,10,0" VerticalAlignment="Top" Height="60" Click="btnItems_Click" FontSize="24" Grid.Row="1"/>
+        <Button ToolTip="Création de rapports." x:Name="btnRapports" Content="Générer des Rapports" Margin="10,203,10,0" VerticalAlignment="Top" Height="60" Click="btnRapports_Click" FontSize="24" Grid.Row="1" IsEnabled="False" />
+        <Button ToolTip="Création et modification de formats." x:Name="btnFormats" Content="Formats" Margin="10,279,10,0" VerticalAlignment="Top" Height="60" Click="btnGererFormat" FontSize="24" Grid.Row="1"/>
+        <Button ToolTip="Modification des informations du restaurant." x:Name="btnInfoResto" Content="Informations du Restaurant" Margin="10,123,10,0" VerticalAlignment="Top" Height="60" Click="btnGererInformationsRestaurants" Grid.Column="1" FontSize="24" Grid.Row="1"/>
+        <Button ToolTip="Création et modification de catégories." x:Name="btnCategorie" Content="Catégories" Margin="10,203,10,0" VerticalAlignment="Top" Height="60" Click="btnGererCategories" Grid.Column="1" FontSize="24" Grid.Row="1"/>
 
 
         <!-- Boutons de navigation -->
@@ -37,7 +37,7 @@
                     <RowDefinition Height="30"/>
                 </Grid.RowDefinitions>
                 <Border Style="{StaticResource BoutonBorder}">
-                    <Image Source="/Images/door.png" Style="{StaticResource BoutonImage}"/>
+                    <Image ToolTip="Quitte l'application." Source="/Images/door.png" Style="{StaticResource BoutonImage}"/>
                 </Border>
                 <Label Style="{StaticResource BoutonLabel}">Quitter</Label>
             </Grid>
@@ -49,7 +49,7 @@
                         <RowDefinition Height="30"/>
                     </Grid.RowDefinitions>
                     <Border Style="{StaticResource BoutonBorder}">
-                        <Image Source="/Images/lock.png" Style="{StaticResource BoutonImage}"/>
+                        <Image ToolTip="Affiche l'écran d'authentification" Source="/Images/lock.png" Style="{StaticResource BoutonImage}"/>
                     </Border>
                     <Label Style="{StaticResource BoutonLabel}">Déconnexion</Label>
                 </Grid>
