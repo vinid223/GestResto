@@ -23,12 +23,12 @@
             GotKeyboardFocus="txtSelectionnerTout"
             PreviewMouseLeftButtonDown="SelectivelyIgnoreMouseButton" 
              HorizontalAlignment="Stretch" x:Name="txtNom" Height="30" Margin="178,40,4,0" TextWrapping="Wrap" Text="{Binding Categorie.Nom, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" IsEnabled="False" Grid.Row="1" FontSize="16" />
-        <CheckBox x:Name="cbxActif" Content="Actif" HorizontalAlignment="Left" Margin="178,81,0,0" VerticalAlignment="Top" IsChecked="{Binding Categorie.EstActif}" Height="20" Width="169" IsEnabled="False" Foreground="White" Grid.Row="1" FontSize="16"/>
-        <CheckBox x:Name="cbxComplementaire" Content="Complémentaire" HorizontalAlignment="Left" Margin="178,101,0,0" VerticalAlignment="Top" IsChecked="{Binding Categorie.EstComplementaire}" Height="21" Width="169" IsEnabled="False" Foreground="White" Grid.Row="1" FontSize="16"/>
-        <ListView HorizontalContentAlignment="Stretch" Grid.Column="1" Grid.Row="1" Margin="50,45,50,10" x:Name="listeBoutonCategories">
+        <CheckBox x:Name="cbxActif" ToolTip="Active la catégorie, si elle ne l'est pas, elle ne sera pas affichée pour le serveur." Content="Actif" HorizontalAlignment="Left" Margin="178,81,0,0" VerticalAlignment="Top" IsChecked="{Binding Categorie.EstActif}" Height="20" Width="169" IsEnabled="False" Foreground="White" Grid.Row="1" FontSize="16"/>
+        <CheckBox x:Name="cbxComplementaire" ToolTip="Permet de mettre la catégorie complémentaire, qui contiendra des items complémentaires." Content="Complémentaire" HorizontalAlignment="Left" Margin="178,101,0,0" VerticalAlignment="Top" IsChecked="{Binding Categorie.EstComplementaire}" Height="21" Width="169" IsEnabled="False" Foreground="White" Grid.Row="1" FontSize="16"/>
+        <ListView ToolTip="Liste des catégories existantes." HorizontalContentAlignment="Stretch" Grid.Column="1" Grid.Row="1" Margin="50,45,50,10" x:Name="listeBoutonCategories">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Button Style="{StaticResource styleModif}" Content="{Binding Nom}" CommandParameter="{Binding}" Click="btnDetail_Click" FontSize="16"/>
+                    <Button ToolTip="Une catégorie, cliquez pour la modifier." Style="{StaticResource styleModif}" Content="{Binding Nom}" CommandParameter="{Binding}" Click="btnDetail_Click" FontSize="16"/>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
@@ -48,7 +48,7 @@
                     <RowDefinition Height="30"/>
                 </Grid.RowDefinitions>
                 <Border Style="{StaticResource BoutonBorder}">
-                    <Image Source="/Images/forward.png" Style="{StaticResource BoutonImage}"/>
+                    <Image ToolTip="Affiche la fenêtre précédente." Source="/Images/forward.png" Style="{StaticResource BoutonImage}"/>
                 </Border>
                 <Label Style="{StaticResource BoutonLabel}">Retour</Label>
             </Grid>
@@ -59,7 +59,7 @@
                         <RowDefinition Height="30"/>
                     </Grid.RowDefinitions>
                     <Border Style="{StaticResource BoutonBorder}">
-                        <Image Source="/Images/floppy.png" Style="{StaticResource BoutonImage}"/>
+                        <Image ToolTip="Enregistre les modifications de la catégorie." Source="/Images/floppy.png" Style="{StaticResource BoutonImage}"/>
                     </Border>
                     <Label Style="{StaticResource BoutonLabel}">Enregistrer</Label>
                 </Grid>
@@ -70,7 +70,7 @@
                         <RowDefinition Height="30"/>
                     </Grid.RowDefinitions>
                     <Border Style="{StaticResource BoutonBorder}">
-                        <Image Source="/Images/plus.png" Style="{StaticResource BoutonImage}"/>
+                        <Image ToolTip="Ajoute une nouvelle catégorie à la liste." Source="/Images/plus.png" Style="{StaticResource BoutonImage}"/>
                     </Border>
                     <Label Style="{StaticResource BoutonLabel}">Ajouter</Label>
                 </Grid>
@@ -81,7 +81,7 @@
                         <RowDefinition Height="30"/>
                     </Grid.RowDefinitions>
                     <Border Style="{StaticResource BoutonBorder}">
-                        <Image Source="/Images/lock.png" Style="{StaticResource BoutonImage}"/>
+                        <Image ToolTip="Ramène l'utilisateur à la page d'authentification" Source="/Images/lock.png" Style="{StaticResource BoutonImage}"/>
                     </Border>
                     <Label Style="{StaticResource BoutonLabel}">Déconnexion</Label>
                 </Grid>
