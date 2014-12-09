@@ -22,8 +22,6 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-
-            <Image gif:ImageBehavior.AnimatedSource="/Images/gestresto512.gif" HorizontalAlignment="Center" />
             <Label Background="White" x:Name="lblTitreText" Content="Numéro employé :" Margin="0,0,1,115" Grid.ColumnSpan="3" Grid.Column="1" Grid.RowSpan="2" FontSize="36" />
             <Label x:Name="lblSouligne" Content="_ _ _ _ _" Panel.ZIndex="1" Margin="40,13,40,22" Grid.Column="1" Grid.ColumnSpan="3" FontSize="48" RenderTransformOrigin="0.5,0.5">
                 <Label.RenderTransform>
