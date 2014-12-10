@@ -107,7 +107,7 @@ namespace GestResto.Logic.Model.Entities
         {
             IdTable = null;
             NoTable = "";
-            EstActif = true;
+            EstActif = false;
             EstAssigne = false;
         }
 

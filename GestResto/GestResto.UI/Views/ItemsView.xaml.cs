@@ -251,6 +251,12 @@ namespace GestResto.UI.Views
 
             Constante.LogNavigation(" a créé un item.");
 
+            if (ViewModelItem.Item != null && ViewModelItem.Item.Nom == itemTemp.Nom)
+            {
+                MessageBox.Show("Vous devez modifier cet item avant d'en ajouter un nouveau.", "Erreur", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
+            }
+
+
             // Si l'item par défaut existe déjà, je ne l'ajoute pas à la BD, je fais seulement l'afficher.
             foreach (var item in ViewModelItem.Items)
             {
@@ -268,10 +274,9 @@ namespace GestResto.UI.Views
                 ViewModelItem.Items.Add(itemTemp);
                 lbxListeCategorie.ItemsSource = ViewModelItem.Items;
                 ViewModelItem.Item = itemTemp;
+                AjouterFormatItemDansListe();
             }
             dataGridPrix.Items.Refresh();
-            AjouterFormatItemDansListe();
-
         }
 
         /// <summary>
