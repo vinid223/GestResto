@@ -69,6 +69,9 @@ namespace GestResto.UI.Views
             else
                 ModifierDispoChampsItem(false, true);
 
+
+            dataGridPrix.CommitEdit();
+
         }
         /// <summary>
         /// Lorsque l'utilisateur clique sur le bouton d'un item dans la liste, 
@@ -141,11 +144,12 @@ namespace GestResto.UI.Views
                                     return;
                                 }
                             }
-                            else
+                            else if (formatitem.FormatAssocie == null)
                             {
                                 MessageBox.Show("Vous devez créer un format d'abord dans l'écran des formats.", "Erreur", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
                                 return;
                             }
+                            
                         }
                     }
                 }
