@@ -146,7 +146,7 @@ namespace GestResto.UI.Views
                             }
                             else if (formatitem.FormatAssocie == null)
                             {
-                                MessageBox.Show("Vous devez créer un format d'abord dans l'écran des formats.", "Erreur", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
+                                MessageBox.Show("Vous devez choisir un format pour l'item.", "Erreur", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
                                 return;
                             }
                             
