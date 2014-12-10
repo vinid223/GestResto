@@ -44,7 +44,7 @@ namespace GestResto.UI.Views
 
                 foreach(FormatItemClientFacture ficfChild in ficf.ListFicf)
                 {
-                    sousTotal += ficf.Prix;
+                    sousTotal += ficfChild.Prix;
                 }
             }
 
