@@ -198,12 +198,13 @@ namespace GestResto.UI.Views
         {
             Constante.onReleaseButton(sender, e); // On enlève l'effet du bouton pressé
 
-            // TODO Afficher un message afin d'aviser si la transaction n'est pas complète
-            // Faire une fonction
-
-
-            // On appel la fonction de la classe constante qui permet de déconnecter l'utilisateur en cour
-            Constante.Deconnexion();
+            // Si le client a payé ou que l'utilisateur confirme le changement de fenêtre, on change la fenêtre
+            if (VerifierPaiement())
+            {
+                // On appel la fonction de la classe constante qui permet de déconnecter l'utilisateur en cour
+                Constante.Deconnexion();
+            }
+           
         }
 
         // Fonction qui sert à revenir à la view précédente
@@ -214,7 +215,6 @@ namespace GestResto.UI.Views
             // Si le client a payé ou que l'utilisateur confirme le changement de fenêtre, on change la fenêtre
             if (VerifierPaiement())
             {
-                // TODO : Nous devons revenir à la même commande. Il faudrait peut-être faire une variable globale ? --> Tommy propose d'envoyer le CommandeView en paramètres
                 IApplicationService mainVM = ServiceFactory.Instance.GetService<IApplicationService>();
                 mainVM.ChangeView<CommandeView>(new CommandeView());
             }
